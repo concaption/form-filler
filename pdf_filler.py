@@ -185,7 +185,7 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
     # Save output
     OUTPUT_DIR.mkdir(exist_ok=True)
     safe_name = contact.get("full_name", "unknown").replace(" ", "_")
-    form_label = mapping.get("form_name", mapping_file).replace(" ", "_")
+    form_label = mapping.get("form_name", mapping_file).replace(" ", "_").replace("/", "-")
     output_filename = f"{safe_name}_{form_label}.pdf"
     output_path = OUTPUT_DIR / output_filename
 
