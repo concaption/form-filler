@@ -20,6 +20,7 @@ PyInstaller.__main__.run([
     # Bundle the PDF templates and field mappings
     f"--add-data={ROOT / 'pdfs'}{os.pathsep}pdfs",
     f"--add-data={ROOT / 'field_mappings'}{os.pathsep}field_mappings",
+    f"--add-data={ROOT / 'templates'}{os.pathsep}templates",
     # Hidden imports
     "--hidden-import=flask",
     "--hidden-import=PyPDF2",

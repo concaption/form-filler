@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoFill - YourFinance.ie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2b46;
+    --navy-light: #163d5e;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --green: #059669;
+    --green-light: #d1fae5;
+    --green-dark: #047857;
+    --red: #dc2626;
+    --red-light: #fee2e2;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    min-height: 100vh;
+  }
+
+  /* ─── Header ─── */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-icon {
+    width: 36px; height: 36px;
+    background: var(--green);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px; color: #fff;
+  }
+  .brand h1 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .brand h1 span { color: var(--green); font-weight: 400; }
+  .brand-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* ─── Sync Bar ─── */
+  .sync-bar {
+    background: #fff;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+  }
+  .sync-info {
+    color: var(--gray-500);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sync-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gray-300);
+    flex-shrink: 0;
+  }
+  .sync-dot.active { background: var(--green); }
+  .sync-info strong { color: var(--gray-800); font-weight: 600; }
+
+  /* ─── Layout ─── */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px 32px 60px;
+  }
+
+  /* ─── Steps ─── */
+  .steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 28px;
+    padding: 0 4px;
+  }
+  .step-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.35;
+    transition: opacity 0.3s;
+  }
+  .step-item.active { opacity: 1; }
+  .step-item.done { opacity: 0.7; }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    color: var(--gray-500);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .step-item.active .step-num {
+    background: var(--blue);
+    color: #fff;
+  }
+  .step-item.done .step-num {
+    background: var(--green);
+    color: #fff;
+  }
+  .step-label { font-size: 13px; font-weight: 500; color: var(--gray-600); white-space: nowrap; }
+  .step-line {
+    flex: 1;
+    height: 2px;
+    background: var(--gray-200);
+    margin: 0 16px;
+    min-width: 40px;
+    transition: background 0.3s;
+  }
+  .step-line.done { background: var(--green); }
+
+  /* ─── Cards ─── */
+  .card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-md); }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gray-800);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title .icon {
+    width: 28px; height: 28px;
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .icon-search { background: var(--blue-light); color: var(--blue); }
+  .icon-user { background: #fae8ff; color: #a855f7; }
+  .icon-file { background: var(--amber-light); color: var(--amber); }
+
+  /* ─── Buttons ─── */
+  .btn {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-sync {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 600;
+    padding: 9px 20px;
+  }
+  .btn-sync:hover { background: var(--navy-light); }
+  .btn-outline {
+    background: #fff;
+    color: var(--gray-600);
+    border: 1px solid var(--gray-300);
+  }
+  .btn-outline:hover { background: var(--gray-50); border-color: var(--gray-400); }
+  .btn-generate {
+    background: var(--green);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(5,150,105,0.3);
+  }
+  .btn-generate:hover { background: var(--green-dark); box-shadow: 0 4px 12px rgba(5,150,105,0.4); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  /* ─── Search ─── */
+  .search-row {
+    display: flex;
+    gap: 10px;
+  }
+  .search-input {
+    flex: 1;
+    padding: 11px 16px 11px 40px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.15s;
+    background: var(--gray-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E") no-repeat 14px center;
+  }
+  .search-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    background-color: #fff;
+  }
+
+  /* ─── Contact List ─── */
+  .contact-list {
+    list-style: none;
+    max-height: 280px;
+    overflow-y: auto;
+    margin-top: 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+  }
+  .contact-list::-webkit-scrollbar { width: 6px; }
+  .contact-list::-webkit-scrollbar-track { background: transparent; }
+  .contact-list::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
+
+  .contact-list li {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.1s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .contact-list li:last-child { border-bottom: none; }
+  .contact-list li:hover { background: var(--blue-light); }
+  .contact-list li.selected {
+    background: var(--blue);
+    color: #fff;
+  }
+  .contact-list li.selected .contact-meta { color: rgba(255,255,255,0.7); }
+  .contact-list li.selected .avatar { background: rgba(255,255,255,0.2); color: #fff; }
+
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    color: var(--gray-500);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 13px;
+    flex-shrink: 0;
+  }
+  .contact-info { flex: 1; min-width: 0; }
+  .contact-name { font-weight: 500; display: block; }
+  .contact-meta { color: var(--gray-400); font-size: 12px; display: block; margin-top: 2px;
+                  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .empty-state {
+    color: var(--gray-400);
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .empty-state svg { display: block; margin: 0 auto 12px; opacity: 0.4; }
+  .empty-state p { margin-top: 4px; font-size: 12px; color: var(--gray-300); }
+
+  /* ─── Details Grid ─── */
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--gray-50);
+  }
+  .detail-item:hover { background: var(--gray-100); }
+  .detail-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+  .detail-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-800);
+  }
+
+  /* ─── Form Select ─── */
+  .form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    background: var(--gray-50);
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--gray-700);
+  }
+  .form-select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    background: #fff;
+  }
+
+  /* ─── Generate Section ─── */
+  .generate-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  /* ─── Toast / Status ─── */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    z-index: 200;
+    max-width: 420px;
+    animation: slideUp 0.3s ease;
+  }
+  .toast.show { display: flex; align-items: center; gap: 10px; }
+  .toast.info { background: var(--blue); color: #fff; }
+  .toast.success { background: var(--green); color: #fff; }
+  .toast.error { background: var(--red); color: #fff; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── Output ─── */
+  .output-card {
+    background: var(--green-light);
+    border: 1px solid #a7f3d0;
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-top: 16px;
+    display: none;
+  }
+  .output-card.show { display: block; }
+  .output-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.15s;
+  }
+  .output-card a:hover { background: var(--green-dark); }
+  .output-path {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--gray-500);
+    word-break: break-all;
+  }
+
+  /* ─── Spinner ─── */
+  .spinner {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 640px) {
+    .header { padding: 0 16px; }
+    .sync-bar { padding: 10px 16px; flex-wrap: wrap; }
+    .container { padding: 16px; }
+    .details-grid { grid-template-columns: 1fr; }
+    .steps { display: none; }
+    .brand-sub { display: none; }
+  }
+
+  /* ─── Fade transitions ─── */
+  .fade-in {
+    animation: fadeIn 0.25s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">
+    <div class="brand-icon">YF</div>
+    <div>
+      <h1>YourFinance<span>.ie</span></h1>
+      <div class="brand-sub">AutoFill Application</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <button class="btn btn-sync" id="syncBtn" onclick="syncContacts()">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/><path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/></svg>
+      <span id="syncBtnText">Sync Contacts</span>
+    </button>
+  </div>
+</div>
+
+<div class="sync-bar">
+  <div class="sync-dot" id="syncDot"></div>
+  <div class="sync-info" id="syncInfo">Checking sync status...</div>
+</div>
+
+<div class="container">
+  <!-- Step indicators -->
+  <div class="steps" id="stepIndicator">
+    <div class="step-item active" id="step1">
+      <div class="step-num">1</div>
+      <span class="step-label">Select Client</span>
+    </div>
+    <div class="step-line" id="stepLine1"></div>
+    <div class="step-item" id="step2">
+      <div class="step-num">2</div>
+      <span class="step-label">Review Details</span>
+    </div>
+    <div class="step-line" id="stepLine2"></div>
+    <div class="step-item" id="step3">
+      <div class="step-num">3</div>
+      <span class="step-label">Generate Form</span>
+    </div>
+  </div>
+
+  <!-- Step 1: Search & Select -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <div class="icon icon-search">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+        </div>
+        Find Client
+      </div>
+      <button class="btn btn-outline" onclick="loadAll()">Show All</button>
+    </div>
+    <div class="search-row">
+      <input type="text" class="search-input" id="searchInput"
+             placeholder="Search by name, email or company..."
+             oninput="liveSearch()" onkeydown="if(event.key==='Enter') liveSearch()">
+    </div>
+    <ul class="contact-list" id="contactList">
+      <li class="empty-state">
+        <svg width="40" height="40" viewBox="0 0 16 16" fill="currentColor"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-.326.014-.694.094-1.09a4.913 4.913 0 0 1 1.842-3.13zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM5 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+        Sync contacts to get started
+        <p>Click "Sync Contacts" in the top right</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Step 2: Details -->
+  <div class="card fade-in" id="detailsCard" style="display:none">
+    <div class="card-header">
+      <div class="card-title">
+        <div class="icon icon-user">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+        </div>
+        <span id="selectedName">Client Details</span>
+      </div>
+    </div>
+    <div class="details-grid" id="detailsGrid"></div>
+  </div>
+
+  <!-- Step 3: Form & Generate -->
+  <div class="card fade-in" id="formsCard" style="display:none">
+    <div class="card-header">
+      <div class="card-title">
+        <div class="icon icon-file">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zM10 4a1 1 0 0 1-1-1V1.5L13.5 6H11a1 1 0 0 1-1-1z"/></svg>
+        </div>
+        Select Application Form
+      </div>
+    </div>
+    <select class="form-select" id="formSelect">
+      <option value="">-- Choose a form template --</option>
+    </select>
+
+    <div class="generate-section" id="generateSection" style="margin-top:20px">
+      <button class="btn btn-generate" id="generateBtn" onclick="fillAndSave()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+        Fill &amp; Download
+      </button>
+    </div>
+
+    <div class="output-card" id="outputCard">
+      <div id="outputFiles"></div>
+      <div class="output-path" id="outputPath"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<script>
+let contacts = [];
+let selectedContact = null;
+let searchTimer = null;
+let toastTimer = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+  loadFormTemplates();
+  loadSyncInfo();
+});
+
+function loadFormTemplates() {
+  fetch('/api/forms').then(r => r.json()).then(data => {
+    const sel = document.getElementById('formSelect');
+    const providers = {};
+    data.forEach(f => {
+      const key = f.provider || 'Other';
+      if (!providers[key]) providers[key] = [];
+      providers[key].push(f);
+    });
+    Object.keys(providers).sort().forEach(provider => {
+      const group = document.createElement('optgroup');
+      group.label = provider;
+      providers[provider].forEach(f => {
+        const opt = document.createElement('option');
+        opt.value = f.mapping_file;
+        opt.textContent = f.product || f.form_name;
+        group.appendChild(opt);
+      });
+      sel.appendChild(group);
+    });
+  });
+}
+
+function loadSyncInfo() {
+  fetch('/api/sync-info').then(r => r.json()).then(data => {
+    const info = document.getElementById('syncInfo');
+    const dot = document.getElementById('syncDot');
+    if (data.count > 0) {
+      const syncDate = new Date(data.last_sync).toLocaleString();
+      info.innerHTML = '<strong>' + data.count + '</strong> contacts &middot; Last sync: ' + syncDate;
+      dot.classList.add('active');
+    } else {
+      info.textContent = 'No contacts synced yet';
+      dot.classList.remove('active');
+    }
+  });
+}
+
+function showToast(msg, type, duration) {
+  const toast = document.getElementById('toast');
+  clearTimeout(toastTimer);
+  toast.className = 'toast show ' + type;
+  toast.textContent = msg;
+  toastTimer = setTimeout(() => { toast.className = 'toast'; }, duration || 4000);
+}
+
+function syncContacts() {
+  const btn = document.getElementById('syncBtn');
+  const btnText = document.getElementById('syncBtnText');
+  btn.disabled = true;
+  btnText.textContent = 'Syncing...';
+  showToast('Syncing contacts from OnePageCRM...', 'info', 30000);
+
+  fetch('/api/sync', { method: 'POST' })
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) {
+        showToast('Sync failed: ' + data.error, 'error');
+      } else {
+        showToast('Synced ' + data.count + ' contacts successfully!', 'success');
+        loadSyncInfo();
+      }
+    })
+    .catch(e => showToast('Sync failed: ' + e, 'error'))
+    .finally(() => { btn.disabled = false; btnText.textContent = 'Sync Contacts'; });
+}
+
+function liveSearch() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    const query = document.getElementById('searchInput').value.trim();
+    if (query.length < 2) return;
+    fetch('/api/contacts/search?q=' + encodeURIComponent(query))
+      .then(r => r.json())
+      .then(data => { contacts = data; renderContacts(); });
+  }, 250);
+}
+
+function loadAll() {
+  showToast('Loading all contacts...', 'info', 2000);
+  fetch('/api/contacts/local')
+    .then(r => r.json())
+    .then(data => {
+      contacts = data;
+      renderContacts();
+      if (data.length === 0) {
+        showToast('No contacts found. Please sync first.', 'info');
+      } else {
+        showToast(data.length + ' contacts loaded', 'success', 2000);
+      }
+    });
+}
+
+function getInitials(name) {
+  if (!name) return '?';
+  const parts = name.trim().split(' ');
+  if (parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+  return name[0].toUpperCase();
+}
+
+function renderContacts() {
+  const list = document.getElementById('contactList');
+  list.innerHTML = '';
+  if (contacts.length === 0) {
+    list.innerHTML = '<li class="empty-state">No contacts found</li>';
+    return;
+  }
+  contacts.forEach((c, i) => {
+    const li = document.createElement('li');
+    const initials = getInitials(c.full_name);
+    li.innerHTML = '<div class="avatar">' + escapeHtml(initials) + '</div>' +
+                   '<div class="contact-info">' +
+                   '<span class="contact-name">' + escapeHtml(c.full_name) + '</span>' +
+                   '<span class="contact-meta">' + escapeHtml(c.email || '') +
+                   (c.company_name ? ' &middot; ' + escapeHtml(c.company_name) : '') + '</span>' +
+                   '</div>';
+    li.onclick = () => selectContact(i);
+    list.appendChild(li);
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function updateSteps(currentStep) {
+  for (let i = 1; i <= 3; i++) {
+    const el = document.getElementById('step' + i);
+    el.className = 'step-item' + (i < currentStep ? ' done' : (i === currentStep ? ' active' : ''));
+  }
+  const line1 = document.getElementById('stepLine1');
+  const line2 = document.getElementById('stepLine2');
+  line1.className = 'step-line' + (currentStep > 1 ? ' done' : '');
+  line2.className = 'step-line' + (currentStep > 2 ? ' done' : '');
+}
+
+function selectContact(idx) {
+  selectedContact = contacts[idx];
+  document.querySelectorAll('.contact-list li').forEach((li, i) => {
+    li.className = i === idx ? 'selected' : '';
+  });
+
+  document.getElementById('selectedName').textContent = selectedContact.full_name;
+
+  const grid = document.getElementById('detailsGrid');
+  grid.innerHTML = '';
+  const fields = [
+    ['Full Name', 'full_name'], ['Title', 'title'], ['Date of Birth', 'date_of_birth'],
+    ['PPS Number', 'pps_number'], ['Email', 'email'], ['Mobile', 'phone_mobile'],
+    ['Phone', 'phone'], ['Address', 'address_full'],
+    ['Occupation', 'occupation'], ['Job Title', 'job_title'],
+    ['Employer', 'employer_name'], ['Marital Status', 'marital_status'],
+    ['Employment Type', 'employment_type'], ['Annual Income', 'annual_income'],
+    ['Retirement Age', 'normal_retirement_age'], ['Nationality', 'nationality'],
+    ['IBAN', 'iban'], ['BIC', 'bic']
+  ];
+  fields.forEach(([label, key]) => {
+    const val = selectedContact[key] || '';
+    if (val) {
+      const item = document.createElement('div');
+      item.className = 'detail-item';
+      item.innerHTML = '<div class="detail-label">' + escapeHtml(label) + '</div>' +
+                       '<div class="detail-value">' + escapeHtml(String(val)) + '</div>';
+      grid.appendChild(item);
+    }
+  });
+
+  document.getElementById('detailsCard').style.display = '';
+  document.getElementById('formsCard').style.display = '';
+  updateSteps(2);
+}
+
+function fillAndSave() {
+  if (!selectedContact) return;
+  const formSelect = document.getElementById('formSelect');
+  const mappingFile = formSelect.value;
+  if (!mappingFile) { showToast('Please select a form template first.', 'error'); return; }
+
+  const btn = document.getElementById('generateBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Generating...';
+  showToast('Filling form...', 'info', 15000);
+
+  const outputCard = document.getElementById('outputCard');
+  outputCard.classList.remove('show');
+
+  fetch('/api/generate', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ contact_id: selectedContact.id, form: mappingFile })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.error) {
+      showToast('Error: ' + data.error, 'error', 6000);
+      return;
+    }
+    showToast('Form generated successfully!', 'success');
+    updateSteps(3);
+
+    const filesDiv = document.getElementById('outputFiles');
+    filesDiv.innerHTML = '';
+    const a = document.createElement('a');
+    a.href = '/download/' + encodeURIComponent(data.filename);
+    a.innerHTML = '<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg> ' +
+    'Download ' + escapeHtml(data.filename);
+    filesDiv.appendChild(a);
+
+    document.getElementById('outputPath').textContent = 'Saved to: ' + data.path;
+    outputCard.classList.add('show');
+  })
+  .catch(e => showToast('Generation failed: ' + e, 'error', 6000))
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg> Fill &amp; Download';
+  });
+}
+</script>
+</body>
+</html>
