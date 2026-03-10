@@ -1,0 +1,17 @@
+# Credentials
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Output
+output/*.pdf
+
+# Claude
+.claude/
