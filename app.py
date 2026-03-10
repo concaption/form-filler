@@ -2,11 +2,12 @@
 
 Desktop app to pull client data from OnePageCRM
 and auto-fill provider application forms.
+
+Opens in a native desktop window using pywebview.
 """
 
 import os
 import sys
-import webbrowser
 import threading
 from pathlib import Path
 
@@ -103,13 +104,26 @@ def download(filename):
 
 
 def main():
+    import webview
+
     port = 8080
-    url = f"http://localhost:{port}"
-    print(f"\n  AutoFill Application running at: {url}\n")
-    print(f"  Press Ctrl+C to quit.\n")
-    # Auto-open browser after a short delay
-    threading.Timer(1.0, lambda: webbrowser.open(url)).start()
-    app.run(host="127.0.0.1", port=port, debug=False)
+
+    # Start Flask in a background thread
+    server = threading.Thread(
+        target=lambda: app.run(host="127.0.0.1", port=port, debug=False),
+        daemon=True,
+    )
+    server.start()
+
+    # Open a native desktop window
+    webview.create_window(
+        "AutoFill - YourFinance.ie",
+        f"http://127.0.0.1:{port}",
+        width=1100,
+        height=750,
+        min_size=(800, 500),
+    )
+    webview.start()
 
 
 if __name__ == "__main__":

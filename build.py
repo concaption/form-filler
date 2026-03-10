@@ -37,6 +37,7 @@ PyInstaller.__main__.run([
     "--hidden-import=PyPDF2",
     "--hidden-import=requests",
     "--hidden-import=dotenv",
+    "--hidden-import=webview",
     "--hidden-import=config",
     "--clean",
     "--noconfirm",
