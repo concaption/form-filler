@@ -13,5 +13,15 @@ __pycache__/
 # Output
 output/*.pdf
 
+# SQLite database (local cache)
+contacts.db
+contacts.db-wal
+contacts.db-shm
+
+# PyInstaller build
+build/
+dist/
+*.spec
+
 # Claude
 .claude/
