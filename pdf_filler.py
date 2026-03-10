@@ -8,9 +8,7 @@ from typing import Optional
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject, ArrayObject, TextStringObject, BooleanObject
 
-MAPPINGS_DIR = Path(__file__).parent / "field_mappings"
-PDFS_DIR = Path(__file__).parent / "pdfs"
-OUTPUT_DIR = Path(__file__).parent / "output"
+from config import MAPPINGS_DIR, PDFS_DIR, OUTPUT_DIR
 
 
 def get_available_forms() -> list:

@@ -17,11 +17,9 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from pydantic import BaseModel
 
-# Ensure we're running from the project directory
-os.chdir(Path(__file__).parent)
-
+from config import TEMPLATES_DIR, OUTPUT_DIR
 from crm_client import list_all_contacts, get_contact
-from pdf_filler import fill_form, get_available_forms, OUTPUT_DIR
+from pdf_filler import fill_form, get_available_forms
 from db import (
     save_contacts,
     search_contacts_local,
@@ -33,7 +31,7 @@ from db import (
 
 app = FastAPI(title="AutoFill - YourFinance.ie", version="1.0.0")
 
-TEMPLATE_PATH = Path(__file__).parent / "templates" / "index.html"
+TEMPLATE_PATH = TEMPLATES_DIR / "index.html"
 
 
 class GenerateRequest(BaseModel):

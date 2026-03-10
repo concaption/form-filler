@@ -12,15 +12,13 @@ from pathlib import Path
 
 from flask import Flask, render_template_string, request, jsonify, send_file
 
-# Ensure we're running from the project directory
-if getattr(sys, "frozen", False):
-    # Running as PyInstaller bundle
-    os.chdir(Path(sys.executable).parent)
-else:
-    os.chdir(Path(__file__).parent)
+from config import TEMPLATES_DIR, OUTPUT_DIR, init_app_data
+
+# Extract bundled resources next to the .exe on first run
+init_app_data()
 
 from crm_client import list_all_contacts, get_contact
-from pdf_filler import fill_form, get_available_forms, OUTPUT_DIR
+from pdf_filler import fill_form, get_available_forms
 from db import (
     save_contacts,
     search_contacts_local,
@@ -32,7 +30,7 @@ from db import (
 
 app = Flask(__name__)
 
-TEMPLATE_PATH = Path(__file__).parent / "templates" / "index.html"
+TEMPLATE_PATH = TEMPLATES_DIR / "index.html"
 
 
 @app.route("/")

@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-DB_PATH = Path(__file__).parent / "contacts.db"
+from config import DB_PATH
 
 
 def get_db():
