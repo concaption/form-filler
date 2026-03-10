@@ -6,7 +6,7 @@ import copy
 from pathlib import Path
 from typing import Optional
 from PyPDF2 import PdfReader, PdfWriter
-from PyPDF2.generic import NameObject, ArrayObject
+from PyPDF2.generic import NameObject, ArrayObject, TextStringObject, BooleanObject
 
 MAPPINGS_DIR = Path(__file__).parent / "field_mappings"
 PDFS_DIR = Path(__file__).parent / "pdfs"
@@ -120,7 +120,18 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
     writer = PdfWriter()
     writer.append_pages_from_reader(reader)
 
-    # Build the update dict for text fields
+    # Set NeedAppearances so PDF viewers regenerate field visuals
+    try:
+        if "/AcroForm" not in writer._root_object:
+            acroform = reader.trailer["/Root"].get_object().get("/AcroForm")
+            if acroform:
+                writer._root_object[NameObject("/AcroForm")] = acroform.get_object()
+        if "/AcroForm" in writer._root_object:
+            writer._root_object["/AcroForm"][NameObject("/NeedAppearances")] = BooleanObject(True)
+    except Exception:
+        pass
+
+    # Build the update dicts
     text_updates = {}
     checkbox_updates = {}
 
@@ -135,8 +146,6 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
                 text_updates[pdf_field_name] = str(value)
             continue
 
-        label = config.get("label", "")
-
         if "match_value" in config:
             # Checkbox with match value
             should_check = _should_check(config, merged)
@@ -148,13 +157,8 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
             if value:
                 text_updates[pdf_field_name] = value
 
-    # Apply text field updates page by page
-    for page_num in range(len(writer.pages)):
-        writer.update_page_form_field_values(writer.pages[page_num], text_updates)
-
-    # Apply checkbox updates
-    for page_num in range(len(writer.pages)):
-        page = writer.pages[page_num]
+    # Apply all updates by directly modifying annotations on each page
+    for page in writer.pages:
         annots = page.get("/Annots")
         if not annots:
             continue
@@ -166,17 +170,17 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
         for annot_ref in annot_list:
             annot = annot_ref.get_object()
             field_name = str(annot.get("/T", ""))
-            if field_name in checkbox_updates:
+
+            if field_name in text_updates:
+                annot[NameObject("/V")] = TextStringObject(text_updates[field_name])
+
+            elif field_name in checkbox_updates:
                 if checkbox_updates[field_name]:
-                    annot.update({
-                        NameObject("/V"): NameObject("/Yes"),
-                        NameObject("/AS"): NameObject("/Yes"),
-                    })
+                    annot[NameObject("/V")] = NameObject("/Yes")
+                    annot[NameObject("/AS")] = NameObject("/Yes")
                 else:
-                    annot.update({
-                        NameObject("/V"): NameObject("/Off"),
-                        NameObject("/AS"): NameObject("/Off"),
-                    })
+                    annot[NameObject("/V")] = NameObject("/Off")
+                    annot[NameObject("/AS")] = NameObject("/Off")
 
     # Save output
     OUTPUT_DIR.mkdir(exist_ok=True)
