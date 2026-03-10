@@ -1,19 +1,19 @@
-"""Form Filler Application.
+"""AutoFill Application — YourFinance.ie
 
-Desktop app to pull client data from OnePageCRM
-and auto-fill provider application forms.
-
-Opens in a native desktop window using pywebview.
+Native desktop app built with CustomTkinter.
+Syncs contacts from OnePageCRM and fills PDF application forms.
 """
 
 import os
 import sys
 import threading
+import subprocess
 from pathlib import Path
+from datetime import datetime
 
-from flask import Flask, render_template_string, request, jsonify, send_file
+import customtkinter as ctk
 
-from config import TEMPLATES_DIR, OUTPUT_DIR, init_app_data
+from config import OUTPUT_DIR, init_app_data
 
 # Extract bundled resources next to the .exe on first run
 init_app_data()
@@ -29,101 +29,516 @@ from db import (
     get_last_sync,
 )
 
-app = Flask(__name__)
+# ─── Theme ───
+NAVY = "#0f2b46"
+NAVY_LIGHT = "#163d5e"
+GREEN = "#059669"
+GREEN_DARK = "#047857"
+BLUE = "#2563eb"
+WHITE = "#ffffff"
+GRAY_50 = "#f8fafc"
+GRAY_100 = "#f1f5f9"
+GRAY_200 = "#e2e8f0"
+GRAY_400 = "#94a3b8"
+GRAY_500 = "#64748b"
+GRAY_700 = "#334155"
+GRAY_800 = "#1e293b"
 
-TEMPLATE_PATH = TEMPLATES_DIR / "index.html"
-
-
-@app.route("/")
-def index():
-    return render_template_string(TEMPLATE_PATH.read_text())
-
-
-@app.route("/api/forms")
-def api_forms():
-    return jsonify(get_available_forms())
-
-
-@app.route("/api/sync-info")
-def api_sync_info():
-    return jsonify({"count": get_contact_count(), "last_sync": get_last_sync()})
-
-
-@app.route("/api/sync", methods=["POST"])
-def api_sync():
-    """Sync all contacts from OnePageCRM to local SQLite."""
-    try:
-        contacts = list_all_contacts()
-        save_contacts(contacts)
-        return jsonify({"count": len(contacts)})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+ctk.set_appearance_mode("light")
+ctk.set_default_color_theme("blue")
 
 
-@app.route("/api/contacts/search")
-def api_search():
-    query = request.args.get("q", "")
-    if not query:
-        return jsonify([])
-    return jsonify(search_contacts_local(query))
+class AutoFillApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
 
+        self.title("AutoFill - YourFinance.ie")
+        self.geometry("1060x720")
+        self.minsize(860, 580)
+        self.configure(fg_color=GRAY_100)
 
-@app.route("/api/contacts/local")
-def api_contacts_local():
-    return jsonify(list_contacts_local())
+        self.contacts = []
+        self.selected_contact = None
+        self.forms = []
+        self.search_after_id = None
 
+        self._build_header()
+        self._build_body()
+        self._build_status_bar()
 
-@app.route("/api/generate", methods=["POST"])
-def api_generate():
-    data = request.get_json()
-    contact_id = data.get("contact_id", "")
-    mapping_file = data.get("form", "")
+        self._load_forms()
+        self._refresh_sync_info()
 
-    if not contact_id or not mapping_file:
-        return jsonify({"error": "Missing contact or form selection"}), 400
+    # ──────────────────────────────────────────
+    # Header
+    # ──────────────────────────────────────────
+    def _build_header(self):
+        header = ctk.CTkFrame(self, fg_color=NAVY, corner_radius=0, height=56)
+        header.pack(fill="x")
+        header.pack_propagate(False)
 
-    # Try local first, fall back to API
-    contact = get_contact_local(contact_id)
-    if not contact:
-        contact = get_contact(contact_id)
+        # Brand
+        brand = ctk.CTkFrame(header, fg_color="transparent")
+        brand.pack(side="left", padx=20)
 
-    try:
-        output_path = fill_form(mapping_file, contact)
+        badge = ctk.CTkLabel(
+            brand, text="YF", font=ctk.CTkFont(size=16, weight="bold"),
+            fg_color=GREEN, text_color=WHITE,
+            width=34, height=34, corner_radius=8,
+        )
+        badge.pack(side="left", padx=(0, 10))
+
+        title_frame = ctk.CTkFrame(brand, fg_color="transparent")
+        title_frame.pack(side="left")
+        ctk.CTkLabel(
+            title_frame, text="YourFinance.ie",
+            font=ctk.CTkFont(size=17, weight="bold"), text_color=WHITE,
+        ).pack(anchor="w")
+        ctk.CTkLabel(
+            title_frame, text="AutoFill Application",
+            font=ctk.CTkFont(size=11), text_color=GRAY_400,
+        ).pack(anchor="w")
+
+        # Sync area (right side)
+        sync_frame = ctk.CTkFrame(header, fg_color="transparent")
+        sync_frame.pack(side="right", padx=20)
+
+        self.sync_label = ctk.CTkLabel(
+            sync_frame, text="", font=ctk.CTkFont(size=12),
+            text_color=GRAY_400,
+        )
+        self.sync_label.pack(side="left", padx=(0, 12))
+
+        self.sync_btn = ctk.CTkButton(
+            sync_frame, text="Sync Contacts", width=130, height=32,
+            font=ctk.CTkFont(size=13, weight="bold"),
+            fg_color=NAVY_LIGHT, hover_color="#1e5278",
+            command=self._sync_contacts,
+        )
+        self.sync_btn.pack(side="left")
+
+    # ──────────────────────────────────────────
+    # Body — two-column layout
+    # ──────────────────────────────────────────
+    def _build_body(self):
+        body = ctk.CTkFrame(self, fg_color="transparent")
+        body.pack(fill="both", expand=True, padx=20, pady=(16, 0))
+
+        # Left column: search + contact list
+        left = ctk.CTkFrame(body, fg_color=WHITE, corner_radius=12, border_width=1, border_color=GRAY_200)
+        left.pack(side="left", fill="both", expand=True, padx=(0, 10))
+
+        left_inner = ctk.CTkFrame(left, fg_color="transparent")
+        left_inner.pack(fill="both", expand=True, padx=16, pady=16)
+
+        # Section title
+        ctk.CTkLabel(
+            left_inner, text="Find Client",
+            font=ctk.CTkFont(size=15, weight="bold"), text_color=GRAY_800,
+        ).pack(anchor="w")
+
+        # Search row
+        search_row = ctk.CTkFrame(left_inner, fg_color="transparent")
+        search_row.pack(fill="x", pady=(10, 0))
+
+        self.search_var = ctk.StringVar()
+        self.search_var.trace_add("write", self._on_search_change)
+        self.search_entry = ctk.CTkEntry(
+            search_row, textvariable=self.search_var,
+            placeholder_text="Search by name, email or company...",
+            height=38, font=ctk.CTkFont(size=13),
+        )
+        self.search_entry.pack(side="left", fill="x", expand=True, padx=(0, 8))
+
+        ctk.CTkButton(
+            search_row, text="Show All", width=80, height=38,
+            font=ctk.CTkFont(size=12), fg_color=GRAY_200,
+            hover_color=GRAY_400, text_color=GRAY_700,
+            command=self._load_all_contacts,
+        ).pack(side="right")
+
+        # Contact list
+        self.contact_list_frame = ctk.CTkScrollableFrame(
+            left_inner, fg_color=GRAY_50, corner_radius=8,
+            border_width=1, border_color=GRAY_200,
+        )
+        self.contact_list_frame.pack(fill="both", expand=True, pady=(12, 0))
+
+        self.empty_label = ctk.CTkLabel(
+            self.contact_list_frame,
+            text="Sync contacts to get started\nClick 'Sync Contacts' in the top right",
+            font=ctk.CTkFont(size=13), text_color=GRAY_400,
+            justify="center",
+        )
+        self.empty_label.pack(pady=40)
+
+        # Right column: details + form + generate
+        right = ctk.CTkFrame(body, fg_color="transparent", width=380)
+        right.pack(side="right", fill="both", padx=(10, 0))
+        right.pack_propagate(False)
+
+        # Details card
+        self.details_card = ctk.CTkFrame(right, fg_color=WHITE, corner_radius=12, border_width=1, border_color=GRAY_200)
+        self.details_card.pack(fill="x")
+
+        details_inner = ctk.CTkFrame(self.details_card, fg_color="transparent")
+        details_inner.pack(fill="x", padx=16, pady=16)
+
+        self.details_title = ctk.CTkLabel(
+            details_inner, text="Client Details",
+            font=ctk.CTkFont(size=15, weight="bold"), text_color=GRAY_800,
+        )
+        self.details_title.pack(anchor="w")
+
+        self.details_content = ctk.CTkFrame(details_inner, fg_color="transparent")
+        self.details_content.pack(fill="x", pady=(10, 0))
+
+        self.no_selection_label = ctk.CTkLabel(
+            self.details_content,
+            text="Select a client from the list",
+            font=ctk.CTkFont(size=13), text_color=GRAY_400,
+        )
+        self.no_selection_label.pack(pady=20)
+
+        # Form select card
+        form_card = ctk.CTkFrame(right, fg_color=WHITE, corner_radius=12, border_width=1, border_color=GRAY_200)
+        form_card.pack(fill="x", pady=(12, 0))
+
+        form_inner = ctk.CTkFrame(form_card, fg_color="transparent")
+        form_inner.pack(fill="x", padx=16, pady=16)
+
+        ctk.CTkLabel(
+            form_inner, text="Application Form",
+            font=ctk.CTkFont(size=15, weight="bold"), text_color=GRAY_800,
+        ).pack(anchor="w")
+
+        self.form_var = ctk.StringVar(value="Choose a form template...")
+        self.form_dropdown = ctk.CTkOptionMenu(
+            form_inner, variable=self.form_var, values=["Loading..."],
+            width=340, height=38, font=ctk.CTkFont(size=13),
+            fg_color=GRAY_50, button_color=BLUE, button_hover_color="#1d4ed8",
+            text_color=GRAY_700, dropdown_font=ctk.CTkFont(size=12),
+        )
+        self.form_dropdown.pack(fill="x", pady=(10, 0))
+
+        # Generate button
+        self.generate_btn = ctk.CTkButton(
+            right, text="Fill & Download", height=46,
+            font=ctk.CTkFont(size=15, weight="bold"),
+            fg_color=GREEN, hover_color=GREEN_DARK,
+            command=self._fill_and_save,
+        )
+        self.generate_btn.pack(fill="x", pady=(16, 0))
+
+        # Output card (hidden initially)
+        self.output_card = ctk.CTkFrame(right, fg_color="#d1fae5", corner_radius=12, border_width=1, border_color="#a7f3d0")
+        # Will be packed when there's output
+
+        self.output_label = ctk.CTkLabel(
+            self.output_card, text="", font=ctk.CTkFont(size=13),
+            text_color=GREEN_DARK, wraplength=320, justify="left",
+        )
+        self.output_label.pack(padx=16, pady=(12, 4), anchor="w")
+
+        self.open_folder_btn = ctk.CTkButton(
+            self.output_card, text="Open Output Folder", height=32,
+            font=ctk.CTkFont(size=12), fg_color=GREEN, hover_color=GREEN_DARK,
+            command=self._open_output_folder,
+        )
+        self.open_folder_btn.pack(padx=16, pady=(4, 12), anchor="w")
+
+    # ──────────────────────────────────────────
+    # Status bar
+    # ──────────────────────────────────────────
+    def _build_status_bar(self):
+        self.status_bar = ctk.CTkLabel(
+            self, text="Ready", font=ctk.CTkFont(size=12),
+            text_color=GRAY_500, fg_color=WHITE, height=30,
+            corner_radius=0, anchor="w", padx=20,
+        )
+        self.status_bar.pack(fill="x", side="bottom")
+
+    def _set_status(self, text, color=GRAY_500):
+        self.status_bar.configure(text=text, text_color=color)
+
+    # ──────────────────────────────────────────
+    # Sync
+    # ──────────────────────────────────────────
+    def _refresh_sync_info(self):
+        count = get_contact_count()
+        last = get_last_sync()
+        if count > 0 and last:
+            try:
+                dt = datetime.fromisoformat(last)
+                formatted = dt.strftime("%d %b %Y, %H:%M")
+            except Exception:
+                formatted = last
+            self.sync_label.configure(text=f"{count} contacts  |  {formatted}")
+        else:
+            self.sync_label.configure(text="No contacts synced")
+
+    def _sync_contacts(self):
+        self.sync_btn.configure(state="disabled", text="Syncing...")
+        self._set_status("Syncing contacts from OnePageCRM...", BLUE)
+
+        def do_sync():
+            try:
+                contacts = list_all_contacts()
+                save_contacts(contacts)
+                self.after(0, lambda: self._on_sync_done(len(contacts)))
+            except Exception as e:
+                self.after(0, lambda: self._on_sync_error(str(e)))
+
+        threading.Thread(target=do_sync, daemon=True).start()
+
+    def _on_sync_done(self, count):
+        self.sync_btn.configure(state="normal", text="Sync Contacts")
+        self._refresh_sync_info()
+        self._set_status(f"Synced {count} contacts successfully!", GREEN)
+
+    def _on_sync_error(self, error):
+        self.sync_btn.configure(state="normal", text="Sync Contacts")
+        self._set_status(f"Sync failed: {error}", "#dc2626")
+
+    # ──────────────────────────────────────────
+    # Search & contact list
+    # ──────────────────────────────────────────
+    def _on_search_change(self, *_):
+        if self.search_after_id:
+            self.after_cancel(self.search_after_id)
+        self.search_after_id = self.after(300, self._do_search)
+
+    def _do_search(self):
+        query = self.search_var.get().strip()
+        if len(query) < 2:
+            return
+        self.contacts = search_contacts_local(query)
+        self._render_contacts()
+
+    def _load_all_contacts(self):
+        self._set_status("Loading all contacts...", BLUE)
+        self.contacts = list_contacts_local()
+        self._render_contacts()
+        if not self.contacts:
+            self._set_status("No contacts found. Please sync first.", "#d97706")
+        else:
+            self._set_status(f"{len(self.contacts)} contacts loaded", GREEN)
+
+    def _render_contacts(self):
+        for widget in self.contact_list_frame.winfo_children():
+            widget.destroy()
+
+        if not self.contacts:
+            ctk.CTkLabel(
+                self.contact_list_frame, text="No contacts found",
+                font=ctk.CTkFont(size=13), text_color=GRAY_400,
+            ).pack(pady=40)
+            return
+
+        for i, c in enumerate(self.contacts):
+            self._create_contact_row(c, i)
+
+    def _create_contact_row(self, contact, index):
+        row = ctk.CTkFrame(self.contact_list_frame, fg_color="transparent", height=50, cursor="hand2")
+        row.pack(fill="x", pady=1)
+        row.pack_propagate(False)
+
+        inner = ctk.CTkFrame(row, fg_color="transparent")
+        inner.pack(fill="both", expand=True, padx=8, pady=4)
+
+        # Avatar
+        name = contact.get("full_name", "?")
+        parts = name.split()
+        initials = (parts[0][0] + parts[-1][0]).upper() if len(parts) >= 2 else name[0].upper()
+
+        avatar = ctk.CTkLabel(
+            inner, text=initials, width=36, height=36,
+            corner_radius=18, fg_color=GRAY_200,
+            font=ctk.CTkFont(size=12, weight="bold"), text_color=GRAY_500,
+        )
+        avatar.pack(side="left", padx=(4, 10))
+
+        # Text
+        text_frame = ctk.CTkFrame(inner, fg_color="transparent")
+        text_frame.pack(side="left", fill="x", expand=True)
+
+        ctk.CTkLabel(
+            text_frame, text=name,
+            font=ctk.CTkFont(size=13, weight="bold"), text_color=GRAY_800,
+            anchor="w",
+        ).pack(anchor="w")
+
+        meta = contact.get("email", "")
+        if contact.get("company_name"):
+            meta += f"  |  {contact['company_name']}" if meta else contact["company_name"]
+        if meta:
+            ctk.CTkLabel(
+                text_frame, text=meta,
+                font=ctk.CTkFont(size=11), text_color=GRAY_400,
+                anchor="w",
+            ).pack(anchor="w")
+
+        # Bind click to the whole row and all children
+        for widget in [row, inner, avatar, text_frame] + text_frame.winfo_children():
+            widget.bind("<Button-1>", lambda e, idx=index: self._select_contact(idx))
+
+    def _select_contact(self, index):
+        self.selected_contact = self.contacts[index]
+
+        # Highlight selected row
+        for i, child in enumerate(self.contact_list_frame.winfo_children()):
+            if i == index:
+                child.configure(fg_color=BLUE)
+                for w in child.winfo_children():
+                    for ww in w.winfo_children():
+                        if isinstance(ww, ctk.CTkLabel):
+                            ww.configure(text_color=WHITE)
+                        if isinstance(ww, ctk.CTkFrame):
+                            for www in ww.winfo_children():
+                                if isinstance(www, ctk.CTkLabel):
+                                    www.configure(text_color=WHITE)
+            else:
+                child.configure(fg_color="transparent")
+                for w in child.winfo_children():
+                    for ww in w.winfo_children():
+                        if isinstance(ww, ctk.CTkLabel) and ww.cget("corner_radius") == 18:
+                            ww.configure(text_color=GRAY_500)
+                        elif isinstance(ww, ctk.CTkLabel):
+                            ww.configure(text_color=GRAY_800)
+                        if isinstance(ww, ctk.CTkFrame):
+                            for www in ww.winfo_children():
+                                if isinstance(www, ctk.CTkLabel):
+                                    if www.cget("font").cget("weight") == "bold":
+                                        www.configure(text_color=GRAY_800)
+                                    else:
+                                        www.configure(text_color=GRAY_400)
+
+        self._show_details(self.selected_contact)
+        self._set_status(f"Selected: {self.selected_contact['full_name']}", BLUE)
+
+    # ──────────────────────────────────────────
+    # Details panel
+    # ──────────────────────────────────────────
+    def _show_details(self, contact):
+        for widget in self.details_content.winfo_children():
+            widget.destroy()
+
+        self.details_title.configure(text=contact.get("full_name", "Client Details"))
+
+        fields = [
+            ("Date of Birth", "date_of_birth"), ("PPS Number", "pps_number"),
+            ("Email", "email"), ("Phone", "phone"),
+            ("Address", "address_full"), ("Occupation", "occupation"),
+            ("Employer", "employer_name"), ("Marital Status", "marital_status"),
+            ("Employment", "employment_type"), ("Nationality", "nationality"),
+            ("Annual Income", "annual_income"), ("Retirement Age", "normal_retirement_age"),
+            ("IBAN", "iban"), ("BIC", "bic"),
+        ]
+
+        for label, key in fields:
+            val = contact.get(key, "")
+            if not val:
+                continue
+
+            row = ctk.CTkFrame(self.details_content, fg_color=GRAY_50, corner_radius=6, height=38)
+            row.pack(fill="x", pady=1)
+            row.pack_propagate(False)
+
+            ctk.CTkLabel(
+                row, text=label.upper(), font=ctk.CTkFont(size=10),
+                text_color=GRAY_400, width=100, anchor="w",
+            ).pack(side="left", padx=(10, 4), pady=4)
+
+            ctk.CTkLabel(
+                row, text=str(val), font=ctk.CTkFont(size=12, weight="bold"),
+                text_color=GRAY_800, anchor="w",
+            ).pack(side="left", fill="x", expand=True, padx=(0, 10))
+
+    # ──────────────────────────────────────────
+    # Forms
+    # ──────────────────────────────────────────
+    def _load_forms(self):
+        self.forms = get_available_forms()
+        display_names = []
+        for f in self.forms:
+            provider = f.get("provider", "")
+            product = f.get("product", f.get("form_name", ""))
+            display_names.append(f"{provider} - {product}" if provider else product)
+
+        if display_names:
+            self.form_dropdown.configure(values=display_names)
+            self.form_var.set("Choose a form template...")
+        else:
+            self.form_dropdown.configure(values=["No forms available"])
+
+    # ──────────────────────────────────────────
+    # Generate
+    # ──────────────────────────────────────────
+    def _fill_and_save(self):
+        if not self.selected_contact:
+            self._set_status("Please select a client first.", "#dc2626")
+            return
+
+        form_display = self.form_var.get()
+        if form_display.startswith("Choose") or form_display.startswith("No forms"):
+            self._set_status("Please select a form template.", "#dc2626")
+            return
+
+        # Find the matching mapping file
+        mapping_file = None
+        for f in self.forms:
+            provider = f.get("provider", "")
+            product = f.get("product", f.get("form_name", ""))
+            display = f"{provider} - {product}" if provider else product
+            if display == form_display:
+                mapping_file = f["mapping_file"]
+                break
+
+        if not mapping_file:
+            self._set_status("Form template not found.", "#dc2626")
+            return
+
+        self.generate_btn.configure(state="disabled", text="Generating...")
+        self._set_status("Filling form...", BLUE)
+
+        def do_fill():
+            try:
+                contact = get_contact_local(self.selected_contact["id"])
+                if not contact:
+                    contact = self.selected_contact
+                output_path = fill_form(mapping_file, contact)
+                self.after(0, lambda: self._on_fill_done(output_path))
+            except Exception as e:
+                self.after(0, lambda: self._on_fill_error(str(e)))
+
+        threading.Thread(target=do_fill, daemon=True).start()
+
+    def _on_fill_done(self, output_path):
+        self.generate_btn.configure(state="normal", text="Fill & Download")
         filename = Path(output_path).name
-        return jsonify({"filename": filename, "path": output_path})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        self._set_status(f"Generated: {filename}", GREEN)
 
+        self.output_label.configure(text=f"Saved: {filename}")
+        self.output_card.pack(fill="x", pady=(12, 0))
 
-@app.route("/download/<filename>")
-def download(filename):
-    filepath = OUTPUT_DIR / filename
-    if not filepath.exists():
-        return "File not found", 404
-    return send_file(str(filepath), as_attachment=True)
+    def _on_fill_error(self, error):
+        self.generate_btn.configure(state="normal", text="Fill & Download")
+        self._set_status(f"Error: {error}", "#dc2626")
+
+    def _open_output_folder(self):
+        OUTPUT_DIR.mkdir(exist_ok=True)
+        path = str(OUTPUT_DIR)
+        if sys.platform == "win32":
+            os.startfile(path)
+        elif sys.platform == "darwin":
+            subprocess.Popen(["open", path])
+        else:
+            subprocess.Popen(["xdg-open", path])
 
 
 def main():
-    import webview
-
-    port = 8080
-
-    # Start Flask in a background thread
-    server = threading.Thread(
-        target=lambda: app.run(host="127.0.0.1", port=port, debug=False),
-        daemon=True,
-    )
-    server.start()
-
-    # Open a native desktop window
-    webview.create_window(
-        "AutoFill - YourFinance.ie",
-        f"http://127.0.0.1:{port}",
-        width=1100,
-        height=750,
-        min_size=(800, 500),
-    )
-    webview.start()
+    app = AutoFillApp()
+    app.mainloop()
 
 
 if __name__ == "__main__":

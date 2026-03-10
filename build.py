@@ -33,11 +33,10 @@ PyInstaller.__main__.run([
     f"--add-data={ROOT / 'field_mappings'}{os.pathsep}field_mappings",
     f"--add-data={ROOT / 'templates'}{os.pathsep}templates",
     # Hidden imports
-    "--hidden-import=flask",
+    "--hidden-import=customtkinter",
     "--hidden-import=PyPDF2",
     "--hidden-import=requests",
     "--hidden-import=dotenv",
-    "--hidden-import=webview",
     "--hidden-import=config",
     "--clean",
     "--noconfirm",
