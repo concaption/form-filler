@@ -410,12 +410,16 @@ async def download(filename: str):
 
 
 if __name__ == "__main__":
-    import webbrowser
-    import threading
+    port = int(os.environ.get("PORT", 8080))
+    host = "0.0.0.0" if os.environ.get("PORT") else "127.0.0.1"
 
-    port = 8080
     url = f"http://localhost:{port}"
     print(f"\n  AutoFill Application (FastAPI) running at: {url}\n")
     print(f"  API docs at: {url}/docs\n")
-    threading.Timer(1.0, lambda: webbrowser.open(url)).start()
-    uvicorn.run(app, host="127.0.0.1", port=port)
+
+    if not os.environ.get("PORT"):
+        import webbrowser
+        import threading
+        threading.Timer(1.0, lambda: webbrowser.open(url)).start()
+
+    uvicorn.run(app, host=host, port=port)
