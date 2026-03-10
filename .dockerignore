@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+.env
+contacts.db
+output/
+build/
+dist/
+*.spec
+.git
+SOS/
+*.exe
