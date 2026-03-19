@@ -65,6 +65,10 @@ def _resolve_value(field_config: dict, contact: dict) -> Optional[str]:
     transform = field_config.get("transform")
     if transform in ("day", "month", "year"):
         return _transform_date_field(str(raw_value), transform)
+    if transform == "email_prefix":
+        return str(raw_value).split("@")[0] if "@" in str(raw_value) else str(raw_value)
+    if transform == "email_domain":
+        return str(raw_value).split("@")[1] if "@" in str(raw_value) else ""
 
     return str(raw_value)
 
