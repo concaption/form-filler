@@ -6,6 +6,7 @@ Syncs contacts from OnePageCRM and fills PDF application forms.
 
 import os
 import sys
+import json
 import shutil
 import threading
 import subprocess
@@ -569,25 +570,287 @@ class AutoFillApp(ctk.CTk):
         self._set_status(f"Error: {error}", "#dc2626")
 
     # ──────────────────────────────────────────
-    # Mapping Tool (opens in browser)
+    # Mapping Tool (native)
     # ──────────────────────────────────────────
     def _open_mapping_tool(self):
-        import webbrowser
-        import uvicorn
+        from PyPDF2 import PdfReader
+        from PyPDF2.generic import ArrayObject
 
-        if not hasattr(self, '_mapping_server_started'):
-            self._mapping_server_started = True
+        CRM_OPTIONS = [
+            "-- Not mapped --",
+            "title", "first_name", "last_name", "full_name",
+            "birthday", "pps_1", "email",
+            "phone_mobile", "phone_home", "phone_work",
+            "address_line1", "address_city", "address_state", "address_postcode",
+            "address_work_line1", "address_work_city", "address_work_state",
+            "address_work_postcode", "address_work_full",
+            "company_name", "job_title", "salary",
+            "gender", "status", "nationality", "country_of_residence",
+            "employer_tax_number", "start_date_for_current_employment", "smoker",
+        ]
 
-            def run_server():
-                from web_app import app as web_app
-                uvicorn.run(web_app, host="127.0.0.1", port=8090, log_level="warning")
+        dialog = ctk.CTkToplevel(self)
+        dialog.title("Mapping Tool")
+        dialog.geometry("900x650")
+        dialog.minsize(750, 500)
+        dialog.transient(self)
 
-            threading.Thread(target=run_server, daemon=True).start()
-            self.after(1500, lambda: webbrowser.open("http://localhost:8090/mapping-tool"))
-            self._set_status("Mapping Tool opened in browser", BLUE)
-        else:
-            webbrowser.open("http://localhost:8090/mapping-tool")
-            self._load_forms()  # Refresh in case new mappings were added
+        # State
+        dialog.pdf_fields = []
+        dialog.pdf_filename = ""
+        dialog.field_dropdowns = []
+
+        # --- Top bar ---
+        top = ctk.CTkFrame(dialog, fg_color=WHITE, corner_radius=0, height=50)
+        top.pack(fill="x")
+        top.pack_propagate(False)
+
+        ctk.CTkLabel(top, text="Mapping Tool", font=ctk.CTkFont(size=16, weight="bold"),
+                     text_color=GRAY_800).pack(side="left", padx=16)
+
+        save_btn = ctk.CTkButton(top, text="Save Mapping", width=120, height=34,
+                                 font=ctk.CTkFont(size=13, weight="bold"),
+                                 fg_color=GREEN, hover_color=GREEN_DARK,
+                                 command=lambda: save_mapping())
+        save_btn.pack(side="right", padx=16)
+
+        fieldmap_btn = ctk.CTkButton(top, text="Open Field Map PDF", width=150, height=34,
+                                     font=ctk.CTkFont(size=13),
+                                     fg_color=BLUE, hover_color="#1d4ed8",
+                                     command=lambda: open_fieldmap())
+        fieldmap_btn.pack(side="right", padx=(0, 8))
+
+        # --- Form details ---
+        details = ctk.CTkFrame(dialog, fg_color=WHITE, corner_radius=0)
+        details.pack(fill="x", padx=16, pady=(12, 0))
+
+        row1 = ctk.CTkFrame(details, fg_color="transparent")
+        row1.pack(fill="x", padx=12, pady=(12, 0))
+
+        ctk.CTkLabel(row1, text="PDF File:", font=ctk.CTkFont(size=12),
+                     text_color=GRAY_500).pack(side="left")
+        pdf_label = ctk.CTkLabel(row1, text="No file selected", font=ctk.CTkFont(size=12, weight="bold"),
+                                 text_color=GRAY_800)
+        pdf_label.pack(side="left", padx=(8, 16))
+
+        ctk.CTkButton(row1, text="Browse...", width=90, height=30,
+                      font=ctk.CTkFont(size=12), fg_color=GRAY_200,
+                      hover_color=GRAY_400, text_color=GRAY_700,
+                      command=lambda: pick_pdf()).pack(side="left")
+
+        row2 = ctk.CTkFrame(details, fg_color="transparent")
+        row2.pack(fill="x", padx=12, pady=(8, 0))
+
+        ctk.CTkLabel(row2, text="Provider:", font=ctk.CTkFont(size=12),
+                     text_color=GRAY_500, width=60).pack(side="left")
+        provider_var = ctk.StringVar()
+        ctk.CTkEntry(row2, textvariable=provider_var, width=150, height=30,
+                     font=ctk.CTkFont(size=12), placeholder_text="e.g. Aviva").pack(side="left", padx=(4, 16))
+
+        ctk.CTkLabel(row2, text="Product:", font=ctk.CTkFont(size=12),
+                     text_color=GRAY_500, width=55).pack(side="left")
+        product_var = ctk.StringVar()
+        ctk.CTkEntry(row2, textvariable=product_var, width=150, height=30,
+                     font=ctk.CTkFont(size=12), placeholder_text="e.g. PRSA").pack(side="left", padx=(4, 16))
+
+        ctk.CTkLabel(row2, text="Form Name:", font=ctk.CTkFont(size=12),
+                     text_color=GRAY_500, width=80).pack(side="left")
+        formname_var = ctk.StringVar()
+        ctk.CTkEntry(row2, textvariable=formname_var, width=200, height=30,
+                     font=ctk.CTkFont(size=12), placeholder_text="e.g. Aviva PRSA Application").pack(side="left", padx=4)
+
+        info_label = ctk.CTkLabel(details, text="", font=ctk.CTkFont(size=11),
+                                  text_color=GRAY_400)
+        info_label.pack(anchor="w", padx=12, pady=(4, 8))
+
+        # --- Header row ---
+        header_row = ctk.CTkFrame(dialog, fg_color=GRAY_200, corner_radius=0, height=32)
+        header_row.pack(fill="x", padx=16, pady=(12, 0))
+        header_row.pack_propagate(False)
+
+        ctk.CTkLabel(header_row, text="PAGE", font=ctk.CTkFont(size=10, weight="bold"),
+                     text_color=GRAY_500, width=45).pack(side="left", padx=(12, 0))
+        ctk.CTkLabel(header_row, text="PDF FIELD NAME", font=ctk.CTkFont(size=10, weight="bold"),
+                     text_color=GRAY_500, width=280).pack(side="left", padx=(8, 0))
+        ctk.CTkLabel(header_row, text="TYPE", font=ctk.CTkFont(size=10, weight="bold"),
+                     text_color=GRAY_500, width=50).pack(side="left", padx=(8, 0))
+        ctk.CTkLabel(header_row, text="CRM FIELD", font=ctk.CTkFont(size=10, weight="bold"),
+                     text_color=GRAY_500).pack(side="left", padx=(8, 0))
+
+        # --- Scrollable field list ---
+        field_scroll = ctk.CTkScrollableFrame(dialog, fg_color=WHITE, corner_radius=0)
+        field_scroll.pack(fill="both", expand=True, padx=16, pady=(0, 12))
+
+        # --- Status ---
+        status_label = ctk.CTkLabel(dialog, text="Select a PDF to begin", font=ctk.CTkFont(size=12),
+                                    text_color=GRAY_500, fg_color=WHITE, height=28,
+                                    corner_radius=0, anchor="w", padx=16)
+        status_label.pack(fill="x", side="bottom")
+
+        # --- Auto-match logic ---
+        def auto_match(name):
+            n = name.lower()
+            if 'first name' in n or 'forename' in n: return 'first_name'
+            if 'surname' in n or n == 'last name': return 'last_name'
+            if 'title' in n: return 'title'
+            if 'date of birth' in n or 'dob' in n: return 'birthday'
+            if 'pps' in n or 'public service' in n: return 'pps_1'
+            if 'email' in n: return 'email'
+            if 'mobile' in n: return 'phone_mobile'
+            if 'home' in n and 'phone' in n or n == 'home number': return 'phone_home'
+            if 'occupation' in n: return 'job_title'
+            if 'salary' in n or 'income' in n or 'earning' in n: return 'salary'
+            if 'eircode' in n: return 'address_postcode'
+            if 'address' in n and '1' in n: return 'address_line1'
+            if 'address' in n and '2' in n: return 'address_city'
+            if 'address' in n and '3' in n: return 'address_state'
+            if 'employer' in n and 'name' in n: return 'company_name'
+            if 'employer' in n and 'tax' in n: return 'employer_tax_number'
+            return '-- Not mapped --'
+
+        # --- Pick PDF ---
+        def pick_pdf():
+            from config import PDFS_DIR
+            path = filedialog.askopenfilename(
+                parent=dialog, title="Select PDF Form",
+                initialdir=str(PDFS_DIR),
+                filetypes=[("PDF Files", "*.pdf")],
+            )
+            if not path:
+                return
+
+            # Copy to pdfs/ if not already there
+            from config import PDFS_DIR
+            src = Path(path)
+            dest = PDFS_DIR / src.name
+            if not dest.exists():
+                import shutil
+                shutil.copy2(path, dest)
+
+            dialog.pdf_filename = src.name
+            pdf_label.configure(text=src.name)
+
+            # Auto-fill provider
+            fn = src.name.lower()
+            if 'aviva' in fn: provider_var.set('Aviva')
+            elif 'zurich' in fn: provider_var.set('Zurich')
+            elif 'irish' in fn or ' il ' in fn or 'il-' in fn: provider_var.set('Irish Life')
+            elif 'standard' in fn or 'synergy' in fn: provider_var.set('Standard Life')
+
+            # Extract fields
+            reader = PdfReader(str(dest))
+            dialog.pdf_fields = []
+            for page_idx, page in enumerate(reader.pages):
+                annots = page.get("/Annots")
+                if not annots:
+                    continue
+                annot_list = annots if isinstance(annots, ArrayObject) else annots.get_object()
+                for ref in annot_list:
+                    annot = ref.get_object()
+                    name = str(annot.get("/T", ""))
+                    ftype = str(annot.get("/FT", "")).replace("/", "")
+                    parent = annot.get("/Parent")
+                    parent_name = str(parent.get_object().get("/T", "")) if parent else ""
+                    if name:
+                        dialog.pdf_fields.append({
+                            "name": name, "type": ftype,
+                            "page": page_idx + 1, "parent": parent_name,
+                        })
+                    elif parent_name and parent_name not in [f["name"] for f in dialog.pdf_fields]:
+                        dialog.pdf_fields.append({
+                            "name": parent_name, "type": "RadioGroup",
+                            "page": page_idx + 1, "parent": "",
+                        })
+
+            dialog.pdf_fields.sort(key=lambda f: (f["page"], f["name"]))
+            info_label.configure(text=f"{len(reader.pages)} pages, {len(dialog.pdf_fields)} fields")
+            status_label.configure(text=f"Loaded {len(dialog.pdf_fields)} fields from {src.name}")
+
+            # Render field rows
+            for w in field_scroll.winfo_children():
+                w.destroy()
+            dialog.field_dropdowns = []
+
+            for f in dialog.pdf_fields:
+                row = ctk.CTkFrame(field_scroll, fg_color="transparent", height=32)
+                row.pack(fill="x", pady=1)
+                row.pack_propagate(False)
+
+                ctk.CTkLabel(row, text=str(f["page"]), font=ctk.CTkFont(size=11),
+                             text_color=BLUE, width=45).pack(side="left", padx=(4, 0))
+                ctk.CTkLabel(row, text=f["name"], font=ctk.CTkFont(size=11, weight="bold"),
+                             text_color=GRAY_800, width=280, anchor="w").pack(side="left", padx=(8, 0))
+                ctk.CTkLabel(row, text=f["type"], font=ctk.CTkFont(size=10),
+                             text_color=GRAY_500, width=50).pack(side="left", padx=(8, 0))
+
+                var = ctk.StringVar(value=auto_match(f["name"]))
+                dropdown = ctk.CTkOptionMenu(row, variable=var, values=CRM_OPTIONS,
+                                             width=200, height=26, font=ctk.CTkFont(size=11),
+                                             fg_color=GRAY_50, button_color=GRAY_400,
+                                             text_color=GRAY_700)
+                dropdown.pack(side="left", padx=(8, 4))
+                dialog.field_dropdowns.append((f["name"], var))
+
+        # --- Open field map PDF ---
+        def open_fieldmap():
+            if not dialog.pdf_filename:
+                status_label.configure(text="Select a PDF first")
+                return
+            from config import PDFS_DIR
+            from generate_field_maps import generate_field_map
+
+            pdf_path = PDFS_DIR / dialog.pdf_filename
+            output_dir = PDFS_DIR / "fieldmaps"
+            output_dir.mkdir(exist_ok=True)
+            output_path = output_dir / f"FIELDMAP-{dialog.pdf_filename}"
+            generate_field_map(pdf_path, output_path)
+
+            if sys.platform == "win32":
+                os.startfile(str(output_path))
+            elif sys.platform == "darwin":
+                subprocess.Popen(["open", str(output_path)])
+            else:
+                subprocess.Popen(["xdg-open", str(output_path)])
+            status_label.configure(text=f"Opened field map: {output_path.name}")
+
+        # --- Save mapping ---
+        def save_mapping():
+            if not dialog.pdf_filename:
+                status_label.configure(text="Select a PDF first")
+                return
+            provider = provider_var.get().strip()
+            product = product_var.get().strip()
+            form_name = formname_var.get().strip()
+            if not provider or not product or not form_name:
+                status_label.configure(text="Please fill in Provider, Product, and Form Name")
+                return
+
+            import re
+            from config import MAPPINGS_DIR
+            field_map = {}
+            for fname, var in dialog.field_dropdowns:
+                crm = var.get()
+                field_map[fname] = {
+                    "label": fname,
+                    "crm_field": crm if crm != "-- Not mapped --" else None,
+                }
+
+            safe = re.sub(r'[^a-z0-9]+', '_', (provider + "_" + product).lower()).strip('_')
+            mapping_path = MAPPINGS_DIR / f"{safe}.json"
+            data = {
+                "form_name": form_name,
+                "pdf_file": dialog.pdf_filename,
+                "provider": provider,
+                "product": product,
+                "field_map": field_map,
+            }
+            with open(mapping_path, "w") as f:
+                json.dump(data, f, indent=2)
+                f.write("\n")
+
+            self._load_forms()
+            status_label.configure(text=f"Saved mapping: {mapping_path.name}")
+            self._set_status(f"New form added: {provider} - {product}", GREEN)
 
     # ──────────────────────────────────────────
     # Settings dialog
