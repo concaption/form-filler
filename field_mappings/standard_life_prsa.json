@@ -240,8 +240,8 @@
       "crm_field": "address_work_postcode"
     },
     " Reg Number": {
-      "label": "Employer Registration Number",
-      "crm_field": null
+      "label": "Employer Tax Registration Number",
+      "crm_field": "employer_tax_number"
     },
     "Position with the Company 22": {
       "label": "Position of Signatory",
