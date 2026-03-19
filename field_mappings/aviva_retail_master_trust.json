@@ -193,29 +193,29 @@
     },
     "__comment_page2_contact": "Address / Contact details (y=334-299)",
     "Text Field 5017": {
-      "label": "Address",
+      "label": "Address Line 1",
       "crm_field": "address_line1"
     },
     "Text Field 5018": {
+      "label": "Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Text Field 5019": {
       "label": "Contact Phone Number",
       "crm_field": "phone_mobile"
     },
-    "Text Field 5019": {
+    "__comment_page2_employment": "Email / Occupation / Salary / Vested Rights",
+    "Text Field 510": {
       "label": "Personal Email Address",
       "crm_field": "email"
     },
-    "__comment_page2_employment": "Occupation / Salary / Vested Rights (y=279-222)",
-    "Text Field 510": {
+    "Text Field 511": {
       "label": "Occupation",
       "crm_field": "job_title"
     },
-    "Text Field 511": {
+    "Text Field 519": {
       "label": "Earnings / Salary",
       "crm_field": "salary"
-    },
-    "Text Field 519": {
-      "label": "Confirm vested rights period (text)",
-      "crm_field": null
     },
     "Check Box 153": {
       "label": "Vested Rights: Immediate",
