@@ -151,7 +151,7 @@
     },
     "Name on your account 2": {
       "label": "Name on Account (Regular)",
-      "crm_field": "full_name"
+      "crm_field": null
     },
     "Your transfer payment 1": {
       "label": "Transfer Payment Amount",
@@ -180,7 +180,7 @@
     },
     "Name on your account": {
       "label": "Name on Account (Vested)",
-      "crm_field": "full_name"
+      "crm_field": null
     },
     "Employer regular contribution_2": {
       "label": "Vested Regular Income Amount",
@@ -710,19 +710,19 @@
     },
     "Name on account DDM": {
       "label": "SEPA Account Holder Name",
-      "crm_field": "full_name"
+      "crm_field": null
     },
     "Address on account1 DDM": {
       "label": "SEPA Address Line 1",
-      "crm_field": "address_line1"
+      "crm_field": null
     },
     "Address on account2 DDM": {
       "label": "SEPA Address Line 2",
-      "crm_field": "address_city"
+      "crm_field": null
     },
     "Address on account3 DDM": {
       "label": "SEPA Address Line 3",
-      "crm_field": "address_state"
+      "crm_field": null
     },
     "Address on account4 DDM": {
       "label": "SEPA Address Line 4",
@@ -730,7 +730,7 @@
     },
     "Address on account5 DDM": {
       "label": "SEPA Eircode",
-      "crm_field": "address_postcode"
+      "crm_field": null
     },
     "SEPA DDM IBAN DDM": {
       "label": "SEPA IBAN",
