@@ -165,7 +165,7 @@
     },
     "Text Field 308": {
       "label": "Chosen Retirement Age",
-      "crm_field": null
+      "crm_field": "nra_age"
     },
     "Check Box 122": {
       "label": "PEP: Yes",

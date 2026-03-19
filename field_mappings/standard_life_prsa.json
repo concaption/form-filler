@@ -121,8 +121,8 @@
       "crm_field": null
     },
     "Retire Age": {
-      "label": "Chosen Retirement Age",
-      "crm_field": null
+      "label": "Chosen Retirement Age (NRA)",
+      "crm_field": "nra_age"
     },
     "__comment_page3": "=== PAGE 3: Contributions (Part 4) + Bank Details (Part 5) + Transfer ===",
     "Employer regular contribution_1": {

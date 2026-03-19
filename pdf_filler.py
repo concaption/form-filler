@@ -87,7 +87,11 @@ def _resolve_value(field_config: dict, contact: dict) -> Optional[str]:
     if transform == "strip_spaces":
         return str(raw_value).replace(" ", "")
 
-    return str(raw_value)
+    result = str(raw_value)
+    # Clean up float values like "65.0" -> "65"
+    if result.endswith('.0'):
+        result = result[:-2]
+    return result
 
 
 def _should_check(field_config: dict, contact: dict) -> Optional[bool]:

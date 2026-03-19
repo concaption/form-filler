@@ -46,7 +46,7 @@
     },
     "Text Field 429": {
       "label": "Normal Retirement Age",
-      "crm_field": null
+      "crm_field": "nra_age"
     },
     "Check Box 260": {
       "label": "One Man Company: Yes",

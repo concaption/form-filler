@@ -256,7 +256,7 @@
     },
     "Text Field 515": {
       "label": "Normal Retirement Age",
-      "crm_field": null
+      "crm_field": "nra_age"
     },
     "__comment_page2_pep": "PEP checkboxes and details (y=114-46)",
     "Check Box 156": {

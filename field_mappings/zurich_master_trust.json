@@ -137,7 +137,7 @@
     },
     "Text Field 520": {
       "label": "Normal Retirement Age",
-      "crm_field": null
+      "crm_field": "nra_age"
     },
     "Text Field 521": {
       "label": "Annual Salary/Earnings",
