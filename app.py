@@ -18,7 +18,7 @@ from config import OUTPUT_DIR, init_app_data
 # Extract bundled resources next to the .exe on first run
 init_app_data()
 
-from crm_client import list_all_contacts, get_contact
+from crm_client import list_all_contacts, iter_all_contacts, get_contact
 from pdf_filler import fill_form, get_available_forms
 from db import (
     save_contacts,
@@ -292,13 +292,21 @@ class AutoFillApp(ctk.CTk):
 
         def do_sync():
             try:
-                contacts = list_all_contacts()
-                save_contacts(contacts)
-                self.after(0, lambda: self._on_sync_done(len(contacts)))
+                all_contacts = []
+                for page, max_page, batch in iter_all_contacts():
+                    all_contacts.extend(batch)
+                    self.after(0, lambda p=page, m=max_page, n=len(all_contacts):
+                        self._on_sync_progress(p, m, n))
+                save_contacts(all_contacts)
+                self.after(0, lambda: self._on_sync_done(len(all_contacts)))
             except Exception as e:
                 self.after(0, lambda: self._on_sync_error(str(e)))
 
         threading.Thread(target=do_sync, daemon=True).start()
+
+    def _on_sync_progress(self, page, max_page, fetched):
+        self.sync_btn.configure(text=f"Page {page}/{max_page}")
+        self._set_status(f"Syncing... Page {page}/{max_page} ({fetched} contacts)", BLUE)
 
     def _on_sync_done(self, count):
         self.sync_btn.configure(state="normal", text="Sync Contacts")
