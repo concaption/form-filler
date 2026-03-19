@@ -120,10 +120,10 @@ class AutoFillApp(ctk.CTk):
         self.sync_btn.pack(side="left")
 
         settings_btn = ctk.CTkButton(
-            right_frame, text="\u2699", width=34, height=32,
-            font=ctk.CTkFont(size=18),
+            right_frame, text="Settings", width=90, height=32,
+            font=ctk.CTkFont(size=13),
             fg_color="transparent", hover_color="#1e5278",
-            text_color=GRAY_400,
+            text_color=GRAY_400, border_width=1, border_color=GRAY_500,
             command=self._open_settings,
         )
         settings_btn.pack(side="left", padx=(8, 0))
