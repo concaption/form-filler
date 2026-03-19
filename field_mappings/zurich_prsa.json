@@ -213,7 +213,8 @@
     },
     "Text Field 185": {
       "label": "Date of Birth",
-      "crm_field": "birthday"
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
     },
     "Text Field 186": {
       "label": "Gender or Nationality (unconfirmed)",

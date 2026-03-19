@@ -36,7 +36,8 @@
     },
     "Text Field 8": {
       "label": "Date of Birth (dd/mm/yyyy)",
-      "crm_field": "birthday"
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
     },
     "Text Field 276": {
       "label": "Age Next Birthday",

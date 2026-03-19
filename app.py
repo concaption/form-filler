@@ -119,6 +119,15 @@ class AutoFillApp(ctk.CTk):
         )
         self.sync_btn.pack(side="left")
 
+        mapping_btn = ctk.CTkButton(
+            right_frame, text="Mapping Tool", width=110, height=32,
+            font=ctk.CTkFont(size=13),
+            fg_color="transparent", hover_color="#1e5278",
+            text_color=GRAY_400, border_width=1, border_color=GRAY_500,
+            command=self._open_mapping_tool,
+        )
+        mapping_btn.pack(side="left", padx=(8, 0))
+
         settings_btn = ctk.CTkButton(
             right_frame, text="Settings", width=90, height=32,
             font=ctk.CTkFont(size=13),
@@ -558,6 +567,27 @@ class AutoFillApp(ctk.CTk):
     def _on_fill_error(self, error):
         self.generate_btn.configure(state="normal", text="Fill & Download")
         self._set_status(f"Error: {error}", "#dc2626")
+
+    # ──────────────────────────────────────────
+    # Mapping Tool (opens in browser)
+    # ──────────────────────────────────────────
+    def _open_mapping_tool(self):
+        import webbrowser
+        import uvicorn
+
+        if not hasattr(self, '_mapping_server_started'):
+            self._mapping_server_started = True
+
+            def run_server():
+                from web_app import app as web_app
+                uvicorn.run(web_app, host="127.0.0.1", port=8090, log_level="warning")
+
+            threading.Thread(target=run_server, daemon=True).start()
+            self.after(1500, lambda: webbrowser.open("http://localhost:8090/mapping-tool"))
+            self._set_status("Mapping Tool opened in browser", BLUE)
+        else:
+            webbrowser.open("http://localhost:8090/mapping-tool")
+            self._load_forms()  # Refresh in case new mappings were added
 
     # ──────────────────────────────────────────
     # Settings dialog

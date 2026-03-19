@@ -4,7 +4,6 @@
   "provider": "Irish Life",
   "product": "Protection",
   "notes": "16 pages, 206 fields (175 text + 31 checkboxes). Page 1 = broker/profile + Life 1 personal details (Title through Address). Page 2 top = Life 1 contact (Mobile/Email/Nationality) + Life 2 personal details + Plan Owner. Pages 3-4 = product/cover details. Pages 5-6 = text only (no fields). Page 7 = height/weight/smoking. Page 8 = sporting activities checkboxes. Pages 9 = health questions (no fillable fields). Page 10 = family history table. Page 11 = other medical evidence + doctor details. Page 12 = declarations. Page 13 = signatures/dates. Page 14 = text only. Page 15 = SEPA mandate. Page 16 = text only. NOTE: Title, Gender, Relationship Status, and Smoker questions on pages 1-2 are printed tick boxes in the PDF, NOT fillable form fields.",
-
   "field_map": {
     "__comment_page1_broker": "=== PAGE 1: Financial Adviser / Broker Details ===",
     "Text Field 814": {
@@ -15,13 +14,11 @@
       "label": "Financial Adviser Code",
       "crm_field": null
     },
-
     "__comment_page1_profile": "=== PAGE 1: Profile Number ===",
     "Text Field 812": {
       "label": "Profile Number",
       "crm_field": null
     },
-
     "__comment_page1_life1": "=== PAGE 1: Life 1 Personal Details (section 1a) ===",
     "Text Field 811": {
       "label": "Life 1 Title (Mr/Mrs/Ms etc)",
@@ -37,7 +34,8 @@
     },
     "Text Field 808": {
       "label": "Life 1 Date of Birth (dd/mm/yyyy)",
-      "crm_field": "birthday"
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
     },
     "Text Field 807": {
       "label": "Life 1 Age Next Birthday",
@@ -68,7 +66,6 @@
       "label": "Life 1 Address Line 2",
       "crm_field": null
     },
-
     "__comment_page2_life1_cont": "=== PAGE 2 (top): Life 1 Contact Details (continuation of section 1a) ===",
     "Text Field 801": {
       "label": "Life 1 Mobile Number",
@@ -94,7 +91,6 @@
       "label": "Life 1 Irish Tax Resident: No",
       "crm_field": null
     },
-
     "__comment_page2_life2": "=== PAGE 2: Life 2 Personal Details (section 1b) - all null, second person ===",
     "Text Field 797": {
       "label": "Life 2 Title (Mr/Mrs/Ms etc)",
@@ -160,7 +156,6 @@
       "label": "Life 2 Nationality",
       "crm_field": null
     },
-
     "__comment_page2_planowner": "=== PAGE 2 (bottom): Plan Owner Details (section 1c) ===",
     "Text Field 782": {
       "label": "Plan Owner Title (Mr/Mrs/Ms etc)",
@@ -206,7 +201,6 @@
       "label": "Plan Owner Address",
       "crm_field": null
     },
-
     "__comment_page3_further": "=== PAGE 3: Further Details (section 1d) + Term Life Insurance (section 2a) + Mortgage Life Insurance (section 2b) ===",
     "Text Field 771": {
       "label": "Conversion Plan Number",
@@ -264,7 +258,6 @@
       "label": "Mortgage Life - Initial Specified Illness Cover Amount",
       "crm_field": null
     },
-
     "__comment_page4_lifelong": "=== PAGE 4: Life Long Insurance (section 2c) + Income Insurance (section 2d) + Payment Details (section 3) ===",
     "Text Field 757": {
       "label": "Life Long - Single Cover Amount",
@@ -334,7 +327,6 @@
       "label": "Cover Begin Immediately - No",
       "crm_field": null
     },
-
     "__comment_page7_medical": "=== PAGE 7: Medical - Height/Weight/Smoking Details ===",
     "Text Field 5013": {
       "label": "Life 1 Height - Feet",
@@ -448,7 +440,6 @@
       "label": "Life 2 Additional Smoking Info",
       "crm_field": null
     },
-
     "__comment_page8_sports": "=== PAGE 8: Medical Q9 - Sporting Activities Checkboxes ===",
     "Check Box 346": {
       "label": "Q9 Aviation Sports - First Person",
@@ -514,7 +505,6 @@
       "label": "Q9 None of These - Second Person",
       "crm_field": null
     },
-
     "__comment_page10_family": "=== PAGE 10: Medical Q34 - Family History Table (4 rows x 4 columns) ===",
     "Text Field 685": {
       "label": "Family History Row 1 - First Person Condition",
@@ -580,7 +570,6 @@
       "label": "Family History Row 4 - Second Person Age",
       "crm_field": null
     },
-
     "__comment_page11_evidence": "=== PAGE 11: Other Medical Evidence (First Person 7 rows, Second Person 7 rows) + Doctor Details ===",
     "Text Field 1070": {
       "label": "First Person Evidence Row 1 - Question No",
@@ -710,7 +699,6 @@
       "label": "Second Person Previous Doctor Name and Address",
       "crm_field": null
     },
-
     "__comment_page12_declarations": "=== PAGE 12: Declarations Section ===",
     "Text Field 842": {
       "label": "Proposal Number",
@@ -748,7 +736,6 @@
       "label": "Declaration Adviser Detail",
       "crm_field": null
     },
-
     "__comment_page13_signatures": "=== PAGE 13: Declaration Signatures and Dates ===",
     "Text Field 854": {
       "label": "Plan Owner 1 Signature (Declaration A)",
@@ -798,7 +785,6 @@
       "label": "Life 2 Date (Marketing Consent)",
       "crm_field": null
     },
-
     "__comment_page15_sepa": "=== PAGE 15: SEPA Direct Debit Mandate ===",
     "Text Field 724": {
       "label": "SEPA Plan Number 1",

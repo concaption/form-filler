@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapping Tool - AutoFill</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2b46; --green: #059669; --blue: #2563eb;
+    --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+    --gray-700: #334155; --gray-800: #1e293b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--gray-100); color: var(--gray-800); }
+
+  .header {
+    background: var(--navy); color: #fff; padding: 0 32px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .header h1 { font-size: 17px; }
+  .header h1 span { color: var(--green); font-weight: 400; }
+  .header a { color: var(--gray-400); text-decoration: none; font-size: 13px; }
+  .header a:hover { color: #fff; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 32px; }
+
+  .card {
+    background: #fff; border-radius: 12px; padding: 24px;
+    margin-bottom: 20px; border: 1px solid var(--gray-200);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .card h2 { font-size: 16px; margin-bottom: 16px; color: var(--gray-800); }
+
+  label { display: block; font-size: 12px; font-weight: 600; color: var(--gray-500);
+          text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; margin-top: 14px; }
+  label:first-of-type { margin-top: 0; }
+
+  input[type="text"], select {
+    width: 100%; padding: 9px 14px; border: 1px solid var(--gray-300);
+    border-radius: 8px; font-size: 14px; font-family: inherit; outline: none;
+  }
+  input:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+
+  .btn {
+    padding: 10px 20px; border: none; border-radius: 8px; font-size: 13px;
+    font-family: inherit; cursor: pointer; font-weight: 600; transition: all 0.15s;
+  }
+  .btn-primary { background: var(--blue); color: #fff; }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-green { background: var(--green); color: #fff; }
+  .btn-green:hover { background: #047857; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .upload-area {
+    border: 2px dashed var(--gray-300); border-radius: 12px; padding: 40px;
+    text-align: center; cursor: pointer; transition: all 0.15s;
+  }
+  .upload-area:hover { border-color: var(--blue); background: rgba(37,99,235,0.03); }
+  .upload-area input { display: none; }
+  .upload-area p { color: var(--gray-500); font-size: 14px; margin-top: 8px; }
+
+  .field-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 16px; }
+  .field-table th {
+    text-align: left; padding: 10px 12px; background: var(--gray-50);
+    border-bottom: 2px solid var(--gray-200); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500);
+  }
+  .field-table td { padding: 8px 12px; border-bottom: 1px solid var(--gray-100); }
+  .field-table tr:hover { background: rgba(37,99,235,0.03); }
+
+  .field-table select {
+    width: 100%; padding: 6px 8px; font-size: 12px; border-radius: 6px;
+  }
+  .field-table .field-name { font-family: monospace; font-size: 12px; color: var(--blue); }
+  .field-table .field-type {
+    font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    background: var(--gray-100); color: var(--gray-600); display: inline-block;
+  }
+  .page-badge {
+    font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    background: #dbeafe; color: var(--blue); font-weight: 600;
+  }
+
+  .actions { display: flex; gap: 12px; margin-top: 20px; justify-content: flex-end; }
+  .info-row { display: flex; gap: 16px; }
+  .info-row > div { flex: 1; }
+
+  .steps-bar {
+    display: flex; gap: 8px; margin-bottom: 20px; font-size: 13px; color: var(--gray-400);
+  }
+  .steps-bar .active { color: var(--blue); font-weight: 600; }
+  .steps-bar span::after { content: " > "; }
+  .steps-bar span:last-child::after { content: ""; }
+
+  #step2, #step3 { display: none; }
+
+  .toast {
+    position: fixed; bottom: 24px; right: 24px; padding: 14px 20px;
+    border-radius: 10px; font-size: 14px; font-weight: 500;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1); display: none; z-index: 200;
+    background: var(--green); color: #fff;
+  }
+  .toast.show { display: block; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Mapping Tool <span>- AutoFill</span></h1>
+  <a href="/">Back to AutoFill</a>
+</div>
+
+<div class="container">
+  <div class="steps-bar">
+    <span id="stepLabel1" class="active">1. Upload PDF</span>
+    <span id="stepLabel2">2. Map Fields</span>
+    <span id="stepLabel3">3. Save</span>
+  </div>
+
+  <!-- Step 1: Upload -->
+  <div id="step1">
+    <div class="card">
+      <h2>Upload a PDF Form</h2>
+      <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+        <svg width="40" height="40" viewBox="0 0 16 16" fill="#94a3b8"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/></svg>
+        <p>Click to upload a PDF form or drag and drop</p>
+        <input type="file" id="fileInput" accept=".pdf" onchange="uploadFile(this)">
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Map Fields -->
+  <div id="step2">
+    <div class="card">
+      <h2>Form Details</h2>
+      <div class="info-row">
+        <div>
+          <label>Provider</label>
+          <input type="text" id="provider" placeholder="e.g. Aviva, Zurich, Irish Life">
+        </div>
+        <div>
+          <label>Product</label>
+          <input type="text" id="product" placeholder="e.g. PRSA, Protection, Master Trust">
+        </div>
+      </div>
+      <label>Form Name</label>
+      <input type="text" id="formName" placeholder="e.g. Aviva PRSA Application Form">
+      <p style="margin-top:12px;color:var(--gray-400);font-size:12px">
+        PDF: <strong id="pdfInfo"></strong>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Field Mapping <span id="fieldCount" style="font-weight:400;color:var(--gray-400);font-size:13px"></span></h2>
+      <p style="color:var(--gray-500);font-size:13px;margin-bottom:12px">
+        For each PDF field, select which CRM contact field should fill it. Leave as "-- Not mapped --" for fields the broker fills manually.
+      </p>
+      <table class="field-table">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>PDF Field Name</th>
+            <th>Type</th>
+            <th>CRM Field</th>
+          </tr>
+        </thead>
+        <tbody id="fieldTableBody"></tbody>
+      </table>
+
+      <div class="actions">
+        <button class="btn btn-green" onclick="saveMapping()">Save Mapping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const CRM_FIELDS = [
+  {value: "", label: "-- Not mapped --"},
+  {value: "title", label: "Title (Mr/Mrs/Ms)"},
+  {value: "first_name", label: "First Name"},
+  {value: "last_name", label: "Last Name"},
+  {value: "full_name", label: "Full Name"},
+  {value: "birthday", label: "Date of Birth"},
+  {value: "pps_1", label: "PPS Number"},
+  {value: "email", label: "Email"},
+  {value: "phone_mobile", label: "Mobile Phone"},
+  {value: "phone_home", label: "Home Phone"},
+  {value: "phone_work", label: "Work Phone"},
+  {value: "address_line1", label: "Address Line 1"},
+  {value: "address_city", label: "Address City"},
+  {value: "address_state", label: "Address County"},
+  {value: "address_postcode", label: "Eircode"},
+  {value: "address_work_line1", label: "Work Address Line 1"},
+  {value: "address_work_city", label: "Work Address City"},
+  {value: "address_work_state", label: "Work Address County"},
+  {value: "address_work_postcode", label: "Work Eircode"},
+  {value: "address_work_full", label: "Work Address (full)"},
+  {value: "company_name", label: "Employer Name"},
+  {value: "job_title", label: "Occupation"},
+  {value: "salary", label: "Salary"},
+  {value: "gender", label: "Gender"},
+  {value: "status", label: "Marital Status"},
+  {value: "nationality", label: "Nationality"},
+  {value: "country_of_residence", label: "Country of Residence"},
+  {value: "employer_tax_number", label: "Employer Tax Number"},
+  {value: "start_date_for_current_employment", label: "Employment Start Date"},
+  {value: "smoker", label: "Smoker (Yes/No)"},
+];
+
+let uploadedFilename = '';
+let uploadedFields = [];
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function setStep(n) {
+  document.getElementById('step1').style.display = n === 1 ? '' : 'none';
+  document.getElementById('step2').style.display = n === 2 ? '' : 'none';
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('stepLabel' + i).className = i === n ? 'active' : '';
+  }
+}
+
+function uploadFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append('file', file);
+
+  document.querySelector('.upload-area p').textContent = 'Uploading and analyzing...';
+
+  fetch('/api/mapping-tool/upload', { method: 'POST', body: formData })
+    .then(r => r.json())
+    .then(data => {
+      uploadedFilename = data.filename;
+      uploadedFields = data.fields;
+
+      document.getElementById('pdfInfo').textContent =
+        data.filename + ' (' + data.pages + ' pages, ' + data.fields.length + ' fields)';
+      document.getElementById('fieldCount').textContent =
+        '(' + data.fields.length + ' fields)';
+
+      // Auto-fill provider from filename
+      const fn = data.filename.toLowerCase();
+      if (fn.includes('aviva')) document.getElementById('provider').value = 'Aviva';
+      else if (fn.includes('zurich')) document.getElementById('provider').value = 'Zurich';
+      else if (fn.includes('irish') || fn.includes(' il ') || fn.includes('il-')) document.getElementById('provider').value = 'Irish Life';
+      else if (fn.includes('standard') || fn.includes('synergy')) document.getElementById('provider').value = 'Standard Life';
+
+      renderFieldTable(data.fields);
+      setStep(2);
+    })
+    .catch(e => {
+      document.querySelector('.upload-area p').textContent = 'Upload failed: ' + e;
+    });
+}
+
+function renderFieldTable(fields) {
+  const tbody = document.getElementById('fieldTableBody');
+  tbody.innerHTML = '';
+
+  fields.forEach((f, i) => {
+    if (f.name.startsWith('(child of')) return; // Skip radio children
+    const tr = document.createElement('tr');
+
+    const optionsHtml = CRM_FIELDS.map(c =>
+      '<option value="' + c.value + '">' + c.label + '</option>'
+    ).join('');
+
+    // Try to auto-match by field name
+    let autoMatch = '';
+    const nameLower = f.name.toLowerCase();
+    if (nameLower.includes('first name') || nameLower.includes('forename')) autoMatch = 'first_name';
+    else if (nameLower.includes('surname') || nameLower === 'last name') autoMatch = 'last_name';
+    else if (nameLower.includes('title')) autoMatch = 'title';
+    else if (nameLower.includes('date of birth') || nameLower.includes('dob')) autoMatch = 'birthday';
+    else if (nameLower.includes('pps') || nameLower.includes('public service')) autoMatch = 'pps_1';
+    else if (nameLower.includes('email')) autoMatch = 'email';
+    else if (nameLower.includes('mobile')) autoMatch = 'phone_mobile';
+    else if (nameLower.includes('home') && nameLower.includes('phone') || nameLower === 'home number') autoMatch = 'phone_home';
+    else if (nameLower.includes('occupation')) autoMatch = 'job_title';
+    else if (nameLower.includes('salary') || nameLower.includes('income') || nameLower.includes('earning')) autoMatch = 'salary';
+    else if (nameLower.includes('eircode')) autoMatch = 'address_postcode';
+    else if (nameLower.includes('address') && nameLower.includes('1')) autoMatch = 'address_line1';
+    else if (nameLower.includes('address') && nameLower.includes('2')) autoMatch = 'address_city';
+    else if (nameLower.includes('address') && nameLower.includes('3')) autoMatch = 'address_state';
+    else if (nameLower.includes('employer') && nameLower.includes('name')) autoMatch = 'company_name';
+    else if (nameLower.includes('employer') && nameLower.includes('tax')) autoMatch = 'employer_tax_number';
+
+    tr.innerHTML =
+      '<td><span class="page-badge">' + f.page + '</span></td>' +
+      '<td><span class="field-name">' + escapeHtml(f.name) + '</span>' +
+        (f.max_len ? ' <span style="color:var(--gray-400);font-size:11px">(max ' + f.max_len + ')</span>' : '') +
+      '</td>' +
+      '<td><span class="field-type">' + (f.type || 'widget') + '</span></td>' +
+      '<td><select data-field="' + escapeHtml(f.name) + '" data-idx="' + i + '">' + optionsHtml + '</select></td>';
+
+    tbody.appendChild(tr);
+
+    if (autoMatch) {
+      tr.querySelector('select').value = autoMatch;
+    }
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function saveMapping() {
+  const provider = document.getElementById('provider').value.trim();
+  const product = document.getElementById('product').value.trim();
+  const formName = document.getElementById('formName').value.trim();
+
+  if (!provider || !product || !formName) {
+    alert('Please fill in Provider, Product, and Form Name');
+    return;
+  }
+
+  // Build field_map from the table
+  const fieldMap = {};
+  document.querySelectorAll('#fieldTableBody select').forEach(sel => {
+    const fieldName = sel.dataset.field;
+    const crmField = sel.value || null;
+    const idx = parseInt(sel.dataset.idx);
+    const f = uploadedFields[idx];
+
+    fieldMap[fieldName] = {
+      label: fieldName,
+      crm_field: crmField || null
+    };
+  });
+
+  const formData = new FormData();
+  formData.append('filename', uploadedFilename);
+  formData.append('form_name', formName);
+  formData.append('provider', provider);
+  formData.append('product', product);
+  formData.append('mapping_json', JSON.stringify(fieldMap));
+
+  fetch('/api/mapping-tool/save', { method: 'POST', body: formData })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        showToast('Mapping saved! You can now use this form in AutoFill.');
+      } else {
+        alert('Failed to save: ' + JSON.stringify(data));
+      }
+    })
+    .catch(e => alert('Error: ' + e));
+}
+</script>
+</body>
+</html>

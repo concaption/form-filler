@@ -63,7 +63,8 @@
     },
     "Text Field 512": {
       "label": "Date of Birth",
-      "crm_field": "birthday"
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
     },
     "Check Box 135": {
       "label": "Sex: Male",

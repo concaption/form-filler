@@ -14,7 +14,7 @@ import logging
 from pathlib import Path
 
 import uvicorn
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Query, HTTPException, UploadFile, File, Form
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from sse_starlette.sse import EventSourceResponse
 from pydantic import BaseModel
@@ -173,6 +173,96 @@ async def download(filename: str):
         media_type="application/pdf",
         headers={"Cache-Control": "no-store"},
     )
+
+
+@app.get("/mapping-tool", response_class=HTMLResponse)
+async def mapping_tool():
+    return (TEMPLATES_DIR / "mapping_tool.html").read_text()
+
+
+@app.post("/api/mapping-tool/upload")
+async def upload_pdf(file: UploadFile = File(...)):
+    """Upload a PDF and extract all form fields."""
+    from PyPDF2 import PdfReader
+    from PyPDF2.generic import ArrayObject
+    import shutil
+
+    # Save to pdfs/
+    from config import PDFS_DIR
+    dest = PDFS_DIR / file.filename
+    with open(dest, "wb") as f:
+        shutil.copyfileobj(file.file, f)
+
+    # Extract fields
+    reader = PdfReader(str(dest))
+    fields = []
+    for page_idx, page in enumerate(reader.pages):
+        annots = page.get("/Annots")
+        if not annots:
+            continue
+        annot_list = annots if isinstance(annots, ArrayObject) else annots.get_object()
+        for ref in annot_list:
+            annot = ref.get_object()
+            name = str(annot.get("/T", ""))
+            ftype = str(annot.get("/FT", ""))
+            rect = annot.get("/Rect")
+            y = float(rect[1]) if rect else 0
+            x = float(rect[0]) if rect else 0
+            max_len = annot.get("/MaxLen")
+            # Check for parent (radio group child)
+            parent = annot.get("/Parent")
+            parent_name = ""
+            if parent:
+                p = parent.get_object()
+                parent_name = str(p.get("/T", ""))
+            if name or parent_name:
+                fields.append({
+                    "name": name or f"(child of {parent_name})",
+                    "type": ftype.replace("/", ""),
+                    "page": page_idx + 1,
+                    "x": round(x, 1),
+                    "y": round(y, 1),
+                    "max_len": int(max_len) if max_len else None,
+                    "parent": parent_name,
+                })
+
+    return {
+        "filename": file.filename,
+        "pages": len(reader.pages),
+        "fields": sorted(fields, key=lambda f: (f["page"], -f["y"], f["x"])),
+    }
+
+
+@app.post("/api/mapping-tool/save")
+async def save_mapping(
+    filename: str = Form(...),
+    form_name: str = Form(...),
+    provider: str = Form(...),
+    product: str = Form(...),
+    mapping_json: str = Form(...),
+):
+    """Save a field mapping JSON file."""
+    from config import MAPPINGS_DIR
+    import re
+
+    # Generate a safe mapping filename
+    safe = re.sub(r'[^a-z0-9]+', '_', provider.lower() + "_" + product.lower()).strip('_')
+    mapping_path = MAPPINGS_DIR / f"{safe}.json"
+
+    field_map = json.loads(mapping_json)
+    data = {
+        "form_name": form_name,
+        "pdf_file": filename,
+        "provider": provider,
+        "product": product,
+        "field_map": field_map,
+    }
+
+    with open(mapping_path, "w") as f:
+        json.dump(data, f, indent=2)
+        f.write("\n")
+
+    return {"ok": True, "path": str(mapping_path)}
 
 
 if __name__ == "__main__":

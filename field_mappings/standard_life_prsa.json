@@ -22,12 +22,24 @@
     "Member's home address 3": {"label": "Address Line 3", "crm_field": "address_state"},
     "Member's home address 4": {"label": "Address Line 4", "crm_field": null},
     "Member's eircode 1": {"label": "Eircode", "crm_field": "address_postcode"},
-    "Date of birth (DD/MM/YYYY)": {"label": "Date of Birth (DD/MM/YYYY)", "crm_field": "birthday"},
-    "Home number": {"label": "Home Phone Number", "crm_field": "phone_home"},
+    "Date of birth (DD/MM/YYYY)": {"label": "Date of Birth (DDMMYYYY)", "crm_field": "birthday", "transform": "date_ddmmyyyy_noslash"},
+    "Home number": {"label": "Home Phone Number", "crm_field": "phone_home", "transform": "strip_spaces"},
     "Personal Public Service Number": {"label": "PPS Number", "crm_field": "pps_1"},
-    "Mobile number": {"label": "Mobile Phone Number", "crm_field": "phone_mobile"},
+    "Mobile number": {"label": "Mobile Phone Number", "crm_field": "phone_mobile", "transform": "strip_spaces"},
     "Your occupation": {"label": "Occupation", "crm_field": "job_title"},
     "Salary/income": {"label": "Salary / Income", "crm_field": "salary"},
+    "Marital status": {
+      "label": "Marital Status (radio group)",
+      "crm_field": "status",
+      "radio_group": true,
+      "radio_options": {
+        "Choice1": ["Single"],
+        "Choice2": ["Married", "Civil Partner"],
+        "Choice3": ["Separated"],
+        "Choice4": ["Divorced"],
+        "Choice5": ["Widowed"]
+      }
+    },
     "already vested": {"label": "Already Vested Checkbox", "crm_field": null},
     "Retire Age": {"label": "Chosen Retirement Age", "crm_field": null},
 
