@@ -200,19 +200,19 @@ class AutoFillApp(ctk.CTk):
 
         # Details card
         self.details_card = ctk.CTkFrame(right, fg_color=WHITE, corner_radius=12, border_width=1, border_color=GRAY_200)
-        self.details_card.pack(fill="x")
+        self.details_card.pack(fill="both", expand=True)
 
-        details_inner = ctk.CTkFrame(self.details_card, fg_color="transparent")
-        details_inner.pack(fill="x", padx=16, pady=16)
+        details_header = ctk.CTkFrame(self.details_card, fg_color="transparent")
+        details_header.pack(fill="x", padx=16, pady=(16, 8))
 
         self.details_title = ctk.CTkLabel(
-            details_inner, text="Client Details",
+            details_header, text="Client Details",
             font=ctk.CTkFont(size=15, weight="bold"), text_color=GRAY_800,
         )
-        self.details_title.pack(anchor="w")
+        self.details_title.pack(side="left")
 
-        self.details_content = ctk.CTkFrame(details_inner, fg_color="transparent")
-        self.details_content.pack(fill="x", pady=(10, 0))
+        self.details_content = ctk.CTkScrollableFrame(self.details_card, fg_color="transparent")
+        self.details_content.pack(fill="both", expand=True, padx=8, pady=(0, 8))
 
         self.no_selection_label = ctk.CTkLabel(
             self.details_content,
@@ -220,6 +220,8 @@ class AutoFillApp(ctk.CTk):
             font=ctk.CTkFont(size=13), text_color=GRAY_400,
         )
         self.no_selection_label.pack(pady=20)
+
+        self.detail_vars = {}  # key -> StringVar for editable fields
 
         # Form select card
         form_card = ctk.CTkFrame(right, fg_color=WHITE, corner_radius=12, border_width=1, border_color=GRAY_200)
@@ -451,37 +453,60 @@ class AutoFillApp(ctk.CTk):
     def _show_details(self, contact):
         for widget in self.details_content.winfo_children():
             widget.destroy()
+        self.detail_vars = {}
 
         self.details_title.configure(text=contact.get("full_name", "Client Details"))
 
-        fields = [
-            ("Date of Birth", "date_of_birth"), ("PPS Number", "pps_number"),
-            ("Email", "email"), ("Phone", "phone"),
-            ("Address", "address_full"), ("Occupation", "occupation"),
-            ("Employer", "employer_name"), ("Marital Status", "marital_status"),
-            ("Employment", "employment_type"), ("Nationality", "nationality"),
-            ("Annual Income", "annual_income"), ("Retirement Age", "normal_retirement_age"),
-            ("IBAN", "iban"), ("BIC", "bic"),
+        # Show key fields first, then all remaining non-empty fields
+        priority_fields = [
+            ("Title", "title"), ("First Name", "first_name"), ("Last Name", "last_name"),
+            ("Date of Birth", "birthday"), ("PPS Number", "pps_1"),
+            ("Email", "email"), ("Mobile", "phone_mobile"),
+            ("Home Phone", "phone_home"), ("Work Phone", "phone_work"),
+            ("Address", "address_line1"), ("City", "address_city"),
+            ("County", "address_state"), ("Eircode", "address_postcode"),
+            ("Employer", "company_name"), ("Occupation", "job_title"),
+            ("Salary", "salary"), ("Marital Status", "status"),
+            ("Gender", "gender"), ("Nationality", "nationality"),
+            ("Country", "country_of_residence"),
+            ("Employer Tax No", "employer_tax_number"),
+            ("Employment Start", "start_date_for_current_employment"),
+            ("Smoker", "smoker"),
         ]
+        shown_keys = set()
 
-        for label, key in fields:
+        for label, key in priority_fields:
             val = contact.get(key, "")
             if not val:
                 continue
+            self._add_detail_row(label, key, str(val))
+            shown_keys.add(key)
 
-            row = ctk.CTkFrame(self.details_content, fg_color=GRAY_50, corner_radius=6, height=38)
-            row.pack(fill="x", pady=1)
-            row.pack_propagate(False)
+        # Show remaining non-empty fields
+        skip = {"id", "full_name", "data"}
+        for key, val in sorted(contact.items()):
+            if key in shown_keys or key in skip or not val:
+                continue
+            label = key.replace("_", " ").title()
+            self._add_detail_row(label, key, str(val))
 
-            ctk.CTkLabel(
-                row, text=label.upper(), font=ctk.CTkFont(size=10),
-                text_color=GRAY_400, width=100, anchor="w",
-            ).pack(side="left", padx=(10, 4), pady=4)
+    def _add_detail_row(self, label, key, value):
+        row = ctk.CTkFrame(self.details_content, fg_color=GRAY_50, corner_radius=6)
+        row.pack(fill="x", pady=1)
 
-            ctk.CTkLabel(
-                row, text=str(val), font=ctk.CTkFont(size=12, weight="bold"),
-                text_color=GRAY_800, anchor="w",
-            ).pack(side="left", fill="x", expand=True, padx=(0, 10))
+        ctk.CTkLabel(
+            row, text=label.upper(), font=ctk.CTkFont(size=9),
+            text_color=GRAY_400, width=90, anchor="w",
+        ).pack(side="left", padx=(8, 4), pady=4)
+
+        var = ctk.StringVar(value=value)
+        self.detail_vars[key] = var
+        entry = ctk.CTkEntry(
+            row, textvariable=var, height=28,
+            font=ctk.CTkFont(size=12), border_width=1,
+            border_color=GRAY_200, fg_color=WHITE,
+        )
+        entry.pack(side="left", fill="x", expand=True, padx=(0, 8), pady=3)
 
     # ──────────────────────────────────────────
     # Forms
@@ -530,11 +555,20 @@ class AutoFillApp(ctk.CTk):
         self.generate_btn.configure(state="disabled", text="Generating...")
         self._set_status("Filling form...", BLUE)
 
+        # Capture edited values from the detail entries
+        edited_contact = dict(self.selected_contact)
+        for key, var in self.detail_vars.items():
+            edited_contact[key] = var.get()
+
         def do_fill():
             try:
-                contact = get_contact_local(self.selected_contact["id"])
+                contact = get_contact_local(edited_contact["id"])
                 if not contact:
-                    contact = self.selected_contact
+                    contact = dict(edited_contact)
+                else:
+                    # Overlay any edits on top of the full contact data
+                    for key, var in self.detail_vars.items():
+                        contact[key] = edited_contact[key]
                 output_path = fill_form(mapping_file, contact)
                 self.after(0, lambda: self._on_fill_done(output_path))
             except Exception as e:

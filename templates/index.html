@@ -856,30 +856,60 @@ function selectContact(idx) {
 
   const grid = document.getElementById('detailsGrid');
   grid.innerHTML = '';
-  const fields = [
-    ['Full Name', 'full_name'], ['Title', 'title'], ['Date of Birth', 'date_of_birth'],
-    ['PPS Number', 'pps_number'], ['Email', 'email'], ['Mobile', 'phone_mobile'],
-    ['Phone', 'phone'], ['Address', 'address_full'],
-    ['Occupation', 'occupation'], ['Job Title', 'job_title'],
-    ['Employer', 'employer_name'], ['Marital Status', 'marital_status'],
-    ['Employment Type', 'employment_type'], ['Annual Income', 'annual_income'],
-    ['Retirement Age', 'normal_retirement_age'], ['Nationality', 'nationality'],
-    ['IBAN', 'iban'], ['BIC', 'bic']
+  const priorityFields = [
+    ['Title', 'title'], ['First Name', 'first_name'], ['Last Name', 'last_name'],
+    ['Date of Birth', 'birthday'], ['PPS Number', 'pps_1'],
+    ['Email', 'email'], ['Mobile', 'phone_mobile'],
+    ['Home Phone', 'phone_home'], ['Work Phone', 'phone_work'],
+    ['Address', 'address_line1'], ['City', 'address_city'],
+    ['County', 'address_state'], ['Eircode', 'address_postcode'],
+    ['Employer', 'company_name'], ['Occupation', 'job_title'],
+    ['Salary', 'salary'], ['Marital Status', 'status'],
+    ['Gender', 'gender'], ['Nationality', 'nationality'],
+    ['Country', 'country_of_residence'],
+    ['Employer Tax No', 'employer_tax_number'],
+    ['Employment Start', 'start_date_for_current_employment'],
+    ['Smoker', 'smoker'],
   ];
-  fields.forEach(([label, key]) => {
+  const shownKeys = new Set(['id', 'full_name', 'data']);
+  priorityFields.forEach(([label, key]) => {
     const val = selectedContact[key] || '';
-    if (val) {
-      const item = document.createElement('div');
-      item.className = 'detail-item';
-      item.innerHTML = '<div class="detail-label">' + escapeHtml(label) + '</div>' +
-                       '<div class="detail-value">' + escapeHtml(String(val)) + '</div>';
-      grid.appendChild(item);
-    }
+    shownKeys.add(key);
+    if (val) addDetailRow(grid, label, key, String(val));
+  });
+  // Show remaining non-empty fields
+  Object.keys(selectedContact).sort().forEach(key => {
+    if (shownKeys.has(key)) return;
+    const val = selectedContact[key];
+    if (!val) return;
+    const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    addDetailRow(grid, label, key, String(val));
   });
 
   document.getElementById('detailsCard').style.display = '';
   document.getElementById('formsCard').style.display = '';
   updateSteps(2);
+}
+
+function addDetailRow(grid, label, key, value) {
+  const item = document.createElement('div');
+  item.className = 'detail-item';
+  item.innerHTML = '<div class="detail-label">' + escapeHtml(label) + '</div>' +
+    '<input type="text" class="detail-edit" data-key="' + escapeHtml(key) + '" value="' +
+    escapeHtml(value).replace(/"/g, '&quot;') + '" ' +
+    'style="font-size:13px;font-weight:500;color:var(--gray-800);border:1px solid var(--gray-200);' +
+    'border-radius:6px;padding:4px 8px;width:100%;font-family:inherit;outline:none;background:transparent"' +
+    ' onfocus="this.style.borderColor=\'var(--blue)\';this.style.background=\'#fff\'"' +
+    ' onblur="this.style.borderColor=\'var(--gray-200)\';this.style.background=\'transparent\'">';
+  grid.appendChild(item);
+}
+
+function getEditedContact() {
+  const contact = Object.assign({}, selectedContact);
+  document.querySelectorAll('.detail-edit').forEach(input => {
+    contact[input.dataset.key] = input.value;
+  });
+  return contact;
 }
 
 function openSettings() {
@@ -937,7 +967,7 @@ function fillAndSave() {
   fetch('/api/generate', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ contact_id: selectedContact.id, form: mappingFile })
+    body: JSON.stringify({ contact_id: selectedContact.id, form: mappingFile, edits: getEditedContact() })
   })
   .then(r => r.json())
   .then(data => {

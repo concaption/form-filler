@@ -44,6 +44,7 @@ TEMPLATE_PATH = TEMPLATES_DIR / "index.html"
 class GenerateRequest(BaseModel):
     contact_id: str
     form: str
+    edits: dict = None
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -153,6 +154,10 @@ async def api_generate(req: GenerateRequest):
     contact = get_contact_local(req.contact_id)
     if not contact:
         contact = get_contact(req.contact_id)
+
+    # Apply any inline edits from the UI
+    if req.edits:
+        contact.update(req.edits)
 
     try:
         output_path = fill_form(req.form, contact)

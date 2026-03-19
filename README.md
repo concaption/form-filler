@@ -1,30 +1,25 @@
 # AutoFill - YourFinance.ie
 
-Desktop application that auto-fills PDF application forms using contact data from OnePageCRM.
+Desktop and web application that auto-fills PDF application forms using contact data from OnePageCRM.
 
-## What it does
+## Features
 
-1. Syncs contacts from OnePageCRM (8,000+)
-2. Search for a contact by name
-3. Select a form template (Aviva, Zurich, Irish Life)
-4. Download a pre-filled PDF with client details populated
+- Sync 8,000+ contacts from OnePageCRM with real-time progress
+- Search and select contacts, review and edit details before filling
+- Fill PDF forms with one click across 13 supported templates
+- Save As dialog to choose output location
+- Built-in Mapping Tool to add new PDF forms without code
+- Settings UI to update CRM credentials
+- Windows `.exe` build via GitHub Actions
 
 ## Supported Forms
 
-| Provider | Form | Product |
-|----------|------|---------|
-| Aviva | PRSA Application | PRSA |
-| Aviva | Master Trust Employee | Master Trust |
-| Aviva | Master Trust Employer | Master Trust |
-| Aviva | Retail Master Trust | Retail Master Trust |
-| Aviva | Multi-Product Application | Multi-Product |
-| Irish Life | PRSA Application | PRSA |
-| Irish Life | PRSA Transfer-In (Brokerage) | PRSA |
-| Irish Life | Protection Application | Protection |
-| Irish Life | Retail Master Trust CS2 | Retail Master Trust |
-| Zurich | PRSA Application | PRSA |
-| Zurich | Protection Application | Protection |
-| Zurich | Master Trust Executive Pension | Master Trust |
+| Provider | Product |
+|----------|---------|
+| Aviva | PRSA, Master Trust Employee, Master Trust Employer, Retail Master Trust, Multi-Product |
+| Irish Life | PRSA, PRSA Transfer-In (Brokerage), Protection, Retail Master Trust CS2 |
+| Zurich | PRSA, Protection, Master Trust Executive Pension |
+| Standard Life | Synergy PRSA |
 
 ## Setup
 
@@ -41,7 +36,7 @@ pip install -r requirements.txt
 
 ### Configure
 
-Create a `.env` file:
+Create a `.env` file (or use the Settings button in the app):
 
 ```
 USER_ID=your_onepagecrm_user_id
@@ -50,7 +45,13 @@ API_KEY=your_onepagecrm_api_key
 
 ### Run
 
-**Web app (development):**
+**Desktop app:**
+
+```bash
+python app.py
+```
+
+**Web app:**
 
 ```bash
 python web_app.py
@@ -58,67 +59,67 @@ python web_app.py
 
 Opens at http://localhost:8080
 
-**Desktop app (Windows .exe):**
+**Windows .exe:**
+
+Download from [Releases](../../releases/latest), or build locally:
 
 ```bash
 python build.py
 ```
 
-Produces `dist/AutoFill.exe`. On first launch it creates an `AutoFill_Data` folder next to itself containing editable PDFs and field mappings.
+On first launch, `AutoFill.exe` creates an `AutoFill_Data` folder next to itself containing editable PDFs and field mappings.
 
-## Project Structure
+## Adding New Forms
 
-```
-app.py                  # Desktop app (CustomTkinter)
-web_app.py              # Web app (FastAPI)
-crm_client.py           # OnePageCRM API client
-pdf_filler.py           # PDF form filling engine (PyPDF2)
-db.py                   # SQLite local contact cache
-config.py               # Path configuration
-build.py                # PyInstaller build script
-pdfs/                   # Source PDF form templates
-field_mappings/         # JSON field mapping configs
-templates/              # HTML UI template
-output/                 # Generated filled PDFs
-```
+### Using the Mapping Tool (recommended)
 
-## Field Mappings
+1. Click **Mapping Tool** in the app header
+2. Browse and select the PDF form
+3. Click **Open Field Map PDF** to see field names overlaid on the form
+4. Map each PDF field to a CRM field using the dropdown
+5. Fill in Provider, Product, and Form Name
+6. Click **Save Mapping**
 
-Each form has a JSON mapping file in `field_mappings/` that maps PDF field names to CRM contact fields. Example:
+The new form appears in the dropdown immediately.
+
+### Manual mapping
+
+1. Place the PDF in `pdfs/`
+2. Run `python generate_field_maps.py` to create an annotated reference PDF
+3. Create a JSON file in `field_mappings/`:
 
 ```json
 {
-  "form_name": "Aviva PRSA Application Form",
-  "pdf_file": "Aviva-PRSA-Application-Form.pdf",
+  "form_name": "Provider Product Application",
+  "pdf_file": "form-filename.pdf",
+  "provider": "Provider",
+  "product": "Product",
   "field_map": {
-    "Text Field 255": {
-      "label": "First Name",
-      "crm_field": "first_name"
-    },
-    "Check Box 90": {
-      "label": "Title: Mr",
-      "crm_field": "title",
-      "match_value": "Mr"
-    },
-    "Text Field 200": {
-      "label": "DOB Day",
-      "crm_field": "birthday",
-      "transform": "day"
+    "PDF Field Name": {
+      "label": "Human-readable label",
+      "crm_field": "crm_field_name"
     }
   }
 }
 ```
 
-- `crm_field`: CRM contact field name (`null` for broker-filled fields)
-- `match_value`: For checkboxes, checks the box when the CRM value matches
-- `transform`: Extract `day`, `month`, or `year` from a date field
+## Field Mapping Options
+
+| Option | Description | Example |
+|--------|-------------|---------|
+| `crm_field` | CRM field name, or `null` for manual fields | `"first_name"` |
+| `match_value` | For checkboxes: check when CRM value matches | `"Mr"` |
+| `transform` | Transform the value before filling | `"day"`, `"month"`, `"year"` |
+| | | `"date_ddmmyyyy"`, `"date_ddmmyyyy_noslash"` |
+| | | `"email_prefix"`, `"email_domain"` |
+| | | `"strip_spaces"` |
+| `radio_group` | Mark as radio button group with child widgets | `true` |
+| `radio_options` | Map radio choices to CRM values | `{"Choice1": ["Single"]}` |
 
 ## CRM Fields
 
-Contact data pulled from OnePageCRM:
-
-| CRM Field | Description |
-|-----------|-------------|
+| Field | Description |
+|-------|-------------|
 | `first_name`, `last_name`, `full_name` | Name |
 | `title` | Mr / Mrs / Ms |
 | `birthday` | Date of birth (YYYY-MM-DD) |
@@ -137,13 +138,30 @@ Contact data pulled from OnePageCRM:
 | `start_date_for_current_employment` | Employment start date |
 | `smoker` | Yes / No |
 
+## Project Structure
+
+```
+app.py                  # Desktop app (CustomTkinter)
+web_app.py              # Web app (FastAPI)
+crm_client.py           # OnePageCRM API client
+pdf_filler.py           # PDF form filling engine (PyPDF2)
+db.py                   # SQLite local contact cache
+config.py               # Path configuration
+build.py                # PyInstaller build script
+generate_field_maps.py  # Annotated PDF generator for field identification
+pdfs/                   # Source PDF form templates
+field_mappings/         # JSON field mapping configs
+templates/              # HTML UI templates
+output/                 # Generated filled PDFs
+```
+
 ## CI/CD
 
 GitHub Actions builds a Windows `.exe` on every push to `main`. Tagged releases (`v*`) create a GitHub Release with the `.exe` attached.
 
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+git tag v1.5.0
+git push origin v1.5.0
 ```
 
 Download from [Releases](../../releases/latest).
