@@ -6,10 +6,12 @@ Syncs contacts from OnePageCRM and fills PDF application forms.
 
 import os
 import sys
+import shutil
 import threading
 import subprocess
 from pathlib import Path
 from datetime import datetime
+from tkinter import filedialog
 
 import customtkinter as ctk
 
@@ -533,9 +535,24 @@ class AutoFillApp(ctk.CTk):
     def _on_fill_done(self, output_path):
         self.generate_btn.configure(state="normal", text="Fill & Download")
         filename = Path(output_path).name
-        self._set_status(f"Generated: {filename}", GREEN)
 
-        self.output_label.configure(text=f"Saved: {filename}")
+        # Prompt user to save the file somewhere
+        save_path = filedialog.asksaveasfilename(
+            parent=self,
+            title="Save Filled Form",
+            initialfile=filename,
+            defaultextension=".pdf",
+            filetypes=[("PDF Files", "*.pdf"), ("All Files", "*.*")],
+        )
+
+        if save_path:
+            shutil.copy2(output_path, save_path)
+            self._set_status(f"Saved: {save_path}", GREEN)
+            self.output_label.configure(text=f"Saved: {Path(save_path).name}")
+        else:
+            self._set_status(f"Generated: {filename} (in output folder)", GREEN)
+            self.output_label.configure(text=f"Saved: {filename}")
+
         self.output_card.pack(fill="x", pady=(12, 0))
 
     def _on_fill_error(self, error):
