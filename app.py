@@ -99,23 +99,32 @@ class AutoFillApp(ctk.CTk):
             font=ctk.CTkFont(size=11), text_color=GRAY_400,
         ).pack(anchor="w")
 
-        # Sync area (right side)
-        sync_frame = ctk.CTkFrame(header, fg_color="transparent")
-        sync_frame.pack(side="right", padx=20)
+        # Right side: sync + settings
+        right_frame = ctk.CTkFrame(header, fg_color="transparent")
+        right_frame.pack(side="right", padx=20)
 
         self.sync_label = ctk.CTkLabel(
-            sync_frame, text="", font=ctk.CTkFont(size=12),
+            right_frame, text="", font=ctk.CTkFont(size=12),
             text_color=GRAY_400,
         )
         self.sync_label.pack(side="left", padx=(0, 12))
 
         self.sync_btn = ctk.CTkButton(
-            sync_frame, text="Sync Contacts", width=130, height=32,
+            right_frame, text="Sync Contacts", width=130, height=32,
             font=ctk.CTkFont(size=13, weight="bold"),
             fg_color=NAVY_LIGHT, hover_color="#1e5278",
             command=self._sync_contacts,
         )
         self.sync_btn.pack(side="left")
+
+        settings_btn = ctk.CTkButton(
+            right_frame, text="\u2699", width=34, height=32,
+            font=ctk.CTkFont(size=18),
+            fg_color="transparent", hover_color="#1e5278",
+            text_color=GRAY_400,
+            command=self._open_settings,
+        )
+        settings_btn.pack(side="left", padx=(8, 0))
 
     # ──────────────────────────────────────────
     # Body — two-column layout
@@ -524,6 +533,76 @@ class AutoFillApp(ctk.CTk):
     def _on_fill_error(self, error):
         self.generate_btn.configure(state="normal", text="Fill & Download")
         self._set_status(f"Error: {error}", "#dc2626")
+
+    # ──────────────────────────────────────────
+    # Settings dialog
+    # ──────────────────────────────────────────
+    def _open_settings(self):
+        dialog = ctk.CTkToplevel(self)
+        dialog.title("Settings")
+        dialog.geometry("420x260")
+        dialog.resizable(False, False)
+        dialog.transient(self)
+        dialog.grab_set()
+
+        frame = ctk.CTkFrame(dialog, fg_color="transparent")
+        frame.pack(fill="both", expand=True, padx=24, pady=20)
+
+        ctk.CTkLabel(
+            frame, text="OnePageCRM Credentials",
+            font=ctk.CTkFont(size=16, weight="bold"), text_color=GRAY_800,
+        ).pack(anchor="w")
+
+        ctk.CTkLabel(
+            frame, text="USER ID",
+            font=ctk.CTkFont(size=11), text_color=GRAY_500,
+        ).pack(anchor="w", pady=(16, 4))
+
+        user_id_var = ctk.StringVar(value=os.getenv("USER_ID", ""))
+        user_id_entry = ctk.CTkEntry(frame, textvariable=user_id_var, height=36, font=ctk.CTkFont(size=13))
+        user_id_entry.pack(fill="x")
+
+        ctk.CTkLabel(
+            frame, text="API KEY",
+            font=ctk.CTkFont(size=11), text_color=GRAY_500,
+        ).pack(anchor="w", pady=(12, 4))
+
+        api_key_var = ctk.StringVar(value=os.getenv("API_KEY", ""))
+        api_key_entry = ctk.CTkEntry(frame, textvariable=api_key_var, show="*", height=36, font=ctk.CTkFont(size=13))
+        api_key_entry.pack(fill="x")
+
+        btn_frame = ctk.CTkFrame(frame, fg_color="transparent")
+        btn_frame.pack(fill="x", pady=(20, 0))
+
+        def save():
+            uid = user_id_var.get().strip()
+            key = api_key_var.get().strip()
+            if not uid or not key:
+                self._set_status("Both fields are required", "#dc2626")
+                return
+            env_path = Path(__file__).parent / ".env"
+            env_path.write_text(f"API_KEY={key}\nUSER_ID={uid}\n")
+            import crm_client
+            crm_client.USER_ID = uid
+            crm_client.API_KEY = key
+            os.environ["USER_ID"] = uid
+            os.environ["API_KEY"] = key
+            self._set_status("Settings saved", GREEN)
+            dialog.destroy()
+
+        ctk.CTkButton(
+            btn_frame, text="Cancel", width=80, height=34,
+            font=ctk.CTkFont(size=13), fg_color=GRAY_200,
+            hover_color=GRAY_400, text_color=GRAY_700,
+            command=dialog.destroy,
+        ).pack(side="right", padx=(8, 0))
+
+        ctk.CTkButton(
+            btn_frame, text="Save", width=80, height=34,
+            font=ctk.CTkFont(size=13, weight="bold"),
+            fg_color=BLUE, hover_color="#1d4ed8",
+            command=save,
+        ).pack(side="right")
 
     def _open_output_folder(self):
         OUTPUT_DIR.mkdir(exist_ok=True)
