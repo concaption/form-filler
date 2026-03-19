@@ -2,7 +2,7 @@
   "form_name": "Irish Life PRSA Application (Transfer-In / Brokerage)",
   "pdf_file": "IL -prsa-application-tv-in-form-brokerage.pdf",
   "provider": "Irish Life",
-  "product": "PRSA",
+  "product": "PRSA (Transfer-In / Brokerage)",
   "notes": "Transfer-in version of IL PRSA form (17 pages). Shares same field names as IL PRSA for personal details but page numbers shift by +1 (cover page added). Additional transfer pages at page 8 and fund selection grids at pages 13-14.",
   "field_map": {
     "__comment_page2": "=== PAGE 2: Broker / Product Type (same fields as IL PRSA Page 1) ===",
