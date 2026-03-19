@@ -7,8 +7,9 @@
   "field_map": {
     "__comment_page1": "=== PAGE 1: Checklist + Financial Adviser ===",
     "Financial adviser agency code": {
-      "label": "Financial Adviser Agency Code",
-      "crm_field": null
+      "label": "Financial Adviser Agency Code (after 9/)",
+      "crm_field": null,
+      "static_value": "J501"
     },
     "Financial adviser company name": {
       "label": "Financial Adviser Company Name",
@@ -679,20 +680,23 @@
     },
     "Financial advisers name": {
       "label": "Financial Adviser Name",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "Financial advisers company name BLOCK CAPITALS Position held": {
-      "label": "Financial Adviser Company / Position",
+      "label": "Financial Adviser Company (BLOCK CAPITALS)",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "static_value": "YOUR FINANCE"
     },
     "Position Held": {
       "label": "Position Held",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Director"
     },
     "to this application email me at": {
       "label": "Adviser Email for Queries",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "fergal@yourfinance.ie"
     },
     "Special instructions andor additional information": {
       "label": "Special Instructions",

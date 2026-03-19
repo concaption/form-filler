@@ -265,50 +265,47 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
                 fields_written += 1
                 logger.debug("  WROTE checkbox [page %d] %r = %s", page_idx + 1, field_name, checkbox_updates[field_name])
 
-    # Handle radio button groups (parent field with /Kids)
+    # Handle radio button groups via AcroForm (parent/child fields lose /Parent on copy)
     radio_updates = {k: v for k, v in field_map.items()
                      if not k.startswith("__") and isinstance(v, dict)
                      and v.get("radio_group")}
-    if radio_updates:
-        for page_idx, page in enumerate(writer.pages):
-            annots = page.get("/Annots")
-            if not annots:
+    if radio_updates and "/AcroForm" in writer._root_object:
+        acroform = writer._root_object["/AcroForm"]
+        acro_fields = acroform.get("/Fields", [])
+        for field_ref in acro_fields:
+            field = field_ref.get_object()
+            field_name = str(field.get("/T", ""))
+            if field_name not in radio_updates:
                 continue
-            annot_list = annots if isinstance(annots, ArrayObject) else annots.get_object()
-            for annot_ref in annot_list:
-                annot = annot_ref.get_object()
-                parent_ref = annot.get("/Parent")
-                if not parent_ref:
-                    continue
-                parent = parent_ref.get_object()
-                parent_name = str(parent.get("/T", ""))
-                if parent_name not in radio_updates:
-                    continue
-                config = radio_updates[parent_name]
-                crm_field = config.get("crm_field")
-                if not crm_field:
-                    continue
-                contact_value = str(merged.get(crm_field, "")).strip().lower()
-                options_map = config.get("radio_options", {})
-                selected_choice = None
-                for choice_val, match_vals in options_map.items():
-                    if isinstance(match_vals, str):
-                        match_vals = [match_vals]
-                    if contact_value in [m.lower() for m in match_vals]:
-                        selected_choice = choice_val
-                        break
-                if selected_choice:
-                    ap = annot.get("/AP", {})
-                    n_dict = ap.get("/N", {}) if ap else {}
-                    option_keys = [str(k) for k in n_dict.keys()] if hasattr(n_dict, 'keys') else []
-                    choice_name = NameObject(f"/{selected_choice}")
-                    if choice_name in [NameObject(k) for k in option_keys]:
-                        annot[NameObject("/AS")] = choice_name
-                        parent[NameObject("/V")] = choice_name
-                        fields_written += 1
-                        logger.debug("  WROTE radio [page %d] %r = %s", page_idx + 1, parent_name, selected_choice)
-                    else:
-                        annot[NameObject("/AS")] = NameObject("/Off")
+            config = radio_updates[field_name]
+            crm_field = config.get("crm_field")
+            if not crm_field:
+                continue
+            contact_value = str(merged.get(crm_field, "")).strip().lower()
+            options_map = config.get("radio_options", {})
+            selected_choice = None
+            for choice_val, match_vals in options_map.items():
+                if isinstance(match_vals, str):
+                    match_vals = [match_vals]
+                if contact_value in [m.lower() for m in match_vals]:
+                    selected_choice = choice_val
+                    break
+            if not selected_choice:
+                continue
+            choice_name = NameObject(f"/{selected_choice}")
+            field[NameObject("/V")] = choice_name
+            kids = field.get("/Kids", [])
+            for kid_ref in kids:
+                kid = kid_ref.get_object()
+                ap = kid.get("/AP", {})
+                n_dict = ap.get("/N", {}) if ap else {}
+                option_keys = [str(k) for k in n_dict.keys()] if hasattr(n_dict, 'keys') else []
+                if f"/{selected_choice}" in option_keys:
+                    kid[NameObject("/AS")] = choice_name
+                else:
+                    kid[NameObject("/AS")] = NameObject("/Off")
+            fields_written += 1
+            logger.info("  WROTE radio %r = %s", field_name, selected_choice)
 
     if fields_written == 0:
         logger.warning("NO fields were written to the PDF!")
