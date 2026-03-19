@@ -101,6 +101,38 @@ async def api_sync_stream():
     return EventSourceResponse(generate())
 
 
+@app.get("/api/settings")
+async def api_get_settings():
+    """Return current .env settings (masked API key)."""
+    from dotenv import dotenv_values
+    env_path = Path(__file__).parent / ".env"
+    vals = dotenv_values(env_path) if env_path.exists() else {}
+    api_key = vals.get("API_KEY", "")
+    return {
+        "user_id": vals.get("USER_ID", ""),
+        "api_key": api_key,
+    }
+
+
+class SettingsRequest(BaseModel):
+    user_id: str
+    api_key: str
+
+
+@app.post("/api/settings")
+async def api_save_settings(req: SettingsRequest):
+    """Update .env with new credentials and reload them."""
+    env_path = Path(__file__).parent / ".env"
+    env_path.write_text(f"API_KEY={req.api_key}\nUSER_ID={req.user_id}\n")
+    # Reload into the running process
+    import crm_client
+    crm_client.USER_ID = req.user_id
+    crm_client.API_KEY = req.api_key
+    os.environ["USER_ID"] = req.user_id
+    os.environ["API_KEY"] = req.api_key
+    return {"ok": True}
+
+
 @app.get("/api/contacts/search")
 async def api_search(q: str = Query("")):
     if not q:
