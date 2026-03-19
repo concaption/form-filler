@@ -1,6 +1,6 @@
 {
   "form_name": "Aviva Retail Master Trust Application Form",
-  "pdf_file": "Aviva-Retail-Master-Trust-Application-Form.pdf",
+  "pdf_file": "aviva_retail_master_trust.pdf",
   "provider": "Aviva",
   "product": "Retail Master Trust",
   "notes": "28 pages, 399 fields. Page 1 = checklist/broker, Page 2 = employer details (Section 3) + employee details (Section 4), Page 3 = existing pension benefits, Page 4 = contribution details, Page 5 = transfer details cont'd + fund choice, Page 6 = fund selection grid, Pages 7+ = declarations/signatures/SEPA.",
@@ -32,11 +32,13 @@
     },
     "Text Field 475": {
       "label": "Name of Financial Broker/Company",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully / Your Finance"
     },
     "Text Field 476": {
       "label": "Financial Broker's Email Address",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "fergal@yourfinance.ie"
     },
     "Text Field 477": {
       "label": "Financial Broker's Phone Number",
@@ -1482,7 +1484,8 @@
     },
     "Text Field 221": {
       "label": "SDIO Broker Declaration Name",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "__comment_page25": "=== PAGE 25: Product Details (Section 14 - Broker) ===",
     "__comment_page25_note": "33 fields for product/commission details - all broker-filled, null CRM mapping.",
@@ -1655,5 +1658,6 @@
       "label": "SEPA Location/City",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_aviva_retail_master_trust.pdf"
 }

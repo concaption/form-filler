@@ -1,6 +1,6 @@
 {
   "form_name": "Irish Life Retail Master Trust CS2 Application Form",
-  "pdf_file": "il-retail-master-trust-cs2-application-form (1).pdf",
+  "pdf_file": "irish_life_retail_master_trust.pdf",
   "provider": "Irish Life",
   "product": "Retail Master Trust",
   "notes": "12 pages. Page 1 = financial adviser + employee details (personal info). Page 2 = contact details + employer details + PEP + contributions. Page 3 = bank/SEPA BIC/IBAN + lump sum + fund details. Page 4 = online services. Page 5 = participation agreement. Page 7 = employee/employer declarations. Page 8-9 = revenue details (retained benefits). Page 11 = SEPA mandate.",
@@ -356,7 +356,8 @@
     },
     "Text Field 145": {
       "label": "Financial Adviser Name (Agreement)",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "Text Field 146": {
       "label": "Employer Name (Agreement)",
@@ -622,5 +623,6 @@
       "label": "SEPA Recurrent Payment",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_irish_life_retail_master_trust.pdf"
 }

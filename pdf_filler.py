@@ -224,9 +224,10 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
                              pdf_field_name, config.get("label", ""),
                              config.get("crm_field"))
 
-    # Check for mapped fields that don't exist in the PDF
-    missing_in_pdf = set(text_updates.keys()) | set(checkbox_updates.keys())
-    missing_in_pdf -= pdf_field_names
+    # Check for mapped fields that don't exist in the PDF (exclude radio groups)
+    radio_field_names = {k for k, v in field_map.items()
+                         if isinstance(v, dict) and v.get("radio_group")}
+    missing_in_pdf = (set(text_updates.keys()) | set(checkbox_updates.keys())) - pdf_field_names - radio_field_names
     if missing_in_pdf:
         logger.warning("Mapped fields NOT FOUND in PDF: %s", sorted(missing_in_pdf))
 
@@ -265,47 +266,91 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
                 fields_written += 1
                 logger.debug("  WROTE checkbox [page %d] %r = %s", page_idx + 1, field_name, checkbox_updates[field_name])
 
-    # Handle radio button groups via AcroForm (parent/child fields lose /Parent on copy)
+    # Handle radio button groups by matching writer page annotations to reader AcroForm kids
+    # (append_pages_from_reader creates independent annotation copies, so we match by rect position)
     radio_updates = {k: v for k, v in field_map.items()
                      if not k.startswith("__") and isinstance(v, dict)
                      and v.get("radio_group")}
-    if radio_updates and "/AcroForm" in writer._root_object:
-        acroform = writer._root_object["/AcroForm"]
-        acro_fields = acroform.get("/Fields", [])
-        for field_ref in acro_fields:
-            field = field_ref.get_object()
-            field_name = str(field.get("/T", ""))
-            if field_name not in radio_updates:
-                continue
-            config = radio_updates[field_name]
-            crm_field = config.get("crm_field")
-            if not crm_field:
-                continue
-            contact_value = str(merged.get(crm_field, "")).strip().lower()
-            options_map = config.get("radio_options", {})
-            selected_choice = None
-            for choice_val, match_vals in options_map.items():
-                if isinstance(match_vals, str):
-                    match_vals = [match_vals]
-                if contact_value in [m.lower() for m in match_vals]:
-                    selected_choice = choice_val
-                    break
-            if not selected_choice:
-                continue
-            choice_name = NameObject(f"/{selected_choice}")
-            field[NameObject("/V")] = choice_name
-            kids = field.get("/Kids", [])
-            for kid_ref in kids:
-                kid = kid_ref.get_object()
-                ap = kid.get("/AP", {})
-                n_dict = ap.get("/N", {}) if ap else {}
-                option_keys = [str(k) for k in n_dict.keys()] if hasattr(n_dict, 'keys') else []
-                if f"/{selected_choice}" in option_keys:
-                    kid[NameObject("/AS")] = choice_name
-                else:
-                    kid[NameObject("/AS")] = NameObject("/Off")
-            fields_written += 1
-            logger.info("  WROTE radio %r = %s", field_name, selected_choice)
+    if radio_updates:
+        reader_root = reader.trailer["/Root"].get_object()
+        reader_acroform = reader_root.get("/AcroForm")
+        if reader_acroform:
+            reader_fields = reader_acroform.get_object().get("/Fields", [])
+
+            # Build map: rect_key -> (selected_choice, option_keys_in_kid)
+            rect_to_radio = {}
+            for field_ref in reader_fields:
+                field = field_ref.get_object()
+                field_name = str(field.get("/T", ""))
+                if field_name not in radio_updates:
+                    continue
+                config = radio_updates[field_name]
+                crm_field = config.get("crm_field")
+                if not crm_field:
+                    continue
+                contact_value = str(merged.get(crm_field, "")).strip().lower()
+                options_map = config.get("radio_options", {})
+                selected_choice = None
+                for choice_val, match_vals in options_map.items():
+                    if isinstance(match_vals, str):
+                        match_vals = [match_vals]
+                    if contact_value in [m.lower() for m in match_vals]:
+                        selected_choice = choice_val
+                        break
+                if not selected_choice:
+                    continue
+
+                # Map each kid's rect to its option keys
+                for kid_ref in field.get("/Kids", []):
+                    kid = kid_ref.get_object()
+                    rect = kid.get("/Rect", [0, 0, 0, 0])
+                    rect_key = tuple(round(float(v), 1) for v in rect)
+                    ap = kid.get("/AP", {})
+                    n_dict = ap.get("/N", {}) if ap else {}
+                    option_keys = [str(k) for k in n_dict.keys()] if hasattr(n_dict, 'keys') else []
+                    rect_to_radio[rect_key] = (field_name, selected_choice, option_keys)
+
+            # Now set /AS on matching writer page annotations
+            for page in writer.pages:
+                annots = page.get("/Annots")
+                if not annots:
+                    continue
+                annot_list = annots if isinstance(annots, ArrayObject) else annots.get_object()
+                for annot_ref in annot_list:
+                    annot = annot_ref.get_object()
+                    annot_rect = annot.get("/Rect", [0, 0, 0, 0])
+                    annot_rect_key = tuple(round(float(v), 1) for v in annot_rect)
+                    if annot_rect_key in rect_to_radio:
+                        field_name, selected, option_keys = rect_to_radio[annot_rect_key]
+                        choice_name = NameObject(f"/{selected}")
+                        if f"/{selected}" in option_keys:
+                            annot[NameObject("/AS")] = choice_name
+                        else:
+                            annot[NameObject("/AS")] = NameObject("/Off")
+
+            # Also set /V on AcroForm parent fields (for form data extraction)
+            if "/AcroForm" in writer._root_object:
+                acroform = writer._root_object["/AcroForm"]
+                acro_fields = acroform.get("/Fields", [])
+                for field_ref in acro_fields:
+                    field = field_ref.get_object()
+                    field_name = str(field.get("/T", ""))
+                    if field_name not in radio_updates:
+                        continue
+                    config = radio_updates[field_name]
+                    crm_field = config.get("crm_field")
+                    if not crm_field:
+                        continue
+                    contact_value = str(merged.get(crm_field, "")).strip().lower()
+                    options_map = config.get("radio_options", {})
+                    for choice_val, match_vals in options_map.items():
+                        if isinstance(match_vals, str):
+                            match_vals = [match_vals]
+                        if contact_value in [m.lower() for m in match_vals]:
+                            field[NameObject("/V")] = NameObject(f"/{choice_val}")
+                            fields_written += 1
+                            logger.info("  WROTE radio %r = %s", field_name, choice_val)
+                            break
 
     if fields_written == 0:
         logger.warning("NO fields were written to the PDF!")

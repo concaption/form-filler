@@ -1,6 +1,6 @@
 {
   "form_name": "Aviva PRSA Application Form",
-  "pdf_file": "Aviva-PRSA-Application-Form.pdf",
+  "pdf_file": "aviva_prsa.pdf",
   "provider": "Aviva",
   "product": "PRSA",
   "notes": "Field names are generic (Text Field NNN, Check Box NNN). Mapped by Y/X position on each page. Page 1 = checklist + broker details, Page 2 = contributor details (Section 3) + evidence (Section 4) + employer (Section 5), Page 3 = eligibility details (Section 6), Page 4 = contributions (Section 7) + transfers (Section 8), Page 5 = transfers cont. + default investment (Section 9), Page 6 = fund selection (Section 10), Pages 8-9 = declarations (Section 12).",
@@ -32,11 +32,13 @@
     },
     "Text Field 228": {
       "label": "Name of Financial Broker",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "Text Field 227": {
       "label": "Financial Broker's Email Address",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "fergal@yourfinance.ie"
     },
     "Text Field 226": {
       "label": "Financial Broker's Phone Number",
@@ -1863,5 +1865,6 @@
       "label": "Final Declaration Date Year",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_aviva_prsa.pdf"
 }

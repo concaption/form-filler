@@ -5,7 +5,8 @@ from io import BytesIO
 import os
 from pathlib import Path
 
-PDFS_DIR = Path(__file__).parent / "pdfs"
+SRC_DIR = Path(__file__).parent / "src"
+PDFS_DIR = SRC_DIR / "pdfs"
 
 def create_overlay(page_width, page_height, fields):
     """Create a transparent overlay PDF with field names."""
@@ -69,11 +70,13 @@ def generate_field_map(pdf_path, output_path):
     print(f"  Created: {output_path}")
 
 if __name__ == "__main__":
+    FIELDMAPS_DIR = SRC_DIR / "fieldmaps_pdfs"
+    FIELDMAPS_DIR.mkdir(exist_ok=True)
     print("Generating field map PDFs...")
     for pdf_file in sorted(PDFS_DIR.glob("*.pdf")):
-        if pdf_file.name.startswith("FIELDMAP-") or "FIELD-MAP" in pdf_file.name:
+        if pdf_file.name.startswith("fieldmap_"):
             continue
-        output = PDFS_DIR / f"FIELDMAP-{pdf_file.name}"
+        output = FIELDMAPS_DIR / f"fieldmap_{pdf_file.name}"
         print(f"\nProcessing: {pdf_file.name}")
         try:
             generate_field_map(pdf_file, output)

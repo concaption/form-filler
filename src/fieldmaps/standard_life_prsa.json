@@ -1,6 +1,6 @@
 {
   "form_name": "Standard Life Synergy PRSA Application",
-  "pdf_file": "synergy-personal-retirement-savings-account-application.pdf",
+  "pdf_file": "standard_life_prsa.pdf",
   "provider": "Standard Life",
   "product": "PRSA",
   "notes": "13 pages. Page 1 = checklist + adviser. Page 2 = personal details. Page 3 = contributions + bank + transfer. Page 4 = vested PRSA withdrawals. Page 5 = employer declaration. Page 6 = salary deduction. Page 7 = fund selection. Pages 8-9 = self-directed + PEP. Page 10 = business replacement. Page 11 = adviser declaration. Page 12 = member declaration. Page 13 = SEPA DD mandate.",
@@ -575,7 +575,7 @@
       "label": "Deposit Provider Row 1",
       "crm_field": null
     },
-    "Deposit amount \u20acRow1": {
+    "Deposit amount €Row1": {
       "label": "Deposit Amount Row 1",
       "crm_field": null
     },
@@ -587,7 +587,7 @@
       "label": "Deposit Provider Row 2",
       "crm_field": null
     },
-    "Deposit amount \u20acRow2": {
+    "Deposit amount €Row2": {
       "label": "Deposit Amount Row 2",
       "crm_field": null
     },
@@ -599,7 +599,7 @@
       "label": "Deposit Provider Row 3",
       "crm_field": null
     },
-    "Deposit amount \u20acRow3": {
+    "Deposit amount €Row3": {
       "label": "Deposit Amount Row 3",
       "crm_field": null
     },
@@ -611,7 +611,7 @@
       "label": "Deposit Provider Row 4",
       "crm_field": null
     },
-    "Deposit amount \u20acRow4": {
+    "Deposit amount €Row4": {
       "label": "Deposit Amount Row 4",
       "crm_field": null
     },
@@ -744,5 +744,6 @@
       "label": "SEPA Signature Date",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_standard_life_prsa.pdf"
 }

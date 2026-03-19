@@ -1,6 +1,6 @@
 {
   "form_name": "Aviva Editable Multi-Product Application Form",
-  "pdf_file": "Aviva-Editable-Multi-Product-Application-Form.pdf",
+  "pdf_file": "aviva_multi_product.pdf",
   "provider": "Aviva",
   "product": "Multi-Product",
   "notes": "28 pages, 1191 fields. Page 1 = product selection. Page 2 = Part 1 Personal Details (Life 1 left, Life 2 right) + Part 2 Income Protection Occupation/Salary. Page 3 = Part 2 IP Benefit Details + Executive IP Employer Details. Page 4 = Parts 3-5 (Mortgage, Flexible, Decreasing Term Protection). Page 5 = Part 6 Policy Owner Details + Part 7 Pension Term Assurance. Page 6 = Part 8 Underwriting (doctor, height/weight). Pages 7+ = underwriting questions, medical, fund selection, declarations, SEPA mandate.",
@@ -54,7 +54,6 @@
       "label": "Product Details",
       "crm_field": null
     },
-
     "__comment_page2": "=== PAGE 2: Part 1 - Personal Details for Insured Life/Lives ===",
     "__comment_page2_life1_title": "Life 1 Title checkboxes (y=731, x=96-218)",
     "Check Box 9": {
@@ -76,7 +75,6 @@
       "label": "Life 1 Title: Miss",
       "crm_field": null
     },
-
     "__comment_page2_life2_title": "Life 2 Title checkboxes (y=734, x=371-493)",
     "Check Box 962": {
       "label": "Life 2 Title: Mr",
@@ -94,7 +92,6 @@
       "label": "Life 2 Title: Miss",
       "crm_field": null
     },
-
     "__comment_page2_names": "Names (y=709-688)",
     "Text Field 249": {
       "label": "Life 1 First Name",
@@ -112,7 +109,6 @@
       "label": "Life 2 Surname",
       "crm_field": null
     },
-
     "__comment_page2_dob": "DOB fields (y=665-668)",
     "Text Field 5": {
       "label": "Life 1 DOB Day",
@@ -141,7 +137,6 @@
       "label": "Life 2 DOB Year",
       "crm_field": null
     },
-
     "__comment_page2_tax_resident": "Tax Resident Ireland checkboxes (y=629-631) - NOTE: form asks 'Are you a resident of the Republic of Ireland for tax purposes?'",
     "Check Box 13": {
       "label": "Life 1 Tax Resident Ireland: Yes",
@@ -159,7 +154,6 @@
       "label": "Life 2 Tax Resident Ireland: No",
       "crm_field": null
     },
-
     "__comment_page2_address": "Address fields (y=606-585) - 3 lines only, then Contact No. and Email",
     "Text Field 250": {
       "label": "Life 1 Address Line 1",
@@ -185,7 +179,6 @@
       "label": "Life 2 Address Line 3",
       "crm_field": null
     },
-
     "__comment_page2_contact": "Contact No. and Email (y=543-523)",
     "Text Field 253": {
       "label": "Life 1 Contact No.",
@@ -203,7 +196,6 @@
       "label": "Life 2 Email",
       "crm_field": null
     },
-
     "__comment_page2_tobacco": "Tobacco Details checkboxes (y=401-315) - form says 'Tobacco Details' with 5 options per life",
     "Check Box 7012": {
       "label": "Life 1 Tobacco: I have never smoked",
@@ -247,7 +239,6 @@
       "label": "Life 2 Tobacco: Not smoked or used nicotine replacement products",
       "crm_field": null
     },
-
     "__comment_page2_cigarettes": "Cigarettes per day text fields (y=275-278)",
     "Text Field 2": {
       "label": "Life 1 Cigarettes per day",
@@ -257,7 +248,6 @@
       "label": "Life 2 Cigarettes per day",
       "crm_field": null
     },
-
     "__comment_page2_part2": "=== PAGE 2 (bottom): Part 2 - Income Protection Cover - Occupation Details ===",
     "Text Field 10": {
       "label": "IP Occupation",
@@ -295,7 +285,6 @@
       "label": "IP Tax Rate: 40%",
       "crm_field": null
     },
-
     "__comment_page3": "=== PAGE 3: Part 2 - Income Protection Benefit Details ===",
     "__comment_page3_ip_benefit": "Personal IP / Wage Protector Benefit Details (y=789-690)",
     "Text Field 17": {
@@ -354,13 +343,11 @@
       "label": "IP Premium Frequency: Yearly",
       "crm_field": null
     },
-
     "__comment_page3_ip_existing": "IP Existing policy cancellation (y=570)",
     "Text Field 20": {
       "label": "IP Existing Policy Numbers (if cancelling)",
       "crm_field": null
     },
-
     "__comment_page3_exec_ip": "Executive Income Protection Cover - Employer Details (y=515-380)",
     "Text Field 21": {
       "label": "Exec IP Employer Name",
@@ -418,7 +405,6 @@
       "label": "Exec IP State Illness Benefit: No",
       "crm_field": null
     },
-
     "__comment_page3_exec_ip_benefit": "Exec IP Benefit Details (y=216-119)",
     "Text Field 36": {
       "label": "Exec IP Start Date Day",
@@ -480,7 +466,6 @@
       "label": "Exec IP Premium Frequency: Yearly",
       "crm_field": null
     },
-
     "__comment_page3_exec_ip_existing": "Exec IP Existing policies + Employer Email (y=21)",
     "Text Field 415": {
       "label": "Exec IP Existing Policy Number 1",
@@ -498,7 +483,6 @@
       "label": "Exec IP Employer Email",
       "crm_field": null
     },
-
     "__comment_page4": "=== PAGE 4: Part 3 Mortgage Protection + Part 4 Flexible Protection + Part 5 Decreasing Term Family Protection ===",
     "__comment_page4_mortgage": "Part 3: Mortgage Protection Cover (y=757-646)",
     "Check Box 714": {
@@ -557,7 +541,6 @@
       "label": "Mortgage: Existing Policy Numbers (if cancelling)",
       "crm_field": null
     },
-
     "__comment_page4_flexible": "Part 4: Flexible Protection Cover (y=588-331)",
     "Check Box 848": {
       "label": "Flexible: Cover Basis Single Life",
@@ -667,7 +650,6 @@
       "label": "Flexible: If Other, details",
       "crm_field": null
     },
-
     "__comment_page4_decreasing": "Part 5: Decreasing Term Family Protection (y=206-45)",
     "Check Box 843": {
       "label": "Decreasing: Cover Basis Single Life",
@@ -745,7 +727,6 @@
       "label": "Decreasing: If Other, details",
       "crm_field": null
     },
-
     "__comment_page5": "=== PAGE 5: Part 6 Policy Owner Details + Part 7 Pension Term Assurance ===",
     "__comment_page5_owner1": "Policy Owner 1 (y=710-107)",
     "Check Box 748": {
@@ -868,7 +849,6 @@
       "label": "Policy Owner 2 Email",
       "crm_field": null
     },
-
     "__comment_page5_pension": "Part 7: Pension Term Assurance Cover (y=273-57)",
     "Check Box 758": {
       "label": "Pension Term: Q1 Self-employed Yes",
@@ -934,7 +914,6 @@
       "label": "Pension Term: Existing Policy Numbers (if cancelling)",
       "crm_field": null
     },
-
     "__comment_page6": "=== PAGE 6: Part 8 - Underwriting Details (Doctor, Height/Weight) ===",
     "__comment_page6_gp": "GP Details - First Life (left) and Second Life (right)",
     "Check Box 770": {
@@ -985,7 +964,6 @@
       "label": "L2 GP Address Line 3",
       "crm_field": null
     },
-
     "__comment_page6_prev_gp": "Previous GP / Specialist Details",
     "Check Box 777": {
       "label": "L1 Attending GP < 18 months or specialist: Yes",
@@ -1035,7 +1013,6 @@
       "label": "L2 Previous GP/Specialist Address Line 3",
       "crm_field": null
     },
-
     "__comment_page6_height_weight": "Height and Weight fields (y=116-43)",
     "Text Field 93": {
       "label": "L1 Height feet",
@@ -1085,7 +1062,7 @@
       "label": "L2 Weight kgs",
       "crm_field": null
     },
-
     "__comment_remaining": "=== PAGES 7-28: Underwriting questions, medical history, hazardous occupations, sports/pastimes, travel, previous claims, SEPA Direct Debit mandate, declarations - all null. 999 additional fields not individually enumerated. ==="
-  }
+  },
+  "fieldmap_file": "fieldmap_aviva_multi_product.pdf"
 }

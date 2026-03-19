@@ -1,6 +1,6 @@
 {
   "form_name": "Zurich PRSA Application Form",
-  "pdf_file": "Zurich Advice_PRSA_Application__PDF_file_.pdf",
+  "pdf_file": "zurich_prsa.pdf",
   "provider": "Zurich",
   "product": "PRSA",
   "notes": "11 pages, 222 fields. Page 1 = broker + product type, Page 2 = transfer details, Page 3 = SEPA mandate, Page 6 = personal details, Page 7 = income/wealth, Page 8 = tax/FATCA/PEP, Page 10 = fund selection. SEPA fields on Page 3 have tooltips; other fields mapped by Y/X position.",
@@ -11,12 +11,14 @@
       "crm_field": null
     },
     "Text Field 140": {
-      "label": "Broker Field 2",
-      "crm_field": null
+      "label": "Broker Company",
+      "crm_field": null,
+      "static_value": "Your Finance"
     },
     "Text Field 141": {
       "label": "Broker Email/Contact",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "fergal@yourfinance.ie"
     },
     "Check Box 183": {
       "label": "Title: Mr",
@@ -622,5 +624,6 @@
       "label": "Fund Allocation 7",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_zurich_prsa.pdf"
 }

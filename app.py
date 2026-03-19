@@ -753,7 +753,7 @@ class AutoFillApp(ctk.CTk):
             if not path:
                 return
 
-            # Copy to pdfs/ if not already there
+            # Copy to src/pdfs/ if not already there
             from config import PDFS_DIR
             src = Path(path)
             dest = PDFS_DIR / src.name
@@ -830,13 +830,12 @@ class AutoFillApp(ctk.CTk):
             if not dialog.pdf_filename:
                 status_label.configure(text="Select a PDF first")
                 return
-            from config import PDFS_DIR
+            from config import PDFS_DIR, FIELDMAPS_PDFS_DIR
             from generate_field_maps import generate_field_map
 
             pdf_path = PDFS_DIR / dialog.pdf_filename
-            output_dir = PDFS_DIR / "fieldmaps"
-            output_dir.mkdir(exist_ok=True)
-            output_path = output_dir / f"FIELDMAP-{dialog.pdf_filename}"
+            FIELDMAPS_PDFS_DIR.mkdir(exist_ok=True)
+            output_path = FIELDMAPS_PDFS_DIR / f"fieldmap_{dialog.pdf_filename}"
             generate_field_map(pdf_path, output_path)
 
             if sys.platform == "win32":

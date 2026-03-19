@@ -84,9 +84,9 @@ The new form appears in the dropdown immediately.
 
 ### Manual mapping
 
-1. Place the PDF in `pdfs/`
+1. Place the PDF in `src/pdfs/`
 2. Run `python generate_field_maps.py` to create an annotated reference PDF
-3. Create a JSON file in `field_mappings/`:
+3. Create a JSON file in `src/fieldmaps/`:
 
 ```json
 {
@@ -149,8 +149,10 @@ db.py                   # SQLite local contact cache
 config.py               # Path configuration
 build.py                # PyInstaller build script
 generate_field_maps.py  # Annotated PDF generator for field identification
-pdfs/                   # Source PDF form templates
-field_mappings/         # JSON field mapping configs
+src/
+  pdfs/                 # Source PDF form templates
+  fieldmaps/            # JSON field mapping configs
+  fieldmaps_pdfs/       # Annotated reference PDFs (field names overlaid)
 templates/              # HTML UI templates
 output/                 # Generated filled PDFs
 ```

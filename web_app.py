@@ -192,7 +192,7 @@ async def upload_pdf(file: UploadFile = File(...)):
     from PyPDF2.generic import ArrayObject
     import shutil
 
-    # Save to pdfs/
+    # Save to src/pdfs/
     from config import PDFS_DIR
     dest = PDFS_DIR / file.filename
     with open(dest, "wb") as f:
@@ -241,20 +241,20 @@ async def upload_pdf(file: UploadFile = File(...)):
 @app.get("/api/mapping-tool/fieldmap/{filename}")
 async def fieldmap_pdf(filename: str):
     """Generate an annotated PDF with field names overlaid in red."""
-    from config import PDFS_DIR
+    from config import PDFS_DIR, FIELDMAPS_PDFS_DIR
     from generate_field_maps import generate_field_map
 
     pdf_path = PDFS_DIR / filename
     if not pdf_path.exists():
         raise HTTPException(status_code=404, detail="PDF not found")
 
-    output_path = PDFS_DIR / "fieldmaps" / f"FIELDMAP-{filename}"
+    output_path = FIELDMAPS_PDFS_DIR / f"fieldmap_{filename}"
     output_path.parent.mkdir(exist_ok=True)
     generate_field_map(pdf_path, output_path)
 
     return FileResponse(
         str(output_path),
-        filename=f"FIELDMAP-{filename}",
+        filename=f"fieldmap_{filename}",
         media_type="application/pdf",
     )
 

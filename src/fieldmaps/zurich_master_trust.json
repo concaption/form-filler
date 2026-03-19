@@ -1,6 +1,6 @@
 {
   "form_name": "Zurich Master Trust Executive Pension Application Form",
-  "pdf_file": "Zurich Master_Trust_Executive_Pension_App_and_Participation_Agreement.pdf",
+  "pdf_file": "zurich_master_trust.pdf",
   "provider": "Zurich",
   "product": "Master Trust / Executive Pension",
   "notes": "16 pages, fields mapped by Y/X position. Page 1 = employee details (personal info, address, employment). Page 2 = PEP details. Page 3 = employer details. Page 4 = contributions/transfers. Page 5 = retained benefits. Page 6 = fund selection (GuidePath/Prisma). Page 7 = employer authorisation. Page 8 = member declarations/marketing. Page 9 = nomination form + SEPA mandate.",
@@ -8,7 +8,8 @@
     "__comment_page1": "=== PAGE 1: Employee Details (Section A) ===",
     "Text Field 502": {
       "label": "Intermediary Name",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Your Finance"
     },
     "Text Field 503": {
       "label": "Intermediary Number",
@@ -16,7 +17,8 @@
     },
     "Text Field 504": {
       "label": "Financial Advisor Name",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "Text Field 505": {
       "label": "S.P. Pension Type",
@@ -965,5 +967,6 @@
       "label": "Final Print Name",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_zurich_master_trust.pdf"
 }

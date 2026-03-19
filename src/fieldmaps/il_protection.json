@@ -1,6 +1,6 @@
 {
   "form_name": "Irish Life Protection Application Form",
-  "pdf_file": "IL protection-application-ila-9594-rev-05-25.pdf",
+  "pdf_file": "irish_life_protection.pdf",
   "provider": "Irish Life",
   "product": "Protection",
   "notes": "16 pages, 206 fields (175 text + 31 checkboxes). Page 1 = broker/profile + Life 1 personal details (Title through Address). Page 2 top = Life 1 contact (Mobile/Email/Nationality) + Life 2 personal details + Plan Owner. Pages 3-4 = product/cover details. Pages 5-6 = text only (no fields). Page 7 = height/weight/smoking. Page 8 = sporting activities checkboxes. Pages 9 = health questions (no fillable fields). Page 10 = family history table. Page 11 = other medical evidence + doctor details. Page 12 = declarations. Page 13 = signatures/dates. Page 14 = text only. Page 15 = SEPA mandate. Page 16 = text only. NOTE: Title, Gender, Relationship Status, and Smoker questions on pages 1-2 are printed tick boxes in the PDF, NOT fillable form fields.",
@@ -719,7 +719,8 @@
     },
     "Text Field 838": {
       "label": "Financial Adviser Name (Declarations)",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "Text Field 837": {
       "label": "Existing Plan Number",
@@ -847,5 +848,6 @@
       "label": "SEPA Mandate Confirmation Checkbox",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_irish_life_protection.pdf"
 }

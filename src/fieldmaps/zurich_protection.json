@@ -1,6 +1,6 @@
 {
   "form_name": "Zurich Protection Application",
-  "pdf_file": "Zurich Application_Form_Protection_Continuation_Guaranteed_Insurability.pdf",
+  "pdf_file": "zurich_protection.pdf",
   "provider": "Zurich",
   "product": "Protection",
   "notes": "Field names are descriptive with tooltips. Pages 1-2 = life insured + policy owner details, Pages 3-4 = benefits/cover amounts, Page 5 = bank/SEPA, Page 10 = SEPA mandate. 217 fields total, 10 pages.",
@@ -8,7 +8,8 @@
     "__comment_page1_broker": "=== PAGE 1: Broker Details ===",
     "Intermediary Name 2": {
       "label": "Intermediary Name",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Your Finance"
     },
     "Intermediary Number 2": {
       "label": "Intermediary Number",
@@ -16,9 +17,8 @@
     },
     "__comment_page1_first_life": "=== PAGE 1: First Life Insured ===",
     "Check Box 49": {
-      "label": "Title: Mr",
-      "crm_field": "title",
-      "match_value": "Mr"
+      "label": "Title: Other",
+      "crm_field": null
     },
     "Mrs 4": {
       "label": "Title: Mrs",
@@ -29,10 +29,6 @@
       "label": "Title: Ms",
       "crm_field": "title",
       "match_value": "Ms"
-    },
-    "Check Box 49": {
-      "label": "Title: Other",
-      "crm_field": null
     },
     "First Life Insured Name 2": {
       "label": "First Life Insured First Name",
@@ -312,5 +308,6 @@
       "label": "SEPA BIC/SWIFT",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_zurich_protection.pdf"
 }

@@ -1,6 +1,6 @@
 {
   "form_name": "Aviva Master Trust Employee Application Form",
-  "pdf_file": "Aviva-Master-Trust-Employee-Application-form.pdf",
+  "pdf_file": "aviva_master_trust_employee.pdf",
   "provider": "Aviva",
   "product": "Master Trust Employee",
   "notes": "5 pages, 99 fields. Page 1 = checklist + employee personal details, Page 2 = source of wealth/AML, Pages 3-4 = contributions/investment, Page 5 = SEPA direct debit.",
@@ -431,5 +431,6 @@
       "label": "DD Bank Field 3",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_aviva_master_trust_employee.pdf"
 }

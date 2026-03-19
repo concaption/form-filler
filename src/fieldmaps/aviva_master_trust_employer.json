@@ -1,6 +1,6 @@
 {
   "form_name": "Aviva Master Trust Employer Application Form",
-  "pdf_file": "Aviva Master-Trust-Employer-application-form.pdf",
+  "pdf_file": "aviva_master_trust_employer.pdf",
   "provider": "Aviva",
   "product": "Master Trust Employer",
   "notes": "13 pages, 272 fields. This is an EMPLOYER-level form collecting company/scheme details, not individual client details. Very few fields map to CRM contact data. Page 1 = Checklist + Broker details, Page 2 = Participating Employer Details + PEP + Section Employer 1, Pages 3 = Section Employers 2-4 + Plan Details, Page 4 = Eligibility + Contributions + Source of Funds + Employer Main Scheme, Page 5 = Fund Selection, Page 6 = Pension/Vested Rights, Pages 7-9 = Group Pensions Online T&Cs (no fields on pp 8-9), Page 10 = Schedule + Declaration, Page 11 = Declaration contd, Page 12 = SFDR Declaration, Page 13 = SEPA DD Mandate + Product Details.",
@@ -78,11 +78,13 @@
     },
     "Text Field 107": {
       "label": "Name of Financial Broker",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "Text Field 110": {
       "label": "Financial Broker's Email Address",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "fergal@yourfinance.ie"
     },
     "Text Field 1013": {
       "label": "Salesforce Quote Reference",
@@ -1118,5 +1120,6 @@
       "label": "Product Details - Additional Instructions Line 3",
       "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_aviva_master_trust_employer.pdf"
 }

@@ -1,11 +1,11 @@
 {
-  "form_name": "Irish Life PRSA Application (Transfer-In / Brokerage)",
-  "pdf_file": "IL -prsa-application-tv-in-form-brokerage.pdf",
+  "form_name": "Irish Life PRSA Application Form",
+  "pdf_file": "irish_life_prsa.pdf",
   "provider": "Irish Life",
-  "product": "PRSA (Transfer-In / Brokerage)",
-  "notes": "Transfer-in version of IL PRSA form (17 pages). Shares same field names as IL PRSA for personal details but page numbers shift by +1 (cover page added). Additional transfer pages at page 8 and fund selection grids at pages 13-14.",
+  "product": "PRSA",
+  "notes": "Field names are generic (Text Field NNN). Mapped by Y/X position on each page. Page 1 = broker/product, Page 2 = personal details, Page 3 = source of wealth/AML, Page 6 = contributions, Page 8 = SEPA/bank, Page 12 = declaration.",
   "field_map": {
-    "__comment_page2": "=== PAGE 2: Broker / Product Type (same fields as IL PRSA Page 1) ===",
+    "__comment_page1": "=== PAGE 1: Broker / Product Type ===",
     "Text Field 27": {
       "label": "Broker Name",
       "crm_field": null,
@@ -17,13 +17,27 @@
     },
     "Text Field 271": {
       "label": "Broker Contact",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Fergal Tully"
     },
     "Text Field 270": {
       "label": "Broker Contact 2",
+      "crm_field": null,
+      "static_value": "fergal@yourfinance.ie"
+    },
+    "Check Box 3000": {
+      "label": "Product Type Option 1",
       "crm_field": null
     },
-    "__comment_page2_personal": "=== PAGE 2 continued + PAGE 3: Personal Details (same fields as IL PRSA Page 2) ===",
+    "Check Box 3001": {
+      "label": "Product Type Option 2",
+      "crm_field": null
+    },
+    "Check Box 3002": {
+      "label": "Product Type Option 3",
+      "crm_field": null
+    },
+    "__comment_page2": "=== PAGE 2: Personal Details ===",
     "Text Field 6": {
       "label": "Forename",
       "crm_field": "first_name"
@@ -60,7 +74,6 @@
       "label": "Email",
       "crm_field": "email"
     },
-    "__comment_page3": "=== PAGE 3: Personal Details continued ===",
     "Text Field 45": {
       "label": "PPS Number",
       "crm_field": "pps_1"
@@ -98,7 +111,7 @@
       "label": "Nature of Business",
       "crm_field": null
     },
-    "__comment_page4": "=== PAGE 4: Source of Wealth / AML / Tax Residence (same as IL PRSA Page 3) ===",
+    "__comment_page3": "=== PAGE 3: Source of Wealth / AML / Tax Residence ===",
     "Text Field 283": {
       "label": "Source of Wealth",
       "crm_field": null
@@ -143,44 +156,44 @@
       "label": "TIN",
       "crm_field": null
     },
-    "__comment_page8": "=== PAGE 8: Transfer Section (unique to brokerage form) ===",
-    "Text Field 176": {
+    "__comment_page6": "=== PAGE 6: Contributions ===",
+    "Text Field 143": {
+      "label": "Contribution Amount",
+      "crm_field": null
+    },
+    "Text Field 427": {
+      "label": "Contribution Frequency",
+      "crm_field": null
+    },
+    "Text Field 144": {
+      "label": "Contribution Detail 1",
+      "crm_field": null
+    },
+    "Text Field 145": {
+      "label": "Contribution Detail 2",
+      "crm_field": null
+    },
+    "Text Field 146": {
+      "label": "Contribution Detail 3",
+      "crm_field": null
+    },
+    "Text Field 264": {
+      "label": "Transfer Details",
+      "crm_field": null
+    },
+    "Text Field 265": {
       "label": "Transfer From Detail 1",
       "crm_field": null
     },
-    "Text Field 178": {
+    "Text Field 266": {
+      "label": "Transfer From Detail 2",
+      "crm_field": null
+    },
+    "Text Field 267": {
       "label": "Transfer From Detail 3",
       "crm_field": null
     },
-    "Text Field 179": {
-      "label": "Transfer From Detail 4",
-      "crm_field": null
-    },
-    "Text Field 180": {
-      "label": "Transfer From Detail 5",
-      "crm_field": null
-    },
-    "Text Field 181": {
-      "label": "Transfer From Detail 6",
-      "crm_field": null
-    },
-    "Text Field 1065": {
-      "label": "Transfer Fund Grid 1",
-      "crm_field": null
-    },
-    "Text Field 1064": {
-      "label": "Transfer Fund Grid 2",
-      "crm_field": null
-    },
-    "Text Field 1081": {
-      "label": "Transfer Fund Grid 3",
-      "crm_field": null
-    },
-    "Text Field 1080": {
-      "label": "Transfer Fund Grid 4",
-      "crm_field": null
-    },
-    "__comment_page9": "=== PAGE 9: SEPA / Bank Details (same fields as IL PRSA Page 8) ===",
+    "__comment_page8": "=== PAGE 8: SEPA / Bank Details ===",
     "Text Field 428": {
       "label": "Account Holder Name",
       "crm_field": "full_name"
@@ -196,6 +209,20 @@
     "Text Field 431": {
       "label": "BIC",
       "crm_field": "bic"
+    },
+    "Text Field 435": {
+      "label": "Direct Debit Amount",
+      "crm_field": null
+    },
+    "__comment_page12": "=== PAGE 12: Declaration / Signatures ===",
+    "Text Field 230": {
+      "label": "Signature Date",
+      "crm_field": null
+    },
+    "Text Field 229": {
+      "label": "Witness",
+      "crm_field": null
     }
-  }
+  },
+  "fieldmap_file": "fieldmap_irish_life_prsa.pdf"
 }

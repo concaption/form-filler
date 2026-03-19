@@ -19,8 +19,10 @@ else:
     APP_DIR = Path(__file__).parent
     _BUNDLE_DIR = None
 
-MAPPINGS_DIR = APP_DIR / "field_mappings"
-PDFS_DIR = APP_DIR / "pdfs"
+SRC_DIR = APP_DIR / "src"
+MAPPINGS_DIR = SRC_DIR / "fieldmaps"
+PDFS_DIR = SRC_DIR / "pdfs"
+FIELDMAPS_PDFS_DIR = SRC_DIR / "fieldmaps_pdfs"
 TEMPLATES_DIR = APP_DIR / "templates"
 OUTPUT_DIR = APP_DIR / "output"
 DB_PATH = APP_DIR / "contacts.db"
@@ -38,7 +40,7 @@ def init_app_data():
     APP_DIR.mkdir(exist_ok=True)
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    for dirname in ("pdfs", "field_mappings", "templates"):
+    for dirname in ("src/pdfs", "src/fieldmaps", "src/fieldmaps_pdfs", "templates"):
         dest = APP_DIR / dirname
         src = _BUNDLE_DIR / dirname
         if not src.exists():

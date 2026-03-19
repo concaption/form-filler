@@ -6,13 +6,14 @@ Run this on a Windows machine:
 
 On first launch, AutoFill.exe creates an 'AutoFill_Data' folder
 next to itself containing:
-    pdfs/             - Source PDF form templates
-    field_mappings/   - JSON field mapping configs (editable)
-    templates/        - HTML UI template
-    output/           - Generated filled PDFs
-    contacts.db       - Local contact cache
+    src/pdfs/             - Source PDF form templates
+    src/fieldmaps/        - JSON field mapping configs (editable)
+    src/fieldmaps_pdfs/   - Field-map reference PDFs
+    templates/            - HTML UI template
+    output/               - Generated filled PDFs
+    contacts.db           - Local contact cache
 
-Users can edit field_mappings/*.json or replace PDFs directly.
+Users can edit src/fieldmaps/*.json or replace PDFs directly.
 Existing user edits are never overwritten on subsequent launches.
 """
 
@@ -29,8 +30,9 @@ PyInstaller.__main__.run([
     "--windowed",
     "--icon=NONE",
     # Bundle resources (extracted to AutoFill_Data/ on first run)
-    f"--add-data={ROOT / 'pdfs'}{os.pathsep}pdfs",
-    f"--add-data={ROOT / 'field_mappings'}{os.pathsep}field_mappings",
+    f"--add-data={ROOT / 'src' / 'pdfs'}{os.pathsep}src/pdfs",
+    f"--add-data={ROOT / 'src' / 'fieldmaps'}{os.pathsep}src/fieldmaps",
+    f"--add-data={ROOT / 'src' / 'fieldmaps_pdfs'}{os.pathsep}src/fieldmaps_pdfs",
     f"--add-data={ROOT / 'templates'}{os.pathsep}templates",
     # Hidden imports
     "--hidden-import=customtkinter",
