@@ -710,19 +710,19 @@
     },
     "Name on account DDM": {
       "label": "SEPA Account Holder Name",
-      "crm_field": null
+      "crm_field": "full_name"
     },
     "Address on account1 DDM": {
       "label": "SEPA Address Line 1",
-      "crm_field": null
+      "crm_field": "address_line1"
     },
     "Address on account2 DDM": {
       "label": "SEPA Address Line 2",
-      "crm_field": null
+      "crm_field": "address_city"
     },
     "Address on account3 DDM": {
       "label": "SEPA Address Line 3",
-      "crm_field": null
+      "crm_field": "address_state"
     },
     "Address on account4 DDM": {
       "label": "SEPA Address Line 4",
@@ -730,7 +730,7 @@
     },
     "Address on account5 DDM": {
       "label": "SEPA Eircode",
-      "crm_field": null
+      "crm_field": "address_postcode"
     },
     "SEPA DDM IBAN DDM": {
       "label": "SEPA IBAN",
