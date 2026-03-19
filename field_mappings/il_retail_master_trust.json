@@ -8,7 +8,8 @@
     "__comment_page1": "=== PAGE 1: Financial Adviser + Employee Details (Sections 1) ===",
     "Text Field 27": {
       "label": "Financial Adviser Name",
-      "crm_field": null
+      "crm_field": null,
+      "static_value": "Your Finance"
     },
     "Text Field 26": {
       "label": "Financial Adviser Code",

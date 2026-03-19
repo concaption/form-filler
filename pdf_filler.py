@@ -54,6 +54,11 @@ def _resolve_value(field_config: dict, contact: dict) -> Optional[str]:
 
     Returns the value to set, or None if the field shouldn't be filled.
     """
+    # Static value — always fills this exact string
+    static = field_config.get("static_value")
+    if static is not None:
+        return str(static)
+
     crm_field = field_config.get("crm_field")
     if crm_field is None:
         return None
