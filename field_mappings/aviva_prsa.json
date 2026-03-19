@@ -3,68 +3,1135 @@
   "pdf_file": "Aviva-PRSA-Application-Form.pdf",
   "provider": "Aviva",
   "product": "PRSA",
-  "notes": "Field names are generic (Text Field NNN). Mapped by Y/X position on each page. Pages 1-2 = broker+contributor details, Page 3 = source of wealth, Pages 4-5 = contributions+transfers, Page 6 = fund selection.",
+  "notes": "Field names are generic (Text Field NNN, Check Box NNN). Mapped by Y/X position on each page. Page 1 = checklist + broker details, Page 2 = contributor details (Section 3) + evidence (Section 4) + employer (Section 5), Page 3 = eligibility details (Section 6), Page 4 = contributions (Section 7) + transfers (Section 8), Page 5 = transfers cont. + default investment (Section 9), Page 6 = fund selection (Section 10), Pages 8-9 = declarations (Section 12).",
   "field_map": {
-    "__comment_page1": "=== PAGE 1: Checklist (no client fields) ===",
+    "__comment_page1": "=== PAGE 1: Checklist + Section 2: Financial Broker Details ===",
+    "Check Box 105": {
+      "label": "Checklist: Fully completed application form",
+      "crm_field": null
+    },
+    "Check Box 104": {
+      "label": "Checklist: Family law / PAO copy enclosed",
+      "crm_field": null
+    },
+    "Check Box 103": {
+      "label": "Checklist: Transfer cheque enclosed",
+      "crm_field": null
+    },
+    "Check Box 101": {
+      "label": "Checklist: Evidence of PPS and DOB",
+      "crm_field": null
+    },
+    "Check Box 100": {
+      "label": "Checklist: EFT payment",
+      "crm_field": null
+    },
+    "Text Field 229": {
+      "label": "Agency Number",
+      "crm_field": null
+    },
+    "Text Field 228": {
+      "label": "Name of Financial Broker",
+      "crm_field": null
+    },
+    "Text Field 227": {
+      "label": "Financial Broker's Email Address",
+      "crm_field": null
+    },
+    "Text Field 226": {
+      "label": "Financial Broker's Phone Number",
+      "crm_field": null
+    },
+    "Text Field 225": {
+      "label": "Aviva Account Manager Name",
+      "crm_field": null
+    },
 
-    "__comment_page2": "=== PAGE 2: Broker Details + PRSA Contributor Details (Section 4) ===",
-    "Text Field 261": {"label": "Agency Number", "crm_field": null},
-    "Text Field 260": {"label": "Broker Name", "crm_field": null},
-    "Text Field 259": {"label": "Broker Email", "crm_field": null},
-    "Check Box 133": {"label": "Title: Mr", "crm_field": "title", "match_value": "Mr"},
-    "Check Box 132": {"label": "Title: Mrs", "crm_field": "title", "match_value": "Mrs"},
-    "Check Box 131": {"label": "Title: Ms", "crm_field": "title", "match_value": "Ms"},
-    "Text Field 258": {"label": "DOB Day", "crm_field": "date_of_birth", "transform": "day"},
-    "Text Field 257": {"label": "DOB Month", "crm_field": "date_of_birth", "transform": "month"},
-    "Text Field 256": {"label": "DOB Year", "crm_field": "date_of_birth", "transform": "year"},
-    "Check Box 130": {"label": "Gender: Male", "crm_field": null},
-    "Check Box 129": {"label": "Gender: Female", "crm_field": null},
-    "Text Field 255": {"label": "Forename", "crm_field": "first_name"},
-    "Text Field 254": {"label": "Surname", "crm_field": "last_name"},
-    "Text Field 252": {"label": "PPS Number", "crm_field": "pps_number"},
-    "Text Field 251": {"label": "Address Line 1", "crm_field": "address_line1"},
-    "Text Field 250": {"label": "Address Line 2", "crm_field": "address_city"},
-    "Text Field 307": {"label": "Address Line 3 / County", "crm_field": "address_state"},
-    "Text Field 3010": {"label": "Eircode", "crm_field": "address_postcode"},
-    "Text Field 1018": {"label": "Country of Birth", "crm_field": "country_of_birth"},
-    "Text Field 308": {"label": "Nationality", "crm_field": "nationality"},
-    "Check Box 122": {"label": "Country of Residence: Ireland Yes", "crm_field": null},
-    "Check Box 121": {"label": "Country of Residence: Ireland No", "crm_field": null},
-    "Text Field 249": {"label": "Phone Number", "crm_field": "phone_mobile"},
-    "Text Field 248": {"label": "Email Address", "crm_field": "email"},
+    "__comment_page2_sec3": "=== PAGE 2: Section 3 - Your Details ===",
+    "Check Box 133": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Check Box 132": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 131": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Text Field 261": {
+      "label": "Title: Other (text)",
+      "crm_field": null
+    },
+    "Text Field 260": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 259": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 258": {
+      "label": "DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "Text Field 257": {
+      "label": "DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "Text Field 256": {
+      "label": "DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "Check Box 130": {
+      "label": "Gender: Male",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "Check Box 129": {
+      "label": "Gender: Female",
+      "crm_field": "gender",
+      "match_value": "Female"
+    },
 
-    "__comment_page2_marital": "Marital Status checkboxes (y~332)",
-    "Check Box 203": {"label": "Marital: Single", "crm_field": "marital_status", "match_value": "Single"},
-    "Check Box 202": {"label": "Marital: Married", "crm_field": "marital_status", "match_value": "Married"},
-    "Check Box 201": {"label": "Marital: Civil Partner", "crm_field": "marital_status", "match_value": "Civil Partner"},
-    "Check Box 200": {"label": "Marital: Separated/Divorced", "crm_field": "marital_status", "match_value": "Separated"},
+    "__comment_page2_relationship": "Relationship Status checkboxes (y~660, 6 options)",
+    "Check Box 128": {
+      "label": "Relationship Status: Single",
+      "crm_field": "status",
+      "match_value": "Single"
+    },
+    "Check Box 127": {
+      "label": "Relationship Status: Married",
+      "crm_field": "status",
+      "match_value": "Married"
+    },
+    "Check Box 126": {
+      "label": "Relationship Status: Widow(er)",
+      "crm_field": "status",
+      "match_value": "Widowed"
+    },
+    "Check Box 125": {
+      "label": "Relationship Status: Separated",
+      "crm_field": "status",
+      "match_value": "Separated"
+    },
+    "Check Box 124": {
+      "label": "Relationship Status: Divorced",
+      "crm_field": "status",
+      "match_value": "Divorced"
+    },
+    "Check Box 123": {
+      "label": "Relationship Status: Civil Partner",
+      "crm_field": "status",
+      "match_value": "Civil Partner"
+    },
 
-    "__comment_page2_occupation": "Occupation / Employment checkboxes (y~280) and fields below",
-    "Check Box 128": {"label": "Occupation: Employee", "crm_field": null},
-    "Check Box 127": {"label": "Occupation: Self-Employed", "crm_field": null},
-    "Check Box 126": {"label": "Occupation: Company Director", "crm_field": null},
-    "Check Box 125": {"label": "Occupation: Homemaker", "crm_field": null},
-    "Check Box 124": {"label": "Occupation: Student", "crm_field": null},
-    "Check Box 123": {"label": "Occupation: Retired", "crm_field": null},
-    "Text Field 426": {"label": "Occupation Description", "crm_field": "occupation"},
-    "Text Field 427": {"label": "Employer Name", "crm_field": "employer_name"},
-    "Text Field 428": {"label": "Employer Address", "crm_field": "employer_address"},
-    "Text Field 429": {"label": "Employer Address Line 2", "crm_field": null},
-    "Text Field 430": {"label": "Employer Tax Reference Number", "crm_field": "employer_tax_reference"},
-    "Text Field 431": {"label": "Nature of Business", "crm_field": null},
-    "Text Field 432": {"label": "Sector", "crm_field": null},
-    "Text Field 433": {"label": "Date of Entry to Employment", "crm_field": null},
+    "__comment_page2_address": "Address and contact fields (y~623 to y~386)",
+    "Text Field 255": {
+      "label": "Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 254": {
+      "label": "Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Text Field 252": {
+      "label": "Contact Phone Number",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 251": {
+      "label": "Email",
+      "crm_field": "email"
+    },
+    "Text Field 250": {
+      "label": "PPS Number (evidence required)",
+      "crm_field": "pps_1"
+    },
+    "Text Field 307": {
+      "label": "Profession / Occupation",
+      "crm_field": "job_title"
+    },
+    "Text Field 3010": {
+      "label": "Sector",
+      "crm_field": null
+    },
+    "Text Field 1018": {
+      "label": "Earnings / Salary",
+      "crm_field": "salary"
+    },
+    "Text Field 308": {
+      "label": "Chosen Retirement Age",
+      "crm_field": null
+    },
+    "Check Box 122": {
+      "label": "PEP: Yes",
+      "crm_field": null
+    },
+    "Check Box 121": {
+      "label": "PEP: No",
+      "crm_field": null
+    },
+    "Text Field 249": {
+      "label": "PEP Function (e.g. Government Minister)",
+      "crm_field": null
+    },
+    "Text Field 248": {
+      "label": "Relationship to PEP (e.g. spouse, child)",
+      "crm_field": null
+    },
 
-    "__comment_page3": "=== PAGE 3: Source of Wealth / FATCA / PEP ===",
-    "Text Field 262": {"label": "Source of Wealth Description", "crm_field": null},
-    "Text Field 263": {"label": "Tax Residence Country if not Ireland", "crm_field": null},
-    "Text Field 266": {"label": "TIN Number", "crm_field": null},
-    "Text Field 264": {"label": "PEP Name", "crm_field": null},
-    "Text Field 265": {"label": "PEP Role", "crm_field": null},
+    "__comment_page2_sec4": "=== PAGE 2: Section 4 - Evidence of PPS Number and Date of Birth ===",
+    "Check Box 203": {
+      "label": "PPS Evidence: Notification of Tax Credits",
+      "crm_field": null
+    },
+    "Check Box 202": {
+      "label": "PPS Evidence: Payslip",
+      "crm_field": null
+    },
+    "Check Box 201": {
+      "label": "PPS Evidence: Official Letter",
+      "crm_field": null
+    },
+    "Check Box 200": {
+      "label": "PPS Evidence: Other",
+      "crm_field": null
+    },
+    "Check Box 199": {
+      "label": "Age Evidence: Passport",
+      "crm_field": null
+    },
+    "Check Box 198": {
+      "label": "Age Evidence: Birth Certificate",
+      "crm_field": null
+    },
+    "Check Box 197": {
+      "label": "Age Evidence: Driving Licence",
+      "crm_field": null
+    },
+    "Check Box 196": {
+      "label": "Age Evidence: Other",
+      "crm_field": null
+    },
 
-    "__comment_page5_dd": "=== SEPA Direct Debit Mandate (last pages) ===",
-    "Text Field 103": {"label": "DD Account Holder Name", "crm_field": "full_name"},
-    "Text Field 102": {"label": "DD IBAN", "crm_field": "iban"},
-    "Text Field 101": {"label": "DD BIC", "crm_field": "bic"}
+    "__comment_page2_sec5": "=== PAGE 2: Section 5 - Employer Details ===",
+    "Text Field 426": {
+      "label": "Company/Employer Name",
+      "crm_field": "company_name"
+    },
+    "Text Field 427": {
+      "label": "Company Registered Address Line 1",
+      "crm_field": "address_work_line1"
+    },
+    "Text Field 428": {
+      "label": "Company Registered Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 429": {
+      "label": "Principle Place of Business (if different from Registered Address)",
+      "crm_field": null
+    },
+    "Text Field 430": {
+      "label": "Employer's Tax No.",
+      "crm_field": "employer_tax_number"
+    },
+    "Text Field 431": {
+      "label": "Telephone No. (Employer)",
+      "crm_field": "phone_work"
+    },
+    "Text Field 432": {
+      "label": "Contact Name (Employer)",
+      "crm_field": null
+    },
+    "Text Field 433": {
+      "label": "Email Address (Employer)",
+      "crm_field": null
+    },
+
+    "__comment_page3": "=== PAGE 3: Section 6 - Eligibility Details ===",
+    "Check Box 19": {
+      "label": "Q1 Self-employed: Yes",
+      "crm_field": null
+    },
+    "Check Box 20": {
+      "label": "Q1 Self-employed: No",
+      "crm_field": null
+    },
+    "Check Box 94": {
+      "label": "Q2 Employment type: Agricultural",
+      "crm_field": null
+    },
+    "Check Box 95": {
+      "label": "Q2 Employment type: Other self employed",
+      "crm_field": null
+    },
+    "Check Box 22": {
+      "label": "Q3 Occupational pension scheme member: Yes",
+      "crm_field": null
+    },
+    "Check Box 21": {
+      "label": "Q3 Occupational pension scheme member: No",
+      "crm_field": null
+    },
+    "Check Box 24": {
+      "label": "Q4 Non-pensionable employment: Yes",
+      "crm_field": null
+    },
+    "Check Box 23": {
+      "label": "Q4 Non-pensionable employment: No",
+      "crm_field": null
+    },
+    "Check Box 35": {
+      "label": "Q5a Manager/professional/technical/admin",
+      "crm_field": null
+    },
+    "Check Box 34": {
+      "label": "Q5e Plant and machine operative",
+      "crm_field": null
+    },
+    "Check Box 33": {
+      "label": "Q5b Clerical and secretarial",
+      "crm_field": null
+    },
+    "Check Box 32": {
+      "label": "Q5f Other employee",
+      "crm_field": null
+    },
+    "Check Box 31": {
+      "label": "Q5c Trade, craft and related",
+      "crm_field": null
+    },
+    "Check Box 30": {
+      "label": "Q5g Sales",
+      "crm_field": null
+    },
+    "Check Box 29": {
+      "label": "Q5d Personal and protective service",
+      "crm_field": null
+    },
+    "Check Box 26": {
+      "label": "Q6 AVC PRSA: Yes",
+      "crm_field": null
+    },
+    "Check Box 25": {
+      "label": "Q6 AVC PRSA: No",
+      "crm_field": null
+    },
+    "Text Field 262": {
+      "label": "Q7a Name of Employer (AVC)",
+      "crm_field": null
+    },
+    "Check Box 96": {
+      "label": "Q7b(i) Stand Alone AVC PRSA",
+      "crm_field": null
+    },
+    "Check Box 97": {
+      "label": "Q7b(ii) Under rules of existing scheme",
+      "crm_field": null
+    },
+    "Check Box 219": {
+      "label": "Q7b(iii) Scheme allows AVCs: Yes",
+      "crm_field": null
+    },
+    "Check Box 218": {
+      "label": "Q7b(iii) Scheme allows AVCs: No",
+      "crm_field": null
+    },
+    "Text Field 263": {
+      "label": "Q7c Pension Scheme name",
+      "crm_field": null
+    },
+    "Text Field 266": {
+      "label": "Q7d Normal Retirement Age of main scheme",
+      "crm_field": null
+    },
+    "Check Box 37": {
+      "label": "Q7e Revenue approved: Yes",
+      "crm_field": null
+    },
+    "Check Box 36": {
+      "label": "Q7e Revenue approved: No",
+      "crm_field": null
+    },
+    "Text Field 264": {
+      "label": "Q7f Revenue Reference Number",
+      "crm_field": null
+    },
+    "Text Field 265": {
+      "label": "Q7g Pensions Authority Number",
+      "crm_field": null
+    },
+    "Check Box 155": {
+      "label": "Q8a Not economically active",
+      "crm_field": null
+    },
+    "Check Box 154": {
+      "label": "Q8b Unemployed",
+      "crm_field": null
+    },
+
+    "__comment_page4_sec7": "=== PAGE 4: Section 7 - Contributions ===",
+    "Text Field 335": {
+      "label": "Policy start date Day",
+      "crm_field": null
+    },
+    "Text Field 334": {
+      "label": "Policy start date Month",
+      "crm_field": null
+    },
+    "Text Field 333": {
+      "label": "Policy start date Year",
+      "crm_field": null
+    },
+    "Text Field 1013": {
+      "label": "Employer Facilitated: Regular Employer contribution",
+      "crm_field": null
+    },
+    "Text Field 1015": {
+      "label": "Employer Facilitated: Regular Employee contribution",
+      "crm_field": null
+    },
+    "Text Field 1017": {
+      "label": "Employer Facilitated: Regular Total",
+      "crm_field": null
+    },
+    "Text Field 1014": {
+      "label": "Employer Facilitated: Single Employer contribution",
+      "crm_field": null
+    },
+    "Text Field 1016": {
+      "label": "Employer Facilitated: Single Employee contribution",
+      "crm_field": null
+    },
+    "Text Field 1020": {
+      "label": "Employer Facilitated: Single Total",
+      "crm_field": null
+    },
+    "Check Box 151": {
+      "label": "Employer Contribution Frequency: Monthly",
+      "crm_field": null
+    },
+    "Check Box 150": {
+      "label": "Employer Contribution Frequency: Quarterly",
+      "crm_field": null
+    },
+    "Check Box 149": {
+      "label": "Employer Contribution Frequency: Half-Yearly",
+      "crm_field": null
+    },
+    "Check Box 148": {
+      "label": "Employer Contribution Frequency: Yearly",
+      "crm_field": null
+    },
+    "Check Box 153": {
+      "label": "Employer Indexation: Yes",
+      "crm_field": null
+    },
+    "Check Box 152": {
+      "label": "Employer Indexation: No",
+      "crm_field": null
+    },
+    "Check Box 146": {
+      "label": "Employer Single Payment: Cheque",
+      "crm_field": null
+    },
+    "Check Box 145": {
+      "label": "Employer Single Payment: EFT",
+      "crm_field": null
+    },
+    "Text Field 312": {
+      "label": "Individual Regular Contribution Amount",
+      "crm_field": null
+    },
+    "Check Box 204": {
+      "label": "Individual Contribution Frequency: Monthly",
+      "crm_field": null
+    },
+    "Check Box 205": {
+      "label": "Individual Contribution Frequency: Quarterly",
+      "crm_field": null
+    },
+    "Check Box 206": {
+      "label": "Individual Contribution Frequency: Half-Yearly",
+      "crm_field": null
+    },
+    "Check Box 207": {
+      "label": "Individual Contribution Frequency: Yearly",
+      "crm_field": null
+    },
+    "Check Box 208": {
+      "label": "Individual Payment Type: Direct Debit",
+      "crm_field": null
+    },
+    "Check Box 209": {
+      "label": "Individual Payment Type: Cheque",
+      "crm_field": null
+    },
+    "Check Box 211": {
+      "label": "Individual Indexation: Yes",
+      "crm_field": null
+    },
+    "Check Box 210": {
+      "label": "Individual Indexation: No",
+      "crm_field": null
+    },
+    "Text Field 311": {
+      "label": "Individual Single Contribution Amount",
+      "crm_field": null
+    },
+    "Text Field 315": {
+      "label": "Account Name (bank details)",
+      "crm_field": null
+    },
+    "Text Field 314": {
+      "label": "Account number - IBAN",
+      "crm_field": null
+    },
+    "Text Field 313": {
+      "label": "Bank identifier code - BIC",
+      "crm_field": null
+    },
+
+    "__comment_page4_sec8": "=== PAGE 4: Section 8 - Transfers (starts bottom of page 4) ===",
+    "Check Box 53": {
+      "label": "Transfer source: Another PRSA",
+      "crm_field": null
+    },
+    "Check Box 52": {
+      "label": "Transfer source: Defined Contribution Scheme",
+      "crm_field": null
+    },
+    "Check Box 51": {
+      "label": "Transfer source: Defined Benefit Scheme",
+      "crm_field": null
+    },
+    "Check Box 50": {
+      "label": "Transfer source: Retirement Annuity Contract",
+      "crm_field": null
+    },
+    "Check Box 49": {
+      "label": "Transfer source: Pension from outside the State",
+      "crm_field": null
+    },
+
+    "__comment_page5_sec8": "=== PAGE 5: Section 8 - Transfers (continued) ===",
+    "Text Field 26": {
+      "label": "Transfer Value Amount",
+      "crm_field": null
+    },
+    "Text Field 279": {
+      "label": "Transferring Company Name",
+      "crm_field": null
+    },
+    "Text Field 434": {
+      "label": "Scheme / policy number",
+      "crm_field": null
+    },
+    "Check Box 213": {
+      "label": "PAO granted: Yes",
+      "crm_field": null
+    },
+    "Check Box 212": {
+      "label": "PAO granted: No",
+      "crm_field": null
+    },
+    "Text Field 318": {
+      "label": "Multiple PRSA Contract 1 Amount",
+      "crm_field": null
+    },
+    "Text Field 323": {
+      "label": "Multiple PRSA Contract 6 Amount",
+      "crm_field": null
+    },
+    "Text Field 319": {
+      "label": "Multiple PRSA Contract 2 Amount",
+      "crm_field": null
+    },
+    "Text Field 324": {
+      "label": "Multiple PRSA Contract 7 Amount",
+      "crm_field": null
+    },
+    "Text Field 320": {
+      "label": "Multiple PRSA Contract 3 Amount",
+      "crm_field": null
+    },
+    "Text Field 325": {
+      "label": "Multiple PRSA Contract 8 Amount",
+      "crm_field": null
+    },
+    "Text Field 321": {
+      "label": "Multiple PRSA Contract 4 Amount",
+      "crm_field": null
+    },
+    "Text Field 326": {
+      "label": "Multiple PRSA Contract 9 Amount",
+      "crm_field": null
+    },
+    "Text Field 322": {
+      "label": "Multiple PRSA Contract 5 Amount",
+      "crm_field": null
+    },
+    "Text Field 327": {
+      "label": "Multiple PRSA Contract 10 Amount",
+      "crm_field": null
+    },
+    "Check Box 215": {
+      "label": "Q6a Left service of employer: Yes",
+      "crm_field": null
+    },
+    "Check Box 214": {
+      "label": "Q6a Left service of employer: No",
+      "crm_field": null
+    },
+    "Check Box 217": {
+      "label": "Q6b Scheme winding up: Yes",
+      "crm_field": null
+    },
+    "Check Box 216": {
+      "label": "Q6b Scheme winding up: No",
+      "crm_field": null
+    },
+
+    "__comment_page5_sec9": "=== PAGE 5: Section 9 - Default Investment Strategy ===",
+    "Check Box 159": {
+      "label": "Default Investment Strategy (My Future ESG ARF): Yes",
+      "crm_field": null
+    },
+    "Check Box 158": {
+      "label": "Default Investment Strategy (My Future ESG ARF): No",
+      "crm_field": null
+    },
+    "Check Box 226": {
+      "label": "Alternative Lifestyle Strategy: Yes",
+      "crm_field": null
+    },
+    "Check Box 225": {
+      "label": "Alternative Lifestyle Strategy: No",
+      "crm_field": null
+    },
+    "Check Box 223": {
+      "label": "My Future ESG Lifestyle Strategy Annuity",
+      "crm_field": null
+    },
+    "Check Box 224": {
+      "label": "My Future ESG Lifestyle Strategy Cash",
+      "crm_field": null
+    },
+
+    "__comment_page6": "=== PAGE 6: Section 10 - Fund Selection (126 fields, all null) ===",
+    "__comment_page6_note": "Fund selection fields are Text Fields for Regular/Single/Transfer percentages per fund row. All crm_field: null.",
+    "Text Field 445": { "label": "Fund Row 1: Regular %", "crm_field": null },
+    "Text Field 2017": { "label": "Fund Row 1: Single %", "crm_field": null },
+    "Text Field 2024": { "label": "Fund Row 1: Transfer %", "crm_field": null },
+    "Text Field 446": { "label": "Fund Row 2: Regular %", "crm_field": null },
+    "Text Field 2018": { "label": "Fund Row 2: Single %", "crm_field": null },
+    "Text Field 2025": { "label": "Fund Row 2: Transfer %", "crm_field": null },
+    "Text Field 447": { "label": "Fund Row 3: Regular %", "crm_field": null },
+    "Text Field 2019": { "label": "Fund Row 3: Single %", "crm_field": null },
+    "Text Field 2026": { "label": "Fund Row 3: Transfer %", "crm_field": null },
+    "Text Field 448": { "label": "Fund Row 4: Regular %", "crm_field": null },
+    "Text Field 2020": { "label": "Fund Row 4: Single %", "crm_field": null },
+    "Text Field 2027": { "label": "Fund Row 4: Transfer %", "crm_field": null },
+    "Text Field 449": { "label": "Fund Row 5: Regular %", "crm_field": null },
+    "Text Field 2021": { "label": "Fund Row 5: Single %", "crm_field": null },
+    "Text Field 2035": { "label": "Fund Row 5: Transfer %", "crm_field": null },
+    "Text Field 450": { "label": "Fund Row 6: Regular %", "crm_field": null },
+    "Text Field 2022": { "label": "Fund Row 6: Single %", "crm_field": null },
+    "Text Field 2048": { "label": "Fund Row 6: Transfer %", "crm_field": null },
+    "Text Field 451": { "label": "Fund Row 7: Regular %", "crm_field": null },
+    "Text Field 2023": { "label": "Fund Row 7: Single %", "crm_field": null },
+    "Text Field 2049": { "label": "Fund Row 7: Transfer %", "crm_field": null },
+    "Text Field 452": { "label": "Fund Row 8: Regular %", "crm_field": null },
+    "Text Field 2028": { "label": "Fund Row 8: Single %", "crm_field": null },
+    "Text Field 2050": { "label": "Fund Row 8: Transfer %", "crm_field": null },
+    "Text Field 453": { "label": "Fund Row 9: Regular %", "crm_field": null },
+    "Text Field 2029": { "label": "Fund Row 9: Single %", "crm_field": null },
+    "Text Field 2051": { "label": "Fund Row 9: Transfer %", "crm_field": null },
+    "Text Field 454": { "label": "Fund Row 10: Regular %", "crm_field": null },
+    "Text Field 2030": { "label": "Fund Row 10: Single %", "crm_field": null },
+    "Text Field 2052": { "label": "Fund Row 10: Transfer %", "crm_field": null },
+    "Text Field 455": { "label": "Fund Row 11: Regular %", "crm_field": null },
+    "Text Field 2031": { "label": "Fund Row 11: Single %", "crm_field": null },
+    "Text Field 2053": { "label": "Fund Row 11: Transfer %", "crm_field": null },
+    "Text Field 456": { "label": "Fund Row 12: Regular %", "crm_field": null },
+    "Text Field 2032": { "label": "Fund Row 12: Single %", "crm_field": null },
+    "Text Field 2054": { "label": "Fund Row 12: Transfer %", "crm_field": null },
+    "Text Field 457": { "label": "Fund Row 13: Regular %", "crm_field": null },
+    "Text Field 2033": { "label": "Fund Row 13: Single %", "crm_field": null },
+    "Text Field 2055": { "label": "Fund Row 13: Transfer %", "crm_field": null },
+    "Text Field 458": { "label": "Fund Row 14: Regular %", "crm_field": null },
+    "Text Field 2034": { "label": "Fund Row 14: Single %", "crm_field": null },
+    "Text Field 2071": { "label": "Fund Row 14: Transfer %", "crm_field": null },
+    "Text Field 459": { "label": "Fund Row 15: Regular %", "crm_field": null },
+    "Text Field 2036": { "label": "Fund Row 15: Single %", "crm_field": null },
+    "Text Field 2072": { "label": "Fund Row 15: Transfer %", "crm_field": null },
+    "Text Field 460": { "label": "Fund Row 16: Regular %", "crm_field": null },
+    "Text Field 2037": { "label": "Fund Row 16: Single %", "crm_field": null },
+    "Text Field 2073": { "label": "Fund Row 16: Transfer %", "crm_field": null },
+    "Text Field 461": { "label": "Fund Row 17: Regular %", "crm_field": null },
+    "Text Field 2038": { "label": "Fund Row 17: Single %", "crm_field": null },
+    "Text Field 2074": { "label": "Fund Row 17: Transfer %", "crm_field": null },
+    "Text Field 462": { "label": "Fund Row 18: Regular %", "crm_field": null },
+    "Text Field 2039": { "label": "Fund Row 18: Single %", "crm_field": null },
+    "Text Field 2075": { "label": "Fund Row 18: Transfer %", "crm_field": null },
+    "Text Field 463": { "label": "Fund Row 19: Regular %", "crm_field": null },
+    "Text Field 2040": { "label": "Fund Row 19: Single %", "crm_field": null },
+    "Text Field 2076": { "label": "Fund Row 19: Transfer %", "crm_field": null },
+    "Text Field 464": { "label": "Fund Row 20: Regular %", "crm_field": null },
+    "Text Field 2041": { "label": "Fund Row 20: Single %", "crm_field": null },
+    "Text Field 2077": { "label": "Fund Row 20: Transfer %", "crm_field": null },
+    "Text Field 465": { "label": "Fund Row 21: Regular %", "crm_field": null },
+    "Text Field 2042": { "label": "Fund Row 21: Single %", "crm_field": null },
+    "Text Field 2078": { "label": "Fund Row 21: Transfer %", "crm_field": null },
+    "Text Field 466": { "label": "Fund Row 22: Regular %", "crm_field": null },
+    "Text Field 2043": { "label": "Fund Row 22: Single %", "crm_field": null },
+    "Text Field 2079": { "label": "Fund Row 22: Transfer %", "crm_field": null },
+    "Text Field 467": { "label": "Fund Row 23: Regular %", "crm_field": null },
+    "Text Field 2044": { "label": "Fund Row 23: Single %", "crm_field": null },
+    "Text Field 2080": { "label": "Fund Row 23: Transfer %", "crm_field": null },
+    "Text Field 468": { "label": "Fund Row 24: Regular %", "crm_field": null },
+    "Text Field 2045": { "label": "Fund Row 24: Single %", "crm_field": null },
+    "Text Field 2081": { "label": "Fund Row 24: Transfer %", "crm_field": null },
+    "Text Field 469": { "label": "Fund Row 25: Regular %", "crm_field": null },
+    "Text Field 2046": { "label": "Fund Row 25: Single %", "crm_field": null },
+    "Text Field 2082": { "label": "Fund Row 25: Transfer %", "crm_field": null },
+    "Text Field 470": { "label": "Fund Row 26: Regular %", "crm_field": null },
+    "Text Field 2047": { "label": "Fund Row 26: Single %", "crm_field": null },
+    "Text Field 2083": { "label": "Fund Row 26: Transfer %", "crm_field": null },
+    "Text Field 471": { "label": "Fund Row 27: Regular %", "crm_field": null },
+    "Text Field 2056": { "label": "Fund Row 27: Single %", "crm_field": null },
+    "Text Field 2084": { "label": "Fund Row 27: Transfer %", "crm_field": null },
+    "Text Field 401": { "label": "Fund Row 28: Regular %", "crm_field": null },
+    "Text Field 2057": { "label": "Fund Row 28: Single %", "crm_field": null },
+    "Text Field 2085": { "label": "Fund Row 28: Transfer %", "crm_field": null },
+    "Text Field 402": { "label": "Fund Row 29: Regular %", "crm_field": null },
+    "Text Field 2058": { "label": "Fund Row 29: Single %", "crm_field": null },
+    "Text Field 2086": { "label": "Fund Row 29: Transfer %", "crm_field": null },
+    "Text Field 4017": { "label": "Fund Row 30: Regular %", "crm_field": null },
+    "Text Field 2059": { "label": "Fund Row 30: Single %", "crm_field": null },
+    "Text Field 2087": { "label": "Fund Row 30: Transfer %", "crm_field": null },
+    "Text Field 4093": { "label": "Fund Row 31: Regular %", "crm_field": null },
+    "Text Field 2060": { "label": "Fund Row 31: Single %", "crm_field": null },
+    "Text Field 2088": { "label": "Fund Row 31: Transfer %", "crm_field": null },
+    "Text Field 4094": { "label": "Fund Row 32: Regular %", "crm_field": null },
+    "Text Field 2061": { "label": "Fund Row 32: Single %", "crm_field": null },
+    "Text Field 2089": { "label": "Fund Row 32: Transfer %", "crm_field": null },
+    "Text Field 4095": { "label": "Fund Row 33: Regular %", "crm_field": null },
+    "Text Field 2062": { "label": "Fund Row 33: Single %", "crm_field": null },
+    "Text Field 2090": { "label": "Fund Row 33: Transfer %", "crm_field": null },
+    "Text Field 40110": { "label": "Fund Row 34: Regular %", "crm_field": null },
+    "Text Field 2063": { "label": "Fund Row 34: Single %", "crm_field": null },
+    "Text Field 2091": { "label": "Fund Row 34: Transfer %", "crm_field": null },
+    "Text Field 40111": { "label": "Fund Row 35: Regular %", "crm_field": null },
+    "Text Field 2064": { "label": "Fund Row 35: Single %", "crm_field": null },
+    "Text Field 2092": { "label": "Fund Row 35: Transfer %", "crm_field": null },
+    "Text Field 40112": { "label": "Fund Row 36: Regular %", "crm_field": null },
+    "Text Field 2065": { "label": "Fund Row 36: Single %", "crm_field": null },
+    "Text Field 2093": { "label": "Fund Row 36: Transfer %", "crm_field": null },
+    "Text Field 40113": { "label": "Fund Row 37: Regular %", "crm_field": null },
+    "Text Field 2066": { "label": "Fund Row 37: Single %", "crm_field": null },
+    "Text Field 2094": { "label": "Fund Row 37: Transfer %", "crm_field": null },
+    "Text Field 502": { "label": "Fund Row 38: Regular %", "crm_field": null },
+    "Text Field 2067": { "label": "Fund Row 38: Single %", "crm_field": null },
+    "Text Field 2095": { "label": "Fund Row 38: Transfer %", "crm_field": null },
+    "Text Field 503": { "label": "Fund Row 39: Regular %", "crm_field": null },
+    "Text Field 2068": { "label": "Fund Row 39: Single %", "crm_field": null },
+    "Text Field 2096": { "label": "Fund Row 39: Transfer %", "crm_field": null },
+    "Text Field 504": { "label": "Fund Row 40: Regular %", "crm_field": null },
+    "Text Field 2069": { "label": "Fund Row 40: Single %", "crm_field": null },
+    "Text Field 2097": { "label": "Fund Row 40: Transfer %", "crm_field": null },
+    "Text Field 505": { "label": "Fund Row 41: Regular %", "crm_field": null },
+    "Text Field 2070": { "label": "Fund Row 41: Single %", "crm_field": null },
+    "Text Field 2098": { "label": "Fund Row 41: Transfer %", "crm_field": null },
+    "Text Field 506": { "label": "Fund Row 42: Regular %", "crm_field": null },
+    "Text Field 2099": { "label": "Fund Row 42: Single %", "crm_field": null },
+    "Text Field 20100": { "label": "Fund Row 42: Transfer %", "crm_field": null },
+
+    "__comment_page8": "=== PAGE 8: Section 12(a) - PRSA Policy Owner Declaration ===",
+    "Text Field 103": {
+      "label": "Declaration 12(a) Date Day",
+      "crm_field": null
+    },
+    "Text Field 102": {
+      "label": "Declaration 12(a) Date Month",
+      "crm_field": null
+    },
+    "Text Field 101": {
+      "label": "Declaration 12(a) Date Year",
+      "crm_field": null
+    },
+
+    "__comment_page9": "=== PAGE 9: Section 12(b) - Declaration of PRSA Provider/Intermediary + Policy Owner ===",
+    "Text Field 280": {
+      "label": "12(b) Insert name of person concerned",
+      "crm_field": "full_name"
+    },
+    "Text Field 109": {
+      "label": "12(b) Intermediary Date Day",
+      "crm_field": null
+    },
+    "Text Field 108": {
+      "label": "12(b) Intermediary Date Month",
+      "crm_field": null
+    },
+    "Text Field 107": {
+      "label": "12(b) Intermediary Date Year",
+      "crm_field": null
+    },
+    "Text Field 106": {
+      "label": "12(b) Policy Owner Date Day",
+      "crm_field": null
+    },
+    "Text Field 105": {
+      "label": "12(b) Policy Owner Date Month",
+      "crm_field": null
+    },
+    "Text Field 104": {
+      "label": "12(b) Policy Owner Date Year",
+      "crm_field": null
+    },
+    "Text Field 444": {
+      "label": "12(c) SFDR Intermediary Date Day",
+      "crm_field": null
+    },
+    "Text Field 8012": {
+      "label": "12(c) SFDR Intermediary Date Month",
+      "crm_field": null
+    },
+    "Text Field 8011": {
+      "label": "12(c) SFDR Intermediary Date Year",
+      "crm_field": null
+    },
+    "Text Field 443": {
+      "label": "12(c) SFDR Customer Date Day",
+      "crm_field": null
+    },
+    "Text Field 8010": {
+      "label": "12(c) SFDR Customer Date Month",
+      "crm_field": null
+    },
+    "Text Field 809": {
+      "label": "12(c) SFDR Customer Date Year",
+      "crm_field": null
+    },
+
+    "__comment_page10": "=== PAGE 10: Section 12(d) - Non-Standard PRSA Declaration ===",
+    "Text Field 113": {
+      "label": "12(d) Declaration Date Day",
+      "crm_field": null
+    },
+    "Text Field 112": {
+      "label": "12(d) Declaration Date Month",
+      "crm_field": null
+    },
+    "Text Field 111": {
+      "label": "12(d) Declaration Date Year",
+      "crm_field": null
+    },
+    "Text Field 117": {
+      "label": "12(d) Consumer Name",
+      "crm_field": "full_name"
+    },
+    "Text Field 118": {
+      "label": "12(d) Non-Standard PRSA Product Name",
+      "crm_field": null
+    },
+    "Text Field 121": {
+      "label": "12(d) Financial Broker Name",
+      "crm_field": null
+    },
+    "Text Field 122": {
+      "label": "12(d) Position Held",
+      "crm_field": null
+    },
+    "Text Field 123": {
+      "label": "12(d) Name of Regulated Entity",
+      "crm_field": null
+    },
+    "Text Field 116": {
+      "label": "12(d) Completion Date Day",
+      "crm_field": null
+    },
+    "Text Field 115": {
+      "label": "12(d) Completion Date Month",
+      "crm_field": null
+    },
+    "Text Field 114": {
+      "label": "12(d) Completion Date Year",
+      "crm_field": null
+    },
+
+    "__comment_page11": "=== PAGE 11: Section 12(e) - Employer Declaration ===",
+    "Text Field 435": {
+      "label": "12(e) Employer Name",
+      "crm_field": null
+    },
+    "Text Field 438": {
+      "label": "12(e) Employer Declaration Date Day",
+      "crm_field": null
+    },
+    "Text Field 437": {
+      "label": "12(e) Employer Declaration Date Month",
+      "crm_field": null
+    },
+    "Text Field 436": {
+      "label": "12(e) Employer Declaration Date Year",
+      "crm_field": null
+    },
+
+    "__comment_page12": "=== PAGE 12: Direct Debit Mandate ===",
+    "__comment_page12_note": "52 fields for DD mandate details - bank account holder info, IBAN rows, creditor info, etc. All crm_field: null.",
+    "Text Field 40105": { "label": "DD IBAN Row 1 Col 1", "crm_field": null },
+    "Text Field 40106": { "label": "DD IBAN Row 1 Col 2", "crm_field": null },
+    "Text Field 40107": { "label": "DD IBAN Row 1 Col 3", "crm_field": null },
+    "Text Field 401014": { "label": "DD IBAN Row 1 Col 4", "crm_field": null },
+    "Text Field 401017": { "label": "DD IBAN Row 1 Col 5", "crm_field": null },
+    "Text Field 401020": { "label": "DD IBAN Row 1 Col 6", "crm_field": null },
+    "Text Field 40108": { "label": "DD IBAN Row 2 Col 1", "crm_field": null },
+    "Text Field 401010": { "label": "DD IBAN Row 2 Col 2", "crm_field": null },
+    "Text Field 401012": { "label": "DD IBAN Row 2 Col 3", "crm_field": null },
+    "Text Field 401015": { "label": "DD IBAN Row 2 Col 4", "crm_field": null },
+    "Text Field 401018": { "label": "DD IBAN Row 2 Col 5", "crm_field": null },
+    "Text Field 401021": { "label": "DD IBAN Row 2 Col 6", "crm_field": null },
+    "Text Field 40109": { "label": "DD IBAN Row 3 Col 1", "crm_field": null },
+    "Text Field 401011": { "label": "DD IBAN Row 3 Col 2", "crm_field": null },
+    "Text Field 401013": { "label": "DD IBAN Row 3 Col 3", "crm_field": null },
+    "Text Field 401016": { "label": "DD IBAN Row 3 Col 4", "crm_field": null },
+    "Text Field 401019": { "label": "DD IBAN Row 3 Col 5", "crm_field": null },
+    "Text Field 401022": { "label": "DD IBAN Row 3 Col 6", "crm_field": null },
+    "Text Field 401044": { "label": "DD BIC Row 1 Col 1", "crm_field": null },
+    "Text Field 401050": { "label": "DD BIC Row 1 Col 2", "crm_field": null },
+    "Text Field 401056": { "label": "DD BIC Row 1 Col 3", "crm_field": null },
+    "Text Field 401059": { "label": "DD BIC Row 1 Col 4", "crm_field": null },
+    "Text Field 401060": { "label": "DD BIC Row 1 Col 5", "crm_field": null },
+    "Text Field 401061": { "label": "DD BIC Row 2 Col 1", "crm_field": null },
+    "Text Field 401062": { "label": "DD BIC Row 2 Col 2", "crm_field": null },
+    "Text Field 401063": { "label": "DD BIC Row 2 Col 3", "crm_field": null },
+    "Text Field 401064": { "label": "DD BIC Row 2 Col 4", "crm_field": null },
+    "Text Field 401065": { "label": "DD BIC Row 2 Col 5", "crm_field": null },
+    "Text Field 401066": { "label": "DD BIC Row 3 Col 1", "crm_field": null },
+    "Text Field 401067": { "label": "DD BIC Row 3 Col 2", "crm_field": null },
+    "Text Field 401068": { "label": "DD BIC Row 3 Col 3", "crm_field": null },
+    "Text Field 401069": { "label": "DD BIC Row 3 Col 4", "crm_field": null },
+    "Text Field 401070": { "label": "DD BIC Row 3 Col 5", "crm_field": null },
+    "Text Field 401041": { "label": "DD Creditor Row 1 Col 1", "crm_field": null },
+    "Text Field 401042": { "label": "DD Creditor Row 1 Col 2", "crm_field": null },
+    "Text Field 401043": { "label": "DD Creditor Row 1 Col 3", "crm_field": null },
+    "Text Field 401045": { "label": "DD Creditor Row 1 Col 4", "crm_field": null },
+    "Text Field 401046": { "label": "DD Creditor Row 1 Col 5", "crm_field": null },
+    "Text Field 401047": { "label": "DD Creditor Row 2 Col 1", "crm_field": null },
+    "Text Field 401048": { "label": "DD Creditor Row 2 Col 2", "crm_field": null },
+    "Text Field 401049": { "label": "DD Creditor Row 2 Col 3", "crm_field": null },
+    "Text Field 401051": { "label": "DD Creditor Row 2 Col 4", "crm_field": null },
+    "Text Field 401052": { "label": "DD Creditor Row 2 Col 5", "crm_field": null },
+    "Text Field 401053": { "label": "DD Creditor Row 3 Col 1", "crm_field": null },
+    "Text Field 401054": { "label": "DD Creditor Row 3 Col 2", "crm_field": null },
+    "Text Field 401055": { "label": "DD Creditor Row 3 Col 3", "crm_field": null },
+    "Text Field 401057": { "label": "DD Creditor Row 3 Col 4", "crm_field": null },
+    "Text Field 401058": { "label": "DD Creditor Row 3 Col 5", "crm_field": null },
+    "Text Field 442": { "label": "DD Additional Info Line 1", "crm_field": null },
+    "Text Field 441": { "label": "DD Additional Info Line 2", "crm_field": null },
+    "Text Field 440": { "label": "DD Additional Info Line 3", "crm_field": null },
+    "Text Field 439": { "label": "DD Additional Info Line 4", "crm_field": null },
+
+    "__comment_page13": "=== PAGE 13: Direct Debit Mandate (continued) ===",
+    "Text Field 152": {
+      "label": "DD Mandate Reference",
+      "crm_field": null
+    },
+    "Text Field 151": {
+      "label": "DD Name of Account Holder",
+      "crm_field": "full_name"
+    },
+    "Text Field 150": {
+      "label": "DD Address of Account Holder",
+      "crm_field": null
+    },
+    "Text Field 149": {
+      "label": "DD Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 148": {
+      "label": "DD Address Line 3",
+      "crm_field": null
+    },
+    "Text Field 147": {
+      "label": "DD Signature Date Day",
+      "crm_field": null
+    },
+    "Text Field 146": {
+      "label": "DD Signature Date Month",
+      "crm_field": null
+    },
+    "Text Field 145": {
+      "label": "DD Signature Date Year",
+      "crm_field": null
+    },
+    "Text Field 144": {
+      "label": "DD Place of Signing",
+      "crm_field": null
+    },
+
+    "__comment_page14": "=== PAGE 14: SEPA Direct Debit Details ===",
+    "Text Field 160": {
+      "label": "SEPA Name of Debtor",
+      "crm_field": "full_name"
+    },
+    "Text Field 163": {
+      "label": "SEPA Name of Creditor",
+      "crm_field": null
+    },
+    "Text Field 174": {
+      "label": "SEPA Debtor DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "Text Field 173": {
+      "label": "SEPA Debtor DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "Text Field 172": {
+      "label": "SEPA Debtor DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "Text Field 161": {
+      "label": "SEPA Creditor Identifier",
+      "crm_field": null
+    },
+    "Text Field 162": {
+      "label": "SEPA Mandate Reference Number",
+      "crm_field": null
+    },
+    "Text Field 167": {
+      "label": "SEPA Account Name",
+      "crm_field": null
+    },
+    "Check Box 76": {
+      "label": "SEPA Account Type: Current",
+      "crm_field": null
+    },
+    "Check Box 75": {
+      "label": "SEPA Account Type: Savings",
+      "crm_field": null
+    },
+    "Text Field 153": { "label": "SEPA Bank Details Row 1", "crm_field": null },
+    "Text Field 154": { "label": "SEPA Bank Details Row 2", "crm_field": null },
+    "Text Field 155": { "label": "SEPA Bank Details Row 3", "crm_field": null },
+    "Text Field 156": { "label": "SEPA Bank Details Row 4", "crm_field": null },
+    "Text Field 157": { "label": "SEPA Bank Details Row 5", "crm_field": null },
+    "Text Field 158": { "label": "SEPA Bank Details Row 6", "crm_field": null },
+    "Text Field 159": { "label": "SEPA Bank Details Row 7", "crm_field": null },
+    "Check Box 78": {
+      "label": "SEPA Refund: Yes",
+      "crm_field": null
+    },
+    "Check Box 77": {
+      "label": "SEPA Refund: No",
+      "crm_field": null
+    },
+    "Text Field 168": { "label": "SEPA IBAN Col 1 Row 1", "crm_field": null },
+    "Text Field 164": { "label": "SEPA IBAN Col 2 Row 1", "crm_field": null },
+    "Text Field 169": { "label": "SEPA IBAN Col 1 Row 2", "crm_field": null },
+    "Text Field 165": { "label": "SEPA IBAN Col 2 Row 2", "crm_field": null },
+    "Text Field 170": { "label": "SEPA IBAN Col 1 Row 3", "crm_field": null },
+    "Text Field 166": { "label": "SEPA IBAN Col 2 Row 3", "crm_field": null },
+    "Text Field 171": { "label": "SEPA BIC", "crm_field": null },
+    "Text Field 224": {
+      "label": "SEPA Signature Date Day",
+      "crm_field": null
+    },
+    "Text Field 223": {
+      "label": "SEPA Signature Date Month",
+      "crm_field": null
+    },
+    "Text Field 222": {
+      "label": "SEPA Signature Date Year",
+      "crm_field": null
+    },
+
+    "__comment_page15": "=== PAGE 15: Additional SEPA Details ===",
+    "Text Field 175": { "label": "SEPA Additional Row 1", "crm_field": null },
+    "Text Field 178": { "label": "SEPA Additional Row 2", "crm_field": null },
+    "Text Field 179": { "label": "SEPA Additional Row 3", "crm_field": null },
+    "Text Field 180": { "label": "SEPA Additional Row 4", "crm_field": null },
+    "Text Field 181": { "label": "SEPA Additional Row 5", "crm_field": null },
+    "Text Field 182": { "label": "SEPA Additional Row 6", "crm_field": null },
+    "Text Field 183": { "label": "SEPA Additional Row 7", "crm_field": null },
+    "Text Field 184": { "label": "SEPA Additional Row 8", "crm_field": null },
+    "Text Field 185": { "label": "SEPA Additional Row 9", "crm_field": null },
+    "Text Field 188": { "label": "SEPA Payment Amount 1", "crm_field": null },
+    "Text Field 189": { "label": "SEPA Payment Amount 2", "crm_field": null },
+    "Text Field 186": { "label": "SEPA Payment Code 1", "crm_field": null },
+    "Text Field 187": { "label": "SEPA Payment Code 2", "crm_field": null },
+    "Text Field 176": { "label": "SEPA Debtor Address 1", "crm_field": null },
+    "Text Field 177": { "label": "SEPA Debtor Address 2", "crm_field": null },
+    "Text Field 190": { "label": "SEPA Direct Debit Amount 1", "crm_field": null },
+    "Text Field 195": { "label": "SEPA Direct Debit Ref 1", "crm_field": null },
+    "Check Box 88": { "label": "SEPA DD Frequency 1: Monthly", "crm_field": null },
+    "Check Box 87": { "label": "SEPA DD Frequency 1: Quarterly", "crm_field": null },
+    "Check Box 86": { "label": "SEPA DD Frequency 1: Half-Yearly", "crm_field": null },
+    "Check Box 85": { "label": "SEPA DD Frequency 1: Yearly", "crm_field": null },
+    "Text Field 191": { "label": "SEPA Direct Debit Amount 2", "crm_field": null },
+    "Text Field 194": { "label": "SEPA Direct Debit Ref 2", "crm_field": null },
+    "Check Box 84": { "label": "SEPA DD Frequency 2: Monthly", "crm_field": null },
+    "Check Box 83": { "label": "SEPA DD Frequency 2: Quarterly", "crm_field": null },
+    "Check Box 82": { "label": "SEPA DD Frequency 2: Half-Yearly", "crm_field": null },
+    "Check Box 81": { "label": "SEPA DD Frequency 2: Yearly", "crm_field": null },
+    "Text Field 193": { "label": "SEPA Total Direct Debit Amount", "crm_field": null },
+
+    "__comment_page16": "=== PAGE 16: AVC PRSA Information Sheet ===",
+    "Check Box 169": { "label": "AVC Info: Option A", "crm_field": null },
+    "Check Box 168": { "label": "AVC Info: Option B", "crm_field": null },
+    "Text Field 281": { "label": "AVC Table Col 1 Row 1", "crm_field": null },
+    "Text Field 287": { "label": "AVC Table Col 2 Row 1", "crm_field": null },
+    "Text Field 293": { "label": "AVC Table Col 3 Row 1", "crm_field": null },
+    "Text Field 282": { "label": "AVC Table Col 1 Row 2", "crm_field": null },
+    "Text Field 288": { "label": "AVC Table Col 2 Row 2", "crm_field": null },
+    "Text Field 294": { "label": "AVC Table Col 3 Row 2", "crm_field": null },
+    "Text Field 283": { "label": "AVC Table Col 1 Row 3", "crm_field": null },
+    "Text Field 289": { "label": "AVC Table Col 2 Row 3", "crm_field": null },
+    "Text Field 295": { "label": "AVC Table Col 3 Row 3", "crm_field": null },
+    "Text Field 284": { "label": "AVC Table Col 1 Row 4", "crm_field": null },
+    "Text Field 290": { "label": "AVC Table Col 2 Row 4", "crm_field": null },
+    "Text Field 296": { "label": "AVC Table Col 3 Row 4", "crm_field": null },
+    "Text Field 285": { "label": "AVC Table Col 1 Row 5", "crm_field": null },
+    "Text Field 291": { "label": "AVC Table Col 2 Row 5", "crm_field": null },
+    "Text Field 297": { "label": "AVC Table Col 3 Row 5", "crm_field": null },
+    "Text Field 286": { "label": "AVC Table Col 1 Row 6", "crm_field": null },
+    "Text Field 292": { "label": "AVC Table Col 2 Row 6", "crm_field": null },
+    "Text Field 298": { "label": "AVC Table Col 3 Row 6", "crm_field": null },
+    "Check Box 167": { "label": "AVC Confirmation: Option A", "crm_field": null },
+    "Check Box 166": { "label": "AVC Confirmation: Option B", "crm_field": null },
+    "Text Field 305": { "label": "AVC Date Day", "crm_field": null },
+    "Text Field 304": { "label": "AVC Date Month", "crm_field": null },
+    "Text Field 303": { "label": "AVC Date Year", "crm_field": null },
+    "Text Field 302": { "label": "AVC Employer Signature Name", "crm_field": null },
+    "Text Field 299": { "label": "AVC Detail Line 1", "crm_field": null },
+    "Text Field 300": { "label": "AVC Detail Line 2", "crm_field": null },
+    "Text Field 317": { "label": "AVC Detail Line 3", "crm_field": null },
+    "Text Field 301": { "label": "AVC Detail Line 4", "crm_field": null },
+
+    "__comment_page18": "=== PAGE 18: Final Declaration Date ===",
+    "Text Field 215": {
+      "label": "Final Declaration Date Day",
+      "crm_field": null
+    },
+    "Text Field 214": {
+      "label": "Final Declaration Date Month",
+      "crm_field": null
+    },
+    "Text Field 213": {
+      "label": "Final Declaration Date Year",
+      "crm_field": null
+    }
   }
 }

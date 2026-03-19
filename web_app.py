@@ -10,15 +10,17 @@ Or:
 import os
 import sys
 import json
+import logging
 from pathlib import Path
 
 import uvicorn
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
+from sse_starlette.sse import EventSourceResponse
 from pydantic import BaseModel
 
 from config import TEMPLATES_DIR, OUTPUT_DIR
-from crm_client import list_all_contacts, get_contact
+from crm_client import list_all_contacts, iter_all_contacts, get_contact
 from pdf_filler import fill_form, get_available_forms
 from db import (
     save_contacts,
@@ -27,6 +29,11 @@ from db import (
     get_contact_local,
     get_contact_count,
     get_last_sync,
+)
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 
 app = FastAPI(title="AutoFill - YourFinance.ie", version="1.0.0")
@@ -56,13 +63,42 @@ async def api_sync_info():
 
 @app.post("/api/sync")
 async def api_sync():
-    """Sync all contacts from OnePageCRM to local SQLite."""
+    """Sync all contacts from OnePageCRM to local SQLite (non-streaming fallback)."""
     try:
         contacts = list_all_contacts()
         save_contacts(contacts)
         return {"count": len(contacts)}
     except Exception as e:
         return JSONResponse({"error": str(e)}, status_code=500)
+
+
+@app.get("/api/sync-stream")
+async def api_sync_stream():
+    """Sync contacts with SSE progress updates."""
+    def generate():
+        all_contacts = []
+        try:
+            for page, max_page, batch in iter_all_contacts():
+                all_contacts.extend(batch)
+                yield {
+                    "event": "progress",
+                    "data": json.dumps({
+                        "page": page,
+                        "max_page": max_page,
+                        "fetched": len(all_contacts),
+                    }),
+                }
+            save_contacts(all_contacts)
+            yield {
+                "event": "done",
+                "data": json.dumps({"count": len(all_contacts)}),
+            }
+        except Exception as e:
+            yield {
+                "event": "error",
+                "data": json.dumps({"error": str(e)}),
+            }
+    return EventSourceResponse(generate())
 
 
 @app.get("/api/contacts/search")
@@ -99,7 +135,12 @@ async def download(filename: str):
     filepath = OUTPUT_DIR / filename
     if not filepath.exists():
         raise HTTPException(status_code=404, detail="File not found")
-    return FileResponse(str(filepath), filename=filename)
+    return FileResponse(
+        str(filepath),
+        filename=filename,
+        media_type="application/pdf",
+        headers={"Cache-Control": "no-store"},
+    )
 
 
 if __name__ == "__main__":

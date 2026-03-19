@@ -111,8 +111,15 @@ def _parse_contact(c: dict, cf_map: dict) -> dict:
 
 def list_all_contacts() -> list[dict]:
     """Fetch all contacts (paginated)."""
+    contacts = []
+    for _page, _max_page, batch in iter_all_contacts():
+        contacts.extend(batch)
+    return contacts
+
+
+def iter_all_contacts():
+    """Yield (page, max_page, batch) tuples for progress tracking."""
     cf_map = get_custom_field_map()
-    all_contacts = []
     page = 1
     while True:
         resp = requests.get(
@@ -123,15 +130,14 @@ def list_all_contacts() -> list[dict]:
         resp.raise_for_status()
         data = resp.json()
         contacts = data.get("data", {}).get("contacts", [])
+        max_page = data.get("data", {}).get("max_page", 1)
         if not contacts:
             break
-        for item in contacts:
-            c = item["contact"]
-            all_contacts.append(_parse_contact(c, cf_map))
-        if page >= data.get("data", {}).get("max_page", 1):
+        batch = [_parse_contact(item["contact"], cf_map) for item in contacts]
+        yield page, max_page, batch
+        if page >= max_page:
             break
         page += 1
-    return all_contacts
 
 
 if __name__ == "__main__":

@@ -6,90 +6,311 @@
   "notes": "Field names are descriptive with tooltips. Pages 1-2 = life insured + policy owner details, Pages 3-4 = benefits/cover amounts, Page 5 = bank/SEPA, Page 10 = SEPA mandate. 217 fields total, 10 pages.",
   "field_map": {
     "__comment_page1_broker": "=== PAGE 1: Broker Details ===",
-    "Intermediary Name 2": {"label": "Intermediary Name", "crm_field": null},
-    "Intermediary Number 2": {"label": "Intermediary Number", "crm_field": null},
-
+    "Intermediary Name 2": {
+      "label": "Intermediary Name",
+      "crm_field": null
+    },
+    "Intermediary Number 2": {
+      "label": "Intermediary Number",
+      "crm_field": null
+    },
     "__comment_page1_first_life": "=== PAGE 1: First Life Insured ===",
-    "Check Box 48": {"label": "Title: Mr", "crm_field": "title", "match_value": "Mr", "note": "Unnamed CB at x=166"},
-    "Mrs 4": {"label": "Title: Mrs", "crm_field": "title", "match_value": "Mrs"},
-    "Mrs 5": {"label": "Title: Ms", "crm_field": "title", "match_value": "Ms"},
-    "Check Box 49": {"label": "Title: Other", "crm_field": null},
-    "First Life Insured Name 2": {"label": "First Life Insured First Name", "crm_field": "first_name"},
-    "First Life Insured Surname 2": {"label": "First Life Insured Surname", "crm_field": "last_name"},
-    "First Life Insured Surname at birth 2": {"label": "Surname at Birth", "crm_field": null},
-    "sex male 2": {"label": "Gender: Male", "crm_field": "gender", "match_value": "Male"},
-    "sex female 2": {"label": "Gender: Female", "crm_field": "gender", "match_value": "Female"},
-    "First Life Insured Date of birth DD 2": {"label": "DOB Day", "crm_field": "date_of_birth", "transform": "day"},
-    "First Life Insured Date of birth MM 2": {"label": "DOB Month", "crm_field": "date_of_birth", "transform": "month"},
-    "First Life Insured Date of birth YYYY 2": {"label": "DOB Year", "crm_field": "date_of_birth", "transform": "year"},
-    "First Life Insured Age 2": {"label": "Age", "crm_field": null},
-    "First Life Insured Address Line 3": {"label": "Address Line 1", "crm_field": "address_line1"},
-    "First Life Insured Address Line 4": {"label": "Address Line 2 / City", "crm_field": "address_city"},
-    "First Life Insured Address Line 5": {"label": "Address Line 3 / County", "crm_field": "address_state"},
-    "First Life Insured Nationality 2": {"label": "Nationality", "crm_field": "nationality"},
-    "First Life Insured Country of Res 2": {"label": "Country of Residence", "crm_field": null},
-    "First Life Insured Email 2": {"label": "Email", "crm_field": "email"},
-    "First Policy Owner Contact 5": {"label": "Work Phone", "crm_field": "phone"},
-    "First Life Insured Contact 2": {"label": "Mobile Phone", "crm_field": "phone_mobile"},
-
+    "Check Box 49": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Mrs 4": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Mrs 5": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 49": {
+      "label": "Title: Other",
+      "crm_field": null
+    },
+    "First Life Insured Name 2": {
+      "label": "First Life Insured First Name",
+      "crm_field": "first_name"
+    },
+    "First Life Insured Surname 2": {
+      "label": "First Life Insured Surname",
+      "crm_field": "last_name"
+    },
+    "First Life Insured Surname at birth 2": {
+      "label": "Surname at Birth",
+      "crm_field": null
+    },
+    "sex male 2": {
+      "label": "Gender: Male",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "sex female 2": {
+      "label": "Gender: Female",
+      "crm_field": "gender",
+      "match_value": "Female"
+    },
+    "First Life Insured Date of birth DD 2": {
+      "label": "DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "First Life Insured Date of birth MM 2": {
+      "label": "DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "First Life Insured Date of birth YYYY 2": {
+      "label": "DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "First Life Insured Age 2": {
+      "label": "Age",
+      "crm_field": null
+    },
+    "First Life Insured Address Line 3": {
+      "label": "Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "First Life Insured Address Line 4": {
+      "label": "Address Line 2 / City",
+      "crm_field": "address_city"
+    },
+    "First Life Insured Address Line 5": {
+      "label": "Address Line 3 / County",
+      "crm_field": "address_state"
+    },
+    "First Life Insured Nationality 2": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "First Life Insured Country of Res 2": {
+      "label": "Country of Residence",
+      "crm_field": null
+    },
+    "First Life Insured Email 2": {
+      "label": "Email",
+      "crm_field": "email"
+    },
+    "First Policy Owner Contact 5": {
+      "label": "Work Phone",
+      "crm_field": "phone_work"
+    },
+    "First Life Insured Contact 2": {
+      "label": "Mobile Phone",
+      "crm_field": "phone_mobile"
+    },
     "__comment_page1_second_life": "=== PAGE 1: Second Life Insured (all null - separate person) ===",
-    "Second Life Insured Name 2": {"label": "Second Life Insured First Name", "crm_field": null},
-    "Second Life Insured Surname 2": {"label": "Second Life Insured Surname", "crm_field": null},
-    "Second Life Insured Surname at birth 2": {"label": "Second Life Insured Surname at Birth", "crm_field": null},
-    "Second Life Insured Date of birth DD 2": {"label": "Second Life Insured DOB Day", "crm_field": null},
-    "Second Life Insured Date of birth MM 2": {"label": "Second Life Insured DOB Month", "crm_field": null},
-    "Second Life Insured Date of birth YYYY 2": {"label": "Second Life Insured DOB Year", "crm_field": null},
-    "Second Life Insured Age 2": {"label": "Second Life Insured Age", "crm_field": null},
-    "Second Life Insured Address Line 3": {"label": "Second Life Insured Address Line 1", "crm_field": null},
-    "Second Life Insured Address Line 4": {"label": "Second Life Insured Address Line 2", "crm_field": null},
-    "Second Life Insured Address Line 5": {"label": "Second Life Insured Address Line 3", "crm_field": null},
-    "Second Life Insured Nationality 2": {"label": "Second Life Insured Nationality", "crm_field": null},
-    "Second Life Insured Country of Res 2": {"label": "Second Life Insured Country of Residence", "crm_field": null},
-    "Second Life Insured Email 2": {"label": "Second Life Insured Email", "crm_field": null},
-    "Second Life Insured Contact 2": {"label": "Second Life Insured Phone", "crm_field": null},
-
+    "Second Life Insured Name 2": {
+      "label": "Second Life Insured First Name",
+      "crm_field": null
+    },
+    "Second Life Insured Surname 2": {
+      "label": "Second Life Insured Surname",
+      "crm_field": null
+    },
+    "Second Life Insured Surname Birth 2": {
+      "label": "Second Life Insured Surname at Birth",
+      "crm_field": null
+    },
+    "Second Life Insured date of Birth DD 2": {
+      "label": "Second Life Insured DOB Day",
+      "crm_field": null
+    },
+    "Second Life Insured Age 2": {
+      "label": "Second Life Insured Age",
+      "crm_field": null
+    },
+    "Second Life Insured Address Line 3": {
+      "label": "Second Life Insured Address Line 1",
+      "crm_field": null
+    },
+    "Second Life Insured Address Line 4": {
+      "label": "Second Life Insured Address Line 2",
+      "crm_field": null
+    },
+    "Second Life Insured Address Line 5": {
+      "label": "Second Life Insured Address Line 3",
+      "crm_field": null
+    },
+    "Second Life Insured Nationality 2": {
+      "label": "Second Life Insured Nationality",
+      "crm_field": null
+    },
+    "Second Life Insured Country of Residence 2": {
+      "label": "Second Life Insured Country of Residence",
+      "crm_field": null
+    },
+    "Second Life Insured Email 2": {
+      "label": "Second Life Insured Email",
+      "crm_field": null
+    },
+    "Second Life Insured Contact 2": {
+      "label": "Second Life Insured Phone",
+      "crm_field": null
+    },
     "__comment_page2_first_owner": "=== PAGE 2: First Policy Owner ===",
-    "First Policy Owner Name 2": {"label": "First Policy Owner First Name", "crm_field": "first_name"},
-    "First Policy Owner Surname 2": {"label": "First Policy Owner Surname", "crm_field": "last_name"},
-    "First Policy Owner Birth Surname 2": {"label": "First Policy Owner Birth Surname", "crm_field": null},
-    "First Policy Owner Date of Birth DD/MM/YYYY 2": {"label": "First Policy Owner DOB", "crm_field": "date_of_birth", "transform": "dd/mm/yyyy"},
-    "First Policy Owner Address Line 3": {"label": "First Policy Owner Address Line 1", "crm_field": "address_line1"},
-    "First Policy Owner Address Line 4": {"label": "First Policy Owner Address Line 2 / City", "crm_field": "address_city"},
-    "First Policy Owner Address Line 5": {"label": "First Policy Owner Address Line 3 / County", "crm_field": "address_state"},
-    "First Policy Owner Nationality 2": {"label": "First Policy Owner Nationality", "crm_field": "nationality"},
-    "First Policy Owner Country of Res 2": {"label": "First Policy Owner Country of Residence", "crm_field": null},
-    "First Policy Owner Email 2": {"label": "First Policy Owner Email", "crm_field": "email"},
-    "First Policy Owner Contact 2": {"label": "First Policy Owner Phone", "crm_field": "phone"},
-    "First Policy Owner Contact 3": {"label": "First Policy Owner Mobile", "crm_field": "phone_mobile"},
-
+    "First Policy Owner Name 2": {
+      "label": "First Policy Owner First Name",
+      "crm_field": "first_name"
+    },
+    "First Policy Owner Surname 2": {
+      "label": "First Policy Owner Surname",
+      "crm_field": "last_name"
+    },
+    "First Policy Owner Birth Surname 2": {
+      "label": "First Policy Owner Birth Surname",
+      "crm_field": null
+    },
+    "First Policy Owner Date of Birth DD 2": {
+      "label": "First Policy Owner DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "First Policy Owner Date of Birth MM 2": {
+      "label": "First Policy Owner DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "First Policy Owner Date of Birth YYYY 2": {
+      "label": "First Policy Owner DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "First Policy Owner Address Line 3": {
+      "label": "First Policy Owner Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "First Policy Owner Address Line 4": {
+      "label": "First Policy Owner Address Line 2 / City",
+      "crm_field": "address_city"
+    },
+    "First Policy Owner Address Line 5": {
+      "label": "First Policy Owner Address Line 3 / County",
+      "crm_field": "address_state"
+    },
+    "First Policy Owner Nationality 2": {
+      "label": "First Policy Owner Nationality",
+      "crm_field": "nationality"
+    },
+    "First Policy Owner Country of Res 2": {
+      "label": "First Policy Owner Country of Residence",
+      "crm_field": null
+    },
+    "First Policy Owner Email 2": {
+      "label": "First Policy Owner Email",
+      "crm_field": "email"
+    },
+    "First Policy Owner Contact 2": {
+      "label": "First Policy Owner Phone",
+      "crm_field": "phone_home"
+    },
+    "First Policy Owner Contact 3": {
+      "label": "First Policy Owner Mobile",
+      "crm_field": "phone_mobile"
+    },
     "__comment_page2_second_owner": "=== PAGE 2: Second Policy Owner (all null) ===",
-    "Second Policy Owner Name 2": {"label": "Second Policy Owner First Name", "crm_field": null},
-    "Second Policy Owner Surname 2": {"label": "Second Policy Owner Surname", "crm_field": null},
-    "Second Policy Owner Birth Surname 2": {"label": "Second Policy Owner Birth Surname", "crm_field": null},
-    "Second Policy Owner Date of Birth DD/MM/YYYY 2": {"label": "Second Policy Owner DOB", "crm_field": null},
-    "Second Policy Owner Address Line 3": {"label": "Second Policy Owner Address Line 1", "crm_field": null},
-    "Second Policy Owner Address Line 4": {"label": "Second Policy Owner Address Line 2", "crm_field": null},
-    "Second Policy Owner Address Line 5": {"label": "Second Policy Owner Address Line 3", "crm_field": null},
-    "Second Policy Owner Nationality 2": {"label": "Second Policy Owner Nationality", "crm_field": null},
-    "Second Policy Owner Country of Res 2": {"label": "Second Policy Owner Country of Residence", "crm_field": null},
-    "Second Policy Owner Email 2": {"label": "Second Policy Owner Email", "crm_field": null},
-    "Second Policy Owner Contact 2": {"label": "Second Policy Owner Phone", "crm_field": null},
-    "Second Policy Owner Contact 3": {"label": "Second Policy Owner Mobile", "crm_field": null},
-
+    "Second Policy Owner Name 2": {
+      "label": "Second Policy Owner First Name",
+      "crm_field": null
+    },
+    "Second Policy Owner Surname 2": {
+      "label": "Second Policy Owner Surname",
+      "crm_field": null
+    },
+    "Second Policy Owner Birth name 2": {
+      "label": "Second Policy Owner Birth Surname",
+      "crm_field": null
+    },
+    "Second Policy Owner Date of Birth DD 2": {
+      "label": "Second Policy Owner DOB Day",
+      "crm_field": null
+    },
+    "Second Policy Owner Date of Birth MM 2": {
+      "label": "Second Policy Owner DOB Month",
+      "crm_field": null
+    },
+    "Second Policy Owner Date of Birth YYYY 2": {
+      "label": "Second Policy Owner DOB Year",
+      "crm_field": null
+    },
+    "Second Policy Owner Address LIne 3": {
+      "label": "Second Policy Owner Address Line 1",
+      "crm_field": null
+    },
+    "Second Policy Owner Address LIne 4": {
+      "label": "Second Policy Owner Address Line 2",
+      "crm_field": null
+    },
+    "Second Policy Owner Address LIne 5": {
+      "label": "Second Policy Owner Address Line 3",
+      "crm_field": null
+    },
+    "Second Policy Owner Nationality 2": {
+      "label": "Second Policy Owner Nationality",
+      "crm_field": null
+    },
+    "Second Policy Owner Country of res 2": {
+      "label": "Second Policy Owner Country of Residence",
+      "crm_field": null
+    },
+    "Second Policy Owner Email 2": {
+      "label": "Second Policy Owner Email",
+      "crm_field": null
+    },
+    "Second Policy Owner Contact Number 2": {
+      "label": "Second Policy Owner Phone",
+      "crm_field": null
+    },
     "__comment_pages3_4": "=== PAGES 3-4: Benefits / Cover Amounts (all null) ===",
-
     "__comment_page5_bank": "=== PAGE 5: Bank / SEPA Direct Debit ===",
-    "Contribution Details Bank Draft account holder name 3": {"label": "DD Account Holder Name", "crm_field": "full_name"},
-    "Contribution Details Bank Draft IBAN 3": {"label": "DD IBAN", "crm_field": "iban"},
-    "Contribution Details Bank Draft SWIFT 3": {"label": "DD BIC/SWIFT", "crm_field": "bic"},
-
+    "Contribution Details Bank Draft account holder name 3": {
+      "label": "DD Account Holder Name",
+      "crm_field": "full_name"
+    },
+    "Contribution Details Bank Draft IBAN 3": {
+      "label": "DD IBAN",
+      "crm_field": null
+    },
+    "Contribution Details Bank Draft SWIFT 3": {
+      "label": "DD BIC/SWIFT",
+      "crm_field": null
+    },
     "__comment_page10_sepa": "=== PAGE 10: SEPA Mandate ===",
-    "SEPA - Account Holder Name 3": {"label": "SEPA Account Holder Name", "crm_field": "full_name"},
-    "SEPA - Account Holder Address 3": {"label": "SEPA Address Line 1", "crm_field": "address_line1"},
-    "SEPA - Account Holder Address 4": {"label": "SEPA Address Line 2 / City", "crm_field": "address_city"},
-    "SEPA - City/Postcode 3": {"label": "SEPA City/Postcode", "crm_field": "address_postcode"},
-    "SEPA - Country 3": {"label": "SEPA Country", "crm_field": "address_country"},
-    "SEPA - IBAN 3": {"label": "SEPA IBAN", "crm_field": "iban"},
-    "SEPA - Swift BIC 3": {"label": "SEPA BIC/SWIFT", "crm_field": "bic"}
+    "SEPA - Account Holder Name 3": {
+      "label": "SEPA Account Holder Name",
+      "crm_field": "full_name"
+    },
+    "SEPA - Account Holder Address 3": {
+      "label": "SEPA Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "SEPA - Account Holder Address 4": {
+      "label": "SEPA Address Line 2 / City",
+      "crm_field": "address_city"
+    },
+    "SEPA - City/Postcode 3": {
+      "label": "SEPA City/Postcode",
+      "crm_field": "address_postcode"
+    },
+    "SEPA - Country 3": {
+      "label": "SEPA Country",
+      "crm_field": "address_country"
+    },
+    "SEPA - IBAN 3": {
+      "label": "SEPA IBAN",
+      "crm_field": null
+    },
+    "SEPA - Swift BIC 3": {
+      "label": "SEPA BIC/SWIFT",
+      "crm_field": null
+    }
   }
 }

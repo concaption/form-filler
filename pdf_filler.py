@@ -3,12 +3,15 @@
 import json
 import os
 import copy
+import logging
 from pathlib import Path
 from typing import Optional
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject, ArrayObject, TextStringObject, BooleanObject
 
 from config import MAPPINGS_DIR, PDFS_DIR, OUTPUT_DIR
+
+logger = logging.getLogger(__name__)
 
 
 def get_available_forms() -> list:
@@ -98,6 +101,7 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
     """
     # Load mapping
     mapping_path = MAPPINGS_DIR / mapping_file
+    logger.info("Loading mapping: %s", mapping_path)
     with open(mapping_path) as f:
         mapping = json.load(f)
 
@@ -106,17 +110,40 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
     pdf_path = PDFS_DIR / pdf_file
 
     if not pdf_path.exists():
+        logger.error("PDF not found: %s", pdf_path)
         raise FileNotFoundError(f"PDF not found: {pdf_path}")
+
+    logger.info("Source PDF: %s (%d bytes)", pdf_path, pdf_path.stat().st_size)
 
     # Merge contact with extra fields
     merged = dict(contact)
     if extra_fields:
         merged.update(extra_fields)
 
+    logger.info("Contact: %s (id=%s)", merged.get("full_name", "?"), merged.get("id", "?"))
+    logger.debug("Contact data: %s", {k: v for k, v in merged.items() if v})
+
     # Read the PDF
     reader = PdfReader(str(pdf_path))
     writer = PdfWriter()
     writer.append_pages_from_reader(reader)
+    logger.info("PDF loaded: %d pages", len(reader.pages))
+
+    # List all form fields in the PDF for debugging
+    pdf_field_names = set()
+    for page_idx, page in enumerate(reader.pages):
+        annots = page.get("/Annots")
+        if not annots:
+            continue
+        annot_list = annots if isinstance(annots, ArrayObject) else annots.get_object()
+        for annot_ref in annot_list:
+            annot = annot_ref.get_object()
+            fname = str(annot.get("/T", ""))
+            ftype = str(annot.get("/FT", ""))
+            if fname:
+                pdf_field_names.add(fname)
+                logger.debug("  PDF field [page %d]: %r  type=%s", page_idx + 1, fname, ftype)
+    logger.info("PDF contains %d form fields", len(pdf_field_names))
 
     # Set NeedAppearances so PDF viewers regenerate field visuals
     try:
@@ -124,10 +151,14 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
             acroform = reader.trailer["/Root"].get_object().get("/AcroForm")
             if acroform:
                 writer._root_object[NameObject("/AcroForm")] = acroform.get_object()
+                logger.debug("Copied AcroForm from reader to writer")
         if "/AcroForm" in writer._root_object:
             writer._root_object["/AcroForm"][NameObject("/NeedAppearances")] = BooleanObject(True)
-    except Exception:
-        pass
+            logger.debug("Set NeedAppearances = True")
+        else:
+            logger.warning("No AcroForm found in PDF — form fields may not be fillable")
+    except Exception as e:
+        logger.warning("Failed to set NeedAppearances: %s", e)
 
     # Build the update dicts
     text_updates = {}
@@ -142,6 +173,9 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
             value = merged.get(config, "")
             if value:
                 text_updates[pdf_field_name] = str(value)
+                logger.info("  MAP  %r -> %r = %r", pdf_field_name, config, str(value))
+            else:
+                logger.debug("  SKIP %r -> %r (empty value)", pdf_field_name, config)
             continue
 
         if "match_value" in config:
@@ -149,14 +183,33 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
             should_check = _should_check(config, merged)
             if should_check is not None:
                 checkbox_updates[pdf_field_name] = should_check
+                logger.info("  CHECK %r -> crm=%r match=%r => %s",
+                            pdf_field_name, config.get("crm_field"),
+                            config.get("match_value"), should_check)
         else:
             # Text field
             value = _resolve_value(config, merged)
             if value:
                 text_updates[pdf_field_name] = value
+                logger.info("  MAP  %r [%s] -> %r = %r",
+                            pdf_field_name, config.get("label", ""),
+                            config.get("crm_field"), value)
+            else:
+                logger.debug("  SKIP %r [%s] -> %r (empty/null)",
+                             pdf_field_name, config.get("label", ""),
+                             config.get("crm_field"))
+
+    # Check for mapped fields that don't exist in the PDF
+    missing_in_pdf = set(text_updates.keys()) | set(checkbox_updates.keys())
+    missing_in_pdf -= pdf_field_names
+    if missing_in_pdf:
+        logger.warning("Mapped fields NOT FOUND in PDF: %s", sorted(missing_in_pdf))
+
+    logger.info("Updates prepared: %d text fields, %d checkboxes", len(text_updates), len(checkbox_updates))
 
     # Apply all updates by directly modifying annotations on each page
-    for page in writer.pages:
+    fields_written = 0
+    for page_idx, page in enumerate(writer.pages):
         annots = page.get("/Annots")
         if not annots:
             continue
@@ -171,6 +224,11 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
 
             if field_name in text_updates:
                 annot[NameObject("/V")] = TextStringObject(text_updates[field_name])
+                # Remove stale appearance stream so viewer must regenerate it
+                if NameObject("/AP") in annot:
+                    del annot[NameObject("/AP")]
+                fields_written += 1
+                logger.debug("  WROTE text [page %d] %r = %r", page_idx + 1, field_name, text_updates[field_name])
 
             elif field_name in checkbox_updates:
                 if checkbox_updates[field_name]:
@@ -179,6 +237,13 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
                 else:
                     annot[NameObject("/V")] = NameObject("/Off")
                     annot[NameObject("/AS")] = NameObject("/Off")
+                fields_written += 1
+                logger.debug("  WROTE checkbox [page %d] %r = %s", page_idx + 1, field_name, checkbox_updates[field_name])
+
+    if fields_written == 0:
+        logger.warning("NO fields were written to the PDF!")
+    else:
+        logger.info("Written %d fields to PDF", fields_written)
 
     # Save output
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -189,6 +254,12 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
 
     with open(output_path, "wb") as f:
         writer.write(f)
+
+    output_size = output_path.stat().st_size
+    logger.info("Output saved: %s (%d bytes)", output_path, output_size)
+
+    if output_size < 1000:
+        logger.warning("Output file suspiciously small (%d bytes) — may be corrupt", output_size)
 
     return str(output_path)
 

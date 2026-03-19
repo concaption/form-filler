@@ -5,170 +5,621 @@
   "product": "PRSA",
   "notes": "11 pages, 222 fields. Page 1 = broker + product type, Page 2 = transfer details, Page 3 = SEPA mandate, Page 6 = personal details, Page 7 = income/wealth, Page 8 = tax/FATCA/PEP, Page 10 = fund selection. SEPA fields on Page 3 have tooltips; other fields mapped by Y/X position.",
   "field_map": {
-
     "__comment_page1": "=== PAGE 1: Broker Details + Product Type ===",
-    "Text Field 139": {"label": "Broker/Agency Number", "crm_field": null},
-    "Text Field 140": {"label": "Broker Field 2", "crm_field": null},
-    "Text Field 141": {"label": "Broker Email/Contact", "crm_field": null},
-    "Check Box 183": {"label": "Title: Mr", "crm_field": "title", "match_value": "Mr"},
-    "Check Box 184": {"label": "Title: Mrs", "crm_field": "title", "match_value": "Mrs"},
-    "Check Box 185": {"label": "Title: Ms", "crm_field": "title", "match_value": "Ms"},
-    "Check Box 186": {"label": "Title: Other", "crm_field": null},
-    "Text Field 327": {"label": "Other Title Text", "crm_field": null},
-    "Text Field 143": {"label": "Forename", "crm_field": "first_name"},
-    "Text Field 146": {"label": "Surname", "crm_field": "last_name"},
-    "Check Box 102": {"label": "Product Type Option 1", "crm_field": null},
-    "Check Box 103": {"label": "Product Type Option 2", "crm_field": null},
-    "Check Box 104": {"label": "Product Type Option 3", "crm_field": null},
-    "Check Box 105": {"label": "Product Type Option 4", "crm_field": null},
-    "Check Box 106": {"label": "Product Type Option 5", "crm_field": null},
-    "Check Box 107": {"label": "Product Type Option 6", "crm_field": null},
-    "Check Box 108": {"label": "Product Type Option 7", "crm_field": null},
-    "Check Box 109": {"label": "Product Type Option 8", "crm_field": null},
-
+    "Text Field 139": {
+      "label": "Broker/Agency Number",
+      "crm_field": null
+    },
+    "Text Field 140": {
+      "label": "Broker Field 2",
+      "crm_field": null
+    },
+    "Text Field 141": {
+      "label": "Broker Email/Contact",
+      "crm_field": null
+    },
+    "Check Box 183": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Check Box 184": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Check Box 185": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 186": {
+      "label": "Title: Other",
+      "crm_field": null
+    },
+    "Text Field 327": {
+      "label": "Other Title Text",
+      "crm_field": null
+    },
+    "Text Field 143": {
+      "label": "Forename",
+      "crm_field": "first_name"
+    },
+    "Text Field 146": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Check Box 102": {
+      "label": "Product Type Option 1",
+      "crm_field": null
+    },
+    "Check Box 103": {
+      "label": "Product Type Option 2",
+      "crm_field": null
+    },
+    "Check Box 104": {
+      "label": "Product Type Option 3",
+      "crm_field": null
+    },
+    "Check Box 105": {
+      "label": "Product Type Option 4",
+      "crm_field": null
+    },
+    "Check Box 106": {
+      "label": "Product Type Option 5",
+      "crm_field": null
+    },
+    "Check Box 107": {
+      "label": "Product Type Option 6",
+      "crm_field": null
+    },
+    "Check Box 108": {
+      "label": "Product Type Option 7",
+      "crm_field": null
+    },
+    "Check Box 109": {
+      "label": "Product Type Option 8",
+      "crm_field": null
+    },
     "__comment_page2": "=== PAGE 2: Continuation / Transfer Details ===",
-    "Check Box 112": {"label": "Transfer Yes", "crm_field": null},
-    "Check Box 113": {"label": "Transfer No", "crm_field": null},
-    "Text Field 155": {"label": "Transfer Detail 1", "crm_field": null},
-    "Text Field 156": {"label": "Transfer Detail 2", "crm_field": null},
-    "Text Field 159": {"label": "Transfer Detail 3", "crm_field": null},
-    "Text Field 160": {"label": "Transfer Detail 4", "crm_field": null},
-    "Check Box 114": {"label": "Transfer Option 1", "crm_field": null},
-    "Check Box 115": {"label": "Transfer Option 2", "crm_field": null},
-    "Check Box 116": {"label": "Transfer Option 3", "crm_field": null},
-    "Text Field 163": {"label": "Transfer Text 5", "crm_field": null},
-    "Text Field 164": {"label": "Transfer Text 6", "crm_field": null},
-
+    "Check Box 112": {
+      "label": "Transfer Yes",
+      "crm_field": null
+    },
+    "Check Box 113": {
+      "label": "Transfer No",
+      "crm_field": null
+    },
+    "Text Field 155": {
+      "label": "Transfer Detail 1",
+      "crm_field": null
+    },
+    "Text Field 156": {
+      "label": "Transfer Detail 2",
+      "crm_field": null
+    },
+    "Text Field 159": {
+      "label": "Transfer Detail 3",
+      "crm_field": null
+    },
+    "Text Field 160": {
+      "label": "Transfer Detail 4",
+      "crm_field": null
+    },
+    "Check Box 114": {
+      "label": "Transfer Option 1",
+      "crm_field": null
+    },
+    "Check Box 115": {
+      "label": "Transfer Option 2",
+      "crm_field": null
+    },
+    "Check Box 116": {
+      "label": "Transfer Option 3",
+      "crm_field": null
+    },
+    "Text Field 163": {
+      "label": "Transfer Text 5",
+      "crm_field": null
+    },
+    "Text Field 164": {
+      "label": "Transfer Text 6",
+      "crm_field": null
+    },
     "__comment_page3": "=== PAGE 3: SEPA Direct Debit Mandate ===",
-    "SEPA - Zurich Life Unique Mandate Reference Number 14": {"label": "SEPA Mandate Reference", "crm_field": null},
-    "SEPA - Account Holder Name 14": {"label": "SEPA Account Holder Name", "crm_field": "full_name"},
-    "SEPA - Account Holder Address 14": {"label": "SEPA Address Line 1", "crm_field": "address_line1"},
-    "SEPA - Account Holder Address 15": {"label": "SEPA Address Line 2 / City", "crm_field": "address_city"},
-    "SEPA - City/Postcode 14": {"label": "SEPA Postcode", "crm_field": "address_postcode"},
-    "SEPA - Country 14": {"label": "SEPA Country", "crm_field": "address_country"},
-    "SEPA - IBAN 14": {"label": "SEPA IBAN", "crm_field": "iban"},
-    "SEPA - Swift BIC 14": {"label": "SEPA BIC", "crm_field": "bic"},
-    "SEPA - Date of Signing 14": {"label": "SEPA Date of Signing", "crm_field": null},
-
+    "SEPA - Zurich Life Unique Mandate Reference Number 14": {
+      "label": "SEPA Mandate Reference",
+      "crm_field": null
+    },
+    "SEPA - Account Holder Name 14": {
+      "label": "SEPA Account Holder Name",
+      "crm_field": "full_name"
+    },
+    "SEPA - Account Holder Address 14": {
+      "label": "SEPA Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "SEPA - Account Holder Address 15": {
+      "label": "SEPA Address Line 2 / City",
+      "crm_field": "address_city"
+    },
+    "SEPA - City/Postcode 14": {
+      "label": "SEPA Postcode",
+      "crm_field": "address_postcode"
+    },
+    "SEPA - Country 14": {
+      "label": "SEPA Country",
+      "crm_field": "address_country"
+    },
+    "SEPA - IBAN 14": {
+      "label": "SEPA IBAN",
+      "crm_field": "iban"
+    },
+    "SEPA - Swift BIC 14": {
+      "label": "SEPA BIC",
+      "crm_field": "bic"
+    },
+    "SEPA - Date of Signing 14": {
+      "label": "SEPA Date of Signing",
+      "crm_field": null
+    },
     "__comment_page6": "=== PAGE 6: Personal Details - PRSA Contributor ===",
-    "Text Field 176": {"label": "Policy/Reference Number 1", "crm_field": null},
-    "Text Field 177": {"label": "Policy/Reference Number 2", "crm_field": null},
-    "Check Box 101": {"label": "Title: Mr", "crm_field": "title", "match_value": "Mr"},
-    "Check Box 1010": {"label": "Title: Mrs", "crm_field": "title", "match_value": "Mrs"},
-    "Check Box 1011": {"label": "Title: Ms", "crm_field": "title", "match_value": "Ms"},
-    "Check Box 1012": {"label": "Title: Other", "crm_field": null},
-    "Text Field 328": {"label": "Other Title Text", "crm_field": null},
-    "Text Field 179": {"label": "Forename", "crm_field": "first_name"},
-    "Text Field 180": {"label": "Surname", "crm_field": "last_name"},
-    "Text Field 181": {"label": "Former/Maiden Name", "crm_field": null},
-    "Text Field 182": {"label": "PPS Number", "crm_field": "pps_number"},
-    "Text Field 185": {"label": "Date of Birth", "crm_field": "date_of_birth"},
-    "Text Field 186": {"label": "Gender or Nationality (unconfirmed)", "crm_field": null},
-    "Text Field 187": {"label": "Address Line 1", "crm_field": "address_line1"},
-    "Text Field 188": {"label": "Address Line 2 / City", "crm_field": "address_city"},
-    "Text Field 189": {"label": "Eircode/Postcode", "crm_field": "address_postcode"},
-    "Check Box 191": {"label": "Marital: Single", "crm_field": "marital_status", "match_value": "Single"},
-    "Check Box 190": {"label": "Marital: Married", "crm_field": "marital_status", "match_value": "Married"},
-    "Check Box 189": {"label": "Marital: Civil Partner", "crm_field": "marital_status", "match_value": "Civil Partner"},
-    "Check Box 188": {"label": "Marital: Separated", "crm_field": "marital_status", "match_value": "Separated"},
-    "Check Box 187": {"label": "Marital: Widowed", "crm_field": "marital_status", "match_value": "Widowed"},
-    "Check Box 125": {"label": "Gender: Male", "crm_field": null},
-    "Check Box 126": {"label": "Gender: Female", "crm_field": null},
-    "Text Field 190": {"label": "Phone Number", "crm_field": "phone_mobile"},
-    "Text Field 191": {"label": "Email Address", "crm_field": "email"},
-    "Director Earnings 2": {"label": "Nationality", "crm_field": "nationality"},
-    "Text Field 193": {"label": "Country of Birth", "crm_field": "country_of_birth"},
-    "Text Field 194": {"label": "Country of Residence", "crm_field": null},
-    "Text Field 195": {"label": "Tax Residence", "crm_field": null},
-    "Text Field 196": {"label": "Occupation", "crm_field": "occupation"},
-    "Check Box 129": {"label": "Employment: Employee", "crm_field": null},
-    "Check Box 130": {"label": "Employment: Self-Employed", "crm_field": null},
-    "Check Box 131": {"label": "Employment: Director", "crm_field": null},
-    "Check Box 132": {"label": "Employment: Homemaker", "crm_field": null},
-    "Check Box 133": {"label": "Employment: Student", "crm_field": null},
-    "Check Box 134": {"label": "Employment: Retired", "crm_field": null},
-    "Check Box 135": {"label": "Employment: Option 7", "crm_field": null},
-    "Check Box 136": {"label": "Employment: Option 8", "crm_field": null},
-    "Check Box 137": {"label": "Employment: Option 9", "crm_field": null},
-    "Check Box 138": {"label": "Employment: Option 10", "crm_field": null},
-    "Text Field 197": {"label": "Employer Name", "crm_field": "employer_name"},
-    "Text Field 198": {"label": "Employer Address", "crm_field": "employer_address"},
-
+    "Text Field 176": {
+      "label": "Policy/Reference Number 1",
+      "crm_field": null
+    },
+    "Text Field 177": {
+      "label": "Policy/Reference Number 2",
+      "crm_field": null
+    },
+    "Check Box 101": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Check Box 1010": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Check Box 1011": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 1012": {
+      "label": "Title: Other",
+      "crm_field": null
+    },
+    "Text Field 328": {
+      "label": "Other Title Text",
+      "crm_field": null
+    },
+    "Text Field 179": {
+      "label": "Forename",
+      "crm_field": "first_name"
+    },
+    "Text Field 180": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 181": {
+      "label": "Former/Maiden Name",
+      "crm_field": null
+    },
+    "Text Field 182": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Text Field 185": {
+      "label": "Date of Birth",
+      "crm_field": "birthday"
+    },
+    "Text Field 186": {
+      "label": "Gender or Nationality (unconfirmed)",
+      "crm_field": null
+    },
+    "Text Field 187": {
+      "label": "Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 188": {
+      "label": "Address Line 2 / City",
+      "crm_field": "address_city"
+    },
+    "Text Field 189": {
+      "label": "Eircode/Postcode",
+      "crm_field": "address_postcode"
+    },
+    "Check Box 191": {
+      "label": "Marital: Married/Civil Partner",
+      "crm_field": "status",
+      "match_value": "Married"
+    },
+    "Check Box 190": {
+      "label": "Marital: Single",
+      "crm_field": "status",
+      "match_value": "Single"
+    },
+    "Check Box 189": {
+      "label": "Marital: Separated",
+      "crm_field": "status",
+      "match_value": "Separated"
+    },
+    "Check Box 188": {
+      "label": "Marital: Widow(er)",
+      "crm_field": "status",
+      "match_value": "Widowed"
+    },
+    "Check Box 187": {
+      "label": "Marital: Divorced",
+      "crm_field": "status",
+      "match_value": "Divorced"
+    },
+    "Check Box 125": {
+      "label": "Gender: Male",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "Check Box 126": {
+      "label": "Gender: Female",
+      "crm_field": "gender",
+      "match_value": "Female"
+    },
+    "Text Field 190": {
+      "label": "Phone Number",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 191": {
+      "label": "Email Address",
+      "crm_field": "email"
+    },
+    "Director Earnings 2": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "Text Field 193": {
+      "label": "Country of Birth",
+      "crm_field": "country_of_residence"
+    },
+    "Text Field 194": {
+      "label": "Country of Residence",
+      "crm_field": null
+    },
+    "Text Field 195": {
+      "label": "Tax Residence",
+      "crm_field": null
+    },
+    "Text Field 196": {
+      "label": "Occupation",
+      "crm_field": "job_title"
+    },
+    "Check Box 129": {
+      "label": "Employment: Employee",
+      "crm_field": null
+    },
+    "Check Box 130": {
+      "label": "Employment: Self-Employed",
+      "crm_field": null
+    },
+    "Check Box 131": {
+      "label": "Employment: Director",
+      "crm_field": null
+    },
+    "Check Box 132": {
+      "label": "Employment: Homemaker",
+      "crm_field": null
+    },
+    "Check Box 133": {
+      "label": "Employment: Student",
+      "crm_field": null
+    },
+    "Check Box 134": {
+      "label": "Employment: Retired",
+      "crm_field": null
+    },
+    "Check Box 135": {
+      "label": "Employment: Option 7",
+      "crm_field": null
+    },
+    "Check Box 136": {
+      "label": "Employment: Option 8",
+      "crm_field": null
+    },
+    "Check Box 137": {
+      "label": "Employment: Option 9",
+      "crm_field": null
+    },
+    "Check Box 138": {
+      "label": "Employment: Option 10",
+      "crm_field": null
+    },
+    "Text Field 197": {
+      "label": "Employer Name",
+      "crm_field": "company_name"
+    },
+    "Text Field 198": {
+      "label": "Employer Address",
+      "crm_field": "address_work_full"
+    },
     "__comment_page7": "=== PAGE 7: Income / Tax / Source of Wealth ===",
-    "Check Box 141": {"label": "Income Checkbox 1", "crm_field": null},
-    "Check Box 142": {"label": "Income Checkbox 2", "crm_field": null},
-    "Check Box 143": {"label": "Income Checkbox 3", "crm_field": null},
-    "Text Field 199": {"label": "Income Text 1", "crm_field": null},
-    "Text Field 200": {"label": "Income Text 2", "crm_field": null},
-    "Check Box 144": {"label": "Income Band Option 1", "crm_field": null},
-    "Check Box 145": {"label": "Income Band Option 2", "crm_field": null},
-    "Check Box 146": {"label": "Income Band Option 3", "crm_field": null},
-    "Check Box 147": {"label": "Income Band Option 4", "crm_field": null},
-    "Director Earnings 3": {"label": "Annual Income", "crm_field": null},
-    "Check Box 148": {"label": "Source of Wealth Checkbox 1", "crm_field": null},
-    "Check Box 149": {"label": "Source of Wealth Checkbox 2", "crm_field": null},
-    "Check Box 150": {"label": "Source of Wealth Checkbox 3", "crm_field": null},
-    "Check Box 151": {"label": "Source of Wealth Checkbox 4", "crm_field": null},
-    "Text Field 203": {"label": "Source of Wealth Text 1", "crm_field": null},
-    "Text Field 204": {"label": "Source of Wealth Text 2", "crm_field": null},
-    "Check Box 152": {"label": "Source of Wealth: Employment", "crm_field": null},
-    "Check Box 153": {"label": "Source of Wealth: Inheritance", "crm_field": null},
-    "Check Box 154": {"label": "Source of Wealth: Property Sale", "crm_field": null},
-    "Check Box 155": {"label": "Source of Wealth: Savings", "crm_field": null},
-    "Check Box 156": {"label": "Source of Wealth: Gift", "crm_field": null},
-    "Check Box 157": {"label": "Source of Wealth: Option 6", "crm_field": null},
-    "Check Box 158": {"label": "Source of Wealth: Option 7", "crm_field": null},
-    "Check Box 159": {"label": "Source of Wealth: Option 8", "crm_field": null},
-    "Check Box 160": {"label": "Source of Wealth: Option 9", "crm_field": null},
-    "Check Box 161": {"label": "Source of Wealth: Option 10", "crm_field": null},
-    "Check Box 162": {"label": "Source of Wealth: Option 11", "crm_field": null},
-    "Check Box 163": {"label": "Source of Wealth: Option 12", "crm_field": null},
-    "Check Box 164": {"label": "Source of Wealth: Option 13", "crm_field": null},
-    "Check Box 165": {"label": "Source of Wealth: Option 14", "crm_field": null},
-
+    "Check Box 141": {
+      "label": "Income Checkbox 1",
+      "crm_field": null
+    },
+    "Check Box 142": {
+      "label": "Income Checkbox 2",
+      "crm_field": null
+    },
+    "Check Box 143": {
+      "label": "Income Checkbox 3",
+      "crm_field": null
+    },
+    "Text Field 199": {
+      "label": "Income Text 1",
+      "crm_field": null
+    },
+    "Text Field 200": {
+      "label": "Income Text 2",
+      "crm_field": null
+    },
+    "Check Box 144": {
+      "label": "Income Band Option 1",
+      "crm_field": null
+    },
+    "Check Box 145": {
+      "label": "Income Band Option 2",
+      "crm_field": null
+    },
+    "Check Box 146": {
+      "label": "Income Band Option 3",
+      "crm_field": null
+    },
+    "Check Box 147": {
+      "label": "Income Band Option 4",
+      "crm_field": null
+    },
+    "Director Earnings 3": {
+      "label": "Annual Income",
+      "crm_field": null
+    },
+    "Check Box 148": {
+      "label": "Source of Wealth Checkbox 1",
+      "crm_field": null
+    },
+    "Check Box 149": {
+      "label": "Source of Wealth Checkbox 2",
+      "crm_field": null
+    },
+    "Check Box 150": {
+      "label": "Source of Wealth Checkbox 3",
+      "crm_field": null
+    },
+    "Check Box 151": {
+      "label": "Source of Wealth Checkbox 4",
+      "crm_field": null
+    },
+    "Text Field 203": {
+      "label": "Source of Wealth Text 1",
+      "crm_field": null
+    },
+    "Text Field 204": {
+      "label": "Source of Wealth Text 2",
+      "crm_field": null
+    },
+    "Check Box 152": {
+      "label": "Source of Wealth: Employment",
+      "crm_field": null
+    },
+    "Check Box 153": {
+      "label": "Source of Wealth: Inheritance",
+      "crm_field": null
+    },
+    "Check Box 154": {
+      "label": "Source of Wealth: Property Sale",
+      "crm_field": null
+    },
+    "Check Box 155": {
+      "label": "Source of Wealth: Savings",
+      "crm_field": null
+    },
+    "Check Box 156": {
+      "label": "Source of Wealth: Gift",
+      "crm_field": null
+    },
+    "Check Box 157": {
+      "label": "Source of Wealth: Option 6",
+      "crm_field": null
+    },
+    "Check Box 158": {
+      "label": "Source of Wealth: Option 7",
+      "crm_field": null
+    },
+    "Check Box 159": {
+      "label": "Source of Wealth: Option 8",
+      "crm_field": null
+    },
+    "Check Box 160": {
+      "label": "Source of Wealth: Option 9",
+      "crm_field": null
+    },
+    "Check Box 161": {
+      "label": "Source of Wealth: Option 10",
+      "crm_field": null
+    },
+    "Check Box 162": {
+      "label": "Source of Wealth: Option 11",
+      "crm_field": null
+    },
+    "Check Box 163": {
+      "label": "Source of Wealth: Option 12",
+      "crm_field": null
+    },
+    "Check Box 164": {
+      "label": "Source of Wealth: Option 13",
+      "crm_field": null
+    },
+    "Check Box 165": {
+      "label": "Source of Wealth: Option 14",
+      "crm_field": null
+    },
     "__comment_page8": "=== PAGE 8: Tax Residence / FATCA / PEP ===",
-    "Text Field 205": {"label": "Tax Residence Detail 1", "crm_field": null},
-    "Text Field 206": {"label": "Tax Residence Detail 2", "crm_field": null},
-    "Text Field 207": {"label": "Tax Residence Detail 3", "crm_field": null},
-    "Text Field 208": {"label": "Tax Residence Detail 4", "crm_field": null},
-    "Text Field 209": {"label": "Tax Residence Detail 5", "crm_field": null},
-    "Text Field 210": {"label": "Tax Residence Detail 6", "crm_field": null},
-    "Check Box 166": {"label": "Tax/FATCA Checkbox 1", "crm_field": null},
-    "Check Box 167": {"label": "Tax/FATCA Checkbox 2", "crm_field": null},
-    "Check Box 168": {"label": "Tax/FATCA Checkbox 3", "crm_field": null},
-    "Check Box 169": {"label": "Tax/FATCA Checkbox 4", "crm_field": null},
-    "Director Earnings 5": {"label": "Earnings Table Row 1", "crm_field": null},
-    "Director Earnings 6": {"label": "Earnings Table Row 2", "crm_field": null},
-    "Director Earnings 7": {"label": "Earnings Table Row 3", "crm_field": null},
-    "Director Earnings 8": {"label": "Earnings Table Row 4", "crm_field": null},
-    "Director Earnings 9": {"label": "Earnings Table Row 5", "crm_field": null},
-    "Director Earnings 10": {"label": "Earnings Table Row 6", "crm_field": null},
-    "Text Field 214": {"label": "Earnings Text 1", "crm_field": null},
-    "Text Field 215": {"label": "Earnings Text 2", "crm_field": null},
-    "Text Field 216": {"label": "Earnings Text 3", "crm_field": null},
-    "Check Box 170": {"label": "Compliance Checkbox 1", "crm_field": null},
-    "Check Box 171": {"label": "Compliance Checkbox 2", "crm_field": null},
-    "Check Box 172": {"label": "Compliance Checkbox 3", "crm_field": null},
-    "Check Box 173": {"label": "Compliance Checkbox 4", "crm_field": null},
-    "Check Box 174": {"label": "Compliance Checkbox 5", "crm_field": null},
-    "Check Box 175": {"label": "Compliance Checkbox 6", "crm_field": null},
-    "Check Box 176": {"label": "Compliance Checkbox 7", "crm_field": null},
-    "Check Box 177": {"label": "Compliance Checkbox 8", "crm_field": null},
-    "Check Box 178": {"label": "Compliance Checkbox 9", "crm_field": null},
-    "Check Box 179": {"label": "Compliance Checkbox 10", "crm_field": null},
-    "Check Box 180": {"label": "Compliance Checkbox 11", "crm_field": null},
-    "Text Field 220": {"label": "PEP Details", "crm_field": null},
-    "Text Field 223": {"label": "PEP Role", "crm_field": null},
-
+    "Text Field 205": {
+      "label": "Tax Residence Detail 1",
+      "crm_field": null
+    },
+    "Text Field 206": {
+      "label": "Tax Residence Detail 2",
+      "crm_field": null
+    },
+    "Text Field 207": {
+      "label": "Tax Residence Detail 3",
+      "crm_field": null
+    },
+    "Text Field 208": {
+      "label": "Tax Residence Detail 4",
+      "crm_field": null
+    },
+    "Text Field 209": {
+      "label": "Tax Residence Detail 5",
+      "crm_field": null
+    },
+    "Text Field 210": {
+      "label": "Tax Residence Detail 6",
+      "crm_field": null
+    },
+    "Check Box 166": {
+      "label": "Tax/FATCA Checkbox 1",
+      "crm_field": null
+    },
+    "Check Box 167": {
+      "label": "Tax/FATCA Checkbox 2",
+      "crm_field": null
+    },
+    "Check Box 168": {
+      "label": "Tax/FATCA Checkbox 3",
+      "crm_field": null
+    },
+    "Check Box 169": {
+      "label": "Tax/FATCA Checkbox 4",
+      "crm_field": null
+    },
+    "Director Earnings 5": {
+      "label": "Earnings Table Row 1",
+      "crm_field": null
+    },
+    "Director Earnings 6": {
+      "label": "Earnings Table Row 2",
+      "crm_field": null
+    },
+    "Director Earnings 7": {
+      "label": "Earnings Table Row 3",
+      "crm_field": null
+    },
+    "Director Earnings 8": {
+      "label": "Earnings Table Row 4",
+      "crm_field": null
+    },
+    "Director Earnings 9": {
+      "label": "Earnings Table Row 5",
+      "crm_field": null
+    },
+    "Director Earnings 10": {
+      "label": "Earnings Table Row 6",
+      "crm_field": null
+    },
+    "Text Field 214": {
+      "label": "Earnings Text 1",
+      "crm_field": null
+    },
+    "Text Field 215": {
+      "label": "Earnings Text 2",
+      "crm_field": null
+    },
+    "Text Field 216": {
+      "label": "Earnings Text 3",
+      "crm_field": null
+    },
+    "Check Box 170": {
+      "label": "Compliance Checkbox 1",
+      "crm_field": null
+    },
+    "Check Box 171": {
+      "label": "Compliance Checkbox 2",
+      "crm_field": null
+    },
+    "Check Box 173": {
+      "label": "Compliance Checkbox 4",
+      "crm_field": null
+    },
+    "Check Box 174": {
+      "label": "Compliance Checkbox 5",
+      "crm_field": null
+    },
+    "Check Box 175": {
+      "label": "Compliance Checkbox 6",
+      "crm_field": null
+    },
+    "Check Box 176": {
+      "label": "Compliance Checkbox 7",
+      "crm_field": null
+    },
+    "Check Box 177": {
+      "label": "Compliance Checkbox 8",
+      "crm_field": null
+    },
+    "Check Box 178": {
+      "label": "Compliance Checkbox 9",
+      "crm_field": null
+    },
+    "Check Box 179": {
+      "label": "Compliance Checkbox 10",
+      "crm_field": null
+    },
+    "Check Box 180": {
+      "label": "Compliance Checkbox 11",
+      "crm_field": null
+    },
+    "Text Field 220": {
+      "label": "PEP Details",
+      "crm_field": null
+    },
+    "Text Field 223": {
+      "label": "PEP Role",
+      "crm_field": null
+    },
     "__comment_page10": "=== PAGE 10: Fund Selection (all null) ===",
-    "Check Box 181": {"label": "Fund Type Option 1", "crm_field": null},
-    "Check Box 182": {"label": "Fund Type Option 2", "crm_field": null},
-    "Text Field 320": {"label": "Fund Allocation 1", "crm_field": null},
-    "Text Field 321": {"label": "Fund Allocation 2", "crm_field": null},
-    "Text Field 322": {"label": "Fund Allocation 3", "crm_field": null},
-    "Text Field 323": {"label": "Fund Allocation 4", "crm_field": null},
-    "Text Field 324": {"label": "Fund Allocation 5", "crm_field": null},
-    "Text Field 325": {"label": "Fund Allocation 6", "crm_field": null},
-    "Text Field 326": {"label": "Fund Allocation 7", "crm_field": null}
+    "Check Box 181": {
+      "label": "Fund Type Option 1",
+      "crm_field": null
+    },
+    "Check Box 182": {
+      "label": "Fund Type Option 2",
+      "crm_field": null
+    },
+    "Text Field 320": {
+      "label": "Fund Allocation 1",
+      "crm_field": null
+    },
+    "Text Field 321": {
+      "label": "Fund Allocation 2",
+      "crm_field": null
+    },
+    "Text Field 322": {
+      "label": "Fund Allocation 3",
+      "crm_field": null
+    },
+    "Text Field 323": {
+      "label": "Fund Allocation 4",
+      "crm_field": null
+    },
+    "Text Field 325": {
+      "label": "Fund Allocation 6",
+      "crm_field": null
+    },
+    "Text Field 326": {
+      "label": "Fund Allocation 7",
+      "crm_field": null
+    }
   }
 }

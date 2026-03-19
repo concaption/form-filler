@@ -3,248 +3,862 @@
   "pdf_file": "IL protection-application-ila-9594-rev-05-25.pdf",
   "provider": "Irish Life",
   "product": "Protection",
-  "notes": "16 pages, 336 fields. Page 1 = broker details + Life 1 personal details, Page 2 = Life 2 details, Pages 3-11 = health/medical questions, Page 12 = bank/SEPA details, Pages 13-15 = declarations/signatures.",
+  "notes": "16 pages, 206 fields (175 text + 31 checkboxes). Page 1 = broker/profile + Life 1 personal details (Title through Address). Page 2 top = Life 1 contact (Mobile/Email/Nationality) + Life 2 personal details + Plan Owner. Pages 3-4 = product/cover details. Pages 5-6 = text only (no fields). Page 7 = height/weight/smoking. Page 8 = sporting activities checkboxes. Pages 9 = health questions (no fillable fields). Page 10 = family history table. Page 11 = other medical evidence + doctor details. Page 12 = declarations. Page 13 = signatures/dates. Page 14 = text only. Page 15 = SEPA mandate. Page 16 = text only. NOTE: Title, Gender, Relationship Status, and Smoker questions on pages 1-2 are printed tick boxes in the PDF, NOT fillable form fields.",
+
   "field_map": {
-    "__comment_page1_broker": "=== PAGE 1: Broker Details (top) ===",
-    "Text Field 814": {"label": "Broker Name", "crm_field": null},
-    "Text Field 813": {"label": "Broker Code", "crm_field": null},
+    "__comment_page1_broker": "=== PAGE 1: Financial Adviser / Broker Details ===",
+    "Text Field 814": {
+      "label": "Financial Adviser Name",
+      "crm_field": null
+    },
+    "Text Field 813": {
+      "label": "Financial Adviser Code",
+      "crm_field": null
+    },
 
-    "__comment_page1_life1": "=== PAGE 1: Life 1 Personal Details ===",
-    "Text Field 812": {"label": "Life 1 First Name", "crm_field": "first_name"},
-    "Text Field 811": {"label": "Life 1 Surname", "crm_field": "last_name"},
-    "Text Field 810": {"label": "Life 1 Address Line 1", "crm_field": "address_line1"},
-    "Text Field 809": {"label": "Life 1 Address Line 2", "crm_field": "address_city"},
-    "Text Field 808": {"label": "Life 1 County", "crm_field": "address_state"},
-    "Text Field 807": {"label": "Life 1 Eircode", "crm_field": "address_postcode"},
+    "__comment_page1_profile": "=== PAGE 1: Profile Number ===",
+    "Text Field 812": {
+      "label": "Profile Number",
+      "crm_field": null
+    },
 
-    "__comment_page1_title_gender_marital": "Title/Gender/Marital checkboxes (unnamed checkboxes at y=252-218)",
-    "Check Box 16": {"label": "Life 1 Title: Mr", "crm_field": "title", "match_value": "Mr"},
-    "Check Box 17": {"label": "Life 1 Title: Mrs", "crm_field": "title", "match_value": "Mrs"},
-    "Check Box 20": {"label": "Life 1 Title: Ms", "crm_field": "title", "match_value": "Ms"},
-    "Check Box 21": {"label": "Life 1 Gender: Male", "crm_field": null},
-    "Check Box 22": {"label": "Life 1 Gender: Female", "crm_field": null},
-    "Check Box 23": {"label": "Life 1 Marital: Single", "crm_field": "marital_status", "match_value": "Single"},
-    "Check Box 24": {"label": "Life 1 Marital: Married", "crm_field": "marital_status", "match_value": "Married"},
-    "Check Box 25": {"label": "Life 1 Marital: Civil Partner", "crm_field": "marital_status", "match_value": "Civil Partner"},
-    "Check Box 26": {"label": "Life 1 Marital: Separated", "crm_field": "marital_status", "match_value": "Separated"},
-    "Check Box 27": {"label": "Life 1 Marital: Divorced", "crm_field": "marital_status", "match_value": "Divorced"},
-    "Check Box 28": {"label": "Life 1 Marital: Widowed", "crm_field": "marital_status", "match_value": "Widowed"},
+    "__comment_page1_life1": "=== PAGE 1: Life 1 Personal Details (section 1a) ===",
+    "Text Field 811": {
+      "label": "Life 1 Title (Mr/Mrs/Ms etc)",
+      "crm_field": "title"
+    },
+    "Text Field 810": {
+      "label": "Life 1 First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 809": {
+      "label": "Life 1 Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 808": {
+      "label": "Life 1 Date of Birth (dd/mm/yyyy)",
+      "crm_field": "birthday"
+    },
+    "Text Field 807": {
+      "label": "Life 1 Age Next Birthday",
+      "crm_field": null
+    },
+    "__comment_page1_no_checkboxes": "NOTE: Gender, Relationship Status, and Smoker on page 1 are printed tick boxes - NOT fillable form fields. No checkboxes exist on page 1.",
+    "Text Field 832": {
+      "label": "Life 1 Country of Birth",
+      "crm_field": "nationality"
+    },
+    "Text Field 806": {
+      "label": "Life 1 Previous Surname",
+      "crm_field": null
+    },
+    "Text Field 805": {
+      "label": "Life 1 Occupation",
+      "crm_field": "job_title"
+    },
+    "Text Field 804": {
+      "label": "Life 1 Level of Earnings",
+      "crm_field": "salary"
+    },
+    "Text Field 803": {
+      "label": "Life 1 Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 802": {
+      "label": "Life 1 Address Line 2",
+      "crm_field": null
+    },
 
-    "__comment_page1_nationality": "Nationality (y=200)",
-    "Text Field 832": {"label": "Life 1 Nationality", "crm_field": "nationality"},
+    "__comment_page2_life1_cont": "=== PAGE 2 (top): Life 1 Contact Details (continuation of section 1a) ===",
+    "Text Field 801": {
+      "label": "Life 1 Mobile Number",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 800": {
+      "label": "Life 1 Home/Work Number",
+      "crm_field": "phone_home"
+    },
+    "Text Field 799": {
+      "label": "Life 1 Email",
+      "crm_field": "email"
+    },
+    "Text Field 798": {
+      "label": "Life 1 Nationality",
+      "crm_field": "nationality"
+    },
+    "Check Box 120": {
+      "label": "Life 1 Irish Tax Resident: Yes",
+      "crm_field": null
+    },
+    "Check Box 582": {
+      "label": "Life 1 Irish Tax Resident: No",
+      "crm_field": null
+    },
 
-    "__comment_page1_contact": "Contact details (y=94-20)",
-    "Text Field 806": {"label": "Life 1 Phone", "crm_field": "phone_mobile"},
-    "Text Field 805": {"label": "Life 1 Email", "crm_field": "email"},
-    "Text Field 804": {"label": "Life 1 Occupation", "crm_field": "occupation"},
-    "Text Field 803": {"label": "Life 1 Date of Birth", "crm_field": "date_of_birth"},
-    "Text Field 802": {"label": "Life 1 PPS Number", "crm_field": "pps_number"},
+    "__comment_page2_life2": "=== PAGE 2: Life 2 Personal Details (section 1b) - all null, second person ===",
+    "Text Field 797": {
+      "label": "Life 2 Title (Mr/Mrs/Ms etc)",
+      "crm_field": null
+    },
+    "Text Field 796": {
+      "label": "Life 2 First Name",
+      "crm_field": null
+    },
+    "Text Field 795": {
+      "label": "Life 2 Surname",
+      "crm_field": null
+    },
+    "Text Field 794": {
+      "label": "Life 2 Date of Birth (dd/mm/yyyy)",
+      "crm_field": null
+    },
+    "Text Field 793": {
+      "label": "Life 2 Age Next Birthday",
+      "crm_field": null
+    },
+    "Text Field 833": {
+      "label": "Life 2 Country of Birth",
+      "crm_field": null
+    },
+    "Text Field 792": {
+      "label": "Life 2 Previous Surname",
+      "crm_field": null
+    },
+    "Text Field 791": {
+      "label": "Life 2 Occupation",
+      "crm_field": null
+    },
+    "Text Field 790": {
+      "label": "Life 2 Level of Earnings",
+      "crm_field": null
+    },
+    "Text Field 789": {
+      "label": "Life 2 Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 788": {
+      "label": "Life 2 Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 787": {
+      "label": "Life 2 Address Line 3",
+      "crm_field": null
+    },
+    "Text Field 786": {
+      "label": "Life 2 Mobile Number",
+      "crm_field": null
+    },
+    "Text Field 785": {
+      "label": "Life 2 Home/Work Number",
+      "crm_field": null
+    },
+    "Text Field 784": {
+      "label": "Life 2 Email",
+      "crm_field": null
+    },
+    "Text Field 783": {
+      "label": "Life 2 Nationality",
+      "crm_field": null
+    },
 
-    "__comment_page1_smoker": "Smoker status",
-    "Check Box 29": {"label": "Life 1 Smoker: Yes", "crm_field": null},
-    "Check Box 30": {"label": "Life 1 Smoker: No", "crm_field": null},
+    "__comment_page2_planowner": "=== PAGE 2 (bottom): Plan Owner Details (section 1c) ===",
+    "Text Field 782": {
+      "label": "Plan Owner Title (Mr/Mrs/Ms etc)",
+      "crm_field": null
+    },
+    "Text Field 781": {
+      "label": "Plan Owner First Name",
+      "crm_field": null
+    },
+    "Text Field 780": {
+      "label": "Plan Owner Surname",
+      "crm_field": null
+    },
+    "Text Field 779": {
+      "label": "Plan Owner Date of Birth (dd/mm/yyyy)",
+      "crm_field": null
+    },
+    "Text Field 778": {
+      "label": "Plan Owner Mobile Number",
+      "crm_field": null
+    },
+    "Text Field 777": {
+      "label": "Plan Owner Home/Work Number",
+      "crm_field": null
+    },
+    "Text Field 776": {
+      "label": "Plan Owner Email",
+      "crm_field": null
+    },
+    "Text Field 775": {
+      "label": "Plan Owner Nationality",
+      "crm_field": null
+    },
+    "Text Field 774": {
+      "label": "Financial Reason for Cover",
+      "crm_field": null
+    },
+    "Text Field 773": {
+      "label": "Company Name (if owner is a company)",
+      "crm_field": null
+    },
+    "Text Field 772": {
+      "label": "Plan Owner Address",
+      "crm_field": null
+    },
 
-    "__comment_page2_life2": "=== PAGE 2: Life 2 Personal Details (all null - second life insured) ===",
-    "Text Field 801": {"label": "Life 2 First Name", "crm_field": null},
-    "Text Field 800": {"label": "Life 2 Surname", "crm_field": null},
-    "Text Field 799": {"label": "Life 2 Address Line 1", "crm_field": null},
-    "Text Field 798": {"label": "Life 2 Address Line 2", "crm_field": null},
-    "Text Field 797": {"label": "Life 2 County", "crm_field": null},
-    "Text Field 796": {"label": "Life 2 Eircode", "crm_field": null},
-    "Text Field 833": {"label": "Life 2 Nationality", "crm_field": null},
-    "Text Field 795": {"label": "Life 2 Phone", "crm_field": null},
-    "Text Field 794": {"label": "Life 2 Email", "crm_field": null},
-    "Text Field 793": {"label": "Life 2 Occupation", "crm_field": null},
-    "Text Field 792": {"label": "Life 2 Date of Birth", "crm_field": null},
-    "Text Field 791": {"label": "Life 2 PPS Number", "crm_field": null},
-    "Text Field 790": {"label": "Life 2 Detail 1", "crm_field": null},
-    "Text Field 789": {"label": "Life 2 Detail 2", "crm_field": null},
-    "Text Field 788": {"label": "Life 2 Detail 3", "crm_field": null},
-    "Text Field 787": {"label": "Life 2 Detail 4", "crm_field": null},
-    "Text Field 786": {"label": "Life 2 Detail 5", "crm_field": null},
-    "Text Field 785": {"label": "Life 2 Detail 6", "crm_field": null},
-    "Text Field 784": {"label": "Life 2 Detail 7", "crm_field": null},
-    "Text Field 783": {"label": "Life 2 Detail 8", "crm_field": null},
-    "Check Box 31": {"label": "Life 2 Title: Mr", "crm_field": null},
-    "Check Box 32": {"label": "Life 2 Title: Mrs", "crm_field": null},
-    "Check Box 33": {"label": "Life 2 Title: Ms", "crm_field": null},
-    "Check Box 34": {"label": "Life 2 Gender: Male", "crm_field": null},
-    "Check Box 35": {"label": "Life 2 Gender: Female", "crm_field": null},
-    "Check Box 36": {"label": "Life 2 Marital: Single", "crm_field": null},
-    "Check Box 37": {"label": "Life 2 Marital: Married", "crm_field": null},
-    "Check Box 38": {"label": "Life 2 Marital: Civil Partner", "crm_field": null},
-    "Check Box 39": {"label": "Life 2 Marital: Separated", "crm_field": null},
-    "Check Box 40": {"label": "Life 2 Marital: Divorced", "crm_field": null},
-    "Check Box 41": {"label": "Life 2 Marital: Widowed", "crm_field": null},
-    "Check Box 42": {"label": "Life 2 Smoker: Yes", "crm_field": null},
-    "Check Box 43": {"label": "Life 2 Smoker: No", "crm_field": null},
+    "__comment_page3_further": "=== PAGE 3: Further Details (section 1d) + Term Life Insurance (section 2a) + Mortgage Life Insurance (section 2b) ===",
+    "Text Field 771": {
+      "label": "Conversion Plan Number",
+      "crm_field": null
+    },
+    "Text Field 770": {
+      "label": "Conversion Group Scheme name/number",
+      "crm_field": null
+    },
+    "Text Field 769": {
+      "label": "Term Life - Term of Cover (years)",
+      "crm_field": null
+    },
+    "Text Field 768": {
+      "label": "Term Life - Life Cover Amount First Person",
+      "crm_field": null
+    },
+    "Text Field 767": {
+      "label": "Term Life - Life Cover Amount Second Person",
+      "crm_field": null
+    },
+    "Text Field 766": {
+      "label": "Term Life - Specified Illness Cover First Person",
+      "crm_field": null
+    },
+    "Text Field 765": {
+      "label": "Term Life - Specified Illness Cover Second Person",
+      "crm_field": null
+    },
+    "Text Field 764": {
+      "label": "Term Life - Hospital Cash Cover Amount First Person",
+      "crm_field": null
+    },
+    "Text Field 763": {
+      "label": "Term Life - Hospital Cash Cover Amount Second Person",
+      "crm_field": null
+    },
+    "Text Field 762": {
+      "label": "Term Life - Accident Cover Amount First Person",
+      "crm_field": null
+    },
+    "Text Field 761": {
+      "label": "Term Life - Accident Cover Amount Second Person",
+      "crm_field": null
+    },
+    "Text Field 760": {
+      "label": "Mortgage Life - Term of Cover (years)",
+      "crm_field": null
+    },
+    "Text Field 759": {
+      "label": "Mortgage Life - Initial Life Cover Amount",
+      "crm_field": null
+    },
+    "Text Field 758": {
+      "label": "Mortgage Life - Initial Specified Illness Cover Amount",
+      "crm_field": null
+    },
 
-    "__comment_page2_product": "=== PAGE 2: Product/Cover Details ===",
-    "Text Field 782": {"label": "Product Detail 1", "crm_field": null},
-    "Text Field 781": {"label": "Product Detail 2", "crm_field": null},
-    "Text Field 780": {"label": "Product Detail 3", "crm_field": null},
-    "Text Field 779": {"label": "Product Detail 4", "crm_field": null},
-    "Text Field 778": {"label": "Product Detail 5", "crm_field": null},
-    "Text Field 777": {"label": "Product Detail 6", "crm_field": null},
-    "Text Field 776": {"label": "Product Detail 7", "crm_field": null},
-    "Text Field 775": {"label": "Product Detail 8", "crm_field": null},
-    "Text Field 774": {"label": "Product Detail 9", "crm_field": null},
-    "Text Field 773": {"label": "Product Detail 10", "crm_field": null},
-    "Text Field 772": {"label": "Product Detail 11", "crm_field": null},
-    "Text Field 771": {"label": "Product Detail 12", "crm_field": null},
-    "Text Field 770": {"label": "Product Detail 13", "crm_field": null},
-    "Text Field 769": {"label": "Product Detail 14", "crm_field": null},
-    "Text Field 768": {"label": "Product Detail 15", "crm_field": null},
-    "Text Field 767": {"label": "Product Detail 16", "crm_field": null},
-    "Text Field 766": {"label": "Product Detail 17", "crm_field": null},
-    "Text Field 765": {"label": "Product Detail 18", "crm_field": null},
-    "Text Field 764": {"label": "Product Detail 19", "crm_field": null},
-    "Text Field 763": {"label": "Product Detail 20", "crm_field": null},
-    "Text Field 762": {"label": "Product Detail 21", "crm_field": null},
-    "Text Field 761": {"label": "Product Detail 22", "crm_field": null},
-    "Text Field 760": {"label": "Product Detail 23", "crm_field": null},
-    "Text Field 759": {"label": "Product Detail 24", "crm_field": null},
-    "Text Field 758": {"label": "Product Detail 25", "crm_field": null},
-    "Text Field 757": {"label": "Product Detail 26", "crm_field": null},
-    "Text Field 756": {"label": "Product Detail 27", "crm_field": null},
-    "Text Field 755": {"label": "Product Detail 28", "crm_field": null},
-    "Text Field 754": {"label": "Product Detail 29", "crm_field": null},
-    "Text Field 753": {"label": "Product Detail 30", "crm_field": null},
-    "Text Field 752": {"label": "Product Detail 31", "crm_field": null},
-    "Text Field 751": {"label": "Product Detail 32", "crm_field": null},
-    "Text Field 750": {"label": "Product Detail 33", "crm_field": null},
-    "Text Field 749": {"label": "Product Detail 34", "crm_field": null},
-    "Text Field 747": {"label": "Product Detail 35", "crm_field": null},
+    "__comment_page4_lifelong": "=== PAGE 4: Life Long Insurance (section 2c) + Income Insurance (section 2d) + Payment Details (section 3) ===",
+    "Text Field 757": {
+      "label": "Life Long - Single Cover Amount",
+      "crm_field": null
+    },
+    "Text Field 756": {
+      "label": "Life Long - Dual Cover Amount First Person",
+      "crm_field": null
+    },
+    "Text Field 755": {
+      "label": "Life Long - Dual Cover Amount Second Person",
+      "crm_field": null
+    },
+    "Text Field 754": {
+      "label": "Life Long - Joint Life First Death Amount",
+      "crm_field": null
+    },
+    "Text Field 753": {
+      "label": "Life Long - Joint Life Last Survivor Amount",
+      "crm_field": null
+    },
+    "Text Field 752": {
+      "label": "Income Insurance - Annual Incapacity Benefit Amount",
+      "crm_field": null
+    },
+    "Check Box 6034": {
+      "label": "Income Insurance - Pension Payment Protection Yes",
+      "crm_field": null
+    },
+    "Check Box 6033": {
+      "label": "Income Insurance - Pension Payment Protection No",
+      "crm_field": null
+    },
+    "Check Box 6036": {
+      "label": "Income Insurance - State Disability Benefit Yes",
+      "crm_field": null
+    },
+    "Check Box 6035": {
+      "label": "Income Insurance - State Disability Benefit No",
+      "crm_field": null
+    },
+    "Text Field 751": {
+      "label": "Income Insurance - Pension Plan Number",
+      "crm_field": null
+    },
+    "Text Field 750": {
+      "label": "Existing Income Insurance - Insurer",
+      "crm_field": null
+    },
+    "Text Field 749": {
+      "label": "Existing Income Insurance - Amount of Existing Cover",
+      "crm_field": null
+    },
+    "Text Field 855": {
+      "label": "Premium Amount",
+      "crm_field": null
+    },
+    "Text Field 747": {
+      "label": "Direct Debit Date of Month",
+      "crm_field": null
+    },
+    "Check Box 6045": {
+      "label": "Cover Begin Immediately - Yes",
+      "crm_field": null
+    },
+    "Check Box 6044": {
+      "label": "Cover Begin Immediately - No",
+      "crm_field": null
+    },
 
-    "__comment_pages3to11": "=== PAGES 3-11: Health / Medical Questionnaire ===",
-    "__comment_health_note": "Health questions use checkboxes (Check Box 44-96, 331-346, 383, 386, 582-654, 6011-6049) and text fields (Text Field 675-687, 1039-1070, etc). All null - not mapped to CRM.",
+    "__comment_page7_medical": "=== PAGE 7: Medical - Height/Weight/Smoking Details ===",
+    "Text Field 5013": {
+      "label": "Life 1 Height - Feet",
+      "crm_field": null
+    },
+    "Text Field 5012": {
+      "label": "Life 1 Height - Inches",
+      "crm_field": null
+    },
+    "Text Field 501": {
+      "label": "Life 2 Height - Feet",
+      "crm_field": null
+    },
+    "Text Field 682": {
+      "label": "Life 2 Height - Inches",
+      "crm_field": null
+    },
+    "Text Field 681": {
+      "label": "Life 1 Weight - Stones",
+      "crm_field": null
+    },
+    "Text Field 680": {
+      "label": "Life 1 Weight - lbs",
+      "crm_field": null
+    },
+    "Text Field 679": {
+      "label": "Life 2 Weight - Stones",
+      "crm_field": null
+    },
+    "Text Field 678": {
+      "label": "Life 2 Weight - lbs",
+      "crm_field": null
+    },
+    "Text Field 677": {
+      "label": "Life 1 Height - Cms",
+      "crm_field": null
+    },
+    "Text Field 676": {
+      "label": "Life 2 Height - Cms",
+      "crm_field": null
+    },
+    "Text Field 675": {
+      "label": "Life 1 Weight - Kg",
+      "crm_field": null
+    },
+    "Text Field 2018": {
+      "label": "Life 2 Weight - Kg",
+      "crm_field": null
+    },
+    "Check Box 642": {
+      "label": "Life 1 Hookah/Shisha/Waterpipe - Yes",
+      "crm_field": null
+    },
+    "Text Field 2010": {
+      "label": "Life 1 Hookah Hours Per Week",
+      "crm_field": null
+    },
+    "Check Box 641": {
+      "label": "Life 2 Hookah/Shisha/Waterpipe - Yes",
+      "crm_field": null
+    },
+    "Text Field 209": {
+      "label": "Life 2 Hookah Hours Per Week",
+      "crm_field": null
+    },
+    "Check Box 640": {
+      "label": "Life 1 Other Tobacco - Yes",
+      "crm_field": null
+    },
+    "Check Box 639": {
+      "label": "Life 2 Other Tobacco - Yes",
+      "crm_field": null
+    },
+    "Text Field 208": {
+      "label": "Life 1 Other Tobacco Type/Amount",
+      "crm_field": null
+    },
+    "Text Field 207": {
+      "label": "Life 2 Other Tobacco Type/Amount",
+      "crm_field": null
+    },
+    "Check Box 638": {
+      "label": "Life 1 Other Tobacco - No",
+      "crm_field": null
+    },
+    "Check Box 637": {
+      "label": "Life 2 Other Tobacco - No",
+      "crm_field": null
+    },
+    "Text Field 206": {
+      "label": "Life 1 Last Smoke/Vape/Nicotine Use",
+      "crm_field": null
+    },
+    "Text Field 205": {
+      "label": "Life 2 Last Smoke/Vape/Nicotine Use",
+      "crm_field": null
+    },
+    "Text Field 2012": {
+      "label": "Life 1 Previous Smoking Detail",
+      "crm_field": null
+    },
+    "Text Field 2013": {
+      "label": "Life 2 Previous Smoking Detail",
+      "crm_field": null
+    },
+    "Text Field 2014": {
+      "label": "Life 1 Additional Smoking Info",
+      "crm_field": null
+    },
+    "Text Field 2015": {
+      "label": "Life 2 Additional Smoking Info",
+      "crm_field": null
+    },
 
-    "Check Box 44": {"label": "Health Q1 Yes", "crm_field": null},
-    "Check Box 45": {"label": "Health Q1 No", "crm_field": null},
-    "Check Box 46": {"label": "Health Q2 Yes", "crm_field": null},
-    "Check Box 47": {"label": "Health Q2 No", "crm_field": null},
-    "Check Box 48": {"label": "Health Q3 Yes", "crm_field": null},
-    "Check Box 49": {"label": "Health Q3 No", "crm_field": null},
-    "Check Box 50": {"label": "Health Q4 Yes", "crm_field": null},
-    "Check Box 51": {"label": "Health Q4 No", "crm_field": null},
-    "Check Box 52": {"label": "Health Q5 Yes", "crm_field": null},
-    "Check Box 53": {"label": "Health Q5 No", "crm_field": null},
-    "Check Box 54": {"label": "Health Q6 Yes", "crm_field": null},
-    "Check Box 55": {"label": "Health Q6 No", "crm_field": null},
-    "Check Box 56": {"label": "Health Q7 Yes", "crm_field": null},
-    "Check Box 57": {"label": "Health Q7 No", "crm_field": null},
-    "Check Box 58": {"label": "Health Q8 Yes", "crm_field": null},
-    "Check Box 59": {"label": "Health Q8 No", "crm_field": null},
-    "Check Box 60": {"label": "Health Q9 Yes", "crm_field": null},
-    "Check Box 61": {"label": "Health Q9 No", "crm_field": null},
-    "Check Box 62": {"label": "Health Q10 Yes", "crm_field": null},
-    "Check Box 63": {"label": "Health Q10 No", "crm_field": null},
-    "Check Box 64": {"label": "Health Q11 Yes", "crm_field": null},
-    "Check Box 65": {"label": "Health Q11 No", "crm_field": null},
-    "Check Box 66": {"label": "Health Q12 Yes", "crm_field": null},
-    "Check Box 67": {"label": "Health Q12 No", "crm_field": null},
-    "Check Box 68": {"label": "Health Q13 Yes", "crm_field": null},
-    "Check Box 69": {"label": "Health Q13 No", "crm_field": null},
-    "Check Box 70": {"label": "Health Q14 Yes", "crm_field": null},
-    "Check Box 71": {"label": "Health Q14 No", "crm_field": null},
-    "Check Box 72": {"label": "Health Q15 Yes", "crm_field": null},
-    "Check Box 73": {"label": "Health Q15 No", "crm_field": null},
-    "Check Box 74": {"label": "Health Q16 Yes", "crm_field": null},
-    "Check Box 75": {"label": "Health Q16 No", "crm_field": null},
-    "Check Box 76": {"label": "Health Q17 Yes", "crm_field": null},
-    "Check Box 77": {"label": "Health Q17 No", "crm_field": null},
-    "Check Box 78": {"label": "Health Q18 Yes", "crm_field": null},
-    "Check Box 79": {"label": "Health Q18 No", "crm_field": null},
-    "Check Box 80": {"label": "Health Q19 Yes", "crm_field": null},
-    "Check Box 81": {"label": "Health Q19 No", "crm_field": null},
-    "Check Box 82": {"label": "Health Q20 Yes", "crm_field": null},
-    "Check Box 83": {"label": "Health Q20 No", "crm_field": null},
-    "Check Box 84": {"label": "Health Q21 Yes", "crm_field": null},
-    "Check Box 85": {"label": "Health Q21 No", "crm_field": null},
-    "Check Box 86": {"label": "Health Q22 Yes", "crm_field": null},
-    "Check Box 87": {"label": "Health Q22 No", "crm_field": null},
-    "Check Box 88": {"label": "Health Q23 Yes", "crm_field": null},
-    "Check Box 89": {"label": "Health Q23 No", "crm_field": null},
-    "Check Box 90": {"label": "Health Q24 Yes", "crm_field": null},
-    "Check Box 91": {"label": "Health Q24 No", "crm_field": null},
-    "Check Box 92": {"label": "Health Q25 Yes", "crm_field": null},
-    "Check Box 93": {"label": "Health Q25 No", "crm_field": null},
-    "Check Box 95": {"label": "Health Q26 Yes", "crm_field": null},
-    "Check Box 96": {"label": "Health Q26 No", "crm_field": null},
-    "Check Box 100": {"label": "Health Q27 Yes", "crm_field": null},
-    "Check Box 101": {"label": "Health Q27 No", "crm_field": null},
+    "__comment_page8_sports": "=== PAGE 8: Medical Q9 - Sporting Activities Checkboxes ===",
+    "Check Box 346": {
+      "label": "Q9 Aviation Sports - First Person",
+      "crm_field": null
+    },
+    "Check Box 345": {
+      "label": "Q9 Aviation Sports - Second Person",
+      "crm_field": null
+    },
+    "Check Box 344": {
+      "label": "Q9 Climbing/Mountaineering - First Person",
+      "crm_field": null
+    },
+    "Check Box 343": {
+      "label": "Q9 Climbing/Mountaineering - Second Person",
+      "crm_field": null
+    },
+    "Check Box 342": {
+      "label": "Q9 Diving - First Person",
+      "crm_field": null
+    },
+    "Check Box 341": {
+      "label": "Q9 Diving - Second Person",
+      "crm_field": null
+    },
+    "Check Box 340": {
+      "label": "Q9 Water Sports - First Person",
+      "crm_field": null
+    },
+    "Check Box 339": {
+      "label": "Q9 Water Sports - Second Person",
+      "crm_field": null
+    },
+    "Check Box 338": {
+      "label": "Q9 Motorsports - First Person",
+      "crm_field": null
+    },
+    "Check Box 337": {
+      "label": "Q9 Motorsports - Second Person",
+      "crm_field": null
+    },
+    "Check Box 336": {
+      "label": "Q9 Other Extreme Sports - First Person",
+      "crm_field": null
+    },
+    "Check Box 335": {
+      "label": "Q9 Other Extreme Sports - Second Person",
+      "crm_field": null
+    },
+    "Check Box 334": {
+      "label": "Q9 Martial Arts/Combat Sports - First Person",
+      "crm_field": null
+    },
+    "Check Box 333": {
+      "label": "Q9 Martial Arts/Combat Sports - Second Person",
+      "crm_field": null
+    },
+    "Check Box 332": {
+      "label": "Q9 None of These - First Person",
+      "crm_field": null
+    },
+    "Check Box 331": {
+      "label": "Q9 None of These - Second Person",
+      "crm_field": null
+    },
 
-    "__comment_health_text": "Health detail text fields",
-    "Text Field 675": {"label": "Health Detail 1", "crm_field": null},
-    "Text Field 676": {"label": "Health Detail 2", "crm_field": null},
-    "Text Field 677": {"label": "Health Detail 3", "crm_field": null},
-    "Text Field 678": {"label": "Health Detail 4", "crm_field": null},
-    "Text Field 679": {"label": "Health Detail 5", "crm_field": null},
-    "Text Field 680": {"label": "Health Detail 6", "crm_field": null},
-    "Text Field 681": {"label": "Health Detail 7", "crm_field": null},
-    "Text Field 682": {"label": "Health Detail 8", "crm_field": null},
-    "Text Field 683": {"label": "Health Detail 9", "crm_field": null},
-    "Text Field 684": {"label": "Health Detail 10", "crm_field": null},
-    "Text Field 685": {"label": "Health Detail 11", "crm_field": null},
-    "Text Field 686": {"label": "Health Detail 12", "crm_field": null},
-    "Text Field 687": {"label": "Health Detail 13", "crm_field": null},
+    "__comment_page10_family": "=== PAGE 10: Medical Q34 - Family History Table (4 rows x 4 columns) ===",
+    "Text Field 685": {
+      "label": "Family History Row 1 - First Person Condition",
+      "crm_field": null
+    },
+    "Text Field 684": {
+      "label": "Family History Row 1 - First Person Age",
+      "crm_field": null
+    },
+    "Text Field 683": {
+      "label": "Family History Row 1 - Second Person Condition",
+      "crm_field": null
+    },
+    "Text Field 5020": {
+      "label": "Family History Row 1 - Second Person Age",
+      "crm_field": null
+    },
+    "Text Field 5019": {
+      "label": "Family History Row 2 - First Person Condition",
+      "crm_field": null
+    },
+    "Text Field 5018": {
+      "label": "Family History Row 2 - First Person Age",
+      "crm_field": null
+    },
+    "Text Field 5017": {
+      "label": "Family History Row 2 - Second Person Condition",
+      "crm_field": null
+    },
+    "Text Field 5016": {
+      "label": "Family History Row 2 - Second Person Age",
+      "crm_field": null
+    },
+    "Text Field 1056": {
+      "label": "Family History Row 3 - First Person Condition",
+      "crm_field": null
+    },
+    "Text Field 103": {
+      "label": "Family History Row 3 - First Person Age",
+      "crm_field": null
+    },
+    "Text Field 5015": {
+      "label": "Family History Row 3 - Second Person Condition",
+      "crm_field": null
+    },
+    "Text Field 5014": {
+      "label": "Family History Row 3 - Second Person Age",
+      "crm_field": null
+    },
+    "Text Field 1055": {
+      "label": "Family History Row 4 - First Person Condition",
+      "crm_field": null
+    },
+    "Text Field 1054": {
+      "label": "Family History Row 4 - First Person Age",
+      "crm_field": null
+    },
+    "Text Field 1053": {
+      "label": "Family History Row 4 - Second Person Condition",
+      "crm_field": null
+    },
+    "Text Field 109": {
+      "label": "Family History Row 4 - Second Person Age",
+      "crm_field": null
+    },
 
-    "__comment_page12_bank": "=== PAGE 12: Bank / SEPA Details ===",
-    "Text Field 842": {"label": "Account Holder Name", "crm_field": "full_name"},
-    "Text Field 841": {"label": "Bank Name", "crm_field": null},
-    "Text Field 840": {"label": "IBAN", "crm_field": "iban"},
-    "Text Field 839": {"label": "BIC", "crm_field": "bic"},
-    "Text Field 838": {"label": "Bank Address", "crm_field": null},
-    "Text Field 837": {"label": "Bank Detail 1", "crm_field": null},
-    "Text Field 836": {"label": "Bank Detail 2", "crm_field": null},
-    "Text Field 835": {"label": "Bank Detail 3", "crm_field": null},
-    "Text Field 834": {"label": "Bank Detail 4", "crm_field": null},
+    "__comment_page11_evidence": "=== PAGE 11: Other Medical Evidence (First Person 7 rows, Second Person 7 rows) + Doctor Details ===",
+    "Text Field 1070": {
+      "label": "First Person Evidence Row 1 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1039": {
+      "label": "First Person Evidence Row 1 - Detail",
+      "crm_field": null
+    },
+    "Text Field 10011": {
+      "label": "First Person Evidence Row 2 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1041": {
+      "label": "First Person Evidence Row 2 - Detail",
+      "crm_field": null
+    },
+    "Text Field 10014": {
+      "label": "First Person Evidence Row 3 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1043": {
+      "label": "First Person Evidence Row 3 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1069": {
+      "label": "First Person Evidence Row 4 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1045": {
+      "label": "First Person Evidence Row 4 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1068": {
+      "label": "First Person Evidence Row 5 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1047": {
+      "label": "First Person Evidence Row 5 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1067": {
+      "label": "First Person Evidence Row 6 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1049": {
+      "label": "First Person Evidence Row 6 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1066": {
+      "label": "First Person Evidence Row 7 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1051": {
+      "label": "First Person Evidence Row 7 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1065": {
+      "label": "Second Person Evidence Row 1 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1040": {
+      "label": "Second Person Evidence Row 1 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1064": {
+      "label": "Second Person Evidence Row 2 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1042": {
+      "label": "Second Person Evidence Row 2 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1063": {
+      "label": "Second Person Evidence Row 3 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1044": {
+      "label": "Second Person Evidence Row 3 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1062": {
+      "label": "Second Person Evidence Row 4 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1046": {
+      "label": "Second Person Evidence Row 4 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1061": {
+      "label": "Second Person Evidence Row 5 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1048": {
+      "label": "Second Person Evidence Row 5 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1060": {
+      "label": "Second Person Evidence Row 6 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1050": {
+      "label": "Second Person Evidence Row 6 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1059": {
+      "label": "Second Person Evidence Row 7 - Question No",
+      "crm_field": null
+    },
+    "Text Field 1052": {
+      "label": "Second Person Evidence Row 7 - Detail",
+      "crm_field": null
+    },
+    "Text Field 1058": {
+      "label": "First Person Doctor Name and Address",
+      "crm_field": null
+    },
+    "Text Field 1057": {
+      "label": "Second Person Doctor Name and Address",
+      "crm_field": null
+    },
+    "Text Field 687": {
+      "label": "First Person Previous Doctor Name and Address",
+      "crm_field": null
+    },
+    "Text Field 686": {
+      "label": "Second Person Previous Doctor Name and Address",
+      "crm_field": null
+    },
 
-    "__comment_page12_source": "Source of Wealth / AML",
-    "Check Box 331": {"label": "Source of Wealth Option 1", "crm_field": null},
-    "Check Box 332": {"label": "Source of Wealth Option 2", "crm_field": null},
-    "Check Box 333": {"label": "Source of Wealth Option 3", "crm_field": null},
-    "Check Box 334": {"label": "Source of Wealth Option 4", "crm_field": null},
-    "Check Box 335": {"label": "Source of Wealth Option 5", "crm_field": null},
-    "Check Box 336": {"label": "Source of Wealth Option 6", "crm_field": null},
-    "Check Box 337": {"label": "Source of Wealth Option 7", "crm_field": null},
-    "Check Box 338": {"label": "Source of Wealth Option 8", "crm_field": null},
-    "Check Box 339": {"label": "Source of Wealth Option 9", "crm_field": null},
-    "Check Box 340": {"label": "Source of Wealth Option 10", "crm_field": null},
-    "Check Box 341": {"label": "Source of Wealth Option 11", "crm_field": null},
-    "Check Box 342": {"label": "Source of Wealth Option 12", "crm_field": null},
-    "Check Box 343": {"label": "Source of Wealth Option 13", "crm_field": null},
-    "Check Box 344": {"label": "Source of Wealth Option 14", "crm_field": null},
-    "Check Box 345": {"label": "Source of Wealth Option 15", "crm_field": null},
-    "Check Box 346": {"label": "Source of Wealth Option 16", "crm_field": null},
-    "Check Box 352": {"label": "AML Option 1", "crm_field": null},
+    "__comment_page12_declarations": "=== PAGE 12: Declarations Section ===",
+    "Text Field 842": {
+      "label": "Proposal Number",
+      "crm_field": null
+    },
+    "Text Field 841": {
+      "label": "Customer Review Number",
+      "crm_field": null
+    },
+    "Text Field 840": {
+      "label": "Name Life Assured 1",
+      "crm_field": "full_name"
+    },
+    "Text Field 839": {
+      "label": "Name Life Assured 2",
+      "crm_field": null
+    },
+    "Text Field 838": {
+      "label": "Financial Adviser Name (Declarations)",
+      "crm_field": null
+    },
+    "Text Field 837": {
+      "label": "Existing Plan Number",
+      "crm_field": null
+    },
+    "Text Field 836": {
+      "label": "Declaration of Insurer/Financial Adviser Signature",
+      "crm_field": null
+    },
+    "Text Field 835": {
+      "label": "Declaration Adviser Date (dd/mm/yyyy)",
+      "crm_field": null
+    },
+    "Text Field 834": {
+      "label": "Declaration Adviser Detail",
+      "crm_field": null
+    },
 
-    "__comment_page13_15": "=== PAGES 13-15: Declarations / Signatures ===",
-    "Text Field 724": {"label": "Declaration Field 1", "crm_field": null},
-    "Text Field 725": {"label": "Declaration Field 2", "crm_field": null},
-    "Text Field 726": {"label": "Declaration Field 3", "crm_field": null},
-    "Text Field 727": {"label": "Declaration Field 4", "crm_field": null},
-    "Text Field 728": {"label": "Declaration Field 5", "crm_field": null},
-    "Text Field 729": {"label": "Declaration Field 6", "crm_field": null},
-    "Text Field 731": {"label": "Declaration Field 7", "crm_field": null},
-    "Text Field 732": {"label": "Declaration Field 8", "crm_field": null},
-    "Text Field 733": {"label": "Declaration Field 9", "crm_field": null},
-    "Text Field 734": {"label": "Declaration Field 10", "crm_field": null},
-    "Text Field 735": {"label": "Declaration Field 11", "crm_field": null},
-    "Text Field 736": {"label": "Declaration Field 12", "crm_field": null},
-    "Text Field 737": {"label": "Declaration Field 13", "crm_field": null},
-    "Text Field 723": {"label": "Declaration Date", "crm_field": null},
+    "__comment_page13_signatures": "=== PAGE 13: Declaration Signatures and Dates ===",
+    "Text Field 854": {
+      "label": "Plan Owner 1 Signature (Declaration A)",
+      "crm_field": null
+    },
+    "Text Field 853": {
+      "label": "Plan Owner 2 Signature (Declaration A)",
+      "crm_field": null
+    },
+    "Text Field 852": {
+      "label": "Plan Owner 1 Date (Declaration A)",
+      "crm_field": null
+    },
+    "Text Field 851": {
+      "label": "Plan Owner 2 Date (Declaration A)",
+      "crm_field": null
+    },
+    "Text Field 850": {
+      "label": "Life 1 Signature (Plan Declaration B)",
+      "crm_field": null
+    },
+    "Text Field 849": {
+      "label": "Life 2 Signature (Plan Declaration B)",
+      "crm_field": null
+    },
+    "Text Field 848": {
+      "label": "Life 1 Date (Plan Declaration B)",
+      "crm_field": null
+    },
+    "Text Field 847": {
+      "label": "Life 2 Date (Plan Declaration B)",
+      "crm_field": null
+    },
+    "Text Field 846": {
+      "label": "Life 1 Signature (Marketing Consent)",
+      "crm_field": null
+    },
+    "Text Field 845": {
+      "label": "Life 2 Signature (Marketing Consent)",
+      "crm_field": null
+    },
+    "Text Field 844": {
+      "label": "Life 1 Date (Marketing Consent)",
+      "crm_field": null
+    },
+    "Text Field 843": {
+      "label": "Life 2 Date (Marketing Consent)",
+      "crm_field": null
+    },
 
-    "__comment_page_additional": "=== Additional Checkboxes (various pages) ===",
-    "Check Box 120": {"label": "Additional Checkbox 1", "crm_field": null},
-    "Check Box 1011": {"label": "Additional Checkbox 2", "crm_field": null},
-    "Check Box 1013": {"label": "Additional Checkbox 3", "crm_field": null},
-    "Check Box 2016": {"label": "Additional Checkbox 4", "crm_field": null},
-    "Check Box 2029": {"label": "Additional Checkbox 5", "crm_field": null},
-    "Check Box 2036": {"label": "Additional Checkbox 6", "crm_field": null},
-    "Check Box 2044": {"label": "Additional Checkbox 7", "crm_field": null},
-    "Check Box 354666": {"label": "Additional Checkbox 8", "crm_field": null},
-    "Check Box 383": {"label": "Additional Checkbox 9", "crm_field": null},
-    "Check Box 386": {"label": "Additional Checkbox 10", "crm_field": null}
+    "__comment_page15_sepa": "=== PAGE 15: SEPA Direct Debit Mandate ===",
+    "Text Field 724": {
+      "label": "SEPA Plan Number 1",
+      "crm_field": null
+    },
+    "Text Field 725": {
+      "label": "SEPA Plan Number 2",
+      "crm_field": null
+    },
+    "Text Field 726": {
+      "label": "SEPA Plan Number 3",
+      "crm_field": null
+    },
+    "Text Field 727": {
+      "label": "SEPA Name of Plan Owner(s) Line 1",
+      "crm_field": "full_name"
+    },
+    "Text Field 728": {
+      "label": "SEPA Name of Plan Owner(s) Line 2",
+      "crm_field": null
+    },
+    "Text Field 729": {
+      "label": "SEPA Direct Debit Collection Date",
+      "crm_field": null
+    },
+    "Text Field 731": {
+      "label": "SEPA Account Holder Name(s)",
+      "crm_field": "full_name"
+    },
+    "Text Field 732": {
+      "label": "SEPA Account Holder Address",
+      "crm_field": null
+    },
+    "Text Field 733": {
+      "label": "SEPA Account Holder Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 734": {
+      "label": "SEPA BIC",
+      "crm_field": null
+    },
+    "Text Field 735": {
+      "label": "SEPA IBAN Line 1",
+      "crm_field": null
+    },
+    "Text Field 736": {
+      "label": "SEPA IBAN Line 2",
+      "crm_field": null
+    },
+    "Text Field 737": {
+      "label": "SEPA IBAN Line 3",
+      "crm_field": null
+    },
+    "Text Field 723": {
+      "label": "SEPA Date of Signing",
+      "crm_field": null
+    },
+    "Check Box 354666": {
+      "label": "SEPA Mandate Confirmation Checkbox",
+      "crm_field": null
+    }
   }
 }

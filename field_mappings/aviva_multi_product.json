@@ -3,242 +3,1089 @@
   "pdf_file": "Aviva-Editable-Multi-Product-Application-Form.pdf",
   "provider": "Aviva",
   "product": "Multi-Product",
-  "notes": "28 pages, 1191 fields. Page 1 = product selection, Page 2 = personal details (Life 1 left, Life 2 right), Page 3 = employment/source of wealth, Page 4 = beneficiary/next of kin, Page 5 = existing policies, Page 6 = bank details, Pages 7+ = product-specific sections, fund selection, declarations.",
+  "notes": "28 pages, 1191 fields. Page 1 = product selection. Page 2 = Part 1 Personal Details (Life 1 left, Life 2 right) + Part 2 Income Protection Occupation/Salary. Page 3 = Part 2 IP Benefit Details + Executive IP Employer Details. Page 4 = Parts 3-5 (Mortgage, Flexible, Decreasing Term Protection). Page 5 = Part 6 Policy Owner Details + Part 7 Pension Term Assurance. Page 6 = Part 8 Underwriting (doctor, height/weight). Pages 7+ = underwriting questions, medical, fund selection, declarations, SEPA mandate.",
   "field_map": {
     "__comment_page1": "=== PAGE 1: Product Selection ===",
-    "Check Box 1": {"label": "Product: PRSA", "crm_field": null},
-    "Check Box 6": {"label": "Product: Option 2", "crm_field": null},
-    "Check Box 2": {"label": "Product: Option 3", "crm_field": null},
-    "Check Box 869": {"label": "Product: Option 4", "crm_field": null},
-    "Check Box 3": {"label": "Product: Option 5", "crm_field": null},
-    "Check Box 947": {"label": "Product: Option 6", "crm_field": null},
-    "Check Box 945": {"label": "Product: Option 7", "crm_field": null},
-    "Check Box 7": {"label": "Product: Option 8", "crm_field": null},
-    "Check Box 946": {"label": "Product: Option 9", "crm_field": null},
-    "Check Box 8": {"label": "Product: Option 10", "crm_field": null},
-    "Check Box 5": {"label": "Product: Option 11", "crm_field": null},
-    "Text Field 520": {"label": "Product Details", "crm_field": null},
+    "Check Box 1": {
+      "label": "Product: PRSA",
+      "crm_field": null
+    },
+    "Check Box 6": {
+      "label": "Product: Option 2",
+      "crm_field": null
+    },
+    "Check Box 2": {
+      "label": "Product: Option 3",
+      "crm_field": null
+    },
+    "Check Box 869": {
+      "label": "Product: Option 4",
+      "crm_field": null
+    },
+    "Check Box 3": {
+      "label": "Product: Option 5",
+      "crm_field": null
+    },
+    "Check Box 947": {
+      "label": "Product: Option 6",
+      "crm_field": null
+    },
+    "Check Box 945": {
+      "label": "Product: Option 7",
+      "crm_field": null
+    },
+    "Check Box 7": {
+      "label": "Product: Option 8",
+      "crm_field": null
+    },
+    "Check Box 946": {
+      "label": "Product: Option 9",
+      "crm_field": null
+    },
+    "Check Box 8": {
+      "label": "Product: Option 10",
+      "crm_field": null
+    },
+    "Check Box 5": {
+      "label": "Product: Option 11",
+      "crm_field": null
+    },
+    "Text Field 520": {
+      "label": "Product Details",
+      "crm_field": null
+    },
 
-    "__comment_page2_life1": "=== PAGE 2: Life 1 Personal Details (left column) ===",
-
+    "__comment_page2": "=== PAGE 2: Part 1 - Personal Details for Insured Life/Lives ===",
     "__comment_page2_life1_title": "Life 1 Title checkboxes (y=731, x=96-218)",
-    "Check Box 9": {"label": "Life 1 Title: Mr", "crm_field": "title", "match_value": "Mr"},
-    "Check Box 10": {"label": "Life 1 Title: Mrs", "crm_field": "title", "match_value": "Mrs"},
-    "Check Box 11": {"label": "Life 1 Title: Ms", "crm_field": "title", "match_value": "Ms"},
-    "Check Box 12": {"label": "Life 1 Title: Other", "crm_field": null},
+    "Check Box 9": {
+      "label": "Life 1 Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Check Box 10": {
+      "label": "Life 1 Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Check Box 11": {
+      "label": "Life 1 Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 12": {
+      "label": "Life 1 Title: Miss",
+      "crm_field": null
+    },
 
     "__comment_page2_life2_title": "Life 2 Title checkboxes (y=734, x=371-493)",
-    "Check Box 962": {"label": "Life 2 Title: Mr", "crm_field": null},
-    "Check Box 961": {"label": "Life 2 Title: Mrs", "crm_field": null},
-    "Check Box 960": {"label": "Life 2 Title: Ms", "crm_field": null},
-    "Check Box 959": {"label": "Life 2 Title: Other", "crm_field": null},
+    "Check Box 962": {
+      "label": "Life 2 Title: Mr",
+      "crm_field": null
+    },
+    "Check Box 961": {
+      "label": "Life 2 Title: Mrs",
+      "crm_field": null
+    },
+    "Check Box 960": {
+      "label": "Life 2 Title: Ms",
+      "crm_field": null
+    },
+    "Check Box 959": {
+      "label": "Life 2 Title: Miss",
+      "crm_field": null
+    },
 
     "__comment_page2_names": "Names (y=709-688)",
-    "Text Field 249": {"label": "Life 1 Forename", "crm_field": "first_name"},
-    "Text Field 411": {"label": "Life 2 Forename", "crm_field": null},
-    "Text Field 304": {"label": "Life 1 Surname", "crm_field": "last_name"},
-    "Text Field 305": {"label": "Life 2 Surname", "crm_field": null},
+    "Text Field 249": {
+      "label": "Life 1 First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 411": {
+      "label": "Life 2 First Name",
+      "crm_field": null
+    },
+    "Text Field 304": {
+      "label": "Life 1 Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 305": {
+      "label": "Life 2 Surname",
+      "crm_field": null
+    },
 
     "__comment_page2_dob": "DOB fields (y=665-668)",
-    "Text Field 5": {"label": "Life 1 DOB Day", "crm_field": "date_of_birth", "transform": "day"},
-    "Text Field 4": {"label": "Life 1 DOB Month", "crm_field": "date_of_birth", "transform": "month"},
-    "Text Field 3": {"label": "Life 1 DOB Year", "crm_field": "date_of_birth", "transform": "year"},
-    "Text Field 410": {"label": "Life 2 DOB Day", "crm_field": null},
-    "Text Field 409": {"label": "Life 2 DOB Month", "crm_field": null},
-    "Text Field 408": {"label": "Life 2 DOB Year", "crm_field": null},
+    "Text Field 5": {
+      "label": "Life 1 DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "Text Field 4": {
+      "label": "Life 1 DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "Text Field 3": {
+      "label": "Life 1 DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "Text Field 410": {
+      "label": "Life 2 DOB Day",
+      "crm_field": null
+    },
+    "Text Field 409": {
+      "label": "Life 2 DOB Month",
+      "crm_field": null
+    },
+    "Text Field 408": {
+      "label": "Life 2 DOB Year",
+      "crm_field": null
+    },
 
-    "__comment_page2_gender": "Gender checkboxes (y=629-631)",
-    "Check Box 13": {"label": "Life 1 Gender: Male", "crm_field": null},
-    "Check Box 14": {"label": "Life 1 Gender: Female", "crm_field": null},
-    "Check Box 958": {"label": "Life 2 Gender: Male", "crm_field": null},
-    "Check Box 957": {"label": "Life 2 Gender: Female", "crm_field": null},
+    "__comment_page2_tax_resident": "Tax Resident Ireland checkboxes (y=629-631) - NOTE: form asks 'Are you a resident of the Republic of Ireland for tax purposes?'",
+    "Check Box 13": {
+      "label": "Life 1 Tax Resident Ireland: Yes",
+      "crm_field": null
+    },
+    "Check Box 14": {
+      "label": "Life 1 Tax Resident Ireland: No",
+      "crm_field": null
+    },
+    "Check Box 958": {
+      "label": "Life 2 Tax Resident Ireland: Yes",
+      "crm_field": null
+    },
+    "Check Box 957": {
+      "label": "Life 2 Tax Resident Ireland: No",
+      "crm_field": null
+    },
 
-    "__comment_page2_address": "Address fields (y=606-523)",
-    "Text Field 250": {"label": "Life 1 Address Line 1", "crm_field": "address_line1"},
-    "Text Field 407": {"label": "Life 2 Address Line 1", "crm_field": null},
-    "Text Field 251": {"label": "Life 1 Address Line 2", "crm_field": "address_city"},
-    "Text Field 406": {"label": "Life 2 Address Line 2", "crm_field": null},
-    "Text Field 252": {"label": "Life 1 Address Line 3", "crm_field": null},
-    "Text Field 405": {"label": "Life 2 Address Line 3", "crm_field": null},
-    "Text Field 253": {"label": "Life 1 County", "crm_field": "address_state"},
-    "Text Field 404": {"label": "Life 2 County", "crm_field": null},
-    "Text Field 254": {"label": "Life 1 Eircode", "crm_field": "address_postcode"},
-    "Text Field 403": {"label": "Life 2 Eircode", "crm_field": null},
+    "__comment_page2_address": "Address fields (y=606-585) - 3 lines only, then Contact No. and Email",
+    "Text Field 250": {
+      "label": "Life 1 Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 407": {
+      "label": "Life 2 Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 251": {
+      "label": "Life 1 Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Text Field 406": {
+      "label": "Life 2 Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 252": {
+      "label": "Life 1 Address Line 3",
+      "crm_field": "address_state"
+    },
+    "Text Field 405": {
+      "label": "Life 2 Address Line 3",
+      "crm_field": null
+    },
 
-    "__comment_page2_occupation_type": "Occupation Type checkboxes (y=358-401)",
-    "Check Box 7012": {"label": "Life 1 Employed", "crm_field": null},
-    "Check Box 7013": {"label": "Life 2 Employed", "crm_field": null},
-    "Check Box 15": {"label": "Life 1 Self-Employed", "crm_field": null},
-    "Check Box 956": {"label": "Life 2 Self-Employed", "crm_field": null},
-    "Check Box 708": {"label": "Life 1 Company Director", "crm_field": null},
-    "Check Box 709": {"label": "Life 2 Company Director", "crm_field": null},
-    "Check Box 7010": {"label": "Life 1 Homemaker", "crm_field": null},
-    "Check Box 7011": {"label": "Life 2 Homemaker", "crm_field": null},
-    "Check Box 7014": {"label": "Life 1 Retired", "crm_field": null},
-    "Check Box 7015": {"label": "Life 2 Retired", "crm_field": null},
+    "__comment_page2_contact": "Contact No. and Email (y=543-523)",
+    "Text Field 253": {
+      "label": "Life 1 Contact No.",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 404": {
+      "label": "Life 2 Contact No.",
+      "crm_field": null
+    },
+    "Text Field 254": {
+      "label": "Life 1 Email",
+      "crm_field": "email"
+    },
+    "Text Field 403": {
+      "label": "Life 2 Email",
+      "crm_field": null
+    },
 
-    "__comment_page2_occupation_text": "Occupation text (y=275-278)",
-    "Text Field 2": {"label": "Life 1 Occupation", "crm_field": "occupation"},
-    "Text Field 402": {"label": "Life 2 Occupation", "crm_field": null},
+    "__comment_page2_tobacco": "Tobacco Details checkboxes (y=401-315) - form says 'Tobacco Details' with 5 options per life",
+    "Check Box 7012": {
+      "label": "Life 1 Tobacco: I have never smoked",
+      "crm_field": "smoker",
+      "match_value": "No"
+    },
+    "Check Box 7013": {
+      "label": "Life 2 Tobacco: I have never smoked",
+      "crm_field": null
+    },
+    "Check Box 15": {
+      "label": "Life 1 Tobacco: I am a smoker",
+      "crm_field": "smoker",
+      "match_value": "Yes"
+    },
+    "Check Box 956": {
+      "label": "Life 2 Tobacco: I am a smoker",
+      "crm_field": null
+    },
+    "Check Box 708": {
+      "label": "Life 1 Tobacco: Occasional smoker or smoked in last 12 months",
+      "crm_field": null
+    },
+    "Check Box 709": {
+      "label": "Life 2 Tobacco: Occasional smoker or smoked in last 12 months",
+      "crm_field": null
+    },
+    "Check Box 7010": {
+      "label": "Life 1 Tobacco: Used nicotine replacement products",
+      "crm_field": null
+    },
+    "Check Box 7011": {
+      "label": "Life 2 Tobacco: Used nicotine replacement products",
+      "crm_field": null
+    },
+    "Check Box 7014": {
+      "label": "Life 1 Tobacco: Not smoked or used nicotine replacement products",
+      "crm_field": null
+    },
+    "Check Box 7015": {
+      "label": "Life 2 Tobacco: Not smoked or used nicotine replacement products",
+      "crm_field": null
+    },
 
-    "__comment_page2_contact": "Contact details (y=160-100)",
-    "Text Field 10": {"label": "Life 1 PPS Number", "crm_field": "pps_number"},
-    "Text Field 11": {"label": "Life 1 Phone Mobile", "crm_field": "phone_mobile"},
-    "Text Field 12": {"label": "Life 1 Phone Home", "crm_field": null},
-    "Check Box 28": {"label": "Life 1 Smoker: Yes", "crm_field": null},
-    "Check Box 27": {"label": "Life 1 Smoker: No", "crm_field": null},
-    "Text Field 13": {"label": "Life 1 Email", "crm_field": "email"},
-    "Text Field 349": {"label": "Life 1 Employer Name", "crm_field": "employer_name"},
-    "Check Box 859": {"label": "Life 2 Smoker: Yes", "crm_field": null},
-    "Check Box 858": {"label": "Life 2 Smoker: No", "crm_field": null},
+    "__comment_page2_cigarettes": "Cigarettes per day text fields (y=275-278)",
+    "Text Field 2": {
+      "label": "Life 1 Cigarettes per day",
+      "crm_field": null
+    },
+    "Text Field 402": {
+      "label": "Life 2 Cigarettes per day",
+      "crm_field": null
+    },
 
-    "__comment_page3": "=== PAGE 3: Employment / Source of Wealth ===",
+    "__comment_page2_part2": "=== PAGE 2 (bottom): Part 2 - Income Protection Cover - Occupation Details ===",
+    "Text Field 10": {
+      "label": "IP Occupation",
+      "crm_field": "job_title"
+    },
+    "Check Box 28": {
+      "label": "IP Self-employed or shareholding director: Yes",
+      "crm_field": null
+    },
+    "Check Box 27": {
+      "label": "IP Self-employed or shareholding director: No",
+      "crm_field": null
+    },
+    "Text Field 11": {
+      "label": "IP Self-employed Years",
+      "crm_field": null
+    },
+    "Text Field 12": {
+      "label": "IP Self-employed Months",
+      "crm_field": null
+    },
+    "Text Field 13": {
+      "label": "IP Employees count (including sub-contractors)",
+      "crm_field": null
+    },
+    "Text Field 349": {
+      "label": "IP Salary",
+      "crm_field": "salary"
+    },
+    "Check Box 859": {
+      "label": "IP Tax Rate: 20%",
+      "crm_field": null
+    },
+    "Check Box 858": {
+      "label": "IP Tax Rate: 40%",
+      "crm_field": null
+    },
 
-    "__comment_page3_employment": "Employment details (y=789-758)",
-    "Text Field 17": {"label": "Employment Date Day", "crm_field": null},
-    "Text Field 16": {"label": "Employment Date Month", "crm_field": null},
-    "Text Field 15": {"label": "Employment Date Year", "crm_field": null},
-    "Text Field 18": {"label": "Employment Detail", "crm_field": null},
-    "Text Field 19": {"label": "Employer Address", "crm_field": null},
-    "Text Field 517": {"label": "Employment Detail 2", "crm_field": null},
+    "__comment_page3": "=== PAGE 3: Part 2 - Income Protection Benefit Details ===",
+    "__comment_page3_ip_benefit": "Personal IP / Wage Protector Benefit Details (y=789-690)",
+    "Text Field 17": {
+      "label": "IP Start Date Day",
+      "crm_field": null
+    },
+    "Text Field 16": {
+      "label": "IP Start Date Month",
+      "crm_field": null
+    },
+    "Text Field 15": {
+      "label": "IP Start Date Year",
+      "crm_field": null
+    },
+    "Text Field 18": {
+      "label": "IP Weekly Benefit",
+      "crm_field": null
+    },
+    "Text Field 19": {
+      "label": "IP Ceasing Age",
+      "crm_field": null
+    },
+    "Text Field 517": {
+      "label": "IP Deferred Period (weeks)",
+      "crm_field": null
+    },
+    "Check Box 36": {
+      "label": "IP Premium Type: Guaranteed",
+      "crm_field": null
+    },
+    "Check Box 37": {
+      "label": "IP Premium Type: Reviewable",
+      "crm_field": null
+    },
+    "Check Box 965": {
+      "label": "IP Indexation: Yes",
+      "crm_field": null
+    },
+    "Check Box 964": {
+      "label": "IP Indexation: No",
+      "crm_field": null
+    },
+    "Check Box 40": {
+      "label": "IP Benefit Escalation during claim: Yes",
+      "crm_field": null
+    },
+    "Check Box 41": {
+      "label": "IP Benefit Escalation during claim: No",
+      "crm_field": null
+    },
+    "Check Box 967": {
+      "label": "IP Premium Frequency: Monthly",
+      "crm_field": null
+    },
+    "Check Box 966": {
+      "label": "IP Premium Frequency: Yearly",
+      "crm_field": null
+    },
 
-    "__comment_page3_marital": "Marital Status checkboxes (y=722)",
-    "Check Box 36": {"label": "Life 1 Marital: Single", "crm_field": "marital_status", "match_value": "Single"},
-    "Check Box 37": {"label": "Life 1 Marital: Married", "crm_field": "marital_status", "match_value": "Married"},
-    "Check Box 965": {"label": "Life 2 Marital: Single", "crm_field": null},
-    "Check Box 964": {"label": "Life 2 Marital: Married", "crm_field": null},
-    "Check Box 40": {"label": "Life 1 Marital: Civil Partner", "crm_field": "marital_status", "match_value": "Civil Partner"},
-    "Check Box 41": {"label": "Life 1 Marital: Separated", "crm_field": "marital_status", "match_value": "Separated"},
-    "Check Box 967": {"label": "Life 2 Marital: Civil Partner", "crm_field": null},
-    "Check Box 966": {"label": "Life 2 Marital: Separated", "crm_field": null},
+    "__comment_page3_ip_existing": "IP Existing policy cancellation (y=570)",
+    "Text Field 20": {
+      "label": "IP Existing Policy Numbers (if cancelling)",
+      "crm_field": null
+    },
 
-    "__comment_page3_source": "Source of Wealth (y=570-380)",
-    "Text Field 20": {"label": "Source of Wealth", "crm_field": null},
-    "Text Field 21": {"label": "Source Detail 1", "crm_field": null},
-    "Text Field 22": {"label": "Source Detail 2", "crm_field": null},
-    "Text Field 24": {"label": "Source Detail 3", "crm_field": null},
-    "Text Field 264": {"label": "Source Detail 4", "crm_field": null},
-    "Text Field 25": {"label": "Source Date Day", "crm_field": null},
-    "Text Field 26": {"label": "Source Date Month", "crm_field": null},
-    "Check Box 47": {"label": "Source Option 1", "crm_field": null},
-    "Check Box 46": {"label": "Source Option 2", "crm_field": null},
-    "Text Field 27": {"label": "Source Detail 5", "crm_field": null},
-    "Text Field 28": {"label": "Source Detail 6", "crm_field": null},
-    "Check Box 826": {"label": "PEP: Yes", "crm_field": null},
-    "Check Box 825": {"label": "PEP: No", "crm_field": null},
-    "Check Box 824": {"label": "PEP Detail 1", "crm_field": null},
-    "Check Box 823": {"label": "PEP Detail 2", "crm_field": null},
+    "__comment_page3_exec_ip": "Executive Income Protection Cover - Employer Details (y=515-380)",
+    "Text Field 21": {
+      "label": "Exec IP Employer Name",
+      "crm_field": "company_name"
+    },
+    "Text Field 22": {
+      "label": "Exec IP Employer Registered Address",
+      "crm_field": null
+    },
+    "Text Field 24": {
+      "label": "Exec IP Principle Place of Business",
+      "crm_field": null
+    },
+    "Text Field 264": {
+      "label": "Exec IP Life Assured Occupation",
+      "crm_field": null
+    },
+    "Check Box 47": {
+      "label": "Exec IP Self-employed: Yes",
+      "crm_field": null
+    },
+    "Check Box 46": {
+      "label": "Exec IP Self-employed: No",
+      "crm_field": null
+    },
+    "Text Field 25": {
+      "label": "Exec IP Self-employed Years",
+      "crm_field": null
+    },
+    "Text Field 26": {
+      "label": "Exec IP Self-employed Months",
+      "crm_field": null
+    },
+    "Text Field 27": {
+      "label": "Exec IP Employees count",
+      "crm_field": null
+    },
+    "Text Field 28": {
+      "label": "Exec IP Annual Gross Salary",
+      "crm_field": null
+    },
+    "Check Box 826": {
+      "label": "Exec IP Employer Tax Rate: 12.5%",
+      "crm_field": null
+    },
+    "Check Box 825": {
+      "label": "Exec IP Employer Tax Rate: 25%",
+      "crm_field": null
+    },
+    "Check Box 824": {
+      "label": "Exec IP State Illness Benefit: Yes",
+      "crm_field": null
+    },
+    "Check Box 823": {
+      "label": "Exec IP State Illness Benefit: No",
+      "crm_field": null
+    },
 
-    "__comment_page3_nationality": "Nationality / Tax (y=216-184)",
-    "Text Field 36": {"label": "Life 1 Nationality Date Day", "crm_field": null},
-    "Text Field 35": {"label": "Life 1 Nationality Date Month", "crm_field": null},
-    "Text Field 34": {"label": "Life 1 Nationality Date Year", "crm_field": null},
-    "Text Field 29": {"label": "Life 1 Nationality", "crm_field": "nationality"},
-    "Text Field 30": {"label": "Life 1 Country of Birth", "crm_field": null},
-    "Text Field 518": {"label": "Tax Detail 1", "crm_field": null},
-    "Text Field 31": {"label": "Tax Detail 2", "crm_field": null},
-    "Check Box 55": {"label": "Tax Resident Ireland L1: Yes", "crm_field": null},
-    "Check Box 56": {"label": "Tax Resident Ireland L1: No", "crm_field": null},
-    "Check Box 57": {"label": "Tax Resident Ireland L2: Yes", "crm_field": null},
-    "Check Box 58": {"label": "Tax Resident Ireland L2: No", "crm_field": null},
-    "Check Box 59": {"label": "US Person L1: Yes", "crm_field": null},
-    "Check Box 60": {"label": "US Person L1: No", "crm_field": null},
-    "Check Box 971": {"label": "US Person L2: Yes", "crm_field": null},
-    "Check Box 970": {"label": "US Person L2: No", "crm_field": null},
-    "Text Field 415": {"label": "Tax Reference 1", "crm_field": null},
-    "Text Field 416": {"label": "Tax Reference 2", "crm_field": null},
-    "Text Field 417": {"label": "Tax Reference 3", "crm_field": null},
-    "Text Field 33": {"label": "Tax Reference 4", "crm_field": null},
+    "__comment_page3_exec_ip_benefit": "Exec IP Benefit Details (y=216-119)",
+    "Text Field 36": {
+      "label": "Exec IP Start Date Day",
+      "crm_field": null
+    },
+    "Text Field 35": {
+      "label": "Exec IP Start Date Month",
+      "crm_field": null
+    },
+    "Text Field 34": {
+      "label": "Exec IP Start Date Year",
+      "crm_field": null
+    },
+    "Text Field 29": {
+      "label": "Exec IP Monthly Benefit",
+      "crm_field": null
+    },
+    "Text Field 30": {
+      "label": "Exec IP Pension Contribution Cover",
+      "crm_field": null
+    },
+    "Text Field 518": {
+      "label": "Exec IP Deferred Period (months)",
+      "crm_field": null
+    },
+    "Text Field 31": {
+      "label": "Exec IP Ceasing Age",
+      "crm_field": null
+    },
+    "Check Box 55": {
+      "label": "Exec IP Premium Type: Guaranteed",
+      "crm_field": null
+    },
+    "Check Box 56": {
+      "label": "Exec IP Premium Type: Reviewable",
+      "crm_field": null
+    },
+    "Check Box 57": {
+      "label": "Exec IP Indexation: Yes",
+      "crm_field": null
+    },
+    "Check Box 58": {
+      "label": "Exec IP Indexation: No",
+      "crm_field": null
+    },
+    "Check Box 59": {
+      "label": "Exec IP Benefit Escalation during claim: Yes",
+      "crm_field": null
+    },
+    "Check Box 60": {
+      "label": "Exec IP Benefit Escalation during claim: No",
+      "crm_field": null
+    },
+    "Check Box 971": {
+      "label": "Exec IP Premium Frequency: Monthly",
+      "crm_field": null
+    },
+    "Check Box 970": {
+      "label": "Exec IP Premium Frequency: Yearly",
+      "crm_field": null
+    },
 
-    "__comment_page4": "=== PAGE 4: Beneficiary / Next of Kin ===",
-    "Check Box 714": {"label": "Beneficiary Option 1", "crm_field": null},
-    "Check Box 715": {"label": "Beneficiary Option 2", "crm_field": null},
-    "Check Box 716": {"label": "Beneficiary Option 3", "crm_field": null},
-    "Text Field 44": {"label": "Beneficiary Detail 1", "crm_field": null},
-    "Text Field 43": {"label": "Beneficiary Detail 2", "crm_field": null},
-    "Text Field 39": {"label": "Beneficiary Date Day", "crm_field": null},
-    "Text Field 38": {"label": "Beneficiary Date Month", "crm_field": null},
-    "Text Field 37": {"label": "Beneficiary Date Year", "crm_field": null},
-    "Check Box 718": {"label": "Beneficiary Gender Male", "crm_field": null},
-    "Check Box 717": {"label": "Beneficiary Gender Female", "crm_field": null},
-    "Text Field 265": {"label": "Beneficiary Detail 3", "crm_field": null},
-    "Check Box 719": {"label": "Beneficiary Option 4", "crm_field": null},
-    "Check Box 720": {"label": "Beneficiary Option 5", "crm_field": null},
-    "Text Field 266": {"label": "Beneficiary Address", "crm_field": null},
-    "Text Field 47": {"label": "Beneficiary Field 1", "crm_field": null},
-    "Text Field 45": {"label": "Beneficiary Field 2", "crm_field": null},
-    "Text Field 48": {"label": "Beneficiary Field 3", "crm_field": null},
-    "Text Field 46": {"label": "Beneficiary Field 4", "crm_field": null},
-    "Text Field 42": {"label": "Beneficiary Date Day 2", "crm_field": null},
-    "Text Field 41": {"label": "Beneficiary Date Month 2", "crm_field": null},
-    "Text Field 40": {"label": "Beneficiary Date Year 2", "crm_field": null},
-    "Text Field 49": {"label": "Beneficiary Detail 4", "crm_field": null},
-    "Text Field 50": {"label": "Beneficiary Detail 5", "crm_field": null},
-    "Text Field 51": {"label": "Beneficiary Detail 6", "crm_field": null},
-    "Text Field 307": {"label": "Beneficiary Detail 7", "crm_field": null},
+    "__comment_page3_exec_ip_existing": "Exec IP Existing policies + Employer Email (y=21)",
+    "Text Field 415": {
+      "label": "Exec IP Existing Policy Number 1",
+      "crm_field": null
+    },
+    "Text Field 416": {
+      "label": "Exec IP Existing Policy Number 2",
+      "crm_field": null
+    },
+    "Text Field 417": {
+      "label": "Exec IP Existing Policy Number 3",
+      "crm_field": null
+    },
+    "Text Field 33": {
+      "label": "Exec IP Employer Email",
+      "crm_field": null
+    },
 
-    "__comment_page5": "=== PAGE 5: Existing Policies ===",
-    "Text Field 52": {"label": "Existing Policy 1 Detail", "crm_field": null},
-    "Text Field 275": {"label": "Existing Policy 2 Detail", "crm_field": null},
-    "Text Field 53": {"label": "Existing Policy 1 Name", "crm_field": null},
-    "Text Field 274": {"label": "Existing Policy 2 Name", "crm_field": null},
-    "Text Field 54": {"label": "Existing Policy 1 Field", "crm_field": null},
-    "Text Field 273": {"label": "Existing Policy 2 Field", "crm_field": null},
-    "Text Field 55": {"label": "Existing Policy 1 Amount", "crm_field": null},
-    "Text Field 272": {"label": "Existing Policy 2 Amount", "crm_field": null},
-    "Text Field 56": {"label": "Existing Policy 1 Detail 2", "crm_field": null},
-    "Text Field 271": {"label": "Existing Policy 2 Detail 2", "crm_field": null},
-    "Text Field 58": {"label": "Existing Policy 1 Detail 3", "crm_field": null},
-    "Text Field 270": {"label": "Existing Policy 2 Detail 3", "crm_field": null},
-    "Text Field 59": {"label": "Existing Policy 1 Detail 4", "crm_field": null},
-    "Text Field 269": {"label": "Existing Policy 2 Detail 4", "crm_field": null},
-    "Text Field 60": {"label": "Existing Policy 1 Detail 5", "crm_field": null},
-    "Text Field 268": {"label": "Existing Policy 2 Detail 5", "crm_field": null},
-    "Text Field 61": {"label": "Existing Policy 1 Detail 6", "crm_field": null},
-    "Text Field 267": {"label": "Existing Policy 2 Detail 6", "crm_field": null},
+    "__comment_page4": "=== PAGE 4: Part 3 Mortgage Protection + Part 4 Flexible Protection + Part 5 Decreasing Term Family Protection ===",
+    "__comment_page4_mortgage": "Part 3: Mortgage Protection Cover (y=757-646)",
+    "Check Box 714": {
+      "label": "Mortgage: Cover Basis Single Life",
+      "crm_field": null
+    },
+    "Check Box 715": {
+      "label": "Mortgage: Cover Basis Joint Life",
+      "crm_field": null
+    },
+    "Check Box 716": {
+      "label": "Mortgage: Cover Basis Dual Life",
+      "crm_field": null
+    },
+    "Text Field 43": {
+      "label": "Mortgage: Life Cover Amount",
+      "crm_field": null
+    },
+    "Text Field 44": {
+      "label": "Mortgage: Accelerated Specified Illness Cover Amount",
+      "crm_field": null
+    },
+    "Text Field 39": {
+      "label": "Mortgage: Start Date Day",
+      "crm_field": null
+    },
+    "Text Field 38": {
+      "label": "Mortgage: Start Date Month",
+      "crm_field": null
+    },
+    "Text Field 37": {
+      "label": "Mortgage: Start Date Year",
+      "crm_field": null
+    },
+    "Check Box 718": {
+      "label": "Mortgage: Premium Frequency Monthly",
+      "crm_field": null
+    },
+    "Check Box 717": {
+      "label": "Mortgage: Premium Frequency Yearly",
+      "crm_field": null
+    },
+    "Text Field 265": {
+      "label": "Mortgage: Term of Cover (years)",
+      "crm_field": null
+    },
+    "Check Box 719": {
+      "label": "Mortgage: Written in Trust Yes",
+      "crm_field": null
+    },
+    "Check Box 720": {
+      "label": "Mortgage: Written in Trust No",
+      "crm_field": null
+    },
+    "Text Field 266": {
+      "label": "Mortgage: Existing Policy Numbers (if cancelling)",
+      "crm_field": null
+    },
 
-    "__comment_page6": "=== PAGE 6: Bank Details / SEPA ===",
-    "Check Box 770": {"label": "DD Life 1 Yes", "crm_field": null},
-    "Check Box 771": {"label": "DD Life 1 No", "crm_field": null},
-    "Check Box 886": {"label": "DD Life 2 Yes", "crm_field": null},
-    "Check Box 885": {"label": "DD Life 2 No", "crm_field": null},
-    "Text Field 77": {"label": "Life 1 Account Holder", "crm_field": "full_name"},
-    "Text Field 85": {"label": "Life 2 Account Holder", "crm_field": null},
-    "Text Field 78": {"label": "Life 1 Bank Name", "crm_field": null},
-    "Text Field 87": {"label": "Life 2 Bank Name", "crm_field": null},
-    "Text Field 79": {"label": "Life 1 IBAN", "crm_field": "iban"},
-    "Text Field 89": {"label": "Life 2 IBAN", "crm_field": null},
-    "Text Field 80": {"label": "Life 1 BIC", "crm_field": "bic"},
-    "Text Field 91": {"label": "Life 2 BIC", "crm_field": null},
+    "__comment_page4_flexible": "Part 4: Flexible Protection Cover (y=588-331)",
+    "Check Box 848": {
+      "label": "Flexible: Cover Basis Single Life",
+      "crm_field": null
+    },
+    "Check Box 847": {
+      "label": "Flexible: Cover Basis Joint Life",
+      "crm_field": null
+    },
+    "Check Box 846": {
+      "label": "Flexible: Cover Basis Dual Life",
+      "crm_field": null
+    },
+    "Check Box 734": {
+      "label": "Flexible: Life Cover only",
+      "crm_field": null
+    },
+    "Check Box 733": {
+      "label": "Flexible: Specified Illness Cover only (Standalone)",
+      "crm_field": null
+    },
+    "Check Box 731": {
+      "label": "Flexible: Life & Specified Illness (Accelerated)",
+      "crm_field": null
+    },
+    "Check Box 732": {
+      "label": "Flexible: Life & Specified Illness (Double)",
+      "crm_field": null
+    },
+    "Text Field 47": {
+      "label": "Flexible: Life Cover L2 Amount",
+      "crm_field": null
+    },
+    "Text Field 45": {
+      "label": "Flexible: Life Cover L1 Amount",
+      "crm_field": null
+    },
+    "Text Field 48": {
+      "label": "Flexible: Specified Illness Cover L2 Amount",
+      "crm_field": null
+    },
+    "Text Field 46": {
+      "label": "Flexible: Specified Illness Cover L1 Amount",
+      "crm_field": null
+    },
+    "Text Field 42": {
+      "label": "Flexible: Start Date Day",
+      "crm_field": null
+    },
+    "Text Field 41": {
+      "label": "Flexible: Start Date Month",
+      "crm_field": null
+    },
+    "Text Field 40": {
+      "label": "Flexible: Start Date Year",
+      "crm_field": null
+    },
+    "Check Box 739": {
+      "label": "Flexible: Premium Frequency Monthly",
+      "crm_field": null
+    },
+    "Check Box 740": {
+      "label": "Flexible: Premium Frequency Yearly",
+      "crm_field": null
+    },
+    "Text Field 49": {
+      "label": "Flexible: Term of Cover (years)",
+      "crm_field": null
+    },
+    "Check Box 735": {
+      "label": "Flexible: Level or Increasing Benefit Level",
+      "crm_field": null
+    },
+    "Check Box 736": {
+      "label": "Flexible: Level or Increasing Benefit Increasing",
+      "crm_field": null
+    },
+    "Check Box 738": {
+      "label": "Flexible: Written in Trust Yes",
+      "crm_field": null
+    },
+    "Check Box 737": {
+      "label": "Flexible: Written in Trust No",
+      "crm_field": null
+    },
+    "Text Field 50": {
+      "label": "Flexible: Existing Policy Numbers (if cancelling)",
+      "crm_field": null
+    },
+    "Check Box 741": {
+      "label": "Flexible: Purpose Personal Cover",
+      "crm_field": null
+    },
+    "Check Box 743": {
+      "label": "Flexible: Purpose Family Protection",
+      "crm_field": null
+    },
+    "Check Box 744": {
+      "label": "Flexible: Purpose Business Cover",
+      "crm_field": null
+    },
+    "Check Box 745": {
+      "label": "Flexible: Purpose Other",
+      "crm_field": null
+    },
+    "Text Field 51": {
+      "label": "Flexible: If Other, details",
+      "crm_field": null
+    },
 
-    "__comment_page6_sepa2": "SEPA Mandate signatures",
-    "Check Box 777": {"label": "SEPA Life 1 Yes", "crm_field": null},
-    "Check Box 776": {"label": "SEPA Life 1 No", "crm_field": null},
-    "Check Box 775": {"label": "SEPA Life 2 Yes", "crm_field": null},
-    "Check Box 774": {"label": "SEPA Life 2 No", "crm_field": null},
-    "Text Field 81": {"label": "SEPA Life 1 Account Holder", "crm_field": null},
-    "Text Field 86": {"label": "SEPA Life 2 Account Holder", "crm_field": null},
-    "Text Field 82": {"label": "SEPA Life 1 Bank", "crm_field": null},
-    "Text Field 88": {"label": "SEPA Life 2 Bank", "crm_field": null},
-    "Text Field 83": {"label": "SEPA Life 1 IBAN", "crm_field": null},
-    "Text Field 90": {"label": "SEPA Life 2 IBAN", "crm_field": null},
-    "Text Field 84": {"label": "SEPA Life 1 BIC", "crm_field": null},
-    "Text Field 92": {"label": "SEPA Life 2 BIC", "crm_field": null},
+    "__comment_page4_decreasing": "Part 5: Decreasing Term Family Protection (y=206-45)",
+    "Check Box 843": {
+      "label": "Decreasing: Cover Basis Single Life",
+      "crm_field": null
+    },
+    "Check Box 842": {
+      "label": "Decreasing: Cover Basis Joint Life",
+      "crm_field": null
+    },
+    "Check Box 841": {
+      "label": "Decreasing: Cover Basis Dual Life",
+      "crm_field": null
+    },
+    "Text Field 318": {
+      "label": "Decreasing: Life Cover Amount",
+      "crm_field": null
+    },
+    "Text Field 319": {
+      "label": "Decreasing: Accelerated Specified Illness Cover Amount",
+      "crm_field": null
+    },
+    "Text Field 324": {
+      "label": "Decreasing: Start Date Day",
+      "crm_field": null
+    },
+    "Text Field 323": {
+      "label": "Decreasing: Start Date Month",
+      "crm_field": null
+    },
+    "Text Field 322": {
+      "label": "Decreasing: Start Date Year",
+      "crm_field": null
+    },
+    "Check Box 840": {
+      "label": "Decreasing: Premium Frequency Monthly",
+      "crm_field": null
+    },
+    "Check Box 839": {
+      "label": "Decreasing: Premium Frequency Yearly",
+      "crm_field": null
+    },
+    "Text Field 321": {
+      "label": "Decreasing: Term of Cover (years)",
+      "crm_field": null
+    },
+    "Check Box 838": {
+      "label": "Decreasing: Written in Trust Yes",
+      "crm_field": null
+    },
+    "Check Box 837": {
+      "label": "Decreasing: Written in Trust No",
+      "crm_field": null
+    },
+    "Text Field 320": {
+      "label": "Decreasing: Existing Policy Numbers (if cancelling)",
+      "crm_field": null
+    },
+    "Check Box 881": {
+      "label": "Decreasing: Purpose Personal Cover",
+      "crm_field": null
+    },
+    "Check Box 880": {
+      "label": "Decreasing: Purpose Family Protection",
+      "crm_field": null
+    },
+    "Check Box 879": {
+      "label": "Decreasing: Purpose Business Cover",
+      "crm_field": null
+    },
+    "Check Box 878": {
+      "label": "Decreasing: Purpose Other",
+      "crm_field": null
+    },
+    "Text Field 307": {
+      "label": "Decreasing: If Other, details",
+      "crm_field": null
+    },
 
-    "__comment_page6_dates": "DD Date fields (y=116, y=43)",
-    "Text Field 93": {"label": "DD Date 1", "crm_field": null},
-    "Text Field 94": {"label": "DD Date 2", "crm_field": null},
-    "Text Field 95": {"label": "DD Date 3", "crm_field": null},
-    "Text Field 96": {"label": "DD Date 4", "crm_field": null},
-    "Text Field 97": {"label": "DD Date 5", "crm_field": null},
-    "Text Field 98": {"label": "DD Date 6", "crm_field": null},
-    "Text Field 99": {"label": "DD Date 7", "crm_field": null},
-    "Text Field 100": {"label": "DD Date 8", "crm_field": null},
-    "Text Field 101": {"label": "DD Date 9", "crm_field": null},
-    "Text Field 102": {"label": "DD Date 10", "crm_field": null},
-    "Text Field 103": {"label": "DD Date 11", "crm_field": null},
-    "Text Field 104": {"label": "DD Date 12", "crm_field": null},
+    "__comment_page5": "=== PAGE 5: Part 6 Policy Owner Details + Part 7 Pension Term Assurance ===",
+    "__comment_page5_owner1": "Policy Owner 1 (y=710-107)",
+    "Check Box 748": {
+      "label": "Policy Owner 1 Tax Resident Ireland: Yes",
+      "crm_field": null
+    },
+    "Check Box 821": {
+      "label": "Policy Owner 1 Tax Resident Ireland: No",
+      "crm_field": null
+    },
+    "Check Box 757": {
+      "label": "Policy Owner 2 Tax Resident Ireland: Yes",
+      "crm_field": null
+    },
+    "Check Box 822": {
+      "label": "Policy Owner 2 Tax Resident Ireland: No",
+      "crm_field": null
+    },
+    "Check Box 749": {
+      "label": "Policy Owner 1 Title: Mr",
+      "crm_field": null
+    },
+    "Check Box 750": {
+      "label": "Policy Owner 1 Title: Mrs",
+      "crm_field": null
+    },
+    "Check Box 751": {
+      "label": "Policy Owner 1 Title: Ms",
+      "crm_field": null
+    },
+    "Check Box 752": {
+      "label": "Policy Owner 1 Title: Miss",
+      "crm_field": null
+    },
+    "Check Box 756": {
+      "label": "Policy Owner 2 Title: Mr",
+      "crm_field": null
+    },
+    "Check Box 755": {
+      "label": "Policy Owner 2 Title: Mrs",
+      "crm_field": null
+    },
+    "Check Box 754": {
+      "label": "Policy Owner 2 Title: Ms",
+      "crm_field": null
+    },
+    "Check Box 753": {
+      "label": "Policy Owner 2 Title: Miss",
+      "crm_field": null
+    },
+    "Text Field 52": {
+      "label": "Policy Owner 1 First Name",
+      "crm_field": null
+    },
+    "Text Field 275": {
+      "label": "Policy Owner 2 First Name",
+      "crm_field": null
+    },
+    "Text Field 53": {
+      "label": "Policy Owner 1 Surname",
+      "crm_field": null
+    },
+    "Text Field 274": {
+      "label": "Policy Owner 2 Surname",
+      "crm_field": null
+    },
+    "Text Field 54": {
+      "label": "Policy Owner 1 Date of Birth",
+      "crm_field": null
+    },
+    "Text Field 273": {
+      "label": "Policy Owner 2 Date of Birth",
+      "crm_field": null
+    },
+    "Text Field 55": {
+      "label": "Policy Owner 1 Organisation Name",
+      "crm_field": null
+    },
+    "Text Field 272": {
+      "label": "Policy Owner 2 Organisation Name",
+      "crm_field": null
+    },
+    "Text Field 56": {
+      "label": "Policy Owner 1 Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 271": {
+      "label": "Policy Owner 2 Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 58": {
+      "label": "Policy Owner 1 Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 270": {
+      "label": "Policy Owner 2 Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 59": {
+      "label": "Policy Owner 1 Address Line 3",
+      "crm_field": null
+    },
+    "Text Field 269": {
+      "label": "Policy Owner 2 Address Line 3",
+      "crm_field": null
+    },
+    "Text Field 60": {
+      "label": "Policy Owner 1 Contact No.",
+      "crm_field": null
+    },
+    "Text Field 268": {
+      "label": "Policy Owner 2 Contact No.",
+      "crm_field": null
+    },
+    "Text Field 61": {
+      "label": "Policy Owner 1 Email",
+      "crm_field": null
+    },
+    "Text Field 267": {
+      "label": "Policy Owner 2 Email",
+      "crm_field": null
+    },
 
-    "__comment_remaining": "=== PAGES 7-28: Product-specific sections, fund selection, declarations - all null. Too many fields (1000+) to enumerate individually. Key personal details are captured above. ==="
+    "__comment_page5_pension": "Part 7: Pension Term Assurance Cover (y=273-57)",
+    "Check Box 758": {
+      "label": "Pension Term: Q1 Self-employed Yes",
+      "crm_field": null
+    },
+    "Check Box 759": {
+      "label": "Pension Term: Q1 Self-employed No",
+      "crm_field": null
+    },
+    "Check Box 760": {
+      "label": "Pension Term: Q2 Employed person Yes",
+      "crm_field": null
+    },
+    "Check Box 761": {
+      "label": "Pension Term: Q2 Employed person No",
+      "crm_field": null
+    },
+    "Check Box 762": {
+      "label": "Pension Term: Q3 Non-pensionable Yes",
+      "crm_field": null
+    },
+    "Check Box 763": {
+      "label": "Pension Term: Q3 Non-pensionable No",
+      "crm_field": null
+    },
+    "Text Field 73": {
+      "label": "Pension Term: Life Cover Amount",
+      "crm_field": null
+    },
+    "Check Box 764": {
+      "label": "Pension Term: Premium Frequency Monthly",
+      "crm_field": null
+    },
+    "Check Box 765": {
+      "label": "Pension Term: Premium Frequency Yearly",
+      "crm_field": null
+    },
+    "Text Field 76": {
+      "label": "Pension Term: Start Date Day",
+      "crm_field": null
+    },
+    "Text Field 75": {
+      "label": "Pension Term: Start Date Month",
+      "crm_field": null
+    },
+    "Text Field 74": {
+      "label": "Pension Term: Start Date Year",
+      "crm_field": null
+    },
+    "Text Field 72": {
+      "label": "Pension Term: Ceasing Age",
+      "crm_field": null
+    },
+    "Check Box 767": {
+      "label": "Pension Term: Level or Increasing Level",
+      "crm_field": null
+    },
+    "Check Box 766": {
+      "label": "Pension Term: Level or Increasing Increasing",
+      "crm_field": null
+    },
+    "Text Field 71": {
+      "label": "Pension Term: Existing Policy Numbers (if cancelling)",
+      "crm_field": null
+    },
+
+    "__comment_page6": "=== PAGE 6: Part 8 - Underwriting Details (Doctor, Height/Weight) ===",
+    "__comment_page6_gp": "GP Details - First Life (left) and Second Life (right)",
+    "Check Box 770": {
+      "label": "L1 Have a General Practitioner: Yes",
+      "crm_field": null
+    },
+    "Check Box 771": {
+      "label": "L1 Have a General Practitioner: No",
+      "crm_field": null
+    },
+    "Check Box 886": {
+      "label": "L2 Have a General Practitioner: Yes",
+      "crm_field": null
+    },
+    "Check Box 885": {
+      "label": "L2 Have a General Practitioner: No",
+      "crm_field": null
+    },
+    "Text Field 77": {
+      "label": "L1 GP Name/Practice",
+      "crm_field": null
+    },
+    "Text Field 85": {
+      "label": "L2 GP Name/Practice",
+      "crm_field": null
+    },
+    "Text Field 78": {
+      "label": "L1 GP Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 87": {
+      "label": "L2 GP Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 79": {
+      "label": "L1 GP Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 89": {
+      "label": "L2 GP Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 80": {
+      "label": "L1 GP Address Line 3",
+      "crm_field": null
+    },
+    "Text Field 91": {
+      "label": "L2 GP Address Line 3",
+      "crm_field": null
+    },
+
+    "__comment_page6_prev_gp": "Previous GP / Specialist Details",
+    "Check Box 777": {
+      "label": "L1 Attending GP < 18 months or specialist: Yes",
+      "crm_field": null
+    },
+    "Check Box 776": {
+      "label": "L1 Attending GP < 18 months or specialist: No",
+      "crm_field": null
+    },
+    "Check Box 775": {
+      "label": "L2 Attending GP < 18 months or specialist: Yes",
+      "crm_field": null
+    },
+    "Check Box 774": {
+      "label": "L2 Attending GP < 18 months or specialist: No",
+      "crm_field": null
+    },
+    "Text Field 81": {
+      "label": "L1 Previous GP/Specialist Name",
+      "crm_field": null
+    },
+    "Text Field 86": {
+      "label": "L2 Previous GP/Specialist Name",
+      "crm_field": null
+    },
+    "Text Field 82": {
+      "label": "L1 Previous GP/Specialist Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 88": {
+      "label": "L2 Previous GP/Specialist Address Line 1",
+      "crm_field": null
+    },
+    "Text Field 83": {
+      "label": "L1 Previous GP/Specialist Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 90": {
+      "label": "L2 Previous GP/Specialist Address Line 2",
+      "crm_field": null
+    },
+    "Text Field 84": {
+      "label": "L1 Previous GP/Specialist Address Line 3",
+      "crm_field": null
+    },
+    "Text Field 92": {
+      "label": "L2 Previous GP/Specialist Address Line 3",
+      "crm_field": null
+    },
+
+    "__comment_page6_height_weight": "Height and Weight fields (y=116-43)",
+    "Text Field 93": {
+      "label": "L1 Height feet",
+      "crm_field": null
+    },
+    "Text Field 94": {
+      "label": "L1 Height inches",
+      "crm_field": null
+    },
+    "Text Field 95": {
+      "label": "L1 Height cms",
+      "crm_field": null
+    },
+    "Text Field 96": {
+      "label": "L2 Height feet",
+      "crm_field": null
+    },
+    "Text Field 97": {
+      "label": "L2 Height inches",
+      "crm_field": null
+    },
+    "Text Field 98": {
+      "label": "L2 Height cms",
+      "crm_field": null
+    },
+    "Text Field 99": {
+      "label": "L1 Weight stone",
+      "crm_field": null
+    },
+    "Text Field 100": {
+      "label": "L1 Weight lbs",
+      "crm_field": null
+    },
+    "Text Field 101": {
+      "label": "L1 Weight kgs",
+      "crm_field": null
+    },
+    "Text Field 102": {
+      "label": "L2 Weight stone",
+      "crm_field": null
+    },
+    "Text Field 103": {
+      "label": "L2 Weight lbs",
+      "crm_field": null
+    },
+    "Text Field 104": {
+      "label": "L2 Weight kgs",
+      "crm_field": null
+    },
+
+    "__comment_remaining": "=== PAGES 7-28: Underwriting questions, medical history, hazardous occupations, sports/pastimes, travel, previous claims, SEPA Direct Debit mandate, declarations - all null. 999 additional fields not individually enumerated. ==="
   }
 }

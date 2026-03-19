@@ -646,20 +646,35 @@ function syncContacts() {
   const btnText = document.getElementById('syncBtnText');
   btn.disabled = true;
   btnText.textContent = 'Syncing...';
-  showToast('Syncing contacts from OnePageCRM...', 'info', 30000);
 
-  fetch('/api/sync', { method: 'POST' })
-    .then(r => r.json())
-    .then(data => {
-      if (data.error) {
-        showToast('Sync failed: ' + data.error, 'error');
-      } else {
-        showToast('Synced ' + data.count + ' contacts successfully!', 'success');
-        loadSyncInfo();
-      }
-    })
-    .catch(e => showToast('Sync failed: ' + e, 'error'))
-    .finally(() => { btn.disabled = false; btnText.textContent = 'Sync Contacts'; });
+  const es = new EventSource('/api/sync-stream');
+
+  es.addEventListener('progress', function(e) {
+    const d = JSON.parse(e.data);
+    btnText.textContent = 'Page ' + d.page + '/' + d.max_page + ' (' + d.fetched + ' contacts)';
+  });
+
+  es.addEventListener('done', function(e) {
+    const d = JSON.parse(e.data);
+    es.close();
+    btn.disabled = false;
+    btnText.textContent = 'Sync Contacts';
+    showToast('Synced ' + d.count + ' contacts successfully!', 'success');
+    loadSyncInfo();
+  });
+
+  es.addEventListener('error', function(e) {
+    try { const d = JSON.parse(e.data); showToast('Sync failed: ' + d.error, 'error'); } catch(_) {}
+    es.close();
+    btn.disabled = false;
+    btnText.textContent = 'Sync Contacts';
+  });
+
+  es.onerror = function() {
+    es.close();
+    btn.disabled = false;
+    btnText.textContent = 'Sync Contacts';
+  };
 }
 
 function liveSearch() {

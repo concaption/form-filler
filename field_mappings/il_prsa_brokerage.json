@@ -6,62 +6,194 @@
   "notes": "Transfer-in version of IL PRSA form (17 pages). Shares same field names as IL PRSA for personal details but page numbers shift by +1 (cover page added). Additional transfer pages at page 8 and fund selection grids at pages 13-14.",
   "field_map": {
     "__comment_page2": "=== PAGE 2: Broker / Product Type (same fields as IL PRSA Page 1) ===",
-    "Text Field 27": {"label": "Broker Name", "crm_field": null},
-    "Text Field 26": {"label": "Broker Number", "crm_field": null},
-    "Text Field 271": {"label": "Broker Contact", "crm_field": null},
-    "Text Field 270": {"label": "Broker Contact 2", "crm_field": null},
-
+    "Text Field 27": {
+      "label": "Broker Name",
+      "crm_field": null
+    },
+    "Text Field 26": {
+      "label": "Broker Number",
+      "crm_field": null
+    },
+    "Text Field 271": {
+      "label": "Broker Contact",
+      "crm_field": null
+    },
+    "Text Field 270": {
+      "label": "Broker Contact 2",
+      "crm_field": null
+    },
     "__comment_page2_personal": "=== PAGE 2 continued + PAGE 3: Personal Details (same fields as IL PRSA Page 2) ===",
-    "Text Field 6": {"label": "Forename", "crm_field": "first_name"},
-    "Text Field 5": {"label": "Surname", "crm_field": "last_name"},
-    "Text Field 263": {"label": "Title", "crm_field": null},
-    "Text Field 7": {"label": "Address Line 1", "crm_field": "address_line1"},
-    "Text Field 8": {"label": "Address Line 2 / City", "crm_field": "address_city"},
-    "Text Field 276": {"label": "Eircode", "crm_field": "address_postcode"},
-    "Text Field 30": {"label": "County / State", "crm_field": "address_state"},
-    "Text Field 31": {"label": "Phone", "crm_field": "phone_mobile"},
-    "Text Field 32": {"label": "Email", "crm_field": "email"},
-
+    "Text Field 6": {
+      "label": "Forename",
+      "crm_field": "first_name"
+    },
+    "Text Field 5": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 263": {
+      "label": "Title",
+      "crm_field": null
+    },
+    "Text Field 7": {
+      "label": "Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 8": {
+      "label": "Address Line 2 / City",
+      "crm_field": "address_city"
+    },
+    "Text Field 276": {
+      "label": "Eircode",
+      "crm_field": "address_postcode"
+    },
+    "Text Field 30": {
+      "label": "County / State",
+      "crm_field": "address_state"
+    },
+    "Text Field 31": {
+      "label": "Phone",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 32": {
+      "label": "Email",
+      "crm_field": "email"
+    },
     "__comment_page3": "=== PAGE 3: Personal Details continued ===",
-    "Text Field 45": {"label": "PPS Number", "crm_field": "pps_number"},
-    "Text Field 44": {"label": "Date of Birth", "crm_field": "date_of_birth"},
-    "Text Field 42": {"label": "Nationality", "crm_field": "nationality"},
-    "Text Field 47": {"label": "Country of Birth", "crm_field": "country_of_birth"},
-    "Text Field 48": {"label": "Occupation", "crm_field": "occupation"},
-    "Text Field 282": {"label": "Employer Name", "crm_field": "employer_name"},
-    "Text Field 281": {"label": "Employer Address", "crm_field": "employer_address"},
-    "Text Field 280": {"label": "Employer Tax Reference", "crm_field": null},
-    "Text Field 426": {"label": "Nature of Business", "crm_field": null},
-
+    "Text Field 45": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Text Field 44": {
+      "label": "Date of Birth",
+      "crm_field": "birthday"
+    },
+    "Text Field 42": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "Text Field 47": {
+      "label": "Country of Birth",
+      "crm_field": "country_of_residence"
+    },
+    "Text Field 48": {
+      "label": "Occupation",
+      "crm_field": "job_title"
+    },
+    "Text Field 282": {
+      "label": "Employer Name",
+      "crm_field": "company_name"
+    },
+    "Text Field 281": {
+      "label": "Employer Address",
+      "crm_field": "address_work_full"
+    },
+    "Text Field 280": {
+      "label": "Employer Tax Reference",
+      "crm_field": null
+    },
+    "Text Field 426": {
+      "label": "Nature of Business",
+      "crm_field": null
+    },
     "__comment_page4": "=== PAGE 4: Source of Wealth / AML / Tax Residence (same as IL PRSA Page 3) ===",
-    "Text Field 283": {"label": "Source of Wealth", "crm_field": null},
-    "Text Field 53": {"label": "Source of Wealth Detail 1", "crm_field": null},
-    "Text Field 284": {"label": "Source of Wealth Detail 2", "crm_field": null},
-    "Text Field 286": {"label": "Source of Wealth Detail 3", "crm_field": null},
-    "Text Field 287": {"label": "Source of Wealth Detail 4", "crm_field": null},
-    "Text Field 288": {"label": "Additional AML Info", "crm_field": null},
-    "Text Field 292": {"label": "Tax Residence Field 1", "crm_field": null},
-    "Text Field 291": {"label": "Tax Residence Field 2", "crm_field": null},
-    "Text Field 290": {"label": "Tax Residence Field 3", "crm_field": null},
-    "Text Field 289": {"label": "Tax Residence Field 4", "crm_field": null},
-    "Text Field 294": {"label": "TIN", "crm_field": null},
-
+    "Text Field 283": {
+      "label": "Source of Wealth",
+      "crm_field": null
+    },
+    "Text Field 53": {
+      "label": "Source of Wealth Detail 1",
+      "crm_field": null
+    },
+    "Text Field 284": {
+      "label": "Source of Wealth Detail 2",
+      "crm_field": null
+    },
+    "Text Field 286": {
+      "label": "Source of Wealth Detail 3",
+      "crm_field": null
+    },
+    "Text Field 287": {
+      "label": "Source of Wealth Detail 4",
+      "crm_field": null
+    },
+    "Text Field 288": {
+      "label": "Additional AML Info",
+      "crm_field": null
+    },
+    "Text Field 292": {
+      "label": "Tax Residence Field 1",
+      "crm_field": null
+    },
+    "Text Field 291": {
+      "label": "Tax Residence Field 2",
+      "crm_field": null
+    },
+    "Text Field 290": {
+      "label": "Tax Residence Field 3",
+      "crm_field": null
+    },
+    "Text Field 289": {
+      "label": "Tax Residence Field 4",
+      "crm_field": null
+    },
+    "Text Field 294": {
+      "label": "TIN",
+      "crm_field": null
+    },
     "__comment_page8": "=== PAGE 8: Transfer Section (unique to brokerage form) ===",
-    "Text Field 176": {"label": "Transfer From Detail 1", "crm_field": null},
-    "Text Field 177": {"label": "Transfer From Detail 2", "crm_field": null},
-    "Text Field 178": {"label": "Transfer From Detail 3", "crm_field": null},
-    "Text Field 179": {"label": "Transfer From Detail 4", "crm_field": null},
-    "Text Field 180": {"label": "Transfer From Detail 5", "crm_field": null},
-    "Text Field 181": {"label": "Transfer From Detail 6", "crm_field": null},
-    "Text Field 1065": {"label": "Transfer Fund Grid 1", "crm_field": null},
-    "Text Field 1064": {"label": "Transfer Fund Grid 2", "crm_field": null},
-    "Text Field 1081": {"label": "Transfer Fund Grid 3", "crm_field": null},
-    "Text Field 1080": {"label": "Transfer Fund Grid 4", "crm_field": null},
-
+    "Text Field 176": {
+      "label": "Transfer From Detail 1",
+      "crm_field": null
+    },
+    "Text Field 178": {
+      "label": "Transfer From Detail 3",
+      "crm_field": null
+    },
+    "Text Field 179": {
+      "label": "Transfer From Detail 4",
+      "crm_field": null
+    },
+    "Text Field 180": {
+      "label": "Transfer From Detail 5",
+      "crm_field": null
+    },
+    "Text Field 181": {
+      "label": "Transfer From Detail 6",
+      "crm_field": null
+    },
+    "Text Field 1065": {
+      "label": "Transfer Fund Grid 1",
+      "crm_field": null
+    },
+    "Text Field 1064": {
+      "label": "Transfer Fund Grid 2",
+      "crm_field": null
+    },
+    "Text Field 1081": {
+      "label": "Transfer Fund Grid 3",
+      "crm_field": null
+    },
+    "Text Field 1080": {
+      "label": "Transfer Fund Grid 4",
+      "crm_field": null
+    },
     "__comment_page9": "=== PAGE 9: SEPA / Bank Details (same fields as IL PRSA Page 8) ===",
-    "Text Field 428": {"label": "Account Holder Name", "crm_field": "full_name"},
-    "Text Field 429": {"label": "Bank Name", "crm_field": null},
-    "Text Field 430": {"label": "IBAN", "crm_field": "iban"},
-    "Text Field 431": {"label": "BIC", "crm_field": "bic"}
+    "Text Field 428": {
+      "label": "Account Holder Name",
+      "crm_field": "full_name"
+    },
+    "Text Field 429": {
+      "label": "Bank Name",
+      "crm_field": null
+    },
+    "Text Field 430": {
+      "label": "IBAN",
+      "crm_field": "iban"
+    },
+    "Text Field 431": {
+      "label": "BIC",
+      "crm_field": "bic"
+    }
   }
 }
