@@ -9,7 +9,7 @@
     "Text Field 814": {
       "label": "Financial Adviser Name",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Text Field 813": {
       "label": "Financial Adviser Code",
@@ -720,7 +720,7 @@
     "Text Field 838": {
       "label": "Financial Adviser Name (Declarations)",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "Text Field 837": {
       "label": "Existing Plan Number",

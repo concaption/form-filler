@@ -9,7 +9,7 @@
     "Text Field 27": {
       "label": "Broker Name",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Text Field 26": {
       "label": "Broker Number",
@@ -18,12 +18,12 @@
     "Text Field 271": {
       "label": "Broker Contact",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "Text Field 270": {
       "label": "Broker Contact 2",
       "crm_field": null,
-      "static_value": "fergal@yourfinance.ie"
+      "adviser_field": "email"
     },
     "Check Box 3000": {
       "label": "Product Type Option 1",

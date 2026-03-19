@@ -9,7 +9,7 @@
     "Text Field 27": {
       "label": "Financial Adviser Name",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Text Field 26": {
       "label": "Financial Adviser Code",
@@ -357,7 +357,7 @@
     "Text Field 145": {
       "label": "Financial Adviser Name (Agreement)",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "Text Field 146": {
       "label": "Employer Name (Agreement)",

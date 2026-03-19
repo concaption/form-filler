@@ -22,7 +22,7 @@ from config import OUTPUT_DIR, init_app_data
 init_app_data()
 
 from crm_client import list_all_contacts, iter_all_contacts, get_contact
-from pdf_filler import fill_form, get_available_forms
+from pdf_filler import fill_form, get_available_forms, get_advisers
 from db import (
     save_contacts,
     search_contacts_local,
@@ -243,6 +243,25 @@ class AutoFillApp(ctk.CTk):
             text_color=GRAY_700, dropdown_font=ctk.CTkFont(size=12),
         )
         self.form_dropdown.pack(fill="x", pady=(10, 0))
+
+        # Adviser selector
+        ctk.CTkLabel(
+            form_inner, text="Adviser",
+            font=ctk.CTkFont(size=15, weight="bold"), text_color=GRAY_800,
+        ).pack(anchor="w", pady=(14, 0))
+
+        advisers = get_advisers()
+        adviser_names = [a["name"] for a in advisers]
+        self._adviser_map = {a["name"]: a["id"] for a in advisers}
+        self.adviser_var = ctk.StringVar(value=adviser_names[0] if adviser_names else "")
+        self.adviser_dropdown = ctk.CTkOptionMenu(
+            form_inner, variable=self.adviser_var,
+            values=adviser_names or ["No advisers"],
+            width=340, height=38, font=ctk.CTkFont(size=13),
+            fg_color=GRAY_50, button_color=BLUE, button_hover_color="#1d4ed8",
+            text_color=GRAY_700, dropdown_font=ctk.CTkFont(size=12),
+        )
+        self.adviser_dropdown.pack(fill="x", pady=(10, 0))
 
         # Generate button
         self.generate_btn = ctk.CTkButton(
@@ -569,7 +588,8 @@ class AutoFillApp(ctk.CTk):
                     # Overlay any edits on top of the full contact data
                     for key, var in self.detail_vars.items():
                         contact[key] = edited_contact[key]
-                output_path = fill_form(mapping_file, contact)
+                adviser_id = self._adviser_map.get(self.adviser_var.get())
+                output_path = fill_form(mapping_file, contact, adviser_id=adviser_id)
                 self.after(0, lambda: self._on_fill_done(output_path))
             except Exception as e:
                 self.after(0, lambda: self._on_fill_error(str(e)))

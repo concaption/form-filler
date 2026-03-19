@@ -1,0 +1,24 @@
+[
+  {
+    "id": "fergal",
+    "name": "Fergal Tully",
+    "email": "fergal@yourfinance.ie",
+    "company": "Your Finance",
+    "company_caps": "YOUR FINANCE",
+    "position": "Director",
+    "agency_codes": {
+      "standard_life": "J501"
+    }
+  },
+  {
+    "id": "liam",
+    "name": "Liam Kinnucane",
+    "email": "liam@yourfinance.ie",
+    "company": "Your Finance",
+    "company_caps": "YOUR FINANCE",
+    "position": "Director",
+    "agency_codes": {
+      "standard_life": "J500"
+    }
+  }
+]

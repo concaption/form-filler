@@ -21,7 +21,7 @@ from pydantic import BaseModel
 
 from config import TEMPLATES_DIR, OUTPUT_DIR
 from crm_client import list_all_contacts, iter_all_contacts, get_contact
-from pdf_filler import fill_form, get_available_forms
+from pdf_filler import fill_form, get_available_forms, get_advisers
 from db import (
     save_contacts,
     search_contacts_local,
@@ -45,6 +45,7 @@ class GenerateRequest(BaseModel):
     contact_id: str
     form: str
     edits: dict = None
+    adviser_id: str = None
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -55,6 +56,11 @@ async def index():
 @app.get("/api/forms")
 async def api_forms():
     return get_available_forms()
+
+
+@app.get("/api/advisers")
+async def api_advisers():
+    return get_advisers()
 
 
 @app.get("/api/sync-info")
@@ -160,7 +166,7 @@ async def api_generate(req: GenerateRequest):
         contact.update(req.edits)
 
     try:
-        output_path = fill_form(req.form, contact)
+        output_path = fill_form(req.form, contact, adviser_id=req.adviser_id)
         filename = Path(output_path).name
         return {"filename": filename, "path": output_path}
     except Exception as e:

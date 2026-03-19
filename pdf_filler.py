@@ -9,9 +9,32 @@ from typing import Optional
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject, ArrayObject, TextStringObject, BooleanObject
 
-from config import MAPPINGS_DIR, PDFS_DIR, OUTPUT_DIR
+from config import MAPPINGS_DIR, PDFS_DIR, OUTPUT_DIR, SRC_DIR
 
 logger = logging.getLogger(__name__)
+
+# Load advisers config
+_ADVISERS_PATH = SRC_DIR / "advisers.json"
+_ADVISERS = []
+if _ADVISERS_PATH.exists():
+    with open(_ADVISERS_PATH) as _f:
+        _ADVISERS = json.load(_f)
+
+
+def get_advisers() -> list:
+    """Return list of available advisers."""
+    return [{"id": a["id"], "name": a["name"]} for a in _ADVISERS]
+
+
+def _get_adviser(adviser_id: str = None) -> dict:
+    """Get adviser dict by id. Defaults to first adviser."""
+    if not _ADVISERS:
+        return {}
+    if adviser_id:
+        for a in _ADVISERS:
+            if a["id"] == adviser_id:
+                return a
+    return _ADVISERS[0]
 
 
 def get_available_forms() -> list:
@@ -49,11 +72,21 @@ def _transform_date_field(date_str: str, part: str) -> str:
     return date_str
 
 
-def _resolve_value(field_config: dict, contact: dict) -> Optional[str]:
+def _resolve_value(field_config: dict, contact: dict, adviser: dict = None) -> Optional[str]:
     """Resolve a field mapping to a value from the contact data.
 
     Returns the value to set, or None if the field shouldn't be filled.
     """
+    # Adviser field — resolved from the selected adviser
+    adviser_field = field_config.get("adviser_field")
+    if adviser_field and adviser:
+        if adviser_field == "agency_code":
+            provider = contact.get("_provider_key", "")
+            return adviser.get("agency_codes", {}).get(provider, "")
+        if adviser_field == "name_and_company":
+            return f"{adviser.get('name', '')} / {adviser.get('company', '')}"
+        return adviser.get(adviser_field, "")
+
     # Static value — always fills this exact string
     static = field_config.get("static_value")
     if static is not None:
@@ -113,13 +146,15 @@ def _should_check(field_config: dict, contact: dict) -> Optional[bool]:
     return bool(contact.get(crm_field))
 
 
-def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> str:
+def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
+              adviser_id: str = None) -> str:
     """Fill a PDF form with contact data.
 
     Args:
         mapping_file: Name of the mapping JSON file (e.g., 'aviva_prsa.json')
         contact: Contact data dict from CRM
         extra_fields: Additional field values not in CRM (e.g., contribution amount)
+        adviser_id: ID of the adviser to use (e.g., 'fergal', 'liam')
 
     Returns:
         Path to the output PDF file.
@@ -140,8 +175,14 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
 
     logger.info("Source PDF: %s (%d bytes)", pdf_path, pdf_path.stat().st_size)
 
+    # Resolve adviser
+    adviser = _get_adviser(adviser_id)
+    provider_key = mapping.get("provider", "").lower().replace(" ", "_")
+    logger.info("Adviser: %s", adviser.get("name", "none"))
+
     # Merge contact with extra fields
     merged = dict(contact)
+    merged["_provider_key"] = provider_key
     if extra_fields:
         merged.update(extra_fields)
 
@@ -213,7 +254,7 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None) -> st
                             config.get("match_value"), should_check)
         else:
             # Text field
-            value = _resolve_value(config, merged)
+            value = _resolve_value(config, merged, adviser)
             if value:
                 text_updates[pdf_field_name] = value
                 logger.info("  MAP  %r [%s] -> %r = %r",

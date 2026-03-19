@@ -9,7 +9,7 @@
     "Intermediary Name 2": {
       "label": "Intermediary Name",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Intermediary Number 2": {
       "label": "Intermediary Number",

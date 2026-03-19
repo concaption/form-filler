@@ -66,7 +66,7 @@
     "Text Field 104": {
       "label": "Broker Name & Address Line 1",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Text Field 105": {
       "label": "Broker Name & Address Line 2",
@@ -79,12 +79,12 @@
     "Text Field 107": {
       "label": "Name of Financial Broker",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "Text Field 110": {
       "label": "Financial Broker's Email Address",
       "crm_field": null,
-      "static_value": "fergal@yourfinance.ie"
+      "adviser_field": "email"
     },
     "Text Field 1013": {
       "label": "Salesforce Quote Reference",

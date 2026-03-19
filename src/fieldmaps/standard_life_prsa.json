@@ -9,12 +9,12 @@
     "Financial adviser agency code": {
       "label": "Financial Adviser Agency Code (after 9/)",
       "crm_field": null,
-      "static_value": "J501"
+      "adviser_field": "agency_code"
     },
     "Financial adviser company name": {
       "label": "Financial Adviser Company Name",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "__comment_page2": "=== PAGE 2: Personal Details (Part 2) ===",
     "Check Box": {
@@ -681,22 +681,22 @@
     "Financial advisers name": {
       "label": "Financial Adviser Name",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "Financial advisers company name BLOCK CAPITALS Position held": {
       "label": "Financial Adviser Company (BLOCK CAPITALS)",
       "crm_field": null,
-      "static_value": "YOUR FINANCE"
+      "adviser_field": "company_caps"
     },
     "Position Held": {
       "label": "Position Held",
       "crm_field": null,
-      "static_value": "Director"
+      "adviser_field": "position"
     },
     "to this application email me at": {
       "label": "Adviser Email for Queries",
       "crm_field": null,
-      "static_value": "fergal@yourfinance.ie"
+      "adviser_field": "email"
     },
     "Special instructions andor additional information": {
       "label": "Special Instructions",
@@ -714,19 +714,19 @@
     },
     "Name on account DDM": {
       "label": "SEPA Account Holder Name",
-      "crm_field": "full_name"
+      "crm_field": null
     },
     "Address on account1 DDM": {
       "label": "SEPA Address Line 1",
-      "crm_field": "address_line1"
+      "crm_field": null
     },
     "Address on account2 DDM": {
       "label": "SEPA Address Line 2",
-      "crm_field": "address_city"
+      "crm_field": null
     },
     "Address on account3 DDM": {
       "label": "SEPA Address Line 3",
-      "crm_field": "address_state"
+      "crm_field": null
     },
     "Address on account4 DDM": {
       "label": "SEPA Address Line 4",
@@ -734,7 +734,7 @@
     },
     "Address on account5 DDM": {
       "label": "SEPA Eircode",
-      "crm_field": "address_postcode"
+      "crm_field": null
     },
     "SEPA DDM IBAN DDM": {
       "label": "SEPA IBAN",

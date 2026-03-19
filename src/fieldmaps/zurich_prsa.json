@@ -13,12 +13,12 @@
     "Text Field 140": {
       "label": "Broker Company",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Text Field 141": {
       "label": "Broker Email/Contact",
       "crm_field": null,
-      "static_value": "fergal@yourfinance.ie"
+      "adviser_field": "email"
     },
     "Check Box 183": {
       "label": "Title: Mr",

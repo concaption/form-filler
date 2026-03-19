@@ -33,12 +33,12 @@
     "Text Field 228": {
       "label": "Name of Financial Broker",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "Text Field 227": {
       "label": "Financial Broker's Email Address",
       "crm_field": null,
-      "static_value": "fergal@yourfinance.ie"
+      "adviser_field": "email"
     },
     "Text Field 226": {
       "label": "Financial Broker's Phone Number",
@@ -1212,7 +1212,7 @@
     "Text Field 121": {
       "label": "12(d) Financial Broker Name",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Text Field 122": {
       "label": "12(d) Position Held",

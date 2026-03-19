@@ -33,12 +33,12 @@
     "Text Field 475": {
       "label": "Name of Financial Broker/Company",
       "crm_field": null,
-      "static_value": "Fergal Tully / Your Finance"
+      "adviser_field": "name_and_company"
     },
     "Text Field 476": {
       "label": "Financial Broker's Email Address",
       "crm_field": null,
-      "static_value": "fergal@yourfinance.ie"
+      "adviser_field": "email"
     },
     "Text Field 477": {
       "label": "Financial Broker's Phone Number",
@@ -1485,7 +1485,7 @@
     "Text Field 221": {
       "label": "SDIO Broker Declaration Name",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "__comment_page25": "=== PAGE 25: Product Details (Section 14 - Broker) ===",
     "__comment_page25_note": "33 fields for product/commission details - all broker-filled, null CRM mapping.",

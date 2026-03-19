@@ -9,7 +9,7 @@
     "Text Field 502": {
       "label": "Intermediary Name",
       "crm_field": null,
-      "static_value": "Your Finance"
+      "adviser_field": "company"
     },
     "Text Field 503": {
       "label": "Intermediary Number",
@@ -18,7 +18,7 @@
     "Text Field 504": {
       "label": "Financial Advisor Name",
       "crm_field": null,
-      "static_value": "Fergal Tully"
+      "adviser_field": "name"
     },
     "Text Field 505": {
       "label": "S.P. Pension Type",
