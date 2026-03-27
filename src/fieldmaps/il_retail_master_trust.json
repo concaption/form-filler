@@ -3,7 +3,7 @@
   "pdf_file": "irish_life_retail_master_trust.pdf",
   "provider": "Irish Life",
   "product": "Retail Master Trust",
-  "notes": "12 pages. Page 1 = financial adviser + employee details (personal info). Page 2 = contact details + employer details + PEP + contributions. Page 3 = bank/SEPA BIC/IBAN + lump sum + fund details. Page 4 = online services. Page 5 = participation agreement. Page 7 = employee/employer declarations. Page 8-9 = revenue details (retained benefits). Page 11 = SEPA mandate.",
+  "notes": "12 pages. Page 1 = financial adviser + employee details (personal info). Page 2 = contact details + employer details + PEP + contributions. Page 3 = payment details (BIC/IBAN) + lump sum + fund details. Page 4 = online services + business replacement. Page 5 = participation agreement. Page 7 = employer authorised signature + employee signature + plan member declaration. Page 8 = employer declaration + revenue details (DC/personal pension/DB scheme). Page 9 = revenue details continued (DB previous + retirement benefits received). Page 11 = Irish Life plan details + SEPA direct debit mandate.",
   "field_map": {
     "__comment_page1": "=== PAGE 1: Financial Adviser + Employee Details (Sections 1) ===",
     "Text Field 27": {
@@ -16,11 +16,11 @@
       "crm_field": null
     },
     "Text Field 426": {
-      "label": "Profile Number",
+      "label": "Regular Contribution",
       "crm_field": null
     },
     "Text Field 427": {
-      "label": "Regular Contribution / Lump Sum indicator",
+      "label": "Lump Sum",
       "crm_field": null
     },
     "Text Field 6": {
@@ -106,7 +106,7 @@
       "crm_field": null
     },
     "Text Field 281": {
-      "label": "Employer Address (multi-line)",
+      "label": "Employer Address for Correspondence",
       "crm_field": "address_work_full"
     },
     "Text Field 433": {
@@ -159,7 +159,7 @@
     },
     "__comment_page3": "=== PAGE 3: Payment Details (Section 6) + Lump Sum (Section 7) + Fund Details (Section 8) ===",
     "Text Field 443": {
-      "label": "BIC",
+      "label": "Customer (Debtor) Bank Identifier Code (BIC)",
       "crm_field": "bic"
     },
     "Text Field 442": {
@@ -167,7 +167,7 @@
       "crm_field": "iban"
     },
     "Text Field 441": {
-      "label": "Name of Account Holder",
+      "label": "Name of Account Holder to be Debited",
       "crm_field": "full_name"
     },
     "Text Field 451": {
@@ -179,11 +179,11 @@
       "crm_field": null
     },
     "Text Field 449": {
-      "label": "AVC Lump Sum",
+      "label": "Additional Voluntary Contribution (Lump Sum)",
       "crm_field": null
     },
     "Text Field 448": {
-      "label": "Total Lump Sum Investment Amount",
+      "label": "Total Investment Amount (Lump Sum)",
       "crm_field": null
     },
     "__comment_page3_funds": "Fund allocation grid - Regular Contribution (left col) / Lump Sum (right col)",
@@ -347,29 +347,29 @@
     },
     "__comment_page5": "=== PAGE 5: Participation Agreement ===",
     "Text Field 143": {
-      "label": "Proposal Number / Customer Review Number",
+      "label": "Proposal Number",
       "crm_field": null
     },
     "Text Field 144": {
+      "label": "Customer Review Number",
+      "crm_field": null
+    },
+    "Text Field 145": {
       "label": "Customer Name",
       "crm_field": "full_name"
     },
-    "Text Field 145": {
-      "label": "Financial Adviser Name (Agreement)",
+    "Text Field 146": {
+      "label": "Financial Adviser Name",
       "crm_field": null,
       "adviser_field": "name"
     },
-    "Text Field 146": {
-      "label": "Employer Name (Agreement)",
+    "Text Field 510": {
+      "label": "Employer Name (the employer)",
       "crm_field": "company_name"
     },
-    "Text Field 510": {
-      "label": "Employee Name (Agreement)",
-      "crm_field": "full_name"
-    },
     "Text Field 511": {
-      "label": "Trustee (Agreement)",
-      "crm_field": null
+      "label": "Employee Name (the employee)",
+      "crm_field": "full_name"
     },
     "Text Field 5011": {
       "label": "Date of Participation Agreement",
@@ -377,32 +377,32 @@
     },
     "__comment_page7": "=== PAGE 7: Employee & Employer Declarations ===",
     "Text Field 513": {
-      "label": "Employer Authorised Person Name",
+      "label": "Employer Authorised Signature",
       "crm_field": null
     },
     "Text Field 515": {
-      "label": "Employer Authorised Person Position",
+      "label": "Name of Authorised Person",
       "crm_field": null
     },
     "Text Field 516": {
-      "label": "Employee Acknowledgement",
+      "label": "Position in Company",
       "crm_field": null
     },
     "Text Field 517": {
-      "label": "Employee Signature Date (dd/mm/yyyy)",
+      "label": "Signed Employee",
       "crm_field": null
     },
     "Text Field 520": {
-      "label": "Employee Declaration Signed Name",
+      "label": "Plan Member Declaration Signature",
       "crm_field": null
     },
     "Text Field 521": {
-      "label": "Employee Declaration Date (dd/mm/yyyy)",
+      "label": "Plan Member Declaration Date (dd/mm/yyyy)",
       "crm_field": null
     },
     "__comment_page8": "=== PAGE 8: Employer Declaration + Revenue Details (Section D) ===",
     "Text Field 523": {
-      "label": "Employer Declaration Signed Name",
+      "label": "Employer Declaration Signature",
       "crm_field": null
     },
     "Text Field 522": {
@@ -430,7 +430,7 @@
       "crm_field": null
     },
     "Text Field 3013": {
-      "label": "DC Scheme - NRA",
+      "label": "DC Scheme - Normal Retirement Age",
       "crm_field": null
     },
     "Text Field 543": {
@@ -486,20 +486,20 @@
       "crm_field": null
     },
     "Text Field 535": {
-      "label": "DB Scheme - NRA",
+      "label": "DB Scheme - Normal Retirement Age",
       "crm_field": null
     },
     "Text Field 534": {
-      "label": "DB Scheme - Annual Pension at NRA",
+      "label": "DB Scheme - Employee Pension Payable at NRA",
       "crm_field": null
     },
     "__comment_page9": "=== PAGE 9: Revenue Details (continued) ===",
     "Text Field 533": {
-      "label": "DB Scheme - Retirement Lump Sum",
+      "label": "DB Scheme - Retirement Lump Sum (if in addition to pension at NRA)",
       "crm_field": null
     },
     "Text Field 532": {
-      "label": "DB Scheme - Spouse/Civil Partner Pension %",
+      "label": "DB Scheme - Spouse's/Registered Civil Partner's Pension %",
       "crm_field": null
     },
     "Text Field 531": {
@@ -562,65 +562,67 @@
       "label": "Further Pension Benefit Details",
       "crm_field": null
     },
-    "__comment_page11": "=== PAGE 11: SEPA Direct Debit Mandate ===",
+    "__comment_page11_plan_details": "=== PAGE 11: Your Irish Life Plan Details ===",
+    "Text Field 232": {
+      "label": "Plan Number(s) - First",
+      "crm_field": null
+    },
     "Text Field 230": {
-      "label": "SEPA Account Holder Name",
+      "label": "Plan Number(s) - Second",
+      "crm_field": null
+    },
+    "Text Field 227": {
+      "label": "Plan Number(s) - Third",
+      "crm_field": null
+    },
+    "Text Field 228": {
+      "label": "Name of Plan Owner(s) - Line 1",
+      "crm_field": null
+    },
+    "Text Field 231": {
+      "label": "Name of Plan Owner(s) - Line 2",
+      "crm_field": null
+    },
+    "Text Field 524": {
+      "label": "Direct Debit Collection Date of the Month",
+      "crm_field": null
+    },
+    "__comment_page11_sepa": "=== PAGE 11: SEPA Direct Debit Mandate ===",
+    "Text Field 235": {
+      "label": "SEPA Name(s) of Account Holder(s)",
       "crm_field": "full_name"
     },
     "Text Field 229": {
-      "label": "SEPA Account Holder Address",
+      "label": "SEPA Address of Account Holder(s)",
       "crm_field": "address_line1"
     },
-    "Text Field 227": {
-      "label": "SEPA Address Line 2",
-      "crm_field": "address_city"
-    },
-    "Text Field 228": {
+    "Text Field 236": {
       "label": "SEPA BIC",
       "crm_field": "bic"
     },
-    "Text Field 231": {
+    "Text Field 237": {
       "label": "SEPA IBAN",
       "crm_field": "iban"
     },
-    "Text Field 524": {
-      "label": "SEPA Date of Signing",
-      "crm_field": null
-    },
-    "Text Field 232": {
-      "label": "SEPA Plan Number(s)",
-      "crm_field": null
-    },
-    "Text Field 235": {
-      "label": "SEPA Plan Owner Name(s)",
-      "crm_field": null
-    },
-    "Text Field 236": {
-      "label": "SEPA Direct Debit Collection Date",
-      "crm_field": null
-    },
-    "Text Field 237": {
-      "label": "SEPA Payment Frequency",
-      "crm_field": null
-    },
     "Text Field 238": {
-      "label": "SEPA UMR (Office Use)",
+      "label": "SEPA Signature(s) - Line 1",
       "crm_field": null
     },
     "Text Field 239": {
-      "label": "SEPA Creditor Identifier (Office Use)",
+      "label": "SEPA Signature(s) - Line 2",
       "crm_field": null
     },
     "Text Field 240": {
-      "label": "SEPA Type of Payment (Office Use)",
+      "label": "SEPA Date of Signing",
       "crm_field": null
     },
+    "__comment_page11_office_use": "=== PAGE 11: For Office Use Only ===",
     "Text Field 241": {
-      "label": "SEPA Creditor Name/Address (Office Use)",
+      "label": "SEPA UMR (Office Use)",
       "crm_field": null
     },
     "Check Box 75": {
-      "label": "SEPA Recurrent Payment",
+      "label": "SEPA Type of Payment: Recurrent",
       "crm_field": null
     }
   },

@@ -3,43 +3,43 @@
   "pdf_file": "aviva_master_trust_employee.pdf",
   "provider": "Aviva",
   "product": "Master Trust Employee",
-  "notes": "5 pages, 99 fields. Page 1 = checklist + employee personal details, Page 2 = source of wealth/AML, Pages 3-4 = contributions/investment, Page 5 = SEPA direct debit.",
+  "notes": "5 pages, 99 fields. Page 1 = checklist + employer details + employee personal details, Page 2 = occupation/PEP + benefits retained + contribution details, Page 3 = investment/fund selection + fund choice table, Page 5 = declarations/signatures.",
   "field_map": {
-    "__comment_page1_checklist": "=== PAGE 1: Checklist Items (top of page) ===",
+    "__comment_page1_checklist": "=== PAGE 1: Section 1 - Checklist of documents to be submitted with application form ===",
     "Check Box 99": {
-      "label": "Checklist Item 1",
+      "label": "Checklist: Member first name and surname",
       "crm_field": null
     },
     "Check Box 98": {
-      "label": "Checklist Item 2",
+      "label": "Checklist: Relationship status",
       "crm_field": null
     },
     "Check Box 97": {
-      "label": "Checklist Item 3",
+      "label": "Checklist: Date of birth",
       "crm_field": null
     },
     "Check Box 96": {
-      "label": "Checklist Item 4",
+      "label": "Checklist: Address",
       "crm_field": null
     },
     "Check Box 95": {
-      "label": "Checklist Item 5",
+      "label": "Checklist: Personal email address",
       "crm_field": null
     },
     "Check Box 94": {
-      "label": "Checklist Item 6",
+      "label": "Checklist: Date of joining service",
       "crm_field": null
     },
     "Check Box 93": {
-      "label": "Checklist Item 7",
+      "label": "Checklist: Salary",
       "crm_field": null
     },
     "Check Box 92": {
-      "label": "Checklist Item 8",
+      "label": "Checklist: Occupation",
       "crm_field": null
     },
     "Check Box 91": {
-      "label": "Checklist Item 9",
+      "label": "Checklist: PEP details",
       "crm_field": null
     },
     "__comment_page1_employer": "=== PAGE 1: Section 2 - Participating Employer Details ===",
@@ -55,7 +55,7 @@
       "label": "Employer Address Line 2",
       "crm_field": "address_work_city"
     },
-    "__comment_page1_title": "=== PAGE 1: Title ===",
+    "__comment_page1_title": "=== PAGE 1: Section 3 - Employee Details: Title ===",
     "Check Box 90": {
       "label": "Title: Mr",
       "crm_field": "title",
@@ -72,11 +72,12 @@
       "match_value": "Miss"
     },
     "Check Box 87": {
-      "label": "Title: Other",
-      "crm_field": null
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
     },
     "Text Field 203": {
-      "label": "Title Other Text",
+      "label": "Title Other (free text)",
       "crm_field": null
     },
     "__comment_page1_gender": "=== PAGE 1: Gender ===",
@@ -90,64 +91,64 @@
       "crm_field": "gender",
       "match_value": "Female"
     },
-    "__comment_page1_personal": "=== PAGE 1: Personal Details ===",
+    "__comment_page1_personal": "=== PAGE 1: Forename / Surname ===",
     "Text Field 202": {
-      "label": "Forename",
+      "label": "Forename(s)",
       "crm_field": "first_name"
     },
     "Text Field 201": {
       "label": "Surname",
       "crm_field": "last_name"
     },
-    "__comment_page1_marital": "=== PAGE 1: Marital Status ===",
+    "__comment_page1_relationship": "=== PAGE 1: Relationship Status ===",
     "Check Box 84": {
-      "label": "Marital: Married",
+      "label": "Relationship Status: Married",
       "crm_field": "status",
       "match_value": "Married"
     },
     "Check Box 83": {
-      "label": "Marital: Single",
+      "label": "Relationship Status: Single",
       "crm_field": "status",
       "match_value": "Single"
     },
     "Check Box 82": {
-      "label": "Marital: Divorced",
+      "label": "Relationship Status: Divorced",
       "crm_field": "status",
       "match_value": "Divorced"
     },
     "Check Box 81": {
-      "label": "Marital: Separated",
+      "label": "Relationship Status: Separated",
       "crm_field": "status",
       "match_value": "Separated"
     },
     "Check Box 80": {
-      "label": "Marital: Widow(er)",
+      "label": "Relationship Status: Widow(er)",
       "crm_field": "status",
       "match_value": "Widowed"
     },
     "Check Box 79": {
-      "label": "Marital: Civil Partner",
+      "label": "Relationship Status: Civil Partner",
       "crm_field": "status",
       "match_value": "Civil Partner"
     },
-    "__comment_page1_dob_pps": "=== PAGE 1: DOB and PPS ===",
+    "__comment_page1_dob_pps": "=== PAGE 1: Date of Birth and PPS ===",
     "Text Field 200": {
-      "label": "DOB Day",
+      "label": "Date of Birth DD",
       "crm_field": "birthday",
       "transform": "day"
     },
     "Text Field 199": {
-      "label": "DOB Month",
+      "label": "Date of Birth MM",
       "crm_field": "birthday",
       "transform": "month"
     },
     "Text Field 198": {
-      "label": "DOB Year",
+      "label": "Date of Birth YYYY",
       "crm_field": "birthday",
       "transform": "year"
     },
     "Text Field 1011": {
-      "label": "PPS Number",
+      "label": "PPS No. (Mandatory)",
       "crm_field": "pps_1"
     },
     "__comment_page1_address": "=== PAGE 1: Address ===",
@@ -159,7 +160,7 @@
       "label": "Address Line 2",
       "crm_field": "address_city"
     },
-    "__comment_page1_address_extra": "=== PAGE 1: Telephone / Email / Dates / Salary ===",
+    "__comment_page1_contact_dates_salary": "=== PAGE 1: Telephone / Email / Dates / Salary ===",
     "Text Field 195": {
       "label": "Telephone Daytime",
       "crm_field": "phone_mobile"
@@ -200,10 +201,10 @@
       "crm_field": null
     },
     "Text Field 186": {
-      "label": "Salary",
+      "label": "Salary (EUR)",
       "crm_field": "salary"
     },
-    "__comment_page2": "=== PAGE 2: Occupation/Sector (Section 3 cont.) + PEP + Benefits + Contributions ===",
+    "__comment_page2_occupation_pep": "=== PAGE 2: Section 3 cont. - Occupation / Sector / PEP ===",
     "Text Field 102": {
       "label": "Occupation",
       "crm_field": "job_title"
@@ -213,222 +214,226 @@
       "crm_field": null
     },
     "Check Box 27": {
-      "label": "AML Yes",
+      "label": "PEP: Yes",
       "crm_field": null
     },
     "Check Box 26": {
-      "label": "AML No",
+      "label": "PEP: No",
       "crm_field": null
     },
     "Text Field 100": {
-      "label": "Source of Wealth 1",
+      "label": "PEP Function (e.g. Government Minister)",
       "crm_field": null
     },
     "Text Field 99": {
-      "label": "Source of Wealth 2",
+      "label": "PEP Relationship (e.g. Spouse, child)",
       "crm_field": null
     },
-    "Text Field 110": {
-      "label": "AML Details",
-      "crm_field": null
-    },
-    "Text Field 109": {
-      "label": "AML Details 2",
-      "crm_field": null
-    },
-    "Text Field 108": {
-      "label": "AML Details 3",
-      "crm_field": null
-    },
-    "Text Field 107": {
-      "label": "AML Details 4",
-      "crm_field": null
-    },
-    "Text Field 106": {
-      "label": "AML Details 5",
-      "crm_field": null
-    },
-    "Text Field 105": {
-      "label": "AML Details 6",
-      "crm_field": null
-    },
-    "Check Box 44": {
-      "label": "AML Checkbox",
-      "crm_field": null
-    },
-    "__comment_page3": "=== PAGE 3: Contributions ===",
-    "Text Field 173": {
-      "label": "Contribution Details",
-      "crm_field": null
-    },
-    "Text Field 156": {
-      "label": "Contribution Field 1",
-      "crm_field": null
-    },
-    "Text Field 155": {
-      "label": "Contribution Field 2",
-      "crm_field": null
-    },
-    "Text Field 154": {
-      "label": "Contribution Field 3",
-      "crm_field": null
-    },
-    "Text Field 153": {
-      "label": "Contribution Field 4",
-      "crm_field": null
-    },
-    "Text Field 152": {
-      "label": "Contribution Field 5",
-      "crm_field": null
-    },
-    "Text Field 151": {
-      "label": "Contribution Field 6",
-      "crm_field": null
-    },
-    "Text Field 150": {
-      "label": "Contribution Field 7",
-      "crm_field": null
-    },
-    "Text Field 149": {
-      "label": "Contribution Field 8",
-      "crm_field": null
-    },
-    "Text Field 148": {
-      "label": "Contribution Field 9",
-      "crm_field": null
-    },
-    "Text Field 147": {
-      "label": "Contribution Field 10",
-      "crm_field": null
-    },
-    "Text Field 146": {
-      "label": "Contribution Field 11",
-      "crm_field": null
-    },
-    "Text Field 145": {
-      "label": "Contribution Field 12",
-      "crm_field": null
-    },
-    "Text Field 120": {
-      "label": "Investment Details",
-      "crm_field": null
-    },
-    "Text Field 115": {
-      "label": "Investment Details 2",
-      "crm_field": null
-    },
-    "__comment_page4": "=== PAGE 4: Investment / Fund Selection ===",
-    "Check Box 21": {
-      "label": "Fund Option 1",
-      "crm_field": null
-    },
-    "Check Box 20": {
-      "label": "Fund Option 2",
-      "crm_field": null
-    },
-    "Check Box 19": {
-      "label": "Fund Option 3",
-      "crm_field": null
-    },
-    "Check Box 18": {
-      "label": "Fund Option 4",
-      "crm_field": null
-    },
-    "Check Box 17": {
-      "label": "Fund Option 5",
-      "crm_field": null
-    },
-    "Check Box 16": {
-      "label": "Fund Option 6",
-      "crm_field": null
-    },
-    "Check Box 15": {
-      "label": "Fund Option 7",
-      "crm_field": null
-    },
-    "Check Box 14": {
-      "label": "Fund Option 8",
-      "crm_field": null
-    },
-    "Text Field 81": {
-      "label": "Fund Details",
-      "crm_field": null
-    },
-    "Text Field 39": {
-      "label": "Fund Field 1",
-      "crm_field": null
-    },
-    "Text Field 38": {
-      "label": "Fund Field 2",
-      "crm_field": null
-    },
-    "Text Field 37": {
-      "label": "Fund Field 3",
-      "crm_field": null
-    },
-    "Text Field 36": {
-      "label": "Fund Field 4",
-      "crm_field": null
-    },
-    "Text Field 35": {
-      "label": "Fund Field 5",
-      "crm_field": null
-    },
-    "Text Field 34": {
-      "label": "Fund Field 6",
-      "crm_field": null
-    },
-    "Text Field 33": {
-      "label": "Fund Field 7",
-      "crm_field": null
-    },
-    "Text Field 32": {
-      "label": "Fund Field 8",
-      "crm_field": null
-    },
-    "Text Field 31": {
-      "label": "Fund Field 9",
-      "crm_field": null
-    },
+    "__comment_page2_benefits": "=== PAGE 2: Section 4 - Benefits Retained from Present or Previous Employments ===",
     "Text Field 30": {
-      "label": "Fund Field 10",
+      "label": "Retained Benefits Details Line 1",
       "crm_field": null
     },
     "Text Field 29": {
-      "label": "Fund Field 11",
+      "label": "Retained Benefits Details Line 2",
       "crm_field": null
     },
-    "__comment_page5_sepa": "=== PAGE 5: SEPA Direct Debit Mandate ===",
+    "__comment_page2_contributions": "=== PAGE 2: Section 5 - Contribution Details (Individual Regular + Single Contributions) ===",
+    "Text Field 39": {
+      "label": "Employer Regular Contributions (EUR p.a.)",
+      "crm_field": null
+    },
+    "Text Field 38": {
+      "label": "Employee Regular Contributions (EUR p.a.)",
+      "crm_field": null
+    },
+    "Text Field 37": {
+      "label": "Employee Additional Voluntary Contributions (EUR p.a.)",
+      "crm_field": null
+    },
+    "Text Field 36": {
+      "label": "Employer Regular Contributions (% of salary)",
+      "crm_field": null
+    },
+    "Text Field 35": {
+      "label": "Employee Regular Contributions (% of salary)",
+      "crm_field": null
+    },
+    "Text Field 34": {
+      "label": "Employee Additional Voluntary Contributions (% of salary)",
+      "crm_field": null
+    },
+    "Text Field 173": {
+      "label": "Single Contributions - Employer Single Contribution (EUR)",
+      "crm_field": null
+    },
+    "Text Field 33": {
+      "label": "Single Contributions - Employee Single Contribution (EUR)",
+      "crm_field": null
+    },
+    "Text Field 32": {
+      "label": "Single Contributions - Transfer Value (EUR)",
+      "crm_field": null
+    },
+    "Text Field 31": {
+      "label": "Single Contributions - Other (EUR)",
+      "crm_field": null
+    },
+    "__comment_page3_investment": "=== PAGE 3: Section 6 - Investment Selection ===",
+    "__comment_page3_default_strategy": "--- A) Default Investment Strategy (Lifestyle Strategies) ---",
+    "Check Box 14": {
+      "label": "Default Strategy: Lifestyle Strategy Annuity",
+      "crm_field": null
+    },
+    "Check Box 15": {
+      "label": "Default Strategy: Lifestyle Strategy ARF",
+      "crm_field": null
+    },
+    "Check Box 16": {
+      "label": "Default Strategy: Lifestyle Strategy Cash",
+      "crm_field": null
+    },
+    "__comment_page3_lifestyle_strategies": "--- B) Lifestyle Strategies (specific providers) ---",
+    "Check Box 17": {
+      "label": "Lifestyle Strategy: (a) Aviva Investors Annuity",
+      "crm_field": null
+    },
+    "Check Box 18": {
+      "label": "Lifestyle Strategy: (b) Aviva Investors ARF",
+      "crm_field": null
+    },
+    "Check Box 19": {
+      "label": "Lifestyle Strategy: (c) Legal & General Annuity",
+      "crm_field": null
+    },
+    "Check Box 20": {
+      "label": "Lifestyle Strategy: (d) Legal & General ARF",
+      "crm_field": null
+    },
+    "Check Box 21": {
+      "label": "Lifestyle Strategy: (e) Cantor Fitzgerald Annuity",
+      "crm_field": null
+    },
+    "Check Box 44": {
+      "label": "Lifestyle Strategy: (f) Cantor Fitzgerald ARF",
+      "crm_field": null
+    },
+    "__comment_page3_fund_choice": "--- C) Fund Choice - giving you access to a range of funds (table with 5 rows) ---",
+    "Text Field 109": {
+      "label": "Fund Choice 1 - Fund Name",
+      "crm_field": null
+    },
+    "Text Field 108": {
+      "label": "Fund Choice 2 - Fund Name",
+      "crm_field": null
+    },
+    "Text Field 107": {
+      "label": "Fund Choice 3 - Fund Name",
+      "crm_field": null
+    },
+    "Text Field 106": {
+      "label": "Fund Choice 4 - Fund Name",
+      "crm_field": null
+    },
+    "Text Field 105": {
+      "label": "Fund Choice 5 - Fund Name",
+      "crm_field": null
+    },
+    "Text Field 110": {
+      "label": "Fund Choice 1 - Regular Contribution %",
+      "crm_field": null
+    },
+    "Text Field 120": {
+      "label": "Fund Choice 2 - Regular Contribution %",
+      "crm_field": null
+    },
+    "Text Field 115": {
+      "label": "Fund Choice 3 - Regular Contribution %",
+      "crm_field": null
+    },
+    "Text Field 156": {
+      "label": "Fund Choice 4 - Regular Contribution %",
+      "crm_field": null
+    },
+    "Text Field 155": {
+      "label": "Fund Choice 5 - Regular Contribution %",
+      "crm_field": null
+    },
+    "Text Field 154": {
+      "label": "Fund Choice 1 - Single Contribution %",
+      "crm_field": null
+    },
+    "Text Field 153": {
+      "label": "Fund Choice 2 - Single Contribution %",
+      "crm_field": null
+    },
+    "Text Field 152": {
+      "label": "Fund Choice 3 - Single Contribution %",
+      "crm_field": null
+    },
+    "Text Field 151": {
+      "label": "Fund Choice 4 - Single Contribution %",
+      "crm_field": null
+    },
+    "Text Field 150": {
+      "label": "Fund Choice 5 - Single Contribution %",
+      "crm_field": null
+    },
+    "Text Field 149": {
+      "label": "Fund Choice 1 - Transfer Value %",
+      "crm_field": null
+    },
+    "Text Field 148": {
+      "label": "Fund Choice 2 - Transfer Value %",
+      "crm_field": null
+    },
+    "Text Field 147": {
+      "label": "Fund Choice 3 - Transfer Value %",
+      "crm_field": null
+    },
+    "Text Field 146": {
+      "label": "Fund Choice 4 - Transfer Value %",
+      "crm_field": null
+    },
+    "Text Field 145": {
+      "label": "Fund Choice 5 - Transfer Value %",
+      "crm_field": null
+    },
+    "__comment_page5_declarations": "=== PAGE 5: Declarations and Signatures ===",
+    "Text Field 81": {
+      "label": "Employee Declaration Signature",
+      "crm_field": null
+    },
     "Text Field 83": {
-      "label": "DD Date Day",
+      "label": "Employee Declaration Date DD",
       "crm_field": null
     },
     "Text Field 82": {
-      "label": "DD Date Month",
+      "label": "Employee Declaration Date MM",
       "crm_field": null
     },
     "Text Field 205": {
-      "label": "DD Account Holder Name",
-      "crm_field": "full_name"
+      "label": "Intermediary Signature",
+      "crm_field": null
     },
     "Text Field 8021": {
-      "label": "DD IBAN",
-      "crm_field": "iban"
+      "label": "Intermediary Date DD",
+      "crm_field": null
     },
     "Text Field 8020": {
-      "label": "DD BIC",
-      "crm_field": "bic"
+      "label": "Intermediary Date MM",
+      "crm_field": null
     },
     "Text Field 204": {
-      "label": "DD Bank Field 1",
+      "label": "Participating Employer Signature",
       "crm_field": null
     },
     "Text Field 8010": {
-      "label": "DD Bank Field 2",
+      "label": "Participating Employer Date DD",
       "crm_field": null
     },
     "Text Field 809": {
-      "label": "DD Bank Field 3",
+      "label": "Participating Employer Date MM",
       "crm_field": null
     }
   },

@@ -330,115 +330,115 @@
     },
     "__comment_page7_medical": "=== PAGE 7: Medical - Height/Weight/Smoking Details ===",
     "Text Field 5013": {
-      "label": "Life 1 Height - Feet",
+      "label": "First Person Height - Feet",
       "crm_field": null
     },
     "Text Field 5012": {
-      "label": "Life 1 Height - Inches",
+      "label": "First Person Height - Inches",
       "crm_field": null
     },
     "Text Field 501": {
-      "label": "Life 2 Height - Feet",
+      "label": "Second Person Height - Feet",
       "crm_field": null
     },
     "Text Field 682": {
-      "label": "Life 2 Height - Inches",
+      "label": "Second Person Height - Inches",
       "crm_field": null
     },
     "Text Field 681": {
-      "label": "Life 1 Weight - Stones",
+      "label": "First Person Weight - Stones",
       "crm_field": null
     },
     "Text Field 680": {
-      "label": "Life 1 Weight - lbs",
+      "label": "First Person Weight - lbs",
       "crm_field": null
     },
     "Text Field 679": {
-      "label": "Life 2 Weight - Stones",
+      "label": "Second Person Weight - Stones",
       "crm_field": null
     },
     "Text Field 678": {
-      "label": "Life 2 Weight - lbs",
+      "label": "Second Person Weight - lbs",
       "crm_field": null
     },
     "Text Field 677": {
-      "label": "Life 1 Height - Cms",
+      "label": "First Person Height - Cms",
       "crm_field": null
     },
     "Text Field 676": {
-      "label": "Life 2 Height - Cms",
+      "label": "Second Person Height - Cms",
       "crm_field": null
     },
     "Text Field 675": {
-      "label": "Life 1 Weight - Kg",
+      "label": "First Person Weight - Kg",
       "crm_field": null
     },
     "Text Field 2018": {
-      "label": "Life 2 Weight - Kg",
+      "label": "Second Person Weight - Kg",
       "crm_field": null
     },
     "Check Box 642": {
-      "label": "Life 1 Hookah/Shisha/Waterpipe - Yes",
+      "label": "First Person Hookah/Shisha/Waterpipe - Yes",
       "crm_field": null
     },
     "Text Field 2010": {
-      "label": "Life 1 Hookah Hours Per Week",
+      "label": "First Person Hookah Hours Per Week",
       "crm_field": null
     },
     "Check Box 641": {
-      "label": "Life 2 Hookah/Shisha/Waterpipe - Yes",
+      "label": "Second Person Hookah/Shisha/Waterpipe - Yes",
       "crm_field": null
     },
     "Text Field 209": {
-      "label": "Life 2 Hookah Hours Per Week",
+      "label": "Second Person Hookah Hours Per Week",
       "crm_field": null
     },
     "Check Box 640": {
-      "label": "Life 1 Other Tobacco - Yes",
+      "label": "First Person Other Tobacco - Yes",
       "crm_field": null
     },
     "Check Box 639": {
-      "label": "Life 2 Other Tobacco - Yes",
+      "label": "Second Person Other Tobacco - Yes",
       "crm_field": null
     },
     "Text Field 208": {
-      "label": "Life 1 Other Tobacco Type/Amount",
+      "label": "First Person Other Tobacco Type/Amount",
       "crm_field": null
     },
     "Text Field 207": {
-      "label": "Life 2 Other Tobacco Type/Amount",
+      "label": "Second Person Other Tobacco Type/Amount",
       "crm_field": null
     },
     "Check Box 638": {
-      "label": "Life 1 Other Tobacco - No",
+      "label": "First Person Other Tobacco - No",
       "crm_field": null
     },
     "Check Box 637": {
-      "label": "Life 2 Other Tobacco - No",
+      "label": "Second Person Other Tobacco - No",
       "crm_field": null
     },
     "Text Field 206": {
-      "label": "Life 1 Last Smoke/Vape/Nicotine Use",
+      "label": "First Person Last Smoke/Vape/Nicotine Use",
       "crm_field": null
     },
     "Text Field 205": {
-      "label": "Life 2 Last Smoke/Vape/Nicotine Use",
+      "label": "Second Person Last Smoke/Vape/Nicotine Use",
       "crm_field": null
     },
     "Text Field 2012": {
-      "label": "Life 1 Previous Smoking Detail",
+      "label": "First Person Previous Smoking Detail",
       "crm_field": null
     },
     "Text Field 2013": {
-      "label": "Life 2 Previous Smoking Detail",
+      "label": "Second Person Previous Smoking Detail",
       "crm_field": null
     },
     "Text Field 2014": {
-      "label": "Life 1 Additional Smoking Info",
+      "label": "First Person Additional Smoking Info",
       "crm_field": null
     },
     "Text Field 2015": {
-      "label": "Life 2 Additional Smoking Info",
+      "label": "Second Person Additional Smoking Info",
       "crm_field": null
     },
     "__comment_page8_sports": "=== PAGE 8: Medical Q9 - Sporting Activities Checkboxes ===",
@@ -483,19 +483,19 @@
       "crm_field": null
     },
     "Check Box 336": {
-      "label": "Q9 Other Extreme Sports - First Person",
+      "label": "Q9 Combat Sports - First Person",
       "crm_field": null
     },
     "Check Box 335": {
-      "label": "Q9 Other Extreme Sports - Second Person",
+      "label": "Q9 Combat Sports - Second Person",
       "crm_field": null
     },
     "Check Box 334": {
-      "label": "Q9 Martial Arts/Combat Sports - First Person",
+      "label": "Q9 Martial Arts - First Person",
       "crm_field": null
     },
     "Check Box 333": {
-      "label": "Q9 Martial Arts/Combat Sports - Second Person",
+      "label": "Q9 Martial Arts - Second Person",
       "crm_field": null
     },
     "Check Box 332": {
@@ -508,67 +508,67 @@
     },
     "__comment_page10_family": "=== PAGE 10: Medical Q34 - Family History Table (4 rows x 4 columns) ===",
     "Text Field 685": {
-      "label": "Family History Row 1 - First Person Condition",
+      "label": "Family History Father - First Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 684": {
-      "label": "Family History Row 1 - First Person Age",
+      "label": "Family History Father - First Person Age Started",
       "crm_field": null
     },
     "Text Field 683": {
-      "label": "Family History Row 1 - Second Person Condition",
+      "label": "Family History Father - Second Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 5020": {
-      "label": "Family History Row 1 - Second Person Age",
+      "label": "Family History Father - Second Person Age Started",
       "crm_field": null
     },
     "Text Field 5019": {
-      "label": "Family History Row 2 - First Person Condition",
+      "label": "Family History Mother - First Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 5018": {
-      "label": "Family History Row 2 - First Person Age",
+      "label": "Family History Mother - First Person Age Started",
       "crm_field": null
     },
     "Text Field 5017": {
-      "label": "Family History Row 2 - Second Person Condition",
+      "label": "Family History Mother - Second Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 5016": {
-      "label": "Family History Row 2 - Second Person Age",
+      "label": "Family History Mother - Second Person Age Started",
       "crm_field": null
     },
     "Text Field 1056": {
-      "label": "Family History Row 3 - First Person Condition",
+      "label": "Family History Brothers - First Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 103": {
-      "label": "Family History Row 3 - First Person Age",
+      "label": "Family History Brothers - First Person Age Started",
       "crm_field": null
     },
     "Text Field 5015": {
-      "label": "Family History Row 3 - Second Person Condition",
+      "label": "Family History Brothers - Second Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 5014": {
-      "label": "Family History Row 3 - Second Person Age",
+      "label": "Family History Brothers - Second Person Age Started",
       "crm_field": null
     },
     "Text Field 1055": {
-      "label": "Family History Row 4 - First Person Condition",
+      "label": "Family History Sisters - First Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 1054": {
-      "label": "Family History Row 4 - First Person Age",
+      "label": "Family History Sisters - First Person Age Started",
       "crm_field": null
     },
     "Text Field 1053": {
-      "label": "Family History Row 4 - Second Person Condition",
+      "label": "Family History Sisters - Second Person Condition Suffered",
       "crm_field": null
     },
     "Text Field 109": {
-      "label": "Family History Row 4 - Second Person Age",
+      "label": "Family History Sisters - Second Person Age Started",
       "crm_field": null
     },
     "__comment_page11_evidence": "=== PAGE 11: Other Medical Evidence (First Person 7 rows, Second Person 7 rows) + Doctor Details ===",
@@ -727,15 +727,15 @@
       "crm_field": null
     },
     "Text Field 836": {
-      "label": "Declaration of Insurer/Financial Adviser Signature",
+      "label": "Declaration of Insurer/Financial Adviser (Customer Name)",
       "crm_field": null
     },
     "Text Field 835": {
-      "label": "Declaration Adviser Date (dd/mm/yyyy)",
+      "label": "Signature of Financial Adviser",
       "crm_field": null
     },
     "Text Field 834": {
-      "label": "Declaration Adviser Detail",
+      "label": "Declaration Adviser Date (dd/mm/yyyy)",
       "crm_field": null
     },
     "__comment_page13_signatures": "=== PAGE 13: Declaration Signatures and Dates ===",
@@ -756,35 +756,35 @@
       "crm_field": null
     },
     "Text Field 850": {
-      "label": "Life 1 Signature (Plan Declaration B)",
+      "label": "Plan Owner 1 Signature (Plan Declaration B)",
       "crm_field": null
     },
     "Text Field 849": {
-      "label": "Life 2 Signature (Plan Declaration B)",
+      "label": "Plan Owner 2 Signature (Plan Declaration B)",
       "crm_field": null
     },
     "Text Field 848": {
-      "label": "Life 1 Date (Plan Declaration B)",
+      "label": "Plan Owner 1 Date (Plan Declaration B)",
       "crm_field": null
     },
     "Text Field 847": {
-      "label": "Life 2 Date (Plan Declaration B)",
+      "label": "Plan Owner 2 Date (Plan Declaration B)",
       "crm_field": null
     },
     "Text Field 846": {
-      "label": "Life 1 Signature (Marketing Consent)",
+      "label": "Life Assured 1 Signature (Plan Declaration B - If Different)",
       "crm_field": null
     },
     "Text Field 845": {
-      "label": "Life 2 Signature (Marketing Consent)",
+      "label": "Life Assured 2 Signature (Plan Declaration B - If Different)",
       "crm_field": null
     },
     "Text Field 844": {
-      "label": "Life 1 Date (Marketing Consent)",
+      "label": "Life Assured 1 Date (Plan Declaration B - If Different)",
       "crm_field": null
     },
     "Text Field 843": {
-      "label": "Life 2 Date (Marketing Consent)",
+      "label": "Life Assured 2 Date (Plan Declaration B - If Different)",
       "crm_field": null
     },
     "__comment_page15_sepa": "=== PAGE 15: SEPA Direct Debit Mandate ===",
@@ -837,7 +837,7 @@
       "crm_field": null
     },
     "Text Field 737": {
-      "label": "SEPA IBAN Line 3",
+      "label": "SEPA Signature(s)",
       "crm_field": null
     },
     "Text Field 723": {
@@ -845,7 +845,7 @@
       "crm_field": null
     },
     "Check Box 354666": {
-      "label": "SEPA Mandate Confirmation Checkbox",
+      "label": "SEPA Type of Payment - Recurrent",
       "crm_field": null
     }
   },

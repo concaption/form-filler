@@ -7,23 +7,23 @@
   "field_map": {
     "__comment_page1": "=== PAGE 1: Checklist / Financial Broker Details (Section 1 & 2) ===",
     "Check Box 1": {
-      "label": "Checklist Item 1",
+      "label": "Checklist: A fully completed application form",
       "crm_field": null
     },
     "Check Box 54": {
-      "label": "Checklist Item 2",
+      "label": "Checklist: Transfer contribution subject to Pension Adjustment Order",
       "crm_field": null
     },
     "Check Box 55": {
-      "label": "Checklist Item 3",
+      "label": "Checklist: Cheque for transfer contribution (if applicable)",
       "crm_field": null
     },
     "Check Box 56": {
-      "label": "Checklist Item 4",
+      "label": "Checklist: Electronic Funds Transfer payment",
       "crm_field": null
     },
     "Check Box 57": {
-      "label": "Checklist Item 5",
+      "label": "Checklist: Employee's most recent payslip",
       "crm_field": null
     },
     "Text Field 474": {
@@ -535,7 +535,7 @@
       "crm_field": null
     },
     "Text Field 160": {
-      "label": "Name of scheme trustee/administrator authorised to allow transfer",
+      "label": "Name of scheme trustee/administrator/custodian/manager/insurance company authorised to allow the transfer",
       "crm_field": null
     },
     "Text Field 159": {
@@ -1202,44 +1202,44 @@
       "crm_field": null
     },
     "Check Box 182": {
-      "label": "Participation Agreement Checkbox 1",
+      "label": "Employer Entity Type: Corporate entity established outside the Republic of Ireland",
       "crm_field": null
     },
     "Check Box 185": {
-      "label": "Participation Agreement Checkbox 2",
+      "label": "Employer Entity Type: Limited Company/Unlimited Company/Company Limited by Guarantee/DAC",
       "crm_field": null
     },
     "Check Box 175": {
-      "label": "Participation Agreement Checkbox 3",
+      "label": "Employer Entity Type: Sole Trader",
       "crm_field": null
     },
     "Check Box 177": {
-      "label": "Participation Agreement Checkbox 4",
+      "label": "Employer Entity Type: Charity",
       "crm_field": null
     },
     "Check Box 178": {
-      "label": "Participation Agreement Checkbox 5",
+      "label": "Employer Entity Type: Registered Club",
       "crm_field": null
     },
     "Check Box 179": {
-      "label": "Participation Agreement Checkbox 6",
+      "label": "Employer Entity Type: Association",
       "crm_field": null
     },
     "Check Box 180": {
-      "label": "Participation Agreement Checkbox 7",
+      "label": "Employer Entity Type: Credit Union",
       "crm_field": null
     },
     "Check Box 181": {
-      "label": "Participation Agreement Checkbox 8",
+      "label": "Employer Entity Type: Partnership",
       "crm_field": null
     },
     "Text Field 806": {
-      "label": "Participation Agreement Detail",
+      "label": "Employer Entity Type: Other (please state)",
       "crm_field": null
     },
     "__comment_page15": "=== PAGE 15: Participation Agreement Signatures ===",
     "Text Field 791": {
-      "label": "Participation Agreement Signature",
+      "label": "Participating Employer Authorised Signatory Name",
       "crm_field": null
     },
     "Text Field 790": {
@@ -1256,201 +1256,201 @@
     },
     "__comment_page17": "=== PAGE 17: Schedule to Participation Agreement ===",
     "Text Field 797": {
-      "label": "Schedule Detail 1",
+      "label": "Schedule: Name of Participating Employer",
       "crm_field": null
     },
     "Check Box 2010": {
-      "label": "Schedule Option 1",
+      "label": "Schedule Entity Type: Limited Company/Unlimited Company/Company Limited by Guarantee/DAC",
       "crm_field": null
     },
     "Text Field 796": {
-      "label": "Schedule Detail 2",
+      "label": "Schedule: Address of Participating Employer",
       "crm_field": null
     },
     "Check Box 2011": {
-      "label": "Schedule Option 2",
+      "label": "Schedule Entity Type: Sole Trader",
       "crm_field": null
     },
     "Check Box 2012": {
-      "label": "Schedule Option 3",
+      "label": "Schedule Entity Type: Corporate entity established outside the Republic of Ireland",
       "crm_field": null
     },
     "Text Field 800": {
-      "label": "Schedule Detail 3",
+      "label": "Schedule: CRO Number (Registered Number)",
       "crm_field": null
     },
     "Check Box 2013": {
-      "label": "Schedule Option 4",
+      "label": "Schedule Entity Type: Charity",
       "crm_field": null
     },
     "Text Field 801": {
-      "label": "Schedule Detail 4",
+      "label": "Schedule: Registered Number with Relevant Jurisdiction (foreign entity)",
       "crm_field": null
     },
     "Check Box 2014": {
-      "label": "Schedule Option 5",
+      "label": "Schedule Entity Type: Registered Club",
       "crm_field": null
     },
     "Check Box 2015": {
-      "label": "Schedule Option 6",
+      "label": "Schedule Entity Type: Association",
       "crm_field": null
     },
     "Check Box 2016": {
-      "label": "Schedule Option 7",
+      "label": "Schedule Entity Type: Credit Union",
       "crm_field": null
     },
     "Text Field 802": {
-      "label": "Schedule Detail 5",
+      "label": "Schedule: Charities Registration Number / Credit Union Registration Number",
       "crm_field": null
     },
     "Check Box 2017": {
-      "label": "Schedule Option 8",
+      "label": "Schedule Entity Type: Partnership",
       "crm_field": null
     },
     "Check Box 2018": {
-      "label": "Schedule Option 9",
+      "label": "Schedule Entity Type: Other (please state)",
       "crm_field": null
     },
     "Text Field 799": {
-      "label": "Schedule Detail 6",
+      "label": "Schedule: Other Entity Type (please state)",
       "crm_field": null
     },
     "Text Field 803": {
-      "label": "Schedule Detail 7",
+      "label": "Schedule: Address of Participating Employer Line 1",
       "crm_field": null
     },
     "Text Field 804": {
-      "label": "Schedule Detail 8",
+      "label": "Schedule: Address of Participating Employer Line 2",
       "crm_field": null
     },
     "__comment_page18": "=== PAGE 18: Self-Directed Investment Option (Section 13) ===",
     "Check Box 162": {
-      "label": "SDIO Option 1",
+      "label": "SDIO Account Type: Execution Only (non-Trading)",
       "crm_field": null
     },
     "Check Box 163": {
-      "label": "SDIO Option 2",
+      "label": "SDIO Account Type: Execution Only Account (Trading)",
       "crm_field": null
     },
     "Check Box 164": {
-      "label": "SDIO Option 3",
+      "label": "SDIO Account Type: Advisory Account (Trading)",
       "crm_field": null
     },
     "Check Box 165": {
-      "label": "SDIO Option 4",
+      "label": "SDIO Account Type: Discretionary Management",
       "crm_field": null
     },
     "__comment_page22": "=== PAGE 22-23: SDIO Investment Instruction Form ===",
     "Text Field 3056": {
-      "label": "Investment Instruction 1",
+      "label": "SDIO Investment: Product Provider",
       "crm_field": null
     },
     "Text Field 3057": {
-      "label": "Investment Instruction 2",
+      "label": "SDIO Investment: Full Product Name",
       "crm_field": null
     },
     "Text Field 3058": {
-      "label": "Investment Instruction 3",
+      "label": "SDIO Investment: Investment Amount (EUR or %)",
       "crm_field": null
     },
     "Text Field 3059": {
-      "label": "Investment Instruction 4",
+      "label": "SDIO Deposit: Deposit Provider",
       "crm_field": null
     },
     "Text Field 3060": {
-      "label": "Investment Instruction 5",
+      "label": "SDIO Deposit: Term",
       "crm_field": null
     },
     "Text Field 3061": {
-      "label": "Investment Instruction 6",
+      "label": "SDIO Deposit: Interest Accrued",
       "crm_field": null
     },
     "Text Field 3062": {
-      "label": "Investment Instruction 7",
+      "label": "SDIO Deposit: Investment Amount (EUR or %)",
       "crm_field": null
     },
     "Check Box 101": {
-      "label": "SDIO Instruction (Check Box 101)",
+      "label": "SDIO: Investment satisfies liquidity requirement",
       "crm_field": null
     },
     "Check Box 102": {
-      "label": "SDIO Instruction (Check Box 102)",
+      "label": "SDIO: Investment does not include any liquidity requirement",
       "crm_field": null
     },
     "Check Box 85": {
-      "label": "SDIO Instruction (Check Box 85)",
+      "label": "SDIO Form Title: Mr",
       "crm_field": null
     },
     "Check Box 86": {
-      "label": "SDIO Instruction (Check Box 86)",
+      "label": "SDIO Form Title: Ms",
       "crm_field": null
     },
     "Check Box 87": {
-      "label": "SDIO Instruction (Check Box 87)",
+      "label": "SDIO Form Title: Mrs",
       "crm_field": null
     },
     "Text Field 203": {
-      "label": "SDIO Instruction (Text Field 203)",
+      "label": "SDIO Form: Address Line 1",
       "crm_field": null
     },
     "Text Field 204": {
-      "label": "SDIO Instruction (Text Field 204)",
+      "label": "SDIO Form: Address Line 2",
       "crm_field": null
     },
     "Text Field 205": {
-      "label": "SDIO Instruction (Text Field 205)",
+      "label": "SDIO Form: Occupation",
       "crm_field": null
     },
     "Text Field 207": {
-      "label": "SDIO Instruction (Text Field 207)",
+      "label": "SDIO Form: Title Other (text)",
       "crm_field": null
     },
     "Text Field 208": {
-      "label": "SDIO Instruction (Text Field 208)",
+      "label": "SDIO Form: First Name",
       "crm_field": null
     },
     "Text Field 209": {
-      "label": "SDIO Instruction (Text Field 209)",
+      "label": "SDIO Form: Surname",
       "crm_field": null
     },
     "Text Field 210": {
-      "label": "SDIO Instruction (Text Field 210)",
+      "label": "SDIO Form: DOB Day",
       "crm_field": null
     },
     "Text Field 211": {
-      "label": "SDIO Instruction (Text Field 211)",
+      "label": "SDIO Form: DOB Month",
       "crm_field": null
     },
     "Text Field 212": {
-      "label": "SDIO Instruction (Text Field 212)",
+      "label": "SDIO Form: DOB Year",
       "crm_field": null
     },
     "Text Field 213": {
-      "label": "SDIO Instruction (Text Field 213)",
+      "label": "SDIO Form: Broker Agency Number",
       "crm_field": null
     },
     "Text Field 214": {
-      "label": "SDIO Instruction (Text Field 214)",
+      "label": "SDIO Form: Name of Financial Broker/Company",
       "crm_field": null
     },
     "Text Field 215": {
-      "label": "SDIO Instruction (Text Field 215)",
+      "label": "SDIO Form: Broker Address",
       "crm_field": null
     },
     "Text Field 216": {
-      "label": "SDIO Instruction (Text Field 216)",
+      "label": "SDIO Form: Financial Broker's Email Address",
       "crm_field": null
     },
     "Text Field 217": {
-      "label": "SDIO Instruction (Text Field 217)",
+      "label": "SDIO Form: Financial Broker's Phone Number",
       "crm_field": null
     },
     "Text Field 226": {
-      "label": "SDIO Instruction (Text Field 226)",
+      "label": "SDIO Form: Pension Number",
       "crm_field": null
     },
     "Text Field 462": {
-      "label": "SDIO Instruction (Text Field 462)",
+      "label": "SDIO Form: Total amount of investment instruction (EUR)",
       "crm_field": null
     },
     "__comment_page24": "=== PAGE 24: SDIO Employee Declaration ===",
@@ -1467,7 +1467,7 @@
       "crm_field": null
     },
     "Text Field 222": {
-      "label": "SDIO Employee Declaration Name",
+      "label": "SDIO Employee Declaration: Name of Customer",
       "crm_field": null
     },
     "Text Field 2015": {
@@ -1483,163 +1483,163 @@
       "crm_field": null
     },
     "Text Field 221": {
-      "label": "SDIO Broker Declaration Name",
+      "label": "SDIO Broker Declaration: Name of Financial Broker",
       "crm_field": null,
       "adviser_field": "name"
     },
     "__comment_page25": "=== PAGE 25: Product Details (Section 14 - Broker) ===",
     "__comment_page25_note": "33 fields for product/commission details - all broker-filled, null CRM mapping.",
     "Check Box 116": {
-      "label": "Product Details (Check Box 116)",
+      "label": "Regular Commission: Option A (Initial & Renewal) Tick to Select",
       "crm_field": null
     },
     "Check Box 117": {
-      "label": "Product Details (Check Box 117)",
+      "label": "Regular Commission: Option B (Initial & Renewal) Tick to Select",
       "crm_field": null
     },
     "Check Box 118": {
-      "label": "Product Details (Check Box 118)",
+      "label": "Regular Commission: Option C (Flat Rate) Tick to Select",
       "crm_field": null
     },
     "Check Box 119": {
-      "label": "Product Details (Check Box 119)",
+      "label": "Regular Commission: Option D (Flat Rate) Tick to Select",
       "crm_field": null
     },
     "Check Box 120": {
-      "label": "Product Details (Check Box 120)",
+      "label": "Regular Commission: Option 1 (Bullet) Tick to Select",
       "crm_field": null
     },
     "Check Box 121": {
-      "label": "Product Details (Check Box 121)",
+      "label": "Regular Commission: Option 2 (Bullet) Tick to Select",
       "crm_field": null
     },
     "Check Box 122": {
-      "label": "Product Details (Check Box 122)",
+      "label": "Regular Commission: Option 3 (Bullet) Tick to Select",
       "crm_field": null
     },
     "Check Box 123": {
-      "label": "Product Details (Check Box 123)",
+      "label": "Single Contribution: Option A Tick to Select",
       "crm_field": null
     },
     "Check Box 124": {
-      "label": "Product Details (Check Box 124)",
+      "label": "Single Contribution: Option B Tick to Select",
       "crm_field": null
     },
     "Check Box 125": {
-      "label": "Product Details (Check Box 125)",
+      "label": "Single Contribution: Option C Tick to Select",
       "crm_field": null
     },
     "Check Box 126": {
-      "label": "Product Details (Check Box 126)",
+      "label": "Single Contribution: Option D Tick to Select",
       "crm_field": null
     },
     "Text Field 3064": {
-      "label": "Product Details (Text Field 3064)",
+      "label": "Regular Option A: Renewal Rate (0-4%)",
       "crm_field": null
     },
     "Text Field 3065": {
-      "label": "Product Details (Text Field 3065)",
+      "label": "Regular Option A: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 3067": {
-      "label": "Product Details (Text Field 3067)",
+      "label": "Regular Option B: Renewal Rate (0-4%)",
       "crm_field": null
     },
     "Text Field 3068": {
-      "label": "Product Details (Text Field 3068)",
+      "label": "Regular Option B: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 3070": {
-      "label": "Product Details (Text Field 3070)",
+      "label": "Regular Option C: Flat Rate (0-5%)",
       "crm_field": null
     },
     "Text Field 3071": {
-      "label": "Product Details (Text Field 3071)",
+      "label": "Regular Option C: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 3073": {
-      "label": "Product Details (Text Field 3073)",
+      "label": "Regular Option D: Flat Rate (0-5%)",
       "crm_field": null
     },
     "Text Field 3074": {
-      "label": "Product Details (Text Field 3074)",
+      "label": "Regular Option D: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 3076": {
-      "label": "Product Details (Text Field 3076)",
+      "label": "Regular Option 1: Bullet Commission %",
       "crm_field": null
     },
     "Text Field 3078": {
-      "label": "Product Details (Text Field 3078)",
+      "label": "Regular Option 1: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 3080": {
-      "label": "Product Details (Text Field 3080)",
+      "label": "Regular Option 2: Bullet Commission %",
       "crm_field": null
     },
     "Text Field 3083": {
-      "label": "Product Details (Text Field 3083)",
+      "label": "Regular Option 2: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 3086": {
-      "label": "Product Details (Text Field 3086)",
+      "label": "Regular Option 3: Bullet Commission %",
       "crm_field": null
     },
     "Text Field 3089": {
-      "label": "Product Details (Text Field 3089)",
+      "label": "Regular Option 3: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 3092": {
-      "label": "Product Details (Text Field 3092)",
+      "label": "Regular Option 3: Additional Detail",
       "crm_field": null
     },
     "Text Field 521": {
-      "label": "Product Details (Text Field 521)",
+      "label": "Single Option 1: Bullet Commission %",
       "crm_field": null
     },
     "Text Field 522": {
-      "label": "Product Details (Text Field 522)",
+      "label": "Single Option 1: Fund Based Commission (up to 1.00%)",
       "crm_field": null
     },
     "Text Field 523": {
-      "label": "Product Details (Text Field 523)",
+      "label": "Single Option 2: Bullet Commission %",
       "crm_field": null
     },
     "Text Field 528": {
-      "label": "Product Details (Text Field 528)",
+      "label": "Special Instructions Line 1",
       "crm_field": null
     },
     "Text Field 529": {
-      "label": "Product Details (Text Field 529)",
+      "label": "Special Instructions Line 2",
       "crm_field": null
     },
     "Text Field 530": {
-      "label": "Product Details (Text Field 530)",
+      "label": "Special Instructions Line 3",
       "crm_field": null
     },
     "Text Field 531": {
-      "label": "Product Details (Text Field 531)",
+      "label": "Special Instructions Line 4",
       "crm_field": null
     },
     "__comment_page26": "=== PAGE 26: SEPA Direct Debit Mandate ===",
     "Text Field 41": {
-      "label": "Application Number",
+      "label": "Application No.",
       "crm_field": null
     },
     "Text Field 40": {
-      "label": "SEPA Mandate Detail",
+      "label": "SEPA Direct Debit Mandate Reference",
       "crm_field": null
     },
     "Text Field 39": {
-      "label": "SEPA Account Holder Name",
+      "label": "SEPA Name(s) of Account holder(s)",
       "crm_field": null
     },
     "Text Field 38": {
-      "label": "SEPA IBAN",
+      "label": "SEPA Account number - IBAN",
       "crm_field": null
     },
     "Text Field 37": {
-      "label": "SEPA BIC",
+      "label": "SEPA Bank identifier code - BIC",
       "crm_field": null
     },
     "Text Field 36": {
@@ -1655,7 +1655,7 @@
       "crm_field": null
     },
     "Text Field 33": {
-      "label": "SEPA Location/City",
+      "label": "SEPA Location",
       "crm_field": null
     }
   },

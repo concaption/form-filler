@@ -813,11 +813,11 @@
       "crm_field": null
     },
     "Check Box 165": {
-      "label": "User Row 1 (Appointed User Controller) - Level of Access",
+      "label": "User Row 1 - Level of Access: Appointed User Controller",
       "crm_field": null
     },
     "Check Box 164": {
-      "label": "User Row 2 (Employer) - Level of Access",
+      "label": "User Row 1 - Level of Access: Employer",
       "crm_field": null
     },
     "Text Field 476": {
@@ -841,7 +841,7 @@
       "crm_field": null
     },
     "Check Box 162": {
-      "label": "User Row 3 (Employer) - Level of Access",
+      "label": "User Row 2 (Employer) - Level of Access",
       "crm_field": null
     },
     "Text Field 481": {
@@ -865,7 +865,7 @@
       "crm_field": null
     },
     "Check Box 160": {
-      "label": "User Row 4 (Employer) - Level of Access",
+      "label": "User Row 3 (Employer) - Level of Access",
       "crm_field": null
     },
     "Text Field 486": {
@@ -889,7 +889,7 @@
       "crm_field": null
     },
     "Check Box 158": {
-      "label": "User Row 5 (Employer) - Level of Access",
+      "label": "User Row 4 (Employer) - Level of Access",
       "crm_field": null
     },
     "Text Field 491": {
@@ -913,7 +913,7 @@
       "crm_field": null
     },
     "Check Box 156": {
-      "label": "User Row 6 (Employer) - Level of Access",
+      "label": "User Row 5 (Employer) - Level of Access",
       "crm_field": null
     },
     "Text Field 496": {
@@ -937,7 +937,7 @@
       "crm_field": null
     },
     "Check Box 154": {
-      "label": "User Row 7 (Employer) - Level of Access",
+      "label": "User Row 6 (Employer) - Level of Access",
       "crm_field": null
     },
     "Text Field 501": {
@@ -961,7 +961,7 @@
       "crm_field": null
     },
     "Check Box 152": {
-      "label": "User Row 8 (Employer) - Level of Access",
+      "label": "User Row 7 (Employer) - Level of Access",
       "crm_field": null
     },
     "__comment_page11_declaration": "=== PAGE 11: Section 13 - Declaration ===",

@@ -3,86 +3,131 @@
   "pdf_file": "irish_life_prsa_brokerage.pdf",
   "provider": "Irish Life",
   "product": "PRSA (Transfer-In / Brokerage)",
-  "notes": "Transfer-in version of IL PRSA form (17 pages). Shares same field names as IL PRSA for personal details but page numbers shift by +1 (cover page added). Additional transfer pages at page 8 and fund selection grids at pages 13-14.",
+  "notes": "Transfer-in version of IL PRSA form (17 pages). Cover page is page 1, so sections shift by +1 vs the standard IL PRSA. Page 2 = Adviser Details / Product Type / Personal Details (Title, Name, DOB, Salary, Gender, Marital Status, Country of Birth, Nationality, Retirement Age), Page 3 = Contact Details (Address, Eircode, Phone, Email) / Employer Details, Page 4 = Contribution Details, Page 5 = Fund Selection, Page 6 = Proposal Summary / Disclosure Declarations, Page 7 = Customer Signature / AVC Declaration, Page 8 = Transfer Declaration, Page 9 = Financial Adviser Declaration / Employer Declaration, Page 10 = Employer Signature, Page 11 = AVC Section, Pages 13-14 = Fund Grids, Page 15 = Plan Details / SEPA Direct Debit Mandate, Pages 16-17 = Trustee Declaration.",
   "field_map": {
-    "__comment_page2": "=== PAGE 2: Broker / Product Type (same fields as IL PRSA Page 1) ===",
+    "__comment_page2": "=== PAGE 2: Financial Adviser / Product Type / Personal Details ===",
     "Text Field 27": {
-      "label": "Broker Name",
+      "label": "Financial Adviser Name",
       "crm_field": null,
       "adviser_field": "company"
     },
     "Text Field 26": {
-      "label": "Broker Number",
+      "label": "Financial Adviser Code",
       "crm_field": null
     },
     "Text Field 271": {
-      "label": "Broker Contact",
-      "crm_field": null,
-      "adviser_field": "name"
-    },
-    "Text Field 270": {
-      "label": "Broker Contact 2",
-      "crm_field": null,
-      "adviser_field": "email"
-    },
-    "__comment_page2_personal": "=== PAGE 2 continued + PAGE 3: Personal Details (same fields as IL PRSA Page 2) ===",
-    "Text Field 6": {
-      "label": "Forename",
-      "crm_field": "first_name"
-    },
-    "Text Field 5": {
-      "label": "Surname",
-      "crm_field": "last_name"
-    },
-    "Text Field 263": {
-      "label": "Title",
+      "label": "Regular Contribution Amount (Adviser Section)",
       "crm_field": null
     },
-    "Text Field 7": {
-      "label": "Address Line 1",
-      "crm_field": "address_line1"
+    "Text Field 270": {
+      "label": "Single Contribution Amount (Adviser Section)",
+      "crm_field": null
     },
-    "Text Field 8": {
-      "label": "Address Line 2 / City",
-      "crm_field": "address_city"
-    },
-    "Text Field 276": {
-      "label": "Eircode",
-      "crm_field": "address_postcode"
-    },
-    "Text Field 30": {
-      "label": "County / State",
-      "crm_field": "address_state"
-    },
-    "Text Field 31": {
-      "label": "Phone",
-      "crm_field": "phone_mobile"
-    },
-    "Text Field 32": {
-      "label": "Email",
-      "crm_field": "email"
-    },
-    "__comment_page3": "=== PAGE 3: Personal Details continued ===",
-    "Text Field 45": {
+    "Text Field 272": {
       "label": "PPS Number",
       "crm_field": "pps_1"
     },
-    "Text Field 44": {
-      "label": "Date of Birth",
+    "Text Field 275": {
+      "label": "What Is Your Occupation",
+      "crm_field": "job_title"
+    },
+    "Check Box 3000": {
+      "label": "Product Type - PRSA Standard",
+      "crm_field": null
+    },
+    "Check Box 3001": {
+      "label": "Product Type - PRSA Plus",
+      "crm_field": null
+    },
+    "Check Box 3002": {
+      "label": "Product Type - PRSA AVC",
+      "crm_field": null
+    },
+    "Check Box 109": {
+      "label": "Are You Resident for Tax Purposes - Yes",
+      "crm_field": null
+    },
+    "Check Box 108": {
+      "label": "Are You Resident for Tax Purposes - No",
+      "crm_field": null
+    },
+    "Check Box 1011": {
+      "label": "Occupation Category - Other Employee",
+      "crm_field": null
+    },
+    "Text Field 6": {
+      "label": "Title (Mr/Mrs/Ms etc)",
+      "crm_field": null
+    },
+    "Text Field 5": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 263": {
+      "label": "Initial (if applicable)",
+      "crm_field": null
+    },
+    "Text Field 7": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 8": {
+      "label": "Date of Birth (dd/mm/yyyy)",
       "crm_field": "birthday",
       "transform": "date_ddmmyyyy"
     },
-    "Text Field 42": {
-      "label": "Nationality",
-      "crm_field": "nationality"
+    "Text Field 276": {
+      "label": "Total Salary (incl bonuses, BIK, etc)",
+      "crm_field": null
     },
-    "Text Field 47": {
+    "Text Field 30": {
       "label": "Country of Birth",
       "crm_field": "country_of_residence"
     },
+    "Text Field 31": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "Text Field 32": {
+      "label": "Nominated Retirement Age",
+      "crm_field": null
+    },
+    "Text Field 246": {
+      "label": "Transfer Contribution Amount (Adviser Section)",
+      "crm_field": null
+    },
+    "Text Field 169": {
+      "label": "Number of Plans (PRSA Standard)",
+      "crm_field": null
+    },
+    "Text Field 170": {
+      "label": "Number of Plans (PRSA Plus)",
+      "crm_field": null
+    },
+    "Text Field 171": {
+      "label": "Number of Plans (PRSA AVC)",
+      "crm_field": null
+    },
+    "__comment_page3": "=== PAGE 3: Contact Details / Employer Details ===",
+    "Text Field 45": {
+      "label": "Address",
+      "crm_field": "address_full"
+    },
+    "Text Field 44": {
+      "label": "Eircode",
+      "crm_field": "address_postcode"
+    },
+    "Text Field 42": {
+      "label": "Home Phone",
+      "crm_field": null
+    },
+    "Text Field 47": {
+      "label": "Mobile Phone",
+      "crm_field": "phone_mobile"
+    },
     "Text Field 48": {
-      "label": "Occupation",
-      "crm_field": "job_title"
+      "label": "Email Address",
+      "crm_field": "email"
     },
     "Text Field 282": {
       "label": "Employer Name",
@@ -97,107 +142,409 @@
       "crm_field": null
     },
     "Text Field 426": {
-      "label": "Nature of Business",
+      "label": "Employment Start Date",
       "crm_field": null
     },
-    "__comment_page4": "=== PAGE 4: Source of Wealth / AML / Tax Residence (same as IL PRSA Page 3) ===",
+    "__comment_page4": "=== PAGE 4: Contribution Details (Section 6) ===",
     "Text Field 283": {
-      "label": "Source of Wealth",
+      "label": "Date Contributions Are To Start",
       "crm_field": null
     },
     "Text Field 53": {
-      "label": "Source of Wealth Detail 1",
+      "label": "Employee or Self-Employed Contribution Amount",
       "crm_field": null
     },
     "Text Field 284": {
-      "label": "Source of Wealth Detail 2",
+      "label": "Employer Contribution Amount (if applicable)",
       "crm_field": null
     },
     "Text Field 286": {
-      "label": "Source of Wealth Detail 3",
+      "label": "AVC Contribution Amount (if applicable)",
       "crm_field": null
     },
     "Text Field 287": {
-      "label": "Source of Wealth Detail 4",
+      "label": "Total Contribution Amount",
       "crm_field": null
     },
     "Text Field 288": {
-      "label": "Additional AML Info",
+      "label": "Direct Debit Day of Month",
       "crm_field": null
     },
     "Text Field 292": {
-      "label": "Tax Residence Field 1",
+      "label": "Single Employee/Self-Employed Contribution Amount",
       "crm_field": null
     },
     "Text Field 291": {
-      "label": "Tax Residence Field 2",
+      "label": "Single Employer Contribution Amount",
       "crm_field": null
     },
     "Text Field 290": {
-      "label": "Tax Residence Field 3",
+      "label": "Single AVC Contribution Amount",
       "crm_field": null
     },
     "Text Field 289": {
-      "label": "Tax Residence Field 4",
+      "label": "Single Total Contribution Amount",
       "crm_field": null
     },
     "Text Field 294": {
-      "label": "TIN",
+      "label": "Transfer Value Amount",
       "crm_field": null
     },
-    "__comment_page8": "=== PAGE 8: Transfer Section (unique to brokerage form) ===",
+    "__comment_page6": "=== PAGE 6: Proposal Summary / Disclosure Declarations ===",
+    "Text Field 143": {
+      "label": "Proposal Number",
+      "crm_field": null
+    },
+    "Text Field 145": {
+      "label": "Date Contributions Are To Start (Summary)",
+      "crm_field": null
+    },
+    "Text Field 146": {
+      "label": "Customer Name (Summary)",
+      "crm_field": "full_name"
+    },
+    "Text Field 427": {
+      "label": "Financial Adviser Name (Summary)",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Text Field 264": {
+      "label": "Policy or Reference Number (Disclosure)",
+      "crm_field": null
+    },
+    "Text Field 265": {
+      "label": "Customer Name and Address (PRSA Provider Declaration)",
+      "crm_field": null
+    },
+    "Text Field 266": {
+      "label": "Signature of PRSA Provider/Intermediary",
+      "crm_field": null
+    },
+    "Text Field 267": {
+      "label": "Date of PRSA Provider/Intermediary Signature (dd/mm/yyyy)",
+      "crm_field": null
+    },
+    "__comment_page7": "=== PAGE 7: Customer Signature / AVC Declaration ===",
+    "Text Field 268": {
+      "label": "Signature of Customer",
+      "crm_field": null
+    },
+    "Text Field 269": {
+      "label": "Date of Customer Signature (dd/mm/yyyy)",
+      "crm_field": null
+    },
+    "__comment_page8": "=== PAGE 8: Transfer Declaration (Section unique to brokerage form) ===",
     "Text Field 176": {
-      "label": "Transfer From Detail 1",
+      "label": "Transferring Life Office / Company",
       "crm_field": null
     },
     "Text Field 178": {
-      "label": "Transfer From Detail 3",
+      "label": "Transferring Plan Name",
       "crm_field": null
     },
     "Text Field 179": {
-      "label": "Transfer From Detail 4",
+      "label": "Transferring Plan Number",
       "crm_field": null
     },
     "Text Field 180": {
-      "label": "Transfer From Detail 5",
+      "label": "Contact Name (Transfer)",
       "crm_field": null
     },
     "Text Field 181": {
-      "label": "Transfer From Detail 6",
+      "label": "Contact Email Address (Transfer)",
+      "crm_field": null
+    },
+    "Text Field 172": {
+      "label": "Transfer Signature of Customer",
+      "crm_field": null
+    },
+    "Text Field 173": {
+      "label": "Transfer Date of Signature (dd/mm/yyyy)",
       "crm_field": null
     },
     "Text Field 1065": {
-      "label": "Transfer Fund Grid 1",
+      "label": "Transfer Fund Name 1",
       "crm_field": null
     },
     "Text Field 1064": {
-      "label": "Transfer Fund Grid 2",
+      "label": "Transfer Fund Percentage 1",
       "crm_field": null
     },
     "Text Field 1081": {
-      "label": "Transfer Fund Grid 3",
+      "label": "Transfer Fund Name 2",
       "crm_field": null
     },
     "Text Field 1080": {
-      "label": "Transfer Fund Grid 4",
+      "label": "Transfer Fund Percentage 2",
       "crm_field": null
     },
-    "__comment_page9": "=== PAGE 9: SEPA / Bank Details (same fields as IL PRSA Page 8) ===",
+    "Text Field 1082": {
+      "label": "Transfer Fund Name 3",
+      "crm_field": null
+    },
+    "Text Field 1083": {
+      "label": "Transfer Fund Percentage 3",
+      "crm_field": null
+    },
+    "Text Field 1084": {
+      "label": "Transfer Fund Name 4",
+      "crm_field": null
+    },
+    "Text Field 1085": {
+      "label": "Transfer Fund Percentage 4",
+      "crm_field": null
+    },
+    "__comment_page9": "=== PAGE 9: Financial Adviser Declaration (Section E) / Employer Declaration (Section F) ===",
     "Text Field 428": {
-      "label": "Account Holder Name",
-      "crm_field": "full_name"
+      "label": "Evidence of Age - Document Type",
+      "crm_field": null
     },
     "Text Field 429": {
-      "label": "Bank Name",
+      "label": "Evidence of Age - Country of Origin of Document",
       "crm_field": null
     },
     "Text Field 430": {
-      "label": "IBAN",
-      "crm_field": "iban"
+      "label": "Evidence of Age - Date Document Was Issued",
+      "crm_field": null
     },
     "Text Field 431": {
-      "label": "BIC",
+      "label": "Evidence of PPS Number - Document Type",
+      "crm_field": null
+    },
+    "Check Box 229": {
+      "label": "Non-Standard PRSA - Complete Solutions PRSA Options",
+      "crm_field": null
+    },
+    "Check Box 1228": {
+      "label": "Non-Standard PRSA - Complete Solutions PRSA Plus",
+      "crm_field": null
+    },
+    "Text Field 433": {
+      "label": "Signature of Adviser",
+      "crm_field": null
+    },
+    "Text Field 435": {
+      "label": "Adviser Name (Print)",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Text Field 437": {
+      "label": "Adviser Position Held",
+      "crm_field": null
+    },
+    "Text Field 438": {
+      "label": "Adviser Name of Regulated Entity",
+      "crm_field": null
+    },
+    "Text Field 439": {
+      "label": "Adviser Date of Declaration Completion",
+      "crm_field": null
+    },
+    "Text Field 440": {
+      "label": "Employer Name (Employer Declaration)",
+      "crm_field": null
+    },
+    "Text Field 442": {
+      "label": "Employer Contact Number",
+      "crm_field": null
+    },
+    "Text Field 444": {
+      "label": "Employer Email Address",
+      "crm_field": null
+    },
+    "Text Field 445": {
+      "label": "Employer Preferred Direct Debit Date",
+      "crm_field": null
+    },
+    "Text Field 447": {
+      "label": "Payroll Contact Name",
+      "crm_field": null
+    },
+    "Text Field 448": {
+      "label": "Payroll Contact Phone",
+      "crm_field": null
+    },
+    "Text Field 449": {
+      "label": "Payroll Contact Email Address",
+      "crm_field": null
+    },
+    "Text Field 471": {
+      "label": "Payroll Contact Address",
+      "crm_field": null
+    },
+    "Text Field 472": {
+      "label": "Employer Name (The Employer) Field 2",
+      "crm_field": null
+    },
+    "__comment_page10": "=== PAGE 10: Employer Declaration Signatures ===",
+    "Text Field 473": {
+      "label": "Employer Signature",
+      "crm_field": null
+    },
+    "Text Field 474": {
+      "label": "Employer Signatory Name (Print)",
+      "crm_field": null
+    },
+    "Text Field 475": {
+      "label": "Employer Signature Date (dd/mm/yyyy)",
+      "crm_field": null
+    },
+    "__comment_page11": "=== PAGE 11: Additional Voluntary Contributions (AVCs) - Section G ===",
+    "Text Field 333": {
+      "label": "AVC - Name of Employer",
+      "crm_field": null
+    },
+    "Text Field 334": {
+      "label": "AVC - Name of Pension Scheme",
+      "crm_field": null
+    },
+    "Text Field 335": {
+      "label": "AVC - Scheme Normal Retirement Age",
+      "crm_field": null
+    },
+    "Text Field 336": {
+      "label": "AVC - When Did You Start Current Employment",
+      "crm_field": null
+    },
+    "Text Field 1058": {
+      "label": "AVC Detail Field",
+      "crm_field": null
+    },
+    "__comment_page15": "=== PAGE 15: Your Irish Life Plan Details / SEPA Direct Debit Mandate ===",
+    "Text Field 230": {
+      "label": "Plan Number 1",
+      "crm_field": null
+    },
+    "Text Field 229": {
+      "label": "Plan Number 2",
+      "crm_field": null
+    },
+    "Text Field 227": {
+      "label": "Plan Number 3 (if more than 3 plans)",
+      "crm_field": null
+    },
+    "Text Field 228": {
+      "label": "Name of Plan Owner(s)",
+      "crm_field": "full_name"
+    },
+    "Text Field 425": {
+      "label": "Direct Debit Collection Date of Month (1st to 28th only)",
+      "crm_field": null
+    },
+    "Check Box 75": {
+      "label": "UMR (For Office Use Only)",
+      "crm_field": null
+    },
+    "Text Field 231": {
+      "label": "Address of Plan Owner(s)",
+      "crm_field": null
+    },
+    "Text Field 232": {
+      "label": "Direct Debit Mandate - Address of Account Holder(s)",
+      "crm_field": null
+    },
+    "Text Field 235": {
+      "label": "Direct Debit Mandate - BIC",
       "crm_field": "bic"
+    },
+    "Text Field 236": {
+      "label": "Direct Debit Mandate - IBAN",
+      "crm_field": "iban"
+    },
+    "Text Field 237": {
+      "label": "Direct Debit Mandate - Signature(s)",
+      "crm_field": null
+    },
+    "Text Field 238": {
+      "label": "Direct Debit Mandate - Date of Signing",
+      "crm_field": null
+    },
+    "Text Field 239": {
+      "label": "Direct Debit Mandate - BIC (duplicate)",
+      "crm_field": null
+    },
+    "Text Field 240": {
+      "label": "Direct Debit Mandate - IBAN (duplicate)",
+      "crm_field": null
+    },
+    "Text Field 241": {
+      "label": "UMR (For Office Use Only)",
+      "crm_field": null
+    },
+    "__comment_page16": "=== PAGE 16: Trustee Declaration (Contributor Details / Trustee Declaration) ===",
+    "Text Field 203": {
+      "label": "Contributor Name",
+      "crm_field": "full_name"
+    },
+    "Text Field 204": {
+      "label": "Contributor Date of Birth",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "Text Field 209": {
+      "label": "Trustee Declaration - Name of Pension Scheme",
+      "crm_field": null
+    },
+    "Text Field 210": {
+      "label": "Trustee Declaration - Name & Address of Trustees Line 1",
+      "crm_field": null
+    },
+    "Text Field 211": {
+      "label": "Trustee Declaration - Name & Address of Trustees Line 2",
+      "crm_field": null
+    },
+    "Text Field 212": {
+      "label": "Trustee Declaration - Name & Address of Insurer Line 1",
+      "crm_field": null
+    },
+    "Text Field 213": {
+      "label": "Trustee Declaration - Name & Address of Insurer Line 2",
+      "crm_field": null
+    },
+    "Text Field 214": {
+      "label": "Trustee Declaration - Name & Address of Insurer Line 3",
+      "crm_field": null
+    },
+    "Text Field 215": {
+      "label": "Trustee Declaration - Name & Address of Insurer Line 4",
+      "crm_field": null
+    },
+    "Check Box 237": {
+      "label": "Transfer From - Defined Contribution Arrangement",
+      "crm_field": null
+    },
+    "Check Box 238": {
+      "label": "Transfer From - Defined Benefit Arrangement",
+      "crm_field": null
+    },
+    "__comment_page17": "=== PAGE 17: Trustee Declaration continued (Signatures) ===",
+    "Text Field 205": {
+      "label": "Trustee Signed By (Name in Block Letters)",
+      "crm_field": null
+    },
+    "Text Field 102": {
+      "label": "Second Trustee (Name in Block Letters)",
+      "crm_field": null
+    },
+    "Text Field 206": {
+      "label": "Trustee Signature (Trustee of the main scheme)",
+      "crm_field": null
+    },
+    "Text Field 207": {
+      "label": "Second Trustee Signature (Trustee of the main scheme)",
+      "crm_field": null
+    },
+    "Text Field 208": {
+      "label": "Trustee Declaration Date (dd/mm/yyyy)",
+      "crm_field": null
+    },
+    "Check Box 224": {
+      "label": "Trustee Question - Yes",
+      "crm_field": null
+    },
+    "Check Box 225": {
+      "label": "Trustee Question - No",
+      "crm_field": null
     }
   },
   "fieldmap_file": "fieldmap_irish_life_prsa_brokerage.pdf"

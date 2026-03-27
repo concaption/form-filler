@@ -7,51 +7,51 @@
   "field_map": {
     "__comment_page1": "=== PAGE 1: Product Selection ===",
     "Check Box 1": {
-      "label": "Product: PRSA",
+      "label": "Product: Personal Income Protection Cover",
       "crm_field": null
     },
     "Check Box 6": {
-      "label": "Product: Option 2",
+      "label": "Product: Convertible Term Assurance & Specified Illness",
       "crm_field": null
     },
     "Check Box 2": {
-      "label": "Product: Option 3",
+      "label": "Product: Wage Protector Cover",
       "crm_field": null
     },
     "Check Box 869": {
-      "label": "Product: Option 4",
+      "label": "Product: Decreasing Term Family Protection",
       "crm_field": null
     },
     "Check Box 3": {
-      "label": "Product: Option 5",
+      "label": "Product: Executive Income Protection Cover",
       "crm_field": null
     },
     "Check Box 947": {
-      "label": "Product: Option 6",
+      "label": "Product: Convertible Decreasing Term Family Protection",
       "crm_field": null
     },
     "Check Box 945": {
-      "label": "Product: Option 7",
+      "label": "Product: Mortgage Protection Cover",
       "crm_field": null
     },
     "Check Box 7": {
-      "label": "Product: Option 8",
+      "label": "Product: Personal Pension Term Assurance",
       "crm_field": null
     },
     "Check Box 946": {
-      "label": "Product: Option 9",
+      "label": "Product: Convertible Mortgage Protection Cover",
       "crm_field": null
     },
     "Check Box 8": {
-      "label": "Product: Option 10",
+      "label": "Product: Convertible Personal Pension Term Assurance",
       "crm_field": null
     },
     "Check Box 5": {
-      "label": "Product: Option 11",
+      "label": "Product: Term Assurance & Specified Illness",
       "crm_field": null
     },
     "Text Field 520": {
-      "label": "Product Details",
+      "label": "Agency Number",
       "crm_field": null
     },
     "__comment_page2": "=== PAGE 2: Part 1 - Personal Details for Insured Life/Lives ===",

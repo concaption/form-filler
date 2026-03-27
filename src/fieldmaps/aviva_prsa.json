@@ -3,7 +3,7 @@
   "pdf_file": "aviva_prsa.pdf",
   "provider": "Aviva",
   "product": "PRSA",
-  "notes": "Field names are generic (Text Field NNN, Check Box NNN). Mapped by Y/X position on each page. Page 1 = checklist + broker details, Page 2 = contributor details (Section 3) + evidence (Section 4) + employer (Section 5), Page 3 = eligibility details (Section 6), Page 4 = contributions (Section 7) + transfers (Section 8), Page 5 = transfers cont. + default investment (Section 9), Page 6 = fund selection (Section 10), Pages 8-9 = declarations (Section 12).",
+  "notes": "Field names are generic (Text Field NNN, Check Box NNN). Mapped by Y/X position on each page. Page 1 = checklist + broker details, Page 2 = contributor details (Section 3) + evidence (Section 4) + employer (Section 5), Page 3 = eligibility details (Section 6), Page 4 = contributions (Section 7) + transfers (Section 8), Page 5 = transfers cont. + default investment (Section 9), Page 6 = fund selection (Section 10), Pages 8-9 = declarations (Section 12), Page 10 = non-standard PRSA declaration (Section 12d), Page 11 = employer declaration (Section 12e), Page 12 = commission basis (Section 11), Page 13 = SEPA direct debit mandate, Pages 14-16 = AVC PRSA information sheet, Page 18 = final declaration.",
   "field_map": {
     "__comment_page1": "=== PAGE 1: Checklist + Section 2: Financial Broker Details ===",
     "Check Box 105": {
@@ -1212,7 +1212,7 @@
     "Text Field 121": {
       "label": "12(d) Financial Broker Name",
       "crm_field": null,
-      "adviser_field": "company"
+      "adviser_field": "name"
     },
     "Text Field 122": {
       "label": "12(d) Position Held",
@@ -1251,235 +1251,235 @@
       "label": "12(e) Employer Declaration Date Year",
       "crm_field": null
     },
-    "__comment_page12": "=== PAGE 12: Direct Debit Mandate ===",
-    "__comment_page12_note": "52 fields for DD mandate details - bank account holder info, IBAN rows, creditor info, etc. All crm_field: null.",
+    "__comment_page12": "=== PAGE 12: Section 11 - Commission Basis ===",
+    "__comment_page12_note": "52 fields for commission tables (Regular/Single/Transfer) with 3 rows each, plus 4 Special Instructions lines. All crm_field: null.",
     "Text Field 40105": {
-      "label": "DD IBAN Row 1 Col 1",
+      "label": "Regular Commission Row 1: Product Option",
       "crm_field": null
     },
     "Text Field 40106": {
-      "label": "DD IBAN Row 1 Col 2",
+      "label": "Regular Commission Row 1: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 40107": {
-      "label": "DD IBAN Row 1 Col 3",
+      "label": "Regular Commission Row 1: Trail Commission",
       "crm_field": null
     },
     "Text Field 401014": {
-      "label": "DD IBAN Row 1 Col 4",
+      "label": "Regular Commission Row 1: Renewal Commission",
       "crm_field": null
     },
     "Text Field 401017": {
-      "label": "DD IBAN Row 1 Col 5",
+      "label": "Regular Commission Row 1: Select",
       "crm_field": null
     },
     "Text Field 401020": {
-      "label": "DD IBAN Row 1 Col 6",
+      "label": "Regular Commission Row 1: Office Use Only",
       "crm_field": null
     },
     "Text Field 40108": {
-      "label": "DD IBAN Row 2 Col 1",
+      "label": "Regular Commission Row 2: Product Option",
       "crm_field": null
     },
     "Text Field 401010": {
-      "label": "DD IBAN Row 2 Col 2",
+      "label": "Regular Commission Row 2: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401012": {
-      "label": "DD IBAN Row 2 Col 3",
+      "label": "Regular Commission Row 2: Trail Commission",
       "crm_field": null
     },
     "Text Field 401015": {
-      "label": "DD IBAN Row 2 Col 4",
+      "label": "Regular Commission Row 2: Renewal Commission",
       "crm_field": null
     },
     "Text Field 401018": {
-      "label": "DD IBAN Row 2 Col 5",
+      "label": "Regular Commission Row 2: Select",
       "crm_field": null
     },
     "Text Field 401021": {
-      "label": "DD IBAN Row 2 Col 6",
+      "label": "Regular Commission Row 2: Office Use Only",
       "crm_field": null
     },
     "Text Field 40109": {
-      "label": "DD IBAN Row 3 Col 1",
+      "label": "Regular Commission Row 3: Product Option",
       "crm_field": null
     },
     "Text Field 401011": {
-      "label": "DD IBAN Row 3 Col 2",
+      "label": "Regular Commission Row 3: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401013": {
-      "label": "DD IBAN Row 3 Col 3",
+      "label": "Regular Commission Row 3: Trail Commission",
       "crm_field": null
     },
     "Text Field 401016": {
-      "label": "DD IBAN Row 3 Col 4",
+      "label": "Regular Commission Row 3: Renewal Commission",
       "crm_field": null
     },
     "Text Field 401019": {
-      "label": "DD IBAN Row 3 Col 5",
+      "label": "Regular Commission Row 3: Select",
       "crm_field": null
     },
     "Text Field 401022": {
-      "label": "DD IBAN Row 3 Col 6",
+      "label": "Regular Commission Row 3: Office Use Only",
       "crm_field": null
     },
     "Text Field 401044": {
-      "label": "DD BIC Row 1 Col 1",
+      "label": "Single Commission Row 1: Product Option",
       "crm_field": null
     },
     "Text Field 401050": {
-      "label": "DD BIC Row 1 Col 2",
+      "label": "Single Commission Row 1: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401056": {
-      "label": "DD BIC Row 1 Col 3",
+      "label": "Single Commission Row 1: Trail Commission",
       "crm_field": null
     },
     "Text Field 401059": {
-      "label": "DD BIC Row 1 Col 4",
+      "label": "Single Commission Row 1: Select",
       "crm_field": null
     },
     "Text Field 401060": {
-      "label": "DD BIC Row 1 Col 5",
+      "label": "Single Commission Row 1: Office Use Only",
       "crm_field": null
     },
     "Text Field 401061": {
-      "label": "DD BIC Row 2 Col 1",
+      "label": "Single Commission Row 2: Product Option",
       "crm_field": null
     },
     "Text Field 401062": {
-      "label": "DD BIC Row 2 Col 2",
+      "label": "Single Commission Row 2: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401063": {
-      "label": "DD BIC Row 2 Col 3",
+      "label": "Single Commission Row 2: Trail Commission",
       "crm_field": null
     },
     "Text Field 401064": {
-      "label": "DD BIC Row 2 Col 4",
+      "label": "Single Commission Row 2: Select",
       "crm_field": null
     },
     "Text Field 401065": {
-      "label": "DD BIC Row 2 Col 5",
+      "label": "Single Commission Row 2: Office Use Only",
       "crm_field": null
     },
     "Text Field 401066": {
-      "label": "DD BIC Row 3 Col 1",
+      "label": "Single Commission Row 3: Product Option",
       "crm_field": null
     },
     "Text Field 401067": {
-      "label": "DD BIC Row 3 Col 2",
+      "label": "Single Commission Row 3: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401068": {
-      "label": "DD BIC Row 3 Col 3",
+      "label": "Single Commission Row 3: Trail Commission",
       "crm_field": null
     },
     "Text Field 401069": {
-      "label": "DD BIC Row 3 Col 4",
+      "label": "Single Commission Row 3: Select",
       "crm_field": null
     },
     "Text Field 401070": {
-      "label": "DD BIC Row 3 Col 5",
+      "label": "Single Commission Row 3: Office Use Only",
       "crm_field": null
     },
     "Text Field 401041": {
-      "label": "DD Creditor Row 1 Col 1",
+      "label": "Transfer Commission Row 1: Product Option",
       "crm_field": null
     },
     "Text Field 401042": {
-      "label": "DD Creditor Row 1 Col 2",
+      "label": "Transfer Commission Row 1: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401043": {
-      "label": "DD Creditor Row 1 Col 3",
+      "label": "Transfer Commission Row 1: Trail Commission",
       "crm_field": null
     },
     "Text Field 401045": {
-      "label": "DD Creditor Row 1 Col 4",
+      "label": "Transfer Commission Row 1: Select",
       "crm_field": null
     },
     "Text Field 401046": {
-      "label": "DD Creditor Row 1 Col 5",
+      "label": "Transfer Commission Row 1: Office Use Only",
       "crm_field": null
     },
     "Text Field 401047": {
-      "label": "DD Creditor Row 2 Col 1",
+      "label": "Transfer Commission Row 2: Product Option",
       "crm_field": null
     },
     "Text Field 401048": {
-      "label": "DD Creditor Row 2 Col 2",
+      "label": "Transfer Commission Row 2: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401049": {
-      "label": "DD Creditor Row 2 Col 3",
+      "label": "Transfer Commission Row 2: Trail Commission",
       "crm_field": null
     },
     "Text Field 401051": {
-      "label": "DD Creditor Row 2 Col 4",
+      "label": "Transfer Commission Row 2: Select",
       "crm_field": null
     },
     "Text Field 401052": {
-      "label": "DD Creditor Row 2 Col 5",
+      "label": "Transfer Commission Row 2: Office Use Only",
       "crm_field": null
     },
     "Text Field 401053": {
-      "label": "DD Creditor Row 3 Col 1",
+      "label": "Transfer Commission Row 3: Product Option",
       "crm_field": null
     },
     "Text Field 401054": {
-      "label": "DD Creditor Row 3 Col 2",
+      "label": "Transfer Commission Row 3: Standard Fund Charge",
       "crm_field": null
     },
     "Text Field 401055": {
-      "label": "DD Creditor Row 3 Col 3",
+      "label": "Transfer Commission Row 3: Trail Commission",
       "crm_field": null
     },
     "Text Field 401057": {
-      "label": "DD Creditor Row 3 Col 4",
+      "label": "Transfer Commission Row 3: Select",
       "crm_field": null
     },
     "Text Field 401058": {
-      "label": "DD Creditor Row 3 Col 5",
+      "label": "Transfer Commission Row 3: Office Use Only",
       "crm_field": null
     },
     "Text Field 442": {
-      "label": "DD Additional Info Line 1",
+      "label": "Special Instructions Line 1",
       "crm_field": null
     },
     "Text Field 441": {
-      "label": "DD Additional Info Line 2",
+      "label": "Special Instructions Line 2",
       "crm_field": null
     },
     "Text Field 440": {
-      "label": "DD Additional Info Line 3",
+      "label": "Special Instructions Line 3",
       "crm_field": null
     },
     "Text Field 439": {
-      "label": "DD Additional Info Line 4",
+      "label": "Special Instructions Line 4",
       "crm_field": null
     },
-    "__comment_page13": "=== PAGE 13: Direct Debit Mandate (continued) ===",
+    "__comment_page13": "=== PAGE 13: SEPA Direct Debit Mandate ===",
     "Text Field 152": {
-      "label": "DD Mandate Reference",
+      "label": "DD Application No.",
       "crm_field": null
     },
     "Text Field 151": {
-      "label": "DD Name of Account Holder",
-      "crm_field": "full_name"
-    },
-    "Text Field 150": {
-      "label": "DD Address of Account Holder",
+      "label": "DD Mandate Reference (UMR)",
       "crm_field": null
     },
+    "Text Field 150": {
+      "label": "DD Name of Account Holder(s)",
+      "crm_field": "full_name"
+    },
     "Text Field 149": {
-      "label": "DD Address Line 2",
+      "label": "DD Address of Account Holder Line 1",
       "crm_field": null
     },
     "Text Field 148": {
-      "label": "DD Address Line 3",
+      "label": "DD Address of Account Holder Line 2",
       "crm_field": null
     },
     "Text Field 147": {
@@ -1495,361 +1495,358 @@
       "crm_field": null
     },
     "Text Field 144": {
-      "label": "DD Place of Signing",
+      "label": "DD Location (Place of Signing)",
       "crm_field": null
     },
-    "__comment_page14": "=== PAGE 14: SEPA Direct Debit Details ===",
+    "__comment_page14": "=== PAGE 14: AVC PRSA Information Sheet - Section 1: Your Details + Section 2: Private Sector Member Details + Section A: Defined Contribution Plan ===",
     "Text Field 160": {
-      "label": "SEPA Name of Debtor",
-      "crm_field": "full_name"
+      "label": "AVC Info: First Name",
+      "crm_field": null
     },
     "Text Field 163": {
-      "label": "SEPA Name of Creditor",
+      "label": "AVC Info: Surname",
       "crm_field": null
     },
     "Text Field 174": {
-      "label": "SEPA Debtor DOB Day",
-      "crm_field": "birthday",
-      "transform": "day"
+      "label": "AVC Info: Date of Birth Day",
+      "crm_field": null
     },
     "Text Field 173": {
-      "label": "SEPA Debtor DOB Month",
-      "crm_field": "birthday",
-      "transform": "month"
+      "label": "AVC Info: Date of Birth Month",
+      "crm_field": null
     },
     "Text Field 172": {
-      "label": "SEPA Debtor DOB Year",
-      "crm_field": "birthday",
-      "transform": "year"
+      "label": "AVC Info: Date of Birth Year",
+      "crm_field": null
     },
     "Text Field 161": {
-      "label": "SEPA Creditor Identifier",
+      "label": "AVC Info: Date of Entry into Current Employment",
       "crm_field": null
     },
     "Text Field 162": {
-      "label": "SEPA Mandate Reference Number",
+      "label": "AVC Info: Normal Retirement Age Under Current Pension Scheme",
       "crm_field": null
     },
     "Text Field 167": {
-      "label": "SEPA Account Name",
+      "label": "AVC Info: Annual Salary / Earnings",
       "crm_field": null
     },
     "Check Box 76": {
-      "label": "SEPA Account Type: Current",
+      "label": "AVC Info: 20% Director: Yes",
       "crm_field": null
     },
     "Check Box 75": {
-      "label": "SEPA Account Type: Savings",
+      "label": "AVC Info: 20% Director: No",
       "crm_field": null
     },
     "Text Field 153": {
-      "label": "SEPA Bank Details Row 1",
+      "label": "AVC Info: Name of Occupational Pension Scheme",
       "crm_field": null
     },
     "Text Field 154": {
-      "label": "SEPA Bank Details Row 2",
+      "label": "AVC Info: Name of Trustee / Administrator",
       "crm_field": null
     },
     "Text Field 155": {
-      "label": "SEPA Bank Details Row 3",
+      "label": "AVC Info: Address of Trustees / Administrator Line 1",
       "crm_field": null
     },
     "Text Field 156": {
-      "label": "SEPA Bank Details Row 4",
+      "label": "AVC Info: Address of Trustees / Administrator Line 2",
       "crm_field": null
     },
     "Text Field 157": {
-      "label": "SEPA Bank Details Row 5",
+      "label": "AVC Info: Definition of Pensionable Salary Line 1",
       "crm_field": null
     },
     "Text Field 158": {
-      "label": "SEPA Bank Details Row 6",
+      "label": "AVC Info: Definition of Pensionable Salary Line 2",
       "crm_field": null
     },
     "Text Field 159": {
-      "label": "SEPA Bank Details Row 7",
+      "label": "AVC Info: Additional Info (Private Sector)",
       "crm_field": null
     },
     "Check Box 78": {
-      "label": "SEPA Refund: Yes",
+      "label": "AVC Info: Pension Benefit Statement",
       "crm_field": null
     },
     "Check Box 77": {
-      "label": "SEPA Refund: No",
+      "label": "AVC Info: Pension Booklet",
       "crm_field": null
     },
     "Text Field 168": {
-      "label": "SEPA IBAN Col 1 Row 1",
+      "label": "AVC Info: Employer contribution rate (% of Pensionable Salary)",
       "crm_field": null
     },
     "Text Field 164": {
-      "label": "SEPA IBAN Col 2 Row 1",
+      "label": "AVC Info: Employer contribution rate (EUR p.a.)",
       "crm_field": null
     },
     "Text Field 169": {
-      "label": "SEPA IBAN Col 1 Row 2",
+      "label": "AVC Info: Employee contribution rate (% of Pensionable Salary)",
       "crm_field": null
     },
     "Text Field 165": {
-      "label": "SEPA IBAN Col 2 Row 2",
+      "label": "AVC Info: Employee contribution rate (EUR p.a.)",
       "crm_field": null
     },
     "Text Field 170": {
-      "label": "SEPA IBAN Col 1 Row 3",
+      "label": "AVC Info: AVC rate currently being made (% of Pensionable Salary)",
       "crm_field": null
     },
     "Text Field 166": {
-      "label": "SEPA IBAN Col 2 Row 3",
+      "label": "AVC Info: AVC rate currently being made (EUR p.a.)",
       "crm_field": null
     },
     "Text Field 171": {
-      "label": "SEPA BIC",
+      "label": "AVC Info: Current Fund Value",
       "crm_field": null
     },
     "Text Field 224": {
-      "label": "SEPA Signature Date Day",
+      "label": "AVC Info: Date of Fund Valuation Day",
       "crm_field": null
     },
     "Text Field 223": {
-      "label": "SEPA Signature Date Month",
+      "label": "AVC Info: Date of Fund Valuation Month",
       "crm_field": null
     },
     "Text Field 222": {
-      "label": "SEPA Signature Date Year",
+      "label": "AVC Info: Date of Fund Valuation Year",
       "crm_field": null
     },
-    "__comment_page15": "=== PAGE 15: Additional SEPA Details ===",
+    "__comment_page15": "=== PAGE 15: AVC PRSA Information Sheet - Section 2 cont'd (B. Defined Benefit Plan) + Section 3: Public Sector Member Details ===",
     "Text Field 175": {
-      "label": "SEPA Additional Row 1",
+      "label": "AVC Info: DB Pension as % of Final Pensionable Salary Line 1",
       "crm_field": null
     },
     "Text Field 178": {
-      "label": "SEPA Additional Row 2",
+      "label": "AVC Info: DB Pension as % of Final Pensionable Salary Line 2",
       "crm_field": null
     },
     "Text Field 179": {
-      "label": "SEPA Additional Row 3",
+      "label": "AVC Info: DB Pension as % of Final Pensionable Salary Line 3",
       "crm_field": null
     },
     "Text Field 180": {
-      "label": "SEPA Additional Row 4",
+      "label": "AVC Info: DB No. of Pensionable Service Line 1",
       "crm_field": null
     },
     "Text Field 181": {
-      "label": "SEPA Additional Row 5",
+      "label": "AVC Info: DB No. of Pensionable Service Line 2",
       "crm_field": null
     },
     "Text Field 182": {
-      "label": "SEPA Additional Row 6",
+      "label": "AVC Info: DB No. of Pensionable Service Line 3",
       "crm_field": null
     },
     "Text Field 183": {
-      "label": "SEPA Additional Row 7",
+      "label": "AVC Info: DB Normal Pension Benefit",
       "crm_field": null
     },
     "Text Field 184": {
-      "label": "SEPA Additional Row 8",
+      "label": "AVC Info: DB % of Final Salary per year of service Line 1",
       "crm_field": null
     },
     "Text Field 185": {
-      "label": "SEPA Additional Row 9",
+      "label": "AVC Info: DB % of Final Salary per year of service Line 2",
       "crm_field": null
     },
     "Text Field 188": {
-      "label": "SEPA Payment Amount 1",
+      "label": "AVC Info: DB Pension from defined benefit scheme (EUR p.a.)",
       "crm_field": null
     },
     "Text Field 189": {
-      "label": "SEPA Payment Amount 2",
+      "label": "AVC Info: DB Lump sum benefit from defined benefit scheme",
       "crm_field": null
     },
     "Text Field 186": {
-      "label": "SEPA Payment Code 1",
+      "label": "AVC Info: DB Death-in-Retirement pension %",
       "crm_field": null
     },
     "Text Field 187": {
-      "label": "SEPA Payment Code 2",
+      "label": "AVC Info: DB Rate of Pension Increases %",
       "crm_field": null
     },
     "Text Field 176": {
-      "label": "SEPA Debtor Address 1",
+      "label": "AVC Info: Public Sector - Government Body / Department",
       "crm_field": null
     },
     "Text Field 177": {
-      "label": "SEPA Debtor Address 2",
+      "label": "AVC Info: Public Sector - Additional Details",
       "crm_field": null
     },
     "Text Field 190": {
-      "label": "SEPA Direct Debit Amount 1",
+      "label": "AVC Info: Public Sector (a) Normal contribution (% of Salary)",
       "crm_field": null
     },
     "Text Field 195": {
-      "label": "SEPA Direct Debit Ref 1",
+      "label": "AVC Info: Public Sector (a) Normal contribution (EUR)",
       "crm_field": null
     },
     "Check Box 88": {
-      "label": "SEPA DD Frequency 1: Monthly",
+      "label": "AVC Info: Public Sector (a) Frequency: Monthly",
       "crm_field": null
     },
     "Check Box 87": {
-      "label": "SEPA DD Frequency 1: Quarterly",
+      "label": "AVC Info: Public Sector (a) Frequency: Quarterly",
       "crm_field": null
     },
     "Check Box 86": {
-      "label": "SEPA DD Frequency 1: Half-Yearly",
+      "label": "AVC Info: Public Sector (a) Frequency: Half-Yearly",
       "crm_field": null
     },
     "Check Box 85": {
-      "label": "SEPA DD Frequency 1: Yearly",
+      "label": "AVC Info: Public Sector (a) Frequency: Yearly",
       "crm_field": null
     },
     "Text Field 191": {
-      "label": "SEPA Direct Debit Amount 2",
+      "label": "AVC Info: Public Sector (b) AVC/Added Years (% of Salary)",
       "crm_field": null
     },
     "Text Field 194": {
-      "label": "SEPA Direct Debit Ref 2",
+      "label": "AVC Info: Public Sector (b) AVC/Added Years (EUR)",
       "crm_field": null
     },
     "Check Box 84": {
-      "label": "SEPA DD Frequency 2: Monthly",
+      "label": "AVC Info: Public Sector (b) Frequency: Monthly",
       "crm_field": null
     },
     "Check Box 83": {
-      "label": "SEPA DD Frequency 2: Quarterly",
+      "label": "AVC Info: Public Sector (b) Frequency: Quarterly",
       "crm_field": null
     },
     "Check Box 82": {
-      "label": "SEPA DD Frequency 2: Half-Yearly",
+      "label": "AVC Info: Public Sector (b) Frequency: Half-Yearly",
       "crm_field": null
     },
     "Check Box 81": {
-      "label": "SEPA DD Frequency 2: Yearly",
+      "label": "AVC Info: Public Sector (b) Frequency: Yearly",
       "crm_field": null
     },
     "Text Field 193": {
-      "label": "SEPA Total Direct Debit Amount",
+      "label": "AVC Info: Public Sector - Number of years purchased",
       "crm_field": null
     },
-    "__comment_page16": "=== PAGE 16: AVC PRSA Information Sheet ===",
+    "__comment_page16": "=== PAGE 16: AVC PRSA Information Sheet - Section 4: Retained Benefits - Previous Pension Benefits ===",
     "Check Box 169": {
-      "label": "AVC Info: Option A",
+      "label": "AVC Info: Retained Benefits: Yes",
       "crm_field": null
     },
     "Check Box 168": {
-      "label": "AVC Info: Option B",
+      "label": "AVC Info: Retained Benefits: No",
       "crm_field": null
     },
     "Text Field 281": {
-      "label": "AVC Table Col 1 Row 1",
+      "label": "AVC Info: Pension 1 - Type of Pensions",
       "crm_field": null
     },
     "Text Field 287": {
-      "label": "AVC Table Col 2 Row 1",
+      "label": "AVC Info: Pension 2 - Type of Pensions",
       "crm_field": null
     },
     "Text Field 293": {
-      "label": "AVC Table Col 3 Row 1",
+      "label": "AVC Info: Pension 3 - Type of Pensions",
       "crm_field": null
     },
     "Text Field 282": {
-      "label": "AVC Table Col 1 Row 2",
+      "label": "AVC Info: Pension 1 - Who administers the pension",
       "crm_field": null
     },
     "Text Field 288": {
-      "label": "AVC Table Col 2 Row 2",
+      "label": "AVC Info: Pension 2 - Who administers the pension",
       "crm_field": null
     },
     "Text Field 294": {
-      "label": "AVC Table Col 3 Row 2",
+      "label": "AVC Info: Pension 3 - Who administers the pension",
       "crm_field": null
     },
     "Text Field 283": {
-      "label": "AVC Table Col 1 Row 3",
+      "label": "AVC Info: Pension 1 - Name of employer / self-employed",
       "crm_field": null
     },
     "Text Field 289": {
-      "label": "AVC Table Col 2 Row 3",
+      "label": "AVC Info: Pension 2 - Name of employer / self-employed",
       "crm_field": null
     },
     "Text Field 295": {
-      "label": "AVC Table Col 3 Row 3",
+      "label": "AVC Info: Pension 3 - Name of employer / self-employed",
       "crm_field": null
     },
     "Text Field 284": {
-      "label": "AVC Table Col 1 Row 4",
+      "label": "AVC Info: Pension 1 - Current value or deferred benefit",
       "crm_field": null
     },
     "Text Field 290": {
-      "label": "AVC Table Col 2 Row 4",
+      "label": "AVC Info: Pension 2 - Current value or deferred benefit",
       "crm_field": null
     },
     "Text Field 296": {
-      "label": "AVC Table Col 3 Row 4",
+      "label": "AVC Info: Pension 3 - Current value or deferred benefit",
       "crm_field": null
     },
     "Text Field 285": {
-      "label": "AVC Table Col 1 Row 5",
+      "label": "AVC Info: Pension 1 - Normal Retirement Age",
       "crm_field": null
     },
     "Text Field 291": {
-      "label": "AVC Table Col 2 Row 5",
+      "label": "AVC Info: Pension 2 - Normal Retirement Age",
       "crm_field": null
     },
     "Text Field 297": {
-      "label": "AVC Table Col 3 Row 5",
+      "label": "AVC Info: Pension 3 - Normal Retirement Age",
       "crm_field": null
     },
     "Text Field 286": {
-      "label": "AVC Table Col 1 Row 6",
+      "label": "AVC Info: Pension 1 - Currently contributing to scheme",
       "crm_field": null
     },
     "Text Field 292": {
-      "label": "AVC Table Col 2 Row 6",
+      "label": "AVC Info: Pension 2 - Currently contributing to scheme",
       "crm_field": null
     },
     "Text Field 298": {
-      "label": "AVC Table Col 3 Row 6",
+      "label": "AVC Info: Pension 3 - Currently contributing to scheme",
       "crm_field": null
     },
     "Check Box 167": {
-      "label": "AVC Confirmation: Option A",
+      "label": "AVC Info: Received benefits from other pension: Yes",
       "crm_field": null
     },
     "Check Box 166": {
-      "label": "AVC Confirmation: Option B",
+      "label": "AVC Info: Received benefits from other pension: No",
       "crm_field": null
     },
     "Text Field 305": {
-      "label": "AVC Date Day",
+      "label": "AVC Info: Date benefits were paid Day",
       "crm_field": null
     },
     "Text Field 304": {
-      "label": "AVC Date Month",
+      "label": "AVC Info: Date benefits were paid Month",
       "crm_field": null
     },
     "Text Field 303": {
-      "label": "AVC Date Year",
+      "label": "AVC Info: Date benefits were paid Year",
       "crm_field": null
     },
     "Text Field 302": {
-      "label": "AVC Employer Signature Name",
+      "label": "AVC Info: DC/PRSA Total value of pension fund at date of payment",
       "crm_field": null
     },
     "Text Field 299": {
-      "label": "AVC Detail Line 1",
+      "label": "AVC Info: DB/Public Sector - Gross retirement lump sum",
       "crm_field": null
     },
     "Text Field 300": {
-      "label": "AVC Detail Line 2",
+      "label": "AVC Info: DB/Public Sector - Annual pension income",
       "crm_field": null
     },
     "Text Field 317": {
-      "label": "AVC Detail Line 3",
+      "label": "AVC Info: DB/Public Sector - Pension commencement date",
       "crm_field": null
     },
     "Text Field 301": {
-      "label": "AVC Detail Line 4",
+      "label": "AVC Info: DB/Public Sector - Tax Free Lump sum",
       "crm_field": null
     },
     "__comment_page18": "=== PAGE 18: Final Declaration Date ===",

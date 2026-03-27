@@ -3,7 +3,7 @@
   "pdf_file": "zurich_protection.pdf",
   "provider": "Zurich",
   "product": "Protection",
-  "notes": "Field names are descriptive with tooltips. Pages 1-2 = life insured + policy owner details, Pages 3-4 = benefits/cover amounts, Page 5 = bank/SEPA, Page 10 = SEPA mandate. 217 fields total, 10 pages.",
+  "notes": "Field names are descriptive with tooltips. Pages 1-2 = life insured + policy owner details, Pages 3-4 = benefits/cover amounts, Page 5 = bank/SEPA + PEP section, Page 6 = marketing preferences/declarations, Page 7 = replacement policy, Page 10 = SEPA mandate. 217 fields total, 10 pages.",
   "field_map": {
     "__comment_page1_broker": "=== PAGE 1: Broker Details ===",
     "Intermediary Name 2": {
@@ -17,16 +17,16 @@
     },
     "__comment_page1_first_life": "=== PAGE 1: First Life Insured ===",
     "Check Box 49": {
-      "label": "Title: Other",
+      "label": "First Life Insured Title: Mx",
       "crm_field": null
     },
     "Mrs 4": {
-      "label": "Title: Mrs",
+      "label": "First Life Insured Title: Mrs",
       "crm_field": "title",
       "match_value": "Mrs"
     },
     "Mrs 5": {
-      "label": "Title: Ms",
+      "label": "First Life Insured Title: Ms",
       "crm_field": "title",
       "match_value": "Ms"
     },
@@ -39,71 +39,87 @@
       "crm_field": "last_name"
     },
     "First Life Insured Surname at birth 2": {
-      "label": "Surname at Birth",
+      "label": "First Life Insured Surname at Birth if Different",
       "crm_field": null
     },
     "sex male 2": {
-      "label": "Gender: Male",
+      "label": "First Life Insured Sex: Male",
       "crm_field": "gender",
       "match_value": "Male"
     },
     "sex female 2": {
-      "label": "Gender: Female",
+      "label": "First Life Insured Sex: Female",
       "crm_field": "gender",
       "match_value": "Female"
     },
     "First Life Insured Date of birth DD 2": {
-      "label": "DOB Day",
+      "label": "First Life Insured DOB Day",
       "crm_field": "birthday",
       "transform": "day"
     },
     "First Life Insured Date of birth MM 2": {
-      "label": "DOB Month",
+      "label": "First Life Insured DOB Month",
       "crm_field": "birthday",
       "transform": "month"
     },
     "First Life Insured Date of birth YYYY 2": {
-      "label": "DOB Year",
+      "label": "First Life Insured DOB Year",
       "crm_field": "birthday",
       "transform": "year"
     },
     "First Life Insured Age 2": {
-      "label": "Age",
+      "label": "First Life Insured Age Next Birthday",
       "crm_field": null
     },
     "First Life Insured Address Line 3": {
-      "label": "Address Line 1",
+      "label": "First Life Insured Address Line 1",
       "crm_field": "address_line1"
     },
     "First Life Insured Address Line 4": {
-      "label": "Address Line 2 / City",
+      "label": "First Life Insured Address Line 2 / City",
       "crm_field": "address_city"
     },
     "First Life Insured Address Line 5": {
-      "label": "Address Line 3 / County",
+      "label": "First Life Insured Address Line 3 / County",
       "crm_field": "address_state"
     },
     "First Life Insured Nationality 2": {
-      "label": "Nationality",
+      "label": "First Life Insured Nationality",
       "crm_field": "nationality"
     },
     "First Life Insured Country of Res 2": {
-      "label": "Country of Residence",
+      "label": "First Life Insured Country of Residence",
       "crm_field": null
     },
     "First Life Insured Email 2": {
-      "label": "Email",
+      "label": "First Life Insured Email",
       "crm_field": "email"
     },
-    "First Policy Owner Contact 5": {
-      "label": "Work Phone",
-      "crm_field": "phone_work"
-    },
     "First Life Insured Contact 2": {
-      "label": "Mobile Phone",
+      "label": "First Life Insured Contact Number",
       "crm_field": "phone_mobile"
     },
+    "First Policy Owner Contact 5": {
+      "label": "First Life Insured Contact Number 2",
+      "crm_field": "phone_work"
+    },
+    "First Policy Owner Contact 6": {
+      "label": "First Life Insured Occupation",
+      "crm_field": null
+    },
     "__comment_page1_second_life": "=== PAGE 1: Second Life Insured (all null - separate person) ===",
+    "Mrs 7": {
+      "label": "Second Life Insured Title: Mrs",
+      "crm_field": null
+    },
+    "Mrs 8": {
+      "label": "Second Life Insured Title: Ms",
+      "crm_field": null
+    },
+    "Check Box 51": {
+      "label": "Second Life Insured Title: Mx",
+      "crm_field": null
+    },
     "Second Life Insured Name 2": {
       "label": "Second Life Insured First Name",
       "crm_field": null
@@ -113,7 +129,15 @@
       "crm_field": null
     },
     "Second Life Insured Surname Birth 2": {
-      "label": "Second Life Insured Surname at Birth",
+      "label": "Second Life Insured Surname at Birth if Different",
+      "crm_field": null
+    },
+    "L2M 2": {
+      "label": "Second Life Insured Sex: Male",
+      "crm_field": null
+    },
+    "L2F 2": {
+      "label": "Second Life Insured Sex: Female",
       "crm_field": null
     },
     "Second Life Insured date of Birth DD 2": {
@@ -121,7 +145,7 @@
       "crm_field": null
     },
     "Second Life Insured Age 2": {
-      "label": "Second Life Insured Age",
+      "label": "Second Life Insured Age Next Birthday",
       "crm_field": null
     },
     "Second Life Insured Address Line 3": {
@@ -149,10 +173,29 @@
       "crm_field": null
     },
     "Second Life Insured Contact 2": {
-      "label": "Second Life Insured Phone",
+      "label": "Second Life Insured Contact Number",
       "crm_field": null
     },
     "__comment_page2_first_owner": "=== PAGE 2: First Policy Owner ===",
+    "Mr 1": {
+      "label": "First Policy Owner Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Mrs 10": {
+      "label": "First Policy Owner Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Mrs 11": {
+      "label": "First Policy Owner Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 53": {
+      "label": "First Policy Owner Title: Mx",
+      "crm_field": null
+    },
     "First Policy Owner Name 2": {
       "label": "First Policy Owner First Name",
       "crm_field": "first_name"
@@ -162,8 +205,18 @@
       "crm_field": "last_name"
     },
     "First Policy Owner Birth Surname 2": {
-      "label": "First Policy Owner Birth Surname",
+      "label": "First Policy Owner Surname at Birth if Different",
       "crm_field": null
+    },
+    "First M 2": {
+      "label": "First Policy Owner Sex: Male",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "First F 2": {
+      "label": "First Policy Owner Sex: Female",
+      "crm_field": "gender",
+      "match_value": "Female"
     },
     "First Policy Owner Date of Birth DD 2": {
       "label": "First Policy Owner DOB Day",
@@ -179,6 +232,10 @@
       "label": "First Policy Owner DOB Year",
       "crm_field": "birthday",
       "transform": "year"
+    },
+    "First Policy Owner Age 2": {
+      "label": "First Policy Owner Age Next Birthday",
+      "crm_field": null
     },
     "First Policy Owner Address Line 3": {
       "label": "First Policy Owner Address Line 1",
@@ -205,14 +262,30 @@
       "crm_field": "email"
     },
     "First Policy Owner Contact 2": {
-      "label": "First Policy Owner Phone",
+      "label": "First Policy Owner Contact Number",
       "crm_field": "phone_home"
     },
     "First Policy Owner Contact 3": {
       "label": "First Policy Owner Mobile",
       "crm_field": "phone_mobile"
     },
+    "First Policy Owner Contact 4": {
+      "label": "First Policy Owner Occupation",
+      "crm_field": null
+    },
     "__comment_page2_second_owner": "=== PAGE 2: Second Policy Owner (all null) ===",
+    "Mrs 13": {
+      "label": "Second Policy Owner Title: Mrs",
+      "crm_field": null
+    },
+    "Mrs 14": {
+      "label": "Second Policy Owner Title: Ms",
+      "crm_field": null
+    },
+    "Check Box 55": {
+      "label": "Second Policy Owner Title: Mx",
+      "crm_field": null
+    },
     "Second Policy Owner Name 2": {
       "label": "Second Policy Owner First Name",
       "crm_field": null
@@ -222,7 +295,15 @@
       "crm_field": null
     },
     "Second Policy Owner Birth name 2": {
-      "label": "Second Policy Owner Birth Surname",
+      "label": "Second Policy Owner Surname at Birth if Different",
+      "crm_field": null
+    },
+    "Polciy 2M 2": {
+      "label": "Second Policy Owner Sex: Male",
+      "crm_field": null
+    },
+    "Polciy 2F 2": {
+      "label": "Second Policy Owner Sex: Female",
       "crm_field": null
     },
     "Second Policy Owner Date of Birth DD 2": {
@@ -235,6 +316,10 @@
     },
     "Second Policy Owner Date of Birth YYYY 2": {
       "label": "Second Policy Owner DOB Year",
+      "crm_field": null
+    },
+    "Second Policy Owner Age 2": {
+      "label": "Second Policy Owner Age Next Birthday",
       "crm_field": null
     },
     "Second Policy Owner Address LIne 3": {
@@ -262,34 +347,535 @@
       "crm_field": null
     },
     "Second Policy Owner Contact Number 2": {
-      "label": "Second Policy Owner Phone",
+      "label": "Second Policy Owner Contact Number",
       "crm_field": null
     },
-    "__comment_pages3_4": "=== PAGES 3-4: Benefits / Cover Amounts (all null) ===",
-    "__comment_page5_bank": "=== PAGE 5: Bank / SEPA Direct Debit ===",
+    "__comment_page2_economic_loss": "=== PAGE 2: Economic Loss ===",
+    "Insurable Interest Line 3": {
+      "label": "Economic Loss Line 1",
+      "crm_field": null
+    },
+    "Insurable Interest Line 4": {
+      "label": "Economic Loss Line 2",
+      "crm_field": null
+    },
+    "Insurable Interest Line 5": {
+      "label": "Economic Loss Line 3",
+      "crm_field": null
+    },
+    "__comment_page3": "=== PAGE 3: Continuation/Conversion & Main Benefits ===",
+    "Insurable Interest Line 6": {
+      "label": "Continuation/Conversion Policy Number",
+      "crm_field": null
+    },
+    "Insurable Interest Line 10": {
+      "label": "Term of Cover",
+      "crm_field": null
+    },
+    "Insurable Interest Line 11": {
+      "label": "Guaranteed Insurability from Policy Number",
+      "crm_field": null
+    },
+    "Insurable Interest Line 12": {
+      "label": "Guaranteed Insurability Special Event Details",
+      "crm_field": null
+    },
+    "Insurable Interest Line 13": {
+      "label": "Term of Cover (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Life Sum First Life 2": {
+      "label": "Life Sum Insured - First/Joint Life",
+      "crm_field": null
+    },
+    "Main Benefits Life Sum Dual Life 2": {
+      "label": "Life Sum Insured - Dual Life",
+      "crm_field": null
+    },
+    "Main Benefits Serious Illness First Life 2": {
+      "label": "Serious Illness Sum Insured - First/Joint Life",
+      "crm_field": null
+    },
+    "Main Benefits Serious Illness Dual Life 2": {
+      "label": "Serious Illness Sum Insured - Dual Life",
+      "crm_field": null
+    },
+    "Check Box 12": {
+      "label": "Serious Illness: Standalone",
+      "crm_field": null
+    },
+    "Check Box 13": {
+      "label": "Serious Illness: Accelerated",
+      "crm_field": null
+    },
+    "Main Benefits Cancer Cover First Life 2": {
+      "label": "Cancer Cover Sum Insured - First/Joint Life",
+      "crm_field": null
+    },
+    "Main Benefits Cancer Cover Dual Life 2": {
+      "label": "Cancer Cover Sum Insured - Dual Life",
+      "crm_field": null
+    },
+    "__comment_page3_own_occupation": "=== PAGE 3: 'Own' Occupation Cover ===",
+    "Check Box 14": {
+      "label": "PTD 'Own' Occupation Cover - First Life Yes",
+      "crm_field": null
+    },
+    "Check Box 15": {
+      "label": "PTD 'Own' Occupation Cover - First Life No",
+      "crm_field": null
+    },
+    "Check Box 16": {
+      "label": "PTD 'Own' Occupation Cover - Second Life Yes",
+      "crm_field": null
+    },
+    "Check Box 17": {
+      "label": "PTD 'Own' Occupation Cover - Second Life No",
+      "crm_field": null
+    },
+    "__comment_page3_additional_benefits": "=== PAGE 3: Additional Benefits ===",
+    "Check Box 18": {
+      "label": "Hospital Cash - First Life Yes",
+      "crm_field": null
+    },
+    "Check Box 19": {
+      "label": "Hospital Cash - First Life No",
+      "crm_field": null
+    },
+    "Check Box 20": {
+      "label": "Hospital Cash - Second Life Yes",
+      "crm_field": null
+    },
+    "Check Box 21": {
+      "label": "Hospital Cash - Second Life No",
+      "crm_field": null
+    },
+    "Additional Benefits Hospital Cash First Life 2": {
+      "label": "Hospital Cash Amount Per Day - First Life",
+      "crm_field": null
+    },
+    "Additional Benefits Hospital Cash Second Life 2": {
+      "label": "Hospital Cash Amount Per Day - Second Life",
+      "crm_field": null
+    },
+    "Additional Benefits Personal Accident First Life 2": {
+      "label": "Personal Accident Amount Per Week - First Life",
+      "crm_field": null
+    },
+    "Additional Benefits Personal Accident Second Life 2": {
+      "label": "Personal Accident Amount Per Week - Second Life",
+      "crm_field": null
+    },
+    "Check Box 22": {
+      "label": "Personal Accident - First Life Yes",
+      "crm_field": null
+    },
+    "Check Box 23": {
+      "label": "Personal Accident - First Life No",
+      "crm_field": null
+    },
+    "Check Box 40": {
+      "label": "Personal Accident - Second Life Yes",
+      "crm_field": null
+    },
+    "Check Box 41": {
+      "label": "Personal Accident - Second Life No",
+      "crm_field": null
+    },
+    "Additional Benefits Protection Continuation 2": {
+      "label": "Protection Continuation Option Yes/No",
+      "crm_field": null
+    },
+    "__comment_page3_inflation": "=== PAGE 3: Inflation Protection ===",
+    "Inflation Protection Option 2": {
+      "label": "I do not want the Inflation Protection Option",
+      "crm_field": null
+    },
+    "Inflation Protection Option 3": {
+      "label": "Guaranteed Term Protection (Conversion Option)",
+      "crm_field": null
+    },
+    "Inflation Protection Option 4": {
+      "label": "Guaranteed Mortgage Protection (Conversion Option)",
+      "crm_field": null
+    },
+    "Additional Benefits Protection Continuation 4": {
+      "label": "Protection Continuation Option - Automatically included if on original plan",
+      "crm_field": null
+    },
+    "__comment_page4": "=== PAGE 4: Continuation Benefits & Contribution Details ===",
+    "Insurable Interest Line 15": {
+      "label": "Basis of Cover Term of Cover (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Life Sum First Life 3": {
+      "label": "Life Sum Insured - First/Joint Life (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Life Sum Dual Life 3": {
+      "label": "Life Sum Insured - Dual Life (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Serious Illness First Life 3": {
+      "label": "Serious Illness Sum Insured - First/Joint Life (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Serious Illness Dual Life 3": {
+      "label": "Serious Illness Sum Insured - Dual Life (Continuation)",
+      "crm_field": null
+    },
+    "Check Box 38": {
+      "label": "Serious Illness: Standalone (Continuation)",
+      "crm_field": null
+    },
+    "Check Box 39": {
+      "label": "Serious Illness: Accelerated (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Cancer Cover First Life 5": {
+      "label": "Monthly Income Sum Insured - First/Joint Life (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Cancer Cover Dual Life 5": {
+      "label": "Monthly Income Sum Insured - Dual Life (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Cancer Cover First Life 3": {
+      "label": "Cancer Cover Sum Insured - First/Joint Life (Continuation)",
+      "crm_field": null
+    },
+    "Main Benefits Cancer Cover Dual Life 3": {
+      "label": "Cancer Cover Sum Insured - Dual Life (Continuation)",
+      "crm_field": null
+    },
+    "Check Box 33": {
+      "label": "PTD 'Own' Occupation Cover - First Life Yes (Continuation)",
+      "crm_field": null
+    },
+    "Check Box 34": {
+      "label": "PTD 'Own' Occupation Cover - First Life No (Continuation)",
+      "crm_field": null
+    },
+    "Check Box 35": {
+      "label": "PTD 'Own' Occupation Cover - Second Life Yes (Continuation)",
+      "crm_field": null
+    },
+    "Check Box 36": {
+      "label": "PTD 'Own' Occupation Cover - Second Life No (Continuation)",
+      "crm_field": null
+    },
+    "__comment_page4_contribution": "=== PAGE 4: Contribution Details & Source of Funds ===",
+    "Insurable Interest Line 16": {
+      "label": "First Life Premium",
+      "crm_field": null
+    },
+    "Insurable Interest Line 17": {
+      "label": "Second Life Premium",
+      "crm_field": null
+    },
+    "Check Box 24": {
+      "label": "DD Frequency: Monthly",
+      "crm_field": null
+    },
+    "Check Box 25": {
+      "label": "DD Frequency: Quarterly",
+      "crm_field": null
+    },
+    "Check Box 26": {
+      "label": "DD Frequency: Half-yearly",
+      "crm_field": null
+    },
+    "Check Box 27": {
+      "label": "DD Frequency: Yearly",
+      "crm_field": null
+    },
+    "Check Box 28": {
+      "label": "Bank Draft/Cheque Frequency: Half-yearly",
+      "crm_field": null
+    },
+    "Check Box 29": {
+      "label": "Bank Draft/Cheque Frequency: Yearly",
+      "crm_field": null
+    },
+    "Contribution Details Payment by DD 2": {
+      "label": "Third Party Cheque/Direct Debit Checkbox",
+      "crm_field": null
+    },
+    "Contribution Details Payment by name 2": {
+      "label": "Third Party Payor Name",
+      "crm_field": null
+    },
+    "Contribution Details Payment by name 3": {
+      "label": "Promotion to be applied to above premium (if any)",
+      "crm_field": null
+    },
+    "Contribution Details Payment by relationship 2": {
+      "label": "Third Party Payor Relationship to Policy Owner(s)",
+      "crm_field": null
+    },
+    "Contribution Details Payment by country on incorporation 2": {
+      "label": "Third Party Country of Incorporation (if Company)",
+      "crm_field": null
+    },
+    "__comment_page5_bank": "=== PAGE 5: Bank / SEPA Direct Debit (Source of Funds continued) ===",
+    "Check Box 37": {
+      "label": "Bank Draft Checkbox",
+      "crm_field": null
+    },
     "Contribution Details Bank Draft account holder name 3": {
-      "label": "DD Account Holder Name",
+      "label": "Bank Draft Account Holder Name(s)",
       "crm_field": "full_name"
     },
+    "Contribution Details Bank Draft name of bank building society 3": {
+      "label": "Bank Draft Name of Bank/Building Society",
+      "crm_field": null
+    },
     "Contribution Details Bank Draft IBAN 3": {
-      "label": "DD IBAN",
+      "label": "Bank Draft IBAN",
       "crm_field": null
     },
     "Contribution Details Bank Draft SWIFT 3": {
-      "label": "DD BIC/SWIFT",
+      "label": "Bank Draft SWIFT BIC",
+      "crm_field": null
+    },
+    "Contribution Details Bank Draft Third Party 3": {
+      "label": "Bank Draft Third Party Payor Relationship to Policy Owner(s)",
+      "crm_field": null
+    },
+    "Contribution Details Bank Draft Other 3": {
+      "label": "Bank Draft Other - Please provide details",
+      "crm_field": null
+    },
+    "__comment_page5_pep": "=== PAGE 5: Politically Exposed Person (PEP) ===",
+    "Check Box 3012": {
+      "label": "PEP or RCA of a PEP: Yes",
+      "crm_field": null
+    },
+    "Check Box 3013": {
+      "label": "PEP or RCA of a PEP: No",
+      "crm_field": null
+    },
+    "Text Field 2": {
+      "label": "PEP Table Row 1 - Role",
+      "crm_field": null
+    },
+    "Text Field 3": {
+      "label": "PEP Table Row 1 - Name",
+      "crm_field": null
+    },
+    "Text Field 4": {
+      "label": "PEP Table Row 1 - Address",
+      "crm_field": null
+    },
+    "Text Field 5": {
+      "label": "PEP Table Row 1 - Date of Birth",
+      "crm_field": null
+    },
+    "Text Field 6": {
+      "label": "PEP Table Row 1 - Nationality",
+      "crm_field": null
+    },
+    "Text Field 7": {
+      "label": "PEP Table Row 2 - Role",
+      "crm_field": null
+    },
+    "Text Field 8": {
+      "label": "PEP Table Row 2 - Name",
+      "crm_field": null
+    },
+    "Text Field 9": {
+      "label": "PEP Table Row 2 - Address",
+      "crm_field": null
+    },
+    "Text Field 10": {
+      "label": "PEP Table Row 2 - Date of Birth",
+      "crm_field": null
+    },
+    "Text Field 11": {
+      "label": "PEP Table Row 2 - Nationality",
+      "crm_field": null
+    },
+    "Text Field 12": {
+      "label": "PEP Table Row 3 - Role",
+      "crm_field": null
+    },
+    "Text Field 13": {
+      "label": "PEP Table Row 3 - Name",
+      "crm_field": null
+    },
+    "Text Field 14": {
+      "label": "PEP Table Row 3 - Address",
+      "crm_field": null
+    },
+    "Text Field 15": {
+      "label": "PEP Table Row 3 - Date of Birth",
+      "crm_field": null
+    },
+    "Text Field 16": {
+      "label": "PEP Table Row 3 - Nationality",
+      "crm_field": null
+    },
+    "Text Field 202": {
+      "label": "PEP Table Row 4 - Role",
+      "crm_field": null
+    },
+    "Text Field 203": {
+      "label": "PEP Table Row 4 - Name",
+      "crm_field": null
+    },
+    "Text Field 204": {
+      "label": "PEP Table Row 4 - Address",
+      "crm_field": null
+    },
+    "Text Field 205": {
+      "label": "PEP Table Row 4 - Date of Birth",
+      "crm_field": null
+    },
+    "Text Field 206": {
+      "label": "PEP Table Row 4 - Nationality",
+      "crm_field": null
+    },
+    "Text Field 207": {
+      "label": "PEP Table Row 5 - Name",
+      "crm_field": null
+    },
+    "Text Field 208": {
+      "label": "PEP Table Row 5 - Address",
+      "crm_field": null
+    },
+    "Text Field 209": {
+      "label": "PEP Table Row 5 - Date of Birth",
+      "crm_field": null
+    },
+    "Text Field 2010": {
+      "label": "PEP Table Row 5 - Nationality",
+      "crm_field": null
+    },
+    "Text Field 2011": {
+      "label": "PEP Table Row 5 - Role",
+      "crm_field": null
+    },
+    "__comment_page6": "=== PAGE 6: Marketing Preferences / Declarations ===",
+    "Check Box 2": {
+      "label": "Zurich Life Marketing: Post",
+      "crm_field": null
+    },
+    "Check Box 304": {
+      "label": "Zurich Life Marketing: Email",
+      "crm_field": null
+    },
+    "Check Box 305": {
+      "label": "Zurich Life Marketing: Phone",
+      "crm_field": null
+    },
+    "Check Box 306": {
+      "label": "Zurich Life Marketing: Text/Digital Message",
+      "crm_field": null
+    },
+    "Check Box 3": {
+      "label": "Zurich Group/Third Parties Marketing: Post",
+      "crm_field": null
+    },
+    "Check Box 309": {
+      "label": "Zurich Group/Third Parties Marketing: Email",
+      "crm_field": null
+    },
+    "Check Box 4": {
+      "label": "Zurich Group/Third Parties Marketing: Phone",
+      "crm_field": null
+    },
+    "Check Box 3010": {
+      "label": "Zurich Group/Third Parties Marketing: Text/Digital Message",
+      "crm_field": null
+    },
+    "__comment_page7": "=== PAGE 7: Replacement Policy / Declarations / Signatures ===",
+    "Check Box 5": {
+      "label": "Replacing Existing Policy: Yes",
+      "crm_field": null
+    },
+    "Check Box 6": {
+      "label": "Replacing Existing Policy: No",
+      "crm_field": null
+    },
+    "Consumer Disclosure Policy Number 2": {
+      "label": "Existing Zurich Life Policy Number (if replacing)",
+      "crm_field": null
+    },
+    "Life Insured 1 sign Date of Birth DD 2": {
+      "label": "Life Insured 1 Signature Date - Day",
+      "crm_field": null
+    },
+    "Life Insured 1 sign Date of Birth MM 2": {
+      "label": "Life Insured 1 Signature Date - Month",
+      "crm_field": null
+    },
+    "Life Insured 1 sign Date of Birth YYYY 2": {
+      "label": "Life Insured 1 Signature Date - Year",
+      "crm_field": null
+    },
+    "Life Insured 2 sign Date of Birth DD 2": {
+      "label": "Life Insured 2 Signature Date - Day",
+      "crm_field": null
+    },
+    "Life Insured 2 sign Date of Birth MM 2": {
+      "label": "Life Insured 2 Signature Date - Month",
+      "crm_field": null
+    },
+    "Life Insured 2 sign Date of Birth YYYY 2": {
+      "label": "Life Insured 2 Signature Date - Year",
+      "crm_field": null
+    },
+    "Policy Owner 1 Date of Birth DD 2": {
+      "label": "Policy Owner 1 Signature Date - Day",
+      "crm_field": null
+    },
+    "Policy Owner 1 Date of Birth MM 2": {
+      "label": "Policy Owner 1 Signature Date - Month",
+      "crm_field": null
+    },
+    "Policy Owner 1 Date of Birth YYYY 2": {
+      "label": "Policy Owner 1 Signature Date - Year",
+      "crm_field": null
+    },
+    "Policy Owner 2 Date of Birth DD 2": {
+      "label": "Policy Owner 2 Signature Date - Day",
+      "crm_field": null
+    },
+    "Policy Owner 2 Date of Birth MM 2": {
+      "label": "Policy Owner 2 Signature Date - Month",
+      "crm_field": null
+    },
+    "Policy Owner 2 Date of Birth YYYY 2": {
+      "label": "Policy Owner 2 Signature Date - Year",
+      "crm_field": null
+    },
+    "Signature of Financial Advisor date signed DD 2": {
+      "label": "Financial Advisor Signature Date - Day",
+      "crm_field": null
+    },
+    "Signature of Financial Advisor date signed MM 2": {
+      "label": "Financial Advisor Signature Date - Month",
+      "crm_field": null
+    },
+    "Signature of Financial Advisor date signed YYYY 2": {
+      "label": "Financial Advisor Signature Date - Year",
       "crm_field": null
     },
     "__comment_page10_sepa": "=== PAGE 10: SEPA Mandate ===",
+    "SEPA - Zurich Life Unique Mandate Reference Number 3": {
+      "label": "SEPA Unique Mandate Reference Number",
+      "crm_field": null
+    },
     "SEPA - Account Holder Name 3": {
       "label": "SEPA Account Holder Name",
       "crm_field": "full_name"
     },
     "SEPA - Account Holder Address 3": {
-      "label": "SEPA Address Line 1",
+      "label": "SEPA Account Holder Address Line 1",
       "crm_field": "address_line1"
     },
     "SEPA - Account Holder Address 4": {
-      "label": "SEPA Address Line 2 / City",
+      "label": "SEPA Account Holder Address Line 2",
       "crm_field": "address_city"
     },
     "SEPA - City/Postcode 3": {
@@ -305,7 +891,15 @@
       "crm_field": null
     },
     "SEPA - Swift BIC 3": {
-      "label": "SEPA BIC/SWIFT",
+      "label": "SEPA SWIFT BIC",
+      "crm_field": null
+    },
+    "SEPA - Date of Signing 3": {
+      "label": "SEPA Date of Signing",
+      "crm_field": null
+    },
+    "Check Box 7": {
+      "label": "Do not start policy until instructed",
       "crm_field": null
     }
   },
