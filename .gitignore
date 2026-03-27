@@ -23,5 +23,9 @@ build/
 dist/
 *.spec
 
+# Field screenshots (verification artifacts)
+src/fieldmaps_pdfs/**/
+!src/fieldmaps_pdfs/*.pdf
+
 # Claude
 .claude/
