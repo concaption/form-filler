@@ -440,31 +440,31 @@
       "crm_field": null
     },
     "Text Field 232": {
+      "label": "Direct Debit Mandate - Name(s) of Account Holder(s)",
+      "crm_field": "full_name"
+    },
+    "Text Field 235": {
       "label": "Direct Debit Mandate - Address of Account Holder(s)",
       "crm_field": null
     },
-    "Text Field 235": {
+    "Text Field 236": {
       "label": "Direct Debit Mandate - BIC",
       "crm_field": "bic"
     },
-    "Text Field 236": {
+    "Text Field 237": {
       "label": "Direct Debit Mandate - IBAN",
       "crm_field": "iban"
     },
-    "Text Field 237": {
+    "Text Field 238": {
       "label": "Direct Debit Mandate - Signature(s)",
       "crm_field": null
     },
-    "Text Field 238": {
-      "label": "Direct Debit Mandate - Date of Signing",
-      "crm_field": null
-    },
     "Text Field 239": {
-      "label": "Direct Debit Mandate - BIC (duplicate)",
+      "label": "Direct Debit Mandate - Second Signature",
       "crm_field": null
     },
     "Text Field 240": {
-      "label": "Direct Debit Mandate - IBAN (duplicate)",
+      "label": "Direct Debit Mandate - Date of Signing",
       "crm_field": null
     },
     "Text Field 241": {
