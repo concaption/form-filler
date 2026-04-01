@@ -33,6 +33,7 @@ PyInstaller.__main__.run([
     f"--add-data={ROOT / 'src' / 'pdfs'}{os.pathsep}src/pdfs",
     f"--add-data={ROOT / 'src' / 'fieldmaps'}{os.pathsep}src/fieldmaps",
     f"--add-data={ROOT / 'src' / 'fieldmaps_pdfs'}{os.pathsep}src/fieldmaps_pdfs",
+    f"--add-data={ROOT / 'src' / 'advisers.json'}{os.pathsep}src",
     f"--add-data={ROOT / 'templates'}{os.pathsep}templates",
     # Hidden imports
     "--hidden-import=customtkinter",

@@ -10,6 +10,8 @@ import sys
 import shutil
 from pathlib import Path
 
+APP_VERSION = "1.0.0"
+
 if getattr(sys, "frozen", False):
     # PyInstaller .exe — data lives next to the executable
     APP_DIR = Path(sys.executable).parent / "AutoFill_Data"
@@ -57,3 +59,11 @@ def init_app_data():
                     if not dest_file.exists():
                         dest_file.parent.mkdir(parents=True, exist_ok=True)
                         shutil.copy2(str(src_file), str(dest_file))
+
+    # Copy individual files in src/ (e.g. advisers.json)
+    for filename in ("advisers.json",):
+        src_file = _BUNDLE_DIR / "src" / filename
+        dest_file = SRC_DIR / filename
+        if src_file.exists() and not dest_file.exists():
+            SRC_DIR.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(str(src_file), str(dest_file))

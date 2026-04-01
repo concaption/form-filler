@@ -19,7 +19,7 @@ from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from sse_starlette.sse import EventSourceResponse
 from pydantic import BaseModel
 
-from config import TEMPLATES_DIR, OUTPUT_DIR
+from config import TEMPLATES_DIR, OUTPUT_DIR, APP_VERSION
 from crm_client import list_all_contacts, iter_all_contacts, get_contact
 from pdf_filler import fill_form, get_available_forms, get_advisers
 from db import (
@@ -36,7 +36,7 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 
-app = FastAPI(title="AutoFill - YourFinance.ie", version="1.0.0")
+app = FastAPI(title="AutoFill - YourFinance.ie", version=APP_VERSION)
 
 TEMPLATE_PATH = TEMPLATES_DIR / "index.html"
 
@@ -50,7 +50,8 @@ class GenerateRequest(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def index():
-    return TEMPLATE_PATH.read_text()
+    html = TEMPLATE_PATH.read_text()
+    return html.replace("{{APP_VERSION}}", APP_VERSION)
 
 
 @app.get("/api/forms")

@@ -16,7 +16,7 @@ from tkinter import filedialog
 
 import customtkinter as ctk
 
-from config import OUTPUT_DIR, init_app_data
+from config import OUTPUT_DIR, APP_VERSION, init_app_data
 
 # Extract bundled resources next to the .exe on first run
 init_app_data()
@@ -293,12 +293,21 @@ class AutoFillApp(ctk.CTk):
     # Status bar
     # ──────────────────────────────────────────
     def _build_status_bar(self):
+        bar_frame = ctk.CTkFrame(self, fg_color=WHITE, height=30, corner_radius=0)
+        bar_frame.pack(fill="x", side="bottom")
+        bar_frame.pack_propagate(False)
         self.status_bar = ctk.CTkLabel(
-            self, text="Ready", font=ctk.CTkFont(size=12),
-            text_color=GRAY_500, fg_color=WHITE, height=30,
-            corner_radius=0, anchor="w", padx=20,
+            bar_frame, text="Ready", font=ctk.CTkFont(size=12),
+            text_color=GRAY_500, fg_color=WHITE,
+            anchor="w", padx=20,
         )
-        self.status_bar.pack(fill="x", side="bottom")
+        self.status_bar.pack(side="left", fill="x", expand=True)
+        version_label = ctk.CTkLabel(
+            bar_frame, text=f"v{APP_VERSION}", font=ctk.CTkFont(size=11),
+            text_color=GRAY_400, fg_color=WHITE,
+            anchor="e", padx=20,
+        )
+        version_label.pack(side="right")
 
     def _set_status(self, text, color=GRAY_500):
         self.status_bar.configure(text=text, text_color=color)
