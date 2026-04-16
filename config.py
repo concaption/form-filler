@@ -10,7 +10,7 @@ import sys
 import shutil
 from pathlib import Path
 
-APP_VERSION = "2.1.0"
+APP_VERSION = "2.1.1"
 
 if getattr(sys, "frozen", False):
     # PyInstaller .exe — data lives next to the executable

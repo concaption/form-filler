@@ -32,7 +32,7 @@ def search_contacts(query: str) -> list[dict]:
     resp = requests.get(
         f"{API_BASE}/contacts.json",
         auth=_auth(),
-        params={"search": query, "per_page": 20},
+        params={"search": query, "per_page": 20, "team": "true"},
     )
     resp.raise_for_status()
     data = resp.json()
@@ -125,7 +125,7 @@ def iter_all_contacts():
         resp = requests.get(
             f"{API_BASE}/contacts.json",
             auth=_auth(),
-            params={"page": page, "per_page": 100},
+            params={"page": page, "per_page": 100, "team": "true"},
         )
         resp.raise_for_status()
         data = resp.json()
