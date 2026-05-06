@@ -8,10 +8,26 @@
     "position": "Director",
     "agency_codes": {
       "standard_life": "J501",
-      "irish_life": "",
-      "aviva": "",
-      "zurich": "",
-      "davy_select": ""
+      "irish_life": "TP19",
+      "aviva": "21908/22017",
+      "zurich": "32360",
+      "davy_select": "508",
+      "new_ireland": "0027317K",
+      "bcp": "LFFP8729",
+      "royal_london": "ABC12715",
+      "itc": "BA0748",
+      "conexim": "C90996",
+      "wealth_options": "1300",
+      "quest": "1069U"
+    },
+    "agency_codes_alt": {
+      "irish_life_vr90": "VR90",
+      "irish_life_portus": "VS09",
+      "irish_life_portus_old": "PA76",
+      "aviva_write_now": "27628",
+      "zurich_online_indemnified_life_cover": "50897",
+      "zurich_06832": "06832",
+      "royal_london_id": "ABC11923"
     }
   },
   {
@@ -22,7 +38,22 @@
     "company_caps": "YOUR FINANCE",
     "position": "Director",
     "agency_codes": {
-      "standard_life": "J500"
+      "standard_life": "J500",
+      "irish_life": "VR85",
+      "aviva": "21909/22018",
+      "zurich": "32359",
+      "davy_select": "508",
+      "new_ireland": "0027316J",
+      "bcp": "LFFP8728",
+      "royal_london": "ABC12714"
+    },
+    "agency_codes_alt": {
+      "irish_life_portus": "VS07",
+      "irish_life_portus_old": "PA75",
+      "aviva_write_now": "27627",
+      "zurich_online_indemnified_life_cover": "50896",
+      "zurich_06831": "06831",
+      "royal_london_id": "ABC11922"
     }
   }
 ]

@@ -32,7 +32,8 @@
     },
     "Text Field 38": {
       "label": "Agency Number",
-      "crm_field": null
+      "crm_field": null,
+      "adviser_field": "agency_code"
     },
     "Text Field 39": {
       "label": "Name of Financial Broker",
