@@ -1,0 +1,579 @@
+{
+  "form_name": "Zurich ARF Application Form",
+  "pdf_file": "zurich_arf.pdf",
+  "provider": "Zurich",
+  "product": "ARF",
+  "notes": "Zurich ARF — page 1 (intermediary, plan type, full personal details with title/sex/marital status radios) and page 10 Retirement Investment Certificate (customer name/address/DOB) fully mapped. Pages 3 (fund choice), 4 (source of funds), 5 (regular income + direct debit), 6 (replacement policy), 7 (signatures) left unmapped — those depend on customer choices supplied at fill time. Field names in this form are human-readable.",
+  "field_map": {
+    "__comment_page1": "=== PAGE 1: Intermediary details + Plan Type + Personal Details + Special Instructions ===",
+    "Intermediary Name 1": {
+      "label": "Intermediary Name",
+      "crm_field": null,
+      "adviser_field": "company_caps"
+    },
+    "Intermediary Number 1": {
+      "label": "Intermediary Number",
+      "crm_field": null,
+      "adviser_field": "agency_code"
+    },
+    "Financial Advisor Name 1": {
+      "label": "Financial Advisor Name",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "ARF Investment 1": {
+      "label": "ARF Investment €",
+      "crm_field": null
+    },
+    "AMRF Plan Type 1": {
+      "label": "ARF Plan Type (R...)",
+      "crm_field": null
+    },
+    "Forename 1": {
+      "label": "Forename",
+      "crm_field": "first_name"
+    },
+    "Title - Mrs 1": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Title - Mr 1": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Title - Ms 1": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Title - Ms 3": {
+      "label": "Title: Mx",
+      "crm_field": "title",
+      "match_value": "Mx"
+    },
+    "Surname 1": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Address Line 2": {
+      "label": "Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Address Line 3": {
+      "label": "Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Address Line 4": {
+      "label": "Address Line 3",
+      "crm_field": null
+    },
+    "Sex - F 1": {
+      "label": "Sex: F",
+      "crm_field": "gender",
+      "match_value": "Female"
+    },
+    "Sex - M 1": {
+      "label": "Sex: M",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "Date of Birth - YYYY 1": {
+      "label": "Date of Birth",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "Marital Status - Married/Civil Partner 1": {
+      "label": "Marital Status: Married/Civil Partner",
+      "crm_field": "status",
+      "match_value": "Married"
+    },
+    "Marital Status - Single 1": {
+      "label": "Marital Status: Single",
+      "crm_field": "status",
+      "match_value": "Single"
+    },
+    "Marital Status - Separated 1": {
+      "label": "Marital Status: Separated",
+      "crm_field": "status",
+      "match_value": "Separated"
+    },
+    "Marital Status - Widow(er) 1": {
+      "label": "Marital Status: Widow(er)",
+      "crm_field": "status",
+      "match_value": "Widowed"
+    },
+    "Marital Status - Divorced/Former Civil Partner 1": {
+      "label": "Marital Status: Divorced",
+      "crm_field": "status",
+      "match_value": "Divorced"
+    },
+    "PPSN 1": {
+      "label": "PPSN",
+      "crm_field": "pps_1"
+    },
+    "Contact Number\t 1": {
+      "label": "Contact Number",
+      "crm_field": "phone_mobile"
+    },
+    "Email Address 1": {
+      "label": "Email Address",
+      "crm_field": "email"
+    },
+    "Nationality 1": {
+      "label": "Nationality",
+      "crm_field": "nationality",
+      "static_value": "Irish"
+    },
+    "Country of Residence 1": {
+      "label": "Country of Residence",
+      "crm_field": "country_of_residence",
+      "static_value": "Ireland"
+    },
+    "Pre-retirement Occupation 1": {
+      "label": "Pre-retirement Occupation",
+      "crm_field": "job_title"
+    },
+    "Special Instructions - Line 2": {
+      "label": "Special Instructions - Line 2",
+      "crm_field": null
+    },
+    "Special Instructions - Line 3": {
+      "label": "Special Instructions - Line 3",
+      "crm_field": null
+    },
+    "Special Instructions - Line 4": {
+      "label": "Special Instructions - Line 4",
+      "crm_field": null
+    },
+    "Special Instructions - Line 5": {
+      "label": "Special Instructions - Line 5",
+      "crm_field": null
+    },
+    "__comment_page2": "=== PAGE 2 ===",
+    "Check Box 3016": {
+      "label": "Check Box 3016",
+      "crm_field": null
+    },
+    "Check Box 3017": {
+      "label": "Check Box 3017",
+      "crm_field": null
+    },
+    "__comment_page3": "=== PAGE 3: Fund Choice (RetireRight / Prisma / individual funds / rebalancing) ===",
+    "I wish to select the RetireRight Investment Strategy 4": {
+      "label": "I wish to select the RetireRight Investment Strategy 4",
+      "crm_field": null
+    },
+    "Strategy: 52": {
+      "label": "Strategy: 52",
+      "crm_field": null
+    },
+    "Strategy: 44": {
+      "label": "Strategy: 44",
+      "crm_field": null
+    },
+    "Strategy: 33": {
+      "label": "Strategy: 33",
+      "crm_field": null
+    },
+    "Fund -  Prisma 13": {
+      "label": "Fund -  Prisma 13",
+      "crm_field": null
+    },
+    "Fund -  Prisma 12": {
+      "label": "Fund -  Prisma 12",
+      "crm_field": null
+    },
+    "Fund -  Prisma 11": {
+      "label": "Fund -  Prisma 11",
+      "crm_field": null
+    },
+    "Fund -  Prisma 10": {
+      "label": "Fund -  Prisma 10",
+      "crm_field": null
+    },
+    "Fund -  Prisma 9": {
+      "label": "Fund -  Prisma 9",
+      "crm_field": null
+    },
+    "Fund -  Cautiously Managed 4": {
+      "label": "Fund -  Cautiously Managed 4",
+      "crm_field": null
+    },
+    "Fund -  Balanced 4": {
+      "label": "Fund -  Balanced 4",
+      "crm_field": null
+    },
+    "Fund -  Performance 4": {
+      "label": "Fund -  Performance 4",
+      "crm_field": null
+    },
+    "Fund -  Dynamic 4": {
+      "label": "Fund -  Dynamic 4",
+      "crm_field": null
+    },
+    "Fund -  Protected 83": {
+      "label": "Fund -  Protected 83",
+      "crm_field": null
+    },
+    "Fund -  Protected 73": {
+      "label": "Fund -  Protected 73",
+      "crm_field": null
+    },
+    "Fund -  Cash 4": {
+      "label": "Fund -  Cash 4",
+      "crm_field": null
+    },
+    "Fund -  Active Fixed Income 4": {
+      "label": "Fund -  Active Fixed Income 4",
+      "crm_field": null
+    },
+    "Fund -  Active Asset Allocation 4": {
+      "label": "Fund -  Active Asset Allocation 4",
+      "crm_field": null
+    },
+    "Fund -  International Equity 4": {
+      "label": "Fund -  International Equity 4",
+      "crm_field": null
+    },
+    "Other Fund 1 -  Name 4": {
+      "label": "Other Fund 1 -  Name 4",
+      "crm_field": null
+    },
+    "Other Fund 1 - Contribution 4": {
+      "label": "Other Fund 1 - Contribution 4",
+      "crm_field": null
+    },
+    "Other Fund 2 -  Name 4": {
+      "label": "Other Fund 2 -  Name 4",
+      "crm_field": null
+    },
+    "Other Fund 2 - Contribution 4": {
+      "label": "Other Fund 2 - Contribution 4",
+      "crm_field": null
+    },
+    "Other Fund 3 -  Name 4": {
+      "label": "Other Fund 3 -  Name 4",
+      "crm_field": null
+    },
+    "Other Fund 3 - Contribution 4": {
+      "label": "Other Fund 3 - Contribution 4",
+      "crm_field": null
+    },
+    "Other Fund 4 -  Name 4": {
+      "label": "Other Fund 4 -  Name 4",
+      "crm_field": null
+    },
+    "Other Fund 4 - Contribution 4": {
+      "label": "Other Fund 4 - Contribution 4",
+      "crm_field": null
+    },
+    "Yes 1": {
+      "label": "Yes 1",
+      "crm_field": null
+    },
+    "Monthly Rebalancing 1": {
+      "label": "Monthly Rebalancing 1",
+      "crm_field": null
+    },
+    "Quarterly Rebalancing 1": {
+      "label": "Quarterly Rebalancing 1",
+      "crm_field": null
+    },
+    "Half-Yearly Rebalancing 1": {
+      "label": "Half-Yearly Rebalancing 1",
+      "crm_field": null
+    },
+    "Yearly Rebalancing 1": {
+      "label": "Yearly Rebalancing 1",
+      "crm_field": null
+    },
+    "__comment_page4": "=== PAGE 4: Source of Funds / transferring scheme details ===",
+    "Full name of transferring scheme 1": {
+      "label": "Full name of transferring scheme 1",
+      "crm_field": null
+    },
+    "Scheme Transfer - More Details Line 2": {
+      "label": "Scheme Transfer - More Details Line 2",
+      "crm_field": null
+    },
+    "Scheme Transfer - More Details Line 3": {
+      "label": "Scheme Transfer - More Details Line 3",
+      "crm_field": null
+    },
+    "Does this payment represent a transfer from another pension arrangement?  - Yes 1": {
+      "label": "Does this payment represent a transfer from another pension arrangement?  - Yes 1",
+      "crm_field": null
+    },
+    "Does this payment represent a transfer from another pension arrangement?  - No 1": {
+      "label": "Does this payment represent a transfer from another pension arrangement?  - No 1",
+      "crm_field": null
+    },
+    "Life Insurance Company 1": {
+      "label": "Life Insurance Company 1",
+      "crm_field": null
+    },
+    "Policy Number 1": {
+      "label": "Policy Number 1",
+      "crm_field": null
+    },
+    "Source of Funds - Maturity of a Zurich Life policy 1": {
+      "label": "Source of Funds - Maturity of a Zurich Life policy 1",
+      "crm_field": null
+    },
+    "Source of Funds - Maturity of a Zurich Life policy: Policy Number 1": {
+      "label": "Source of Funds - Maturity of a Zurich Life policy: Policy Number 1",
+      "crm_field": null
+    },
+    "Source of Funds - Maturity of an external policy 1": {
+      "label": "Source of Funds - Maturity of an external policy 1",
+      "crm_field": null
+    },
+    "Source of Funds - Maturity of an external policy: Policy Number 1": {
+      "label": "Source of Funds - Maturity of an external policy: Policy Number 1",
+      "crm_field": null
+    },
+    "Source of Funds - Maturity of an external policy: Company 1": {
+      "label": "Source of Funds - Maturity of an external policy: Company 1",
+      "crm_field": null
+    },
+    "Source of Funds - Other Line 2": {
+      "label": "Source of Funds - Other Line 2",
+      "crm_field": null
+    },
+    "Source of Funds - Other Line 3": {
+      "label": "Source of Funds - Other Line 3",
+      "crm_field": null
+    },
+    "Payment subject of a Pension Adjustment Order/Property Adjustment Order 1": {
+      "label": "Payment subject of a Pension Adjustment Order/Property Adjustment Order 1",
+      "crm_field": null
+    },
+    "__comment_page5": "=== PAGE 5: Regular Income + Direct Debit bank details ===",
+    "Is the value of your ARF/PRSA ARF 2m+? - Yes 3": {
+      "label": "Is the value of your ARF/PRSA ARF 2m+? - Yes 3",
+      "crm_field": null
+    },
+    "Is the value of your ARF/PRSA ARF 2m+? - No 3": {
+      "label": "Is the value of your ARF/PRSA ARF 2m+? - No 3",
+      "crm_field": null
+    },
+    "Direct Debit - Name of Bank 4": {
+      "label": "Direct Debit - Name of Bank 4",
+      "crm_field": null
+    },
+    "Direct Debit - Address Line 5": {
+      "label": "Direct Debit - Address Line 5",
+      "crm_field": null
+    },
+    "Amount of regular income required from ARF 3": {
+      "label": "Amount of regular income required from ARF 3",
+      "crm_field": null
+    },
+    "Regular Income Frequency - Monthly 3": {
+      "label": "Regular Income Frequency - Monthly 3",
+      "crm_field": null
+    },
+    "Regular Income Frequency - Monthly 4": {
+      "label": "Regular Income Frequency - Monthly 4",
+      "crm_field": null
+    },
+    "Regular Income Frequency - Monthly 5": {
+      "label": "Regular Income Frequency - Monthly 5",
+      "crm_field": null
+    },
+    "Regular Income Frequency - Monthly 6": {
+      "label": "Regular Income Frequency - Monthly 6",
+      "crm_field": null
+    },
+    "Date of first payment - YYYY 3": {
+      "label": "Date of first payment - YYYY 3",
+      "crm_field": null
+    },
+    "Direct Debit - Name of Bank 1": {
+      "label": "Direct Debit - Name of Bank 1",
+      "crm_field": null
+    },
+    "Direct Debit - Address Line 2": {
+      "label": "Direct Debit - Address Line 2",
+      "crm_field": null
+    },
+    "Direct Debit - Address Line 3": {
+      "label": "Direct Debit - Address Line 3",
+      "crm_field": null
+    },
+    "Direct Debit - Name(s) of Bank Account Holder(s) 1": {
+      "label": "Direct Debit - Name(s) of Bank Account Holder(s) 1",
+      "crm_field": null
+    },
+    "Direct Debit - IBAN Line 2": {
+      "label": "Direct Debit - IBAN Line 2",
+      "crm_field": null
+    },
+    "Direct Debit - IBAN Line 3": {
+      "label": "Direct Debit - IBAN Line 3",
+      "crm_field": null
+    },
+    "Direct Debit - SWIFT BIC 1": {
+      "label": "Direct Debit - SWIFT BIC 1",
+      "crm_field": null
+    },
+    "__comment_page6": "=== PAGE 6: Replacement policy check + additional checkboxes ===",
+    "Check Box 91": {
+      "label": "Check Box 91",
+      "crm_field": null
+    },
+    "Check Box 90": {
+      "label": "Check Box 90",
+      "crm_field": null
+    },
+    "Check Box 89": {
+      "label": "Check Box 89",
+      "crm_field": null
+    },
+    "Check Box 88": {
+      "label": "Check Box 88",
+      "crm_field": null
+    },
+    "Check Box 87": {
+      "label": "Check Box 87",
+      "crm_field": null
+    },
+    "Check Box 86": {
+      "label": "Check Box 86",
+      "crm_field": null
+    },
+    "Check Box 85": {
+      "label": "Check Box 85",
+      "crm_field": null
+    },
+    "Check Box 84": {
+      "label": "Check Box 84",
+      "crm_field": null
+    },
+    "Does this policy replace an existing policy(ies) - Yes 1": {
+      "label": "Does this policy replace an existing policy(ies) - Yes 1",
+      "crm_field": null
+    },
+    "Does this policy replace an existing policy(ies) - No 1": {
+      "label": "Does this policy replace an existing policy(ies) - No 1",
+      "crm_field": null
+    },
+    "Zurich Life policy Number 2": {
+      "label": "Zurich Life policy Number 2",
+      "crm_field": null
+    },
+    "Zurich Life policy Number 3": {
+      "label": "Zurich Life policy Number 3",
+      "crm_field": null
+    },
+    "__comment_page7": "=== PAGE 7: Signatures ===",
+    "If the policy was sold, signed or completed outside Ireland - Country name  3": {
+      "label": "If the policy was sold, signed or completed outside Ireland - Country name  3",
+      "crm_field": null
+    },
+    "Signature - Policy Owner Date YYYY 1": {
+      "label": "Signature - Policy Owner Date YYYY 1",
+      "crm_field": null
+    },
+    "Signature - Financial Advisor Date YYYY 1": {
+      "label": "Signature - Financial Advisor Date YYYY 1",
+      "crm_field": null
+    },
+    "__comment_page10": "=== PAGE 10: Retirement Investment Certificate ===",
+    "Retirement Investment Certificate - Policy Holder Name 3": {
+      "label": "Cert: Policy Holder Name",
+      "crm_field": "full_name"
+    },
+    "Retirement Investment Certificate - Policy Holder Address Line 5": {
+      "label": "Cert: Policy Holder Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Retirement Investment Certificate - Policy Holder Address Line 6": {
+      "label": "Cert: Policy Holder Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Retirement Investment Certificate - Policy Holder DOB DD 3": {
+      "label": "Cert: Policy Holder DOB",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "ARF Investment 5": {
+      "label": "ARF Investment 5",
+      "crm_field": null
+    },
+    "Text Field 105": {
+      "label": "Text Field 105",
+      "crm_field": null
+    },
+    "Text Field 107": {
+      "label": "Text Field 107",
+      "crm_field": null
+    },
+    "Text Field 108": {
+      "label": "Text Field 108",
+      "crm_field": null
+    },
+    "Text Field 109": {
+      "label": "Text Field 109",
+      "crm_field": null
+    },
+    "Text Field 110": {
+      "label": "Text Field 110",
+      "crm_field": null
+    },
+    "Transfer Amount: Personal Retirement Savings Account 4": {
+      "label": "Transfer Amount: Personal Retirement Savings Account 4",
+      "crm_field": null
+    },
+    "Transfer Amount: Retirement Annuity Contract 4": {
+      "label": "Transfer Amount: Retirement Annuity Contract 4",
+      "crm_field": null
+    },
+    "Transfer Amount: Exempt Approved Occupational or Statutory Pension Scheme 4": {
+      "label": "Transfer Amount: Exempt Approved Occupational or Statutory Pension Scheme 4",
+      "crm_field": null
+    },
+    "Transfer Amount: Approved Retirement Fund 4": {
+      "label": "Transfer Amount: Approved Retirement Fund 4",
+      "crm_field": null
+    },
+    "Check Box 5060": {
+      "label": "Check Box 5060",
+      "crm_field": null
+    },
+    "Check Box 5059": {
+      "label": "Check Box 5059",
+      "crm_field": null
+    },
+    "ARF Investment 4": {
+      "label": "ARF Investment 4",
+      "crm_field": null
+    },
+    "Check Box 5062": {
+      "label": "Check Box 5062",
+      "crm_field": null
+    },
+    "Signature - Authorised Signatory Date YYYY 4": {
+      "label": "Signature - Authorised Signatory Date YYYY 4",
+      "crm_field": null
+    },
+    "Authorised Signatory - Name 4": {
+      "label": "Authorised Signatory - Name 4",
+      "crm_field": null
+    },
+    "Authorised Signatory - Position 4": {
+      "label": "Authorised Signatory - Position 4",
+      "crm_field": null
+    },
+    "Authorised Signatory - Company 4": {
+      "label": "Authorised Signatory - Company 4",
+      "crm_field": null
+    },
+    "Authorised Signatory - Contact Number 4": {
+      "label": "Authorised Signatory - Contact Number 4",
+      "crm_field": null
+    }
+  }
+}

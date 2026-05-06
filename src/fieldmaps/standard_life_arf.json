@@ -1,0 +1,699 @@
+{
+  "form_name": "Standard Life Synergy Approved Retirement Fund Application",
+  "pdf_file": "standard_life_arf.pdf",
+  "provider": "Standard Life",
+  "product": "ARF",
+  "notes": "Standard Life Synergy ARF — page 1 fully mapped (adviser agency_code/company, full personal details incl. email split across prefix/@ fields using transforms). PEP Yes/No radio wired. Pages 3-8 cover investment choices, fund allocation, payment frequency, declarations — all require customer input at fill time. Fergal's standard_life agency code is J501.",
+  "field_map": {
+    "__comment_page1": "=== PAGE 1: Part 1 Adviser details + Part 2 Personal Details + Bank account info ===",
+    "Financial adviser agency code": {
+      "label": "Standard Life adviser agency code",
+      "crm_field": null,
+      "adviser_field": "agency_code"
+    },
+    "Financial adviser company name": {
+      "label": "Adviser company name",
+      "crm_field": null,
+      "adviser_field": "company"
+    },
+    "Please give one of your policy nos": {
+      "label": "Existing policy number",
+      "crm_field": null
+    },
+    "Check Box2": {
+      "label": "Already a customer of Standard Life",
+      "crm_field": null
+    },
+    "Your title": {
+      "label": "Title",
+      "crm_field": "title"
+    },
+    "Your names": {
+      "label": "First names (in full)",
+      "crm_field": "first_name"
+    },
+    "Your surname": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Your email prefix": {
+      "label": "Email (prefix before @)",
+      "crm_field": "email",
+      "transform": "email_prefix"
+    },
+    "Your email @": {
+      "label": "Email (domain after @)",
+      "crm_field": "email",
+      "transform": "email_domain"
+    },
+    "Your address 1": {
+      "label": "Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Your address 2": {
+      "label": "Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Your address 3": {
+      "label": "Address Line 3",
+      "crm_field": null
+    },
+    "Your address 4": {
+      "label": "Address Line 4",
+      "crm_field": null
+    },
+    "Eircode1": {
+      "label": "Eircode",
+      "crm_field": null
+    },
+    "Your date of birth (DD/MM/YYYY)": {
+      "label": "Date of Birth",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "Your home phone number": {
+      "label": "Home phone number",
+      "crm_field": "phone_work"
+    },
+    "Your Personal Public Service Number": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Your mobile phone number": {
+      "label": "Mobile phone number",
+      "crm_field": "phone_mobile"
+    },
+    "Your IBAN": {
+      "label": "IBAN",
+      "crm_field": null
+    },
+    "Your name of your account": {
+      "label": "Name on account",
+      "crm_field": "full_name"
+    },
+    "__comment_page2": "=== PAGE 2: PEP details + Part 3 existing policy + ARF investment ===",
+    "PEP position held 1": {
+      "label": "PEP position held 1",
+      "crm_field": null
+    },
+    "PEP name 1": {
+      "label": "PEP name 1",
+      "crm_field": null
+    },
+    "Your relationship to PEP 1": {
+      "label": "Your relationship to PEP 1",
+      "crm_field": null
+    },
+    "PEP position held 2": {
+      "label": "PEP position held 2",
+      "crm_field": null
+    },
+    "PEP name 2": {
+      "label": "PEP name 2",
+      "crm_field": null
+    },
+    "Your relationship to PEP 2": {
+      "label": "Your relationship to PEP 2",
+      "crm_field": null
+    },
+    "PEP position held 3": {
+      "label": "PEP position held 3",
+      "crm_field": null
+    },
+    "Your relationship to PEP 3": {
+      "label": "Your relationship to PEP 3",
+      "crm_field": null
+    },
+    "PEP name 3": {
+      "label": "PEP name 3",
+      "crm_field": null
+    },
+    "ARF investment": {
+      "label": "ARF investment amount",
+      "crm_field": null
+    },
+    "Part 3 Policy number": {
+      "label": "Part 3 Policy number",
+      "crm_field": null
+    },
+    "Part 3 Name of provider": {
+      "label": "Part 3 Name of provider",
+      "crm_field": null
+    },
+    "Premiums allocated as Self-Directed Options": {
+      "label": "Premiums allocated as Self-Directed Options",
+      "crm_field": null
+    },
+    "Premiums allocated as funds": {
+      "label": "Premiums allocated as funds",
+      "crm_field": null
+    },
+    "Are you a PEP?": {
+      "label": "Are you a PEP?",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "Choice1": [
+          "yes"
+        ],
+        "Choice2": [
+          "no"
+        ]
+      }
+    },
+    "__comment_page3": "=== PAGE 3: Investment source continued ===",
+    "MyFolio Market V": {
+      "label": "MyFolio Market V",
+      "crm_field": null
+    },
+    "Absolute Return Global Bond Strategies (ARGBS)": {
+      "label": "Absolute Return Global Bond Strategies (ARGBS)",
+      "crm_field": null
+    },
+    "Global Index 80": {
+      "label": "Global Index 80",
+      "crm_field": null
+    },
+    "Asia Pacific Equity": {
+      "label": "Asia Pacific Equity",
+      "crm_field": null
+    },
+    "Global Index 100": {
+      "label": "Global Index 100",
+      "crm_field": null
+    },
+    "Property": {
+      "label": "Property",
+      "crm_field": null
+    },
+    "Screened American Equity Index": {
+      "label": "Screened American Equity Index",
+      "crm_field": null
+    },
+    "BlackRock Global": {
+      "label": "BlackRock Global",
+      "crm_field": null
+    },
+    "Global Linked bond": {
+      "label": "Global Linked bond",
+      "crm_field": null
+    },
+    "Screened World Equity Index": {
+      "label": "Screened World Equity Index",
+      "crm_field": null
+    },
+    "Cautious Managed": {
+      "label": "Cautious Managed",
+      "crm_field": null
+    },
+    "Global Real Estate": {
+      "label": "Global Real Estate",
+      "crm_field": null
+    },
+    "Global REIT": {
+      "label": "Global REIT",
+      "crm_field": null
+    },
+    "Total Return Credit": {
+      "label": "Total Return Credit",
+      "crm_field": null
+    },
+    "China Equity": {
+      "label": "China Equity",
+      "crm_field": null
+    },
+    "UK Equity": {
+      "label": "UK Equity",
+      "crm_field": null
+    },
+    "Global Smaller Companies": {
+      "label": "Global Smaller Companies",
+      "crm_field": null
+    },
+    "Corporate Bond": {
+      "label": "Corporate Bond",
+      "crm_field": null
+    },
+    "UK Smaller Companies": {
+      "label": "UK Smaller Companies",
+      "crm_field": null
+    },
+    "Diversified Income": {
+      "label": "Diversified Income",
+      "crm_field": null
+    },
+    "Japanese Equity": {
+      "label": "Japanese Equity",
+      "crm_field": null
+    },
+    "Managed": {
+      "label": "Managed",
+      "crm_field": null
+    },
+    "Vanguard Emerging Market Stock Index": {
+      "label": "Vanguard Emerging Market Stock Index",
+      "crm_field": null
+    },
+    "Euro Global Liquidity": {
+      "label": "Euro Global Liquidity",
+      "crm_field": null
+    },
+    "Vanguard Euro Government Bond Index": {
+      "label": "Vanguard Euro Government Bond Index",
+      "crm_field": null
+    },
+    "Multi-Asset ESG": {
+      "label": "Multi-Asset ESG",
+      "crm_field": null
+    },
+    "European Equity": {
+      "label": "European Equity",
+      "crm_field": null
+    },
+    "Vanguard Eurozone Stock Index": {
+      "label": "Vanguard Eurozone Stock Index",
+      "crm_field": null
+    },
+    "MyFolio Active I": {
+      "label": "MyFolio Active I",
+      "crm_field": null
+    },
+    "European Ethical Equity": {
+      "label": "European Ethical Equity",
+      "crm_field": null
+    },
+    "Vanguard GLOBAL BOND INDEX": {
+      "label": "Vanguard GLOBAL BOND INDEX",
+      "crm_field": null
+    },
+    "MyFolio Active II": {
+      "label": "MyFolio Active II",
+      "crm_field": null
+    },
+    "European Smaller Companies": {
+      "label": "European Smaller Companies",
+      "crm_field": null
+    },
+    "Vanguard Global Corporate Bond Index": {
+      "label": "Vanguard Global Corporate Bond Index",
+      "crm_field": null
+    },
+    "MyFolio Active III": {
+      "label": "MyFolio Active III",
+      "crm_field": null
+    },
+    "Fixed Interest": {
+      "label": "Fixed Interest",
+      "crm_field": null
+    },
+    "Vanguard Global Small-Cap Index": {
+      "label": "Vanguard Global Small-Cap Index",
+      "crm_field": null
+    },
+    "Global Corporate Bond SRI": {
+      "label": "Global Corporate Bond SRI",
+      "crm_field": null
+    },
+    "MyFolio Active IV": {
+      "label": "MyFolio Active IV",
+      "crm_field": null
+    },
+    "Vanguard Global Stock Index": {
+      "label": "Vanguard Global Stock Index",
+      "crm_field": null
+    },
+    "MyFolio Active V": {
+      "label": "MyFolio Active V",
+      "crm_field": null
+    },
+    "Global Equity": {
+      "label": "Global Equity",
+      "crm_field": null
+    },
+    "MyFolio Market I": {
+      "label": "MyFolio Market I",
+      "crm_field": null
+    },
+    "Vanguard US 500 Stock Index": {
+      "label": "Vanguard US 500 Stock Index",
+      "crm_field": null
+    },
+    "Global Equity Impact": {
+      "label": "Global Equity Impact",
+      "crm_field": null
+    },
+    "MyFolio Market II": {
+      "label": "MyFolio Market II",
+      "crm_field": null
+    },
+    "Global Index 20": {
+      "label": "Global Index 20",
+      "crm_field": null
+    },
+    "Blank Fund1 Name": {
+      "label": "Blank Fund1 Name",
+      "crm_field": null
+    },
+    "Blank Fund1 Percent": {
+      "label": "Blank Fund1 Percent",
+      "crm_field": null
+    },
+    "Blank Fund2 Percent": {
+      "label": "Blank Fund2 Percent",
+      "crm_field": null
+    },
+    "Global Index 40": {
+      "label": "Global Index 40",
+      "crm_field": null
+    },
+    "MyFolio Market III": {
+      "label": "MyFolio Market III",
+      "crm_field": null
+    },
+    "Blank Fund2 Name": {
+      "label": "Blank Fund2 Name",
+      "crm_field": null
+    },
+    "MyFolio Market IV": {
+      "label": "MyFolio Market IV",
+      "crm_field": null
+    },
+    "Global Index 60": {
+      "label": "Global Index 60",
+      "crm_field": null
+    },
+    "Blank Fund3 Name": {
+      "label": "Blank Fund3 Name",
+      "crm_field": null
+    },
+    "Blank Fund3 Percent": {
+      "label": "Blank Fund3 Percent",
+      "crm_field": null
+    },
+    "__comment_page4": "=== PAGE 4: Income bands radio ===",
+    "Tick this box if you are selecting execution only": {
+      "label": "Tick this box if you are selecting execution only",
+      "crm_field": null
+    },
+    "Tick this box if you want to set up a Stocktrade online ac": {
+      "label": "Tick this box if you want to set up a Stocktrade online ac",
+      "crm_field": null
+    },
+    "Nationality 1": {
+      "label": "Nationality 1",
+      "crm_field": null
+    },
+    "National client identifier 1": {
+      "label": "National client identifier 1",
+      "crm_field": null
+    },
+    "Nationality 2": {
+      "label": "Nationality 2",
+      "crm_field": null
+    },
+    "National client identifier 2": {
+      "label": "National client identifier 2",
+      "crm_field": null
+    },
+    "Your occupation": {
+      "label": "Your occupation",
+      "crm_field": null
+    },
+    "Proof of identity": {
+      "label": "Proof of identity",
+      "crm_field": null
+    },
+    "Proof of address": {
+      "label": "Proof of address",
+      "crm_field": null
+    },
+    "Deposit provider 1": {
+      "label": "Deposit provider 1",
+      "crm_field": null
+    },
+    "Deposit account term 1": {
+      "label": "Deposit account term 1",
+      "crm_field": null
+    },
+    "Deposit amount € 1": {
+      "label": "Deposit amount € 1",
+      "crm_field": null
+    },
+    "Deposit provider 2": {
+      "label": "Deposit provider 2",
+      "crm_field": null
+    },
+    "Deposit amount € 2": {
+      "label": "Deposit amount € 2",
+      "crm_field": null
+    },
+    "Deposit account term 2": {
+      "label": "Deposit account term 2",
+      "crm_field": null
+    },
+    "Deposit account term 3": {
+      "label": "Deposit account term 3",
+      "crm_field": null
+    },
+    "Deposit provider 3": {
+      "label": "Deposit provider 3",
+      "crm_field": null
+    },
+    "Deposit amount € 3": {
+      "label": "Deposit amount € 3",
+      "crm_field": null
+    },
+    "Deposit amount € 4": {
+      "label": "Deposit amount € 4",
+      "crm_field": null
+    },
+    "Deposit provider 4": {
+      "label": "Deposit provider 4",
+      "crm_field": null
+    },
+    "Deposit account term 4": {
+      "label": "Deposit account term 4",
+      "crm_field": null
+    },
+    "Date (DD/MM/YYYY) 2": {
+      "label": "Date (DD/MM/YYYY) 2",
+      "crm_field": null
+    },
+    "__comment_page5": "=== PAGE 5: Group radios (fund selection / payment frequency) ===",
+    "Text21": {
+      "label": "Text21",
+      "crm_field": null
+    },
+    "Text22": {
+      "label": "Text22",
+      "crm_field": null
+    },
+    "Check Box23": {
+      "label": "Check Box23",
+      "crm_field": null
+    },
+    "Date (MM/YYYY)": {
+      "label": "Date (MM/YYYY)",
+      "crm_field": null
+    },
+    "Name of Nom": {
+      "label": "Name of Nom",
+      "crm_field": null
+    },
+    "Address1b": {
+      "label": "Address1b",
+      "crm_field": null
+    },
+    "Address 1c": {
+      "label": "Address 1c",
+      "crm_field": null
+    },
+    "Address1d": {
+      "label": "Address1d",
+      "crm_field": null
+    },
+    "Address1e": {
+      "label": "Address1e",
+      "crm_field": null
+    },
+    "Eircode2": {
+      "label": "Eircode2",
+      "crm_field": null
+    },
+    "Ref No": {
+      "label": "Ref No",
+      "crm_field": null
+    },
+    "__comment_page6": "=== PAGE 6: Group4/5 fund allocation radios ===",
+    "Your email prefix 2": {
+      "label": "Your email prefix 2",
+      "crm_field": null
+    },
+    "Your email @ 2": {
+      "label": "Your email @ 2",
+      "crm_field": null
+    },
+    "Recomending this product": {
+      "label": "Recomending this product",
+      "crm_field": null
+    },
+    "Initial %": {
+      "label": "Initial %",
+      "crm_field": null
+    },
+    "Check Box5": {
+      "label": "Check Box5",
+      "crm_field": null
+    },
+    "Check Box6": {
+      "label": "Check Box6",
+      "crm_field": null
+    },
+    "FBRC %": {
+      "label": "FBRC %",
+      "crm_field": null
+    },
+    "Date (DD/MM/YYYY) 3": {
+      "label": "Date (DD/MM/YYYY) 3",
+      "crm_field": null
+    },
+    "Financial adviser name": {
+      "label": "Financial adviser name",
+      "crm_field": null
+    },
+    "Email questions": {
+      "label": "Email questions",
+      "crm_field": null
+    },
+    "Special instructions": {
+      "label": "Special instructions",
+      "crm_field": null
+    },
+    "__comment_page7": "=== PAGE 7: Check Box11/12 arrays ===",
+    "Date (DD/MM/YYYY) 4": {
+      "label": "Date (DD/MM/YYYY) 4",
+      "crm_field": null
+    },
+    "1": {
+      "label": "1",
+      "crm_field": null
+    },
+    "3": {
+      "label": "3",
+      "crm_field": null
+    },
+    "0": {
+      "label": "0",
+      "crm_field": null
+    },
+    "2": {
+      "label": "2",
+      "crm_field": null
+    },
+    "0#2": {
+      "label": "0",
+      "crm_field": null
+    },
+    "1#2": {
+      "label": "1",
+      "crm_field": null
+    },
+    "2#2": {
+      "label": "2",
+      "crm_field": null
+    },
+    "3#2": {
+      "label": "3",
+      "crm_field": null
+    },
+    "__comment_page8": "=== PAGE 8: Centre of Solvency checkboxes + Y/N radio ===",
+    "Your name COS": {
+      "label": "Your name COS",
+      "crm_field": null
+    },
+    "Your address 1 COS": {
+      "label": "Your address 1 COS",
+      "crm_field": null
+    },
+    "Your address 2 COS": {
+      "label": "Your address 2 COS",
+      "crm_field": null
+    },
+    "Your address 3 COS": {
+      "label": "Your address 3 COS",
+      "crm_field": null
+    },
+    "Your address 5 COS": {
+      "label": "Your address 5 COS",
+      "crm_field": null
+    },
+    "Your address 4 COS": {
+      "label": "Your address 4 COS",
+      "crm_field": null
+    },
+    "Your Personal Public Service Number COS": {
+      "label": "Your Personal Public Service Number COS",
+      "crm_field": null
+    },
+    "Your date of birth (DD/MM/YYYY) COS": {
+      "label": "Your date of birth (DD/MM/YYYY) COS",
+      "crm_field": null
+    },
+    "3#3": {
+      "label": "3",
+      "crm_field": null
+    },
+    "4": {
+      "label": "4",
+      "crm_field": null
+    },
+    "1#3": {
+      "label": "1",
+      "crm_field": null
+    },
+    "2#3": {
+      "label": "2",
+      "crm_field": null
+    },
+    "7": {
+      "label": "7",
+      "crm_field": null
+    },
+    "6": {
+      "label": "6",
+      "crm_field": null
+    },
+    "5": {
+      "label": "5",
+      "crm_field": null
+    },
+    "Amount 1": {
+      "label": "Amount 1",
+      "crm_field": null
+    },
+    "Amount 2": {
+      "label": "Amount 2",
+      "crm_field": null
+    },
+    "Policy number of pension fund assets COS": {
+      "label": "Policy number of pension fund assets COS",
+      "crm_field": null
+    },
+    "Provider": {
+      "label": "Provider",
+      "crm_field": null
+    },
+    "Sign date (DD/MM/YYYY) COS": {
+      "label": "Sign date (DD/MM/YYYY) COS",
+      "crm_field": null
+    },
+    "Provider position COS": {
+      "label": "Provider position COS",
+      "crm_field": null
+    },
+    "Signed for and on behalf of COS": {
+      "label": "Signed for and on behalf of COS",
+      "crm_field": null
+    }
+  }
+}

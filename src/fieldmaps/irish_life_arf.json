@@ -1,0 +1,578 @@
+{
+  "form_name": "Irish Life Complete Solutions ARF Application Form",
+  "pdf_file": "irish_life_arf.pdf",
+  "provider": "Irish Life",
+  "product": "ARF",
+  "notes": "Fully mapped Irish Life Complete Solutions ARF. Pages 1-7 mapped incl. radio groups for gender, relationship status, PEP, withdrawal %, payment frequency, replacement plan, bank online services, source-of-investment Yes/No questions. Pages 6-7 QFM signature block unmapped (filled by the transferring insurer). Verify against src/fieldmaps_pdfs/fieldmap_irish_life_arf.pdf.",
+  "field_map": {
+    "__comment_page1": "=== PAGE 1: Adviser Details + Special Considerations + Customer Details (Title, Name, DOB, Gender, Relationship Status) ===",
+    "Text Field 27": {
+      "label": "Financial Adviser Name",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Text Field 26": {
+      "label": "Financial Adviser Code",
+      "crm_field": null,
+      "adviser_field": "agency_code"
+    },
+    "Text Field 255": {
+      "label": "Adviser Profile",
+      "crm_field": null
+    },
+    "Check Box 143": {
+      "label": "Special Consideration: Financial",
+      "crm_field": null
+    },
+    "Check Box 142": {
+      "label": "Special Consideration: Life Stage",
+      "crm_field": null
+    },
+    "Check Box 141": {
+      "label": "Special Consideration: Medical",
+      "crm_field": null
+    },
+    "Check Box 140": {
+      "label": "Special Consideration: Life Events",
+      "crm_field": null
+    },
+    "Check Box 139": {
+      "label": "Special Consideration: Comprehension",
+      "crm_field": null
+    },
+    "Check Box 138": {
+      "label": "Special Consideration: Decision Support Arrangement",
+      "crm_field": null
+    },
+    "Check Box 137": {
+      "label": "Special Consideration: Multiple Considerations",
+      "crm_field": null
+    },
+    "Check Box 136": {
+      "label": "Special Consideration: Other",
+      "crm_field": null
+    },
+    "Text Field 387": {
+      "label": "Special Considerations Other - line 1",
+      "crm_field": null
+    },
+    "Text Field 386": {
+      "label": "Special Considerations Other - line 2",
+      "crm_field": null
+    },
+    "Text Field 385": {
+      "label": "Special Considerations Other - line 3",
+      "crm_field": null
+    },
+    "Text Field 6": {
+      "label": "Title (Mr/Mrs/Ms etc)",
+      "crm_field": "title"
+    },
+    "Text Field 5": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 258": {
+      "label": "Initial (if applicable)",
+      "crm_field": null
+    },
+    "Text Field 7": {
+      "label": "Last Name",
+      "crm_field": "last_name"
+    },
+    "Text Field 8": {
+      "label": "Date of Birth (dd/mm/yyyy)",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "Text Field 28": {
+      "label": "Age Next Birthday",
+      "crm_field": null
+    },
+    "Check Box 145": {
+      "label": "Customer Special Considerations Yes/No",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "yes"
+        ],
+        "no": [
+          "no"
+        ]
+      }
+    },
+    "Check Box 22": {
+      "label": "Gender Male/Female",
+      "crm_field": "gender",
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "male"
+        ],
+        "no": [
+          "female"
+        ]
+      }
+    },
+    "Check Box 24": {
+      "label": "Relationship Status",
+      "crm_field": "status",
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "single"
+        ],
+        "2": [
+          "married"
+        ],
+        "3": [
+          "registered civil partner",
+          "civil partner"
+        ],
+        "4": [
+          "separated"
+        ],
+        "5": [
+          "divorced"
+        ],
+        "6": [
+          "widowed",
+          "widow(er)",
+          "widower"
+        ]
+      }
+    },
+    "__comment_page2": "=== PAGE 2: Extended personal + Contact Details + PEP + Contribution + Fund Details ===",
+    "Text Field 30": {
+      "label": "Country of Birth",
+      "crm_field": "country_of_birth",
+      "static_value": "Ireland"
+    },
+    "Text Field 31": {
+      "label": "Nationality",
+      "crm_field": "nationality",
+      "static_value": "Irish"
+    },
+    "Text Field 32": {
+      "label": "Precise Occupation",
+      "crm_field": "job_title"
+    },
+    "Text Field 34": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Text Field 45": {
+      "label": "Address (multi-line)",
+      "crm_field": "address_line1"
+    },
+    "Text Field 44": {
+      "label": "County",
+      "crm_field": "address_city"
+    },
+    "Text Field 42": {
+      "label": "Home Phone",
+      "crm_field": "phone_work"
+    },
+    "Text Field 47": {
+      "label": "Mobile Phone",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 48": {
+      "label": "Email Address",
+      "crm_field": "email"
+    },
+    "Text Field 266": {
+      "label": "Contribution: Total Fund €",
+      "crm_field": null
+    },
+    "Text Field 274": {
+      "label": "Contribution: Complete Solutions ARF 1 €",
+      "crm_field": null
+    },
+    "Text Field 273": {
+      "label": "Contribution: Complete Solutions ARF 2 €",
+      "crm_field": null
+    },
+    "Text Field 290": {
+      "label": "Fund %: Global Cash Fund (ARF)",
+      "crm_field": null
+    },
+    "Text Field 289": {
+      "label": "Fund %: Retirement Portfolio Fund 2",
+      "crm_field": null
+    },
+    "Text Field 288": {
+      "label": "Fund %: Multi Asset Portfolio Fund 2",
+      "crm_field": null
+    },
+    "Text Field 287": {
+      "label": "Fund %: Retirement Portfolio Fund 3",
+      "crm_field": null
+    },
+    "Text Field 286": {
+      "label": "Fund %: Multi Asset Portfolio Fund 3",
+      "crm_field": null
+    },
+    "Text Field 285": {
+      "label": "Fund %: Retirement Portfolio Fund 4",
+      "crm_field": null
+    },
+    "Text Field 284": {
+      "label": "Fund %: Multi Asset Portfolio Fund 4",
+      "crm_field": null
+    },
+    "Text Field 283": {
+      "label": "Fund %: Retirement Portfolio Fund 5",
+      "crm_field": null
+    },
+    "Text Field 282": {
+      "label": "Fund %: Multi Asset Portfolio Fund 5",
+      "crm_field": null
+    },
+    "Text Field 281": {
+      "label": "Fund %: Multi Asset Portfolio Fund 6",
+      "crm_field": null
+    },
+    "Text Field 1019": {
+      "label": "Other Fund 1 Name",
+      "crm_field": null
+    },
+    "Text Field 1018": {
+      "label": "Other Fund 1 %",
+      "crm_field": null
+    },
+    "Text Field 1015": {
+      "label": "Other Fund 2 Name",
+      "crm_field": null
+    },
+    "Text Field 1014": {
+      "label": "Other Fund 2 %",
+      "crm_field": null
+    },
+    "Text Field 1011": {
+      "label": "Other Fund 3 Name",
+      "crm_field": null
+    },
+    "Text Field 1013": {
+      "label": "Other Fund 3 %",
+      "crm_field": null
+    },
+    "Text Field 1010": {
+      "label": "Other Fund 4 Name",
+      "crm_field": null
+    },
+    "Text Field 1017": {
+      "label": "Other Fund 4 %",
+      "crm_field": null
+    },
+    "Text Field 109": {
+      "label": "Other Fund 5 Name",
+      "crm_field": null
+    },
+    "Text Field 1021": {
+      "label": "Other Fund 5 %",
+      "crm_field": null
+    },
+    "Check Box 34": {
+      "label": "PEP/RCA Yes/No",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "yes"
+        ],
+        "no": [
+          "no"
+        ]
+      }
+    },
+    "__comment_page3": "=== PAGE 3: ARF Withdrawal Details + Nominated Fund table ===",
+    "Text Field 309": {
+      "label": "Other % (Max 15%)",
+      "crm_field": null
+    },
+    "Text Field 310": {
+      "label": "Withdrawal specified €",
+      "crm_field": null
+    },
+    "Text Field 312": {
+      "label": "Withdrawal start date — Month",
+      "crm_field": null
+    },
+    "Text Field 313": {
+      "label": "Withdrawal start date — Year",
+      "crm_field": null
+    },
+    "Text Field 314": {
+      "label": "Nominated Fund 1 Name",
+      "crm_field": null
+    },
+    "Text Field 315": {
+      "label": "Nominated Fund 1 %",
+      "crm_field": null
+    },
+    "Text Field 317": {
+      "label": "Nominated Fund 1 Fixed €",
+      "crm_field": null
+    },
+    "Text Field 320": {
+      "label": "Nominated Fund 2 Name",
+      "crm_field": null
+    },
+    "Text Field 319": {
+      "label": "Nominated Fund 2 %",
+      "crm_field": null
+    },
+    "Text Field 318": {
+      "label": "Nominated Fund 2 Fixed €",
+      "crm_field": null
+    },
+    "Text Field 323": {
+      "label": "Nominated Fund 3 Name",
+      "crm_field": null
+    },
+    "Text Field 322": {
+      "label": "Nominated Fund 3 %",
+      "crm_field": null
+    },
+    "Text Field 321": {
+      "label": "Nominated Fund 3 Fixed €",
+      "crm_field": null
+    },
+    "Text Field 326": {
+      "label": "Nominated Fund 4 Name",
+      "crm_field": null
+    },
+    "Text Field 325": {
+      "label": "Nominated Fund 4 %",
+      "crm_field": null
+    },
+    "Text Field 324": {
+      "label": "Nominated Fund 4 Fixed €",
+      "crm_field": null
+    },
+    "Check Box 97": {
+      "label": "Regular Withdrawal % (4/5/6/7/8/9)",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "1": [
+          "4"
+        ],
+        "5": [
+          "5"
+        ],
+        "6": [
+          "6"
+        ],
+        "7": [
+          "7"
+        ],
+        "8": [
+          "8"
+        ],
+        "9": [
+          "9"
+        ]
+      }
+    },
+    "Check Box 106": {
+      "label": "Payment frequency (Monthly/Quarterly/Half-Yearly/Yearly)",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "1": [
+          "monthly"
+        ],
+        "3": [
+          "quarterly"
+        ],
+        "half yearly": [
+          "half yearly",
+          "half-yearly"
+        ],
+        "5": [
+          "yearly"
+        ]
+      }
+    },
+    "__comment_page4": "=== PAGE 4: Bank account details + My Online Services ===",
+    "Text Field 327": {
+      "label": "Account Holder's Name",
+      "crm_field": "full_name"
+    },
+    "Text Field 328": {
+      "label": "Bank Identifier Code (BIC)",
+      "crm_field": null
+    },
+    "Text Field 329": {
+      "label": "IBAN",
+      "crm_field": null
+    },
+    "Check Box 135": {
+      "label": "Register for My Online Services Yes/No",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "yes"
+        ],
+        "no": [
+          "no"
+        ]
+      }
+    },
+    "__comment_page5": "=== PAGE 5: Declarations A (replacement plan) + signatures ===",
+    "Text Field 143": {
+      "label": "Proposal Number",
+      "crm_field": null
+    },
+    "Text Field 145": {
+      "label": "Customer Name (Declarations)",
+      "crm_field": "full_name"
+    },
+    "Text Field 146": {
+      "label": "Financial Adviser Name (Declarations)",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Text Field 332": {
+      "label": "Existing Plan Number",
+      "crm_field": null
+    },
+    "Text Field 331": {
+      "label": "Adviser Declaration Text",
+      "crm_field": null
+    },
+    "Text Field 334": {
+      "label": "Signature of Financial Adviser",
+      "crm_field": null
+    },
+    "Text Field 333": {
+      "label": "Financial Adviser Signature Date",
+      "crm_field": null
+    },
+    "Text Field 336": {
+      "label": "Signature of Customer",
+      "crm_field": null
+    },
+    "Text Field 335": {
+      "label": "Customer Signature Date",
+      "crm_field": null
+    },
+    "Check Box 111": {
+      "label": "Replacement plan (Irish Life / other company / not replacing)",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "irish_life"
+        ],
+        "2": [
+          "other"
+        ],
+        "3": [
+          "none"
+        ]
+      }
+    },
+    "__comment_page6": "=== PAGE 6: Declarations B & C + customer signature ===",
+    "Text Field 338": {
+      "label": "Customer Signature (page 6)",
+      "crm_field": null
+    },
+    "Text Field 337": {
+      "label": "Customer Signature Date (page 6)",
+      "crm_field": null
+    },
+    "__comment_page7": "=== PAGE 7: Source of Investment Certificate (filled by transferring QFM) ===",
+    "Text Field 359": {
+      "label": "Cert: Customer Name",
+      "crm_field": "full_name"
+    },
+    "Text Field 355": {
+      "label": "Cert: Customer Address (multi-line)",
+      "crm_field": "address_line1"
+    },
+    "Text Field 354": {
+      "label": "Cert: Date of Birth",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "Text Field 360": {
+      "label": "Cert: Proposed amount to invest €",
+      "crm_field": null
+    },
+    "Text Field 361": {
+      "label": "Cert: Proposal Number",
+      "crm_field": null
+    },
+    "Text Field 363": {
+      "label": "Cert: Name of existing insurer/QFM (right)",
+      "crm_field": null
+    },
+    "Text Field 362": {
+      "label": "Cert: Name of existing insurer/QFM (wide line)",
+      "crm_field": null
+    },
+    "Text Field 365": {
+      "label": "Cert: Gross drawdowns current tax year €",
+      "crm_field": null
+    },
+    "Text Field 366": {
+      "label": "Cert: Describe source of investment",
+      "crm_field": null
+    },
+    "Text Field 367": {
+      "label": "Cert: Company Pension Scheme name",
+      "crm_field": null
+    },
+    "Text Field 342": {
+      "label": "Cert: QFM Name (block caps)",
+      "crm_field": null
+    },
+    "Text Field 368": {
+      "label": "Cert: QFM Signature",
+      "crm_field": null
+    },
+    "Text Field 341": {
+      "label": "Cert: QFM Signature Date",
+      "crm_field": null
+    },
+    "Text Field 340": {
+      "label": "Cert: QFM Position",
+      "crm_field": null
+    },
+    "Text Field 339": {
+      "label": "Cert: QFM Insurance Company/Other",
+      "crm_field": null
+    },
+    "Check Box 129": {
+      "label": "Cert: From existing ARF/Vested PRSA Yes/No",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "yes"
+        ],
+        "no": [
+          "no"
+        ]
+      }
+    },
+    "Check Box 130": {
+      "label": "Cert: Property Adjustment Order transfer Yes/No",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "Yes": [
+          "yes"
+        ],
+        "no": [
+          "no"
+        ]
+      }
+    }
+  }
+}

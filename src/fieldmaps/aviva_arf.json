@@ -1,0 +1,888 @@
+{
+  "form_name": "Aviva ARF/AMRF Application Form",
+  "pdf_file": "aviva_arf.pdf",
+  "provider": "Aviva",
+  "product": "ARF",
+  "notes": "Aviva ARF/AMRF — mapped: Pages 1-2 broker + personal + product details with title/gender/relationship radios, Page 6 bank + QFM nominee name/address, Page 19 Certificate of Investment Source (customer name, address, DOB, PPS). Remaining unmapped fields are customer-choice: fund allocation %s, investment amount, withdrawal options, SDIO details, declarations, signatures, PEP details (Section 3), transfer source details (filled by transferring QFM). Reference PDF: src/fieldmaps_pdfs/fieldmap_aviva_arf.pdf.",
+  "field_map": {
+    "__comment_page1": "=== PAGE 1: Section 1 Checklist + Section 2 Financial Broker Details ===",
+    "Check Box 66": {
+      "label": "Checklist: Fully completed application form",
+      "crm_field": null
+    },
+    "Check Box 128": {
+      "label": "Checklist: Family law / PAO copy enclosed",
+      "crm_field": null
+    },
+    "Check Box 129": {
+      "label": "Checklist: Proof of date of birth enclosed",
+      "crm_field": null
+    },
+    "Check Box 134": {
+      "label": "Checklist: Transfer contribution family law PAO",
+      "crm_field": null
+    },
+    "Check Box 67": {
+      "label": "Checklist: Written proof for Section 6",
+      "crm_field": null
+    },
+    "Check Box 68": {
+      "label": "Checklist: EFT payment",
+      "crm_field": null
+    },
+    "Text Field 38": {
+      "label": "Agency Number",
+      "crm_field": null
+    },
+    "Text Field 39": {
+      "label": "Name of Financial Broker",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Text Field 40": {
+      "label": "Financial Broker's Email Address",
+      "crm_field": null,
+      "adviser_field": "email"
+    },
+    "Text Field 41": {
+      "label": "Financial Broker's Phone Number",
+      "crm_field": null
+    },
+    "Text Field 42": {
+      "label": "Aviva Account Manager Name",
+      "crm_field": null
+    },
+    "__comment_page2_sec3": "=== PAGE 2: Section 3 Personal Details + Section 4 Product Details ===",
+    "Check Box 54": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Check Box 53": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 52": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Text Field 146": {
+      "label": "Title: Other (specify)",
+      "crm_field": null
+    },
+    "Text Field 145": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 144": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 143": {
+      "label": "DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "Text Field 142": {
+      "label": "DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "Text Field 141": {
+      "label": "DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "Check Box 51": {
+      "label": "Gender: Male",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "Check Box 50": {
+      "label": "Gender: Female",
+      "crm_field": "gender",
+      "match_value": "Female"
+    },
+    "Check Box 49": {
+      "label": "Relationship Status: Single",
+      "crm_field": "status",
+      "match_value": "Single"
+    },
+    "Check Box 48": {
+      "label": "Relationship Status: Married",
+      "crm_field": "status",
+      "match_value": "Married"
+    },
+    "Check Box 47": {
+      "label": "Relationship Status: Widow(er)",
+      "crm_field": "status",
+      "match_value": "Widowed"
+    },
+    "Check Box 46": {
+      "label": "Relationship Status: Separated",
+      "crm_field": "status",
+      "match_value": "Separated"
+    },
+    "Check Box 45": {
+      "label": "Relationship Status: Divorced",
+      "crm_field": "status",
+      "match_value": "Divorced"
+    },
+    "Check Box 44": {
+      "label": "Relationship Status: Civil Partner",
+      "crm_field": "status",
+      "match_value": "Civil Partner"
+    },
+    "Text Field 140": {
+      "label": "Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 139": {
+      "label": "Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Text Field 138": {
+      "label": "Address Line 3",
+      "crm_field": null
+    },
+    "Text Field 137": {
+      "label": "Contact Phone Number",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 136": {
+      "label": "Email",
+      "crm_field": "email"
+    },
+    "Text Field 135": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Check Box 70": {
+      "label": "PEP: Yes",
+      "crm_field": null
+    },
+    "Check Box 69": {
+      "label": "PEP: No",
+      "crm_field": null
+    },
+    "Text Field 147": {
+      "label": "PEP Function",
+      "crm_field": null
+    },
+    "Text Field 148": {
+      "label": "Relationship to PEP",
+      "crm_field": null
+    },
+    "Check Box 58": {
+      "label": "Product: Option A (€20,000+)",
+      "crm_field": null
+    },
+    "Check Box 57": {
+      "label": "Product: Option B (€20,000+)",
+      "crm_field": null
+    },
+    "Check Box 56": {
+      "label": "Product: Option C (€100,000+)",
+      "crm_field": null
+    },
+    "Check Box 71": {
+      "label": "Product: Option C1 (€200,000+)",
+      "crm_field": null
+    },
+    "Check Box 72": {
+      "label": "Product: Option D (€200,000+)",
+      "crm_field": null
+    },
+    "Check Box 131": {
+      "label": "PAO Transfer: Yes",
+      "crm_field": null
+    },
+    "Check Box 130": {
+      "label": "PAO Transfer: No",
+      "crm_field": null
+    },
+    "__comment_page3": "=== PAGE 3 (unmapped) ===",
+    "Text Field 305": {
+      "label": "Section 5: ARF Investment Amount €",
+      "crm_field": null
+    },
+    "__comment_page4": "=== PAGE 4 (unmapped) ===",
+    "Text Field 434": {
+      "label": "Text Field 434",
+      "crm_field": null
+    },
+    "Text Field 435": {
+      "label": "Text Field 435",
+      "crm_field": null
+    },
+    "Text Field 436": {
+      "label": "Text Field 436",
+      "crm_field": null
+    },
+    "Text Field 437": {
+      "label": "Text Field 437",
+      "crm_field": null
+    },
+    "Text Field 438": {
+      "label": "Text Field 438",
+      "crm_field": null
+    },
+    "Text Field 439": {
+      "label": "Text Field 439",
+      "crm_field": null
+    },
+    "Text Field 440": {
+      "label": "Text Field 440",
+      "crm_field": null
+    },
+    "Text Field 441": {
+      "label": "Text Field 441",
+      "crm_field": null
+    },
+    "Text Field 442": {
+      "label": "Text Field 442",
+      "crm_field": null
+    },
+    "Text Field 443": {
+      "label": "Text Field 443",
+      "crm_field": null
+    },
+    "Text Field 444": {
+      "label": "Text Field 444",
+      "crm_field": null
+    },
+    "Text Field 445": {
+      "label": "Text Field 445",
+      "crm_field": null
+    },
+    "Text Field 446": {
+      "label": "Text Field 446",
+      "crm_field": null
+    },
+    "Text Field 601": {
+      "label": "Text Field 601",
+      "crm_field": null
+    },
+    "Text Field 602": {
+      "label": "Text Field 602",
+      "crm_field": null
+    },
+    "Text Field 603": {
+      "label": "Text Field 603",
+      "crm_field": null
+    },
+    "Text Field 604": {
+      "label": "Text Field 604",
+      "crm_field": null
+    },
+    "Text Field 605": {
+      "label": "Text Field 605",
+      "crm_field": null
+    },
+    "Text Field 606": {
+      "label": "Text Field 606",
+      "crm_field": null
+    },
+    "Text Field 607": {
+      "label": "Text Field 607",
+      "crm_field": null
+    },
+    "Text Field 608": {
+      "label": "Text Field 608",
+      "crm_field": null
+    },
+    "Text Field 609": {
+      "label": "Text Field 609",
+      "crm_field": null
+    },
+    "Text Field 6010": {
+      "label": "Text Field 6010",
+      "crm_field": null
+    },
+    "Text Field 447": {
+      "label": "Text Field 447",
+      "crm_field": null
+    },
+    "Text Field 448": {
+      "label": "Text Field 448",
+      "crm_field": null
+    },
+    "Text Field 449": {
+      "label": "Text Field 449",
+      "crm_field": null
+    },
+    "Text Field 450": {
+      "label": "Text Field 450",
+      "crm_field": null
+    },
+    "Text Field 451": {
+      "label": "Text Field 451",
+      "crm_field": null
+    },
+    "Text Field 452": {
+      "label": "Text Field 452",
+      "crm_field": null
+    },
+    "Text Field 453": {
+      "label": "Text Field 453",
+      "crm_field": null
+    },
+    "Text Field 454": {
+      "label": "Text Field 454",
+      "crm_field": null
+    },
+    "Text Field 455": {
+      "label": "Text Field 455",
+      "crm_field": null
+    },
+    "Text Field 456": {
+      "label": "Text Field 456",
+      "crm_field": null
+    },
+    "Text Field 457": {
+      "label": "Text Field 457",
+      "crm_field": null
+    },
+    "Text Field 458": {
+      "label": "Text Field 458",
+      "crm_field": null
+    },
+    "Check Box 144": {
+      "label": "Check Box 144",
+      "crm_field": null
+    },
+    "Check Box 143": {
+      "label": "Check Box 143",
+      "crm_field": null
+    },
+    "Check Box 142": {
+      "label": "Check Box 142",
+      "crm_field": null
+    },
+    "Check Box 141": {
+      "label": "Check Box 141",
+      "crm_field": null
+    },
+    "Check Box 140": {
+      "label": "Check Box 140",
+      "crm_field": null
+    },
+    "Text Field 466": {
+      "label": "Text Field 466",
+      "crm_field": null
+    },
+    "Text Field 465": {
+      "label": "Text Field 465",
+      "crm_field": null
+    },
+    "Text Field 3013": {
+      "label": "Text Field 3013",
+      "crm_field": null
+    },
+    "__comment_page5": "=== PAGE 5 (unmapped) ===",
+    "Text Field 23334": {
+      "label": "Text Field 23334",
+      "crm_field": null
+    },
+    "Check Box 100": {
+      "label": "Check Box 100",
+      "crm_field": null
+    },
+    "Check Box 101": {
+      "label": "Check Box 101",
+      "crm_field": null
+    },
+    "Check Box 102": {
+      "label": "Check Box 102",
+      "crm_field": null
+    },
+    "Check Box 103": {
+      "label": "Check Box 103",
+      "crm_field": null
+    },
+    "Text Field 308": {
+      "label": "Text Field 308",
+      "crm_field": null
+    },
+    "Text Field 309": {
+      "label": "Text Field 309",
+      "crm_field": null
+    },
+    "Text Field 3010": {
+      "label": "Text Field 3010",
+      "crm_field": null
+    },
+    "Text Field 3011": {
+      "label": "Text Field 3011",
+      "crm_field": null
+    },
+    "__comment_page6": "=== PAGE 6 (unmapped) ===",
+    "Text Field 289": {
+      "label": "QFM Nominee Name (third-party qualifying fund manager)",
+      "crm_field": null
+    },
+    "Text Field 288": {
+      "label": "QFM Effective Date of Nomination - Day",
+      "crm_field": null
+    },
+    "Text Field 287": {
+      "label": "QFM Effective Date of Nomination - Month",
+      "crm_field": null
+    },
+    "Text Field 286": {
+      "label": "QFM Effective Date of Nomination - Year",
+      "crm_field": null
+    },
+    "Text Field 282": {
+      "label": "Bank: Name of account holder",
+      "crm_field": "full_name"
+    },
+    "Text Field 283": {
+      "label": "Bank: Address of account holder",
+      "crm_field": "address_line1"
+    },
+    "Text Field 284": {
+      "label": "Bank: City/postcode",
+      "crm_field": "address_city"
+    },
+    "Text Field 285": {
+      "label": "Bank: Country",
+      "crm_field": null
+    },
+    "Text Field 281": {
+      "label": "Bank: IBAN",
+      "crm_field": null
+    },
+    "Text Field 280": {
+      "label": "Bank: BIC",
+      "crm_field": null
+    },
+    "__comment_page7": "=== PAGE 7 (unmapped) ===",
+    "Text Field 84": {
+      "label": "Text Field 84",
+      "crm_field": null
+    },
+    "__comment_page9": "=== PAGE 9 (unmapped) ===",
+    "Text Field 395": {
+      "label": "Text Field 395",
+      "crm_field": null
+    },
+    "Text Field 394": {
+      "label": "Text Field 394",
+      "crm_field": null
+    },
+    "Text Field 393": {
+      "label": "Text Field 393",
+      "crm_field": null
+    },
+    "Text Field 392": {
+      "label": "Text Field 392",
+      "crm_field": null
+    },
+    "Text Field 391": {
+      "label": "Text Field 391",
+      "crm_field": null
+    },
+    "Text Field 390": {
+      "label": "Text Field 390",
+      "crm_field": null
+    },
+    "__comment_page10": "=== PAGE 10 (unmapped) ===",
+    "Text Field 85": {
+      "label": "Trustee: Scheme Name",
+      "crm_field": null
+    },
+    "Text Field 86": {
+      "label": "Trustee: Pensions Authority Number",
+      "crm_field": null
+    },
+    "Text Field 87": {
+      "label": "Trustee: Revenue Approval Number",
+      "crm_field": null
+    },
+    "Text Field 88": {
+      "label": "Trustee: Name of Trustee",
+      "crm_field": null
+    },
+    "Text Field 22": {
+      "label": "Trustee: Signature Date - Day",
+      "crm_field": null
+    },
+    "Text Field 21": {
+      "label": "Trustee: Signature Date - Month",
+      "crm_field": null
+    },
+    "Text Field 20": {
+      "label": "Trustee: Signature Date - Year",
+      "crm_field": null
+    },
+    "__comment_page11": "=== PAGE 11 (unmapped) ===",
+    "Check Box 109": {
+      "label": "Check Box 109",
+      "crm_field": null
+    },
+    "Check Box 108": {
+      "label": "Check Box 108",
+      "crm_field": null
+    },
+    "Check Box 107": {
+      "label": "Check Box 107",
+      "crm_field": null
+    },
+    "Check Box 106": {
+      "label": "Check Box 106",
+      "crm_field": null
+    },
+    "__comment_page13": "=== PAGE 13 (unmapped) ===",
+    "Text Field 304": {
+      "label": "Text Field 304",
+      "crm_field": null
+    },
+    "Text Field 303": {
+      "label": "Text Field 303",
+      "crm_field": null
+    },
+    "Text Field 302": {
+      "label": "Text Field 302",
+      "crm_field": null
+    },
+    "__comment_page15": "=== PAGE 15 (unmapped) ===",
+    "Text Field 299": {
+      "label": "Text Field 299",
+      "crm_field": null
+    },
+    "Check Box 114": {
+      "label": "Check Box 114",
+      "crm_field": null
+    },
+    "Check Box 113": {
+      "label": "Check Box 113",
+      "crm_field": null
+    },
+    "Check Box 112": {
+      "label": "Check Box 112",
+      "crm_field": null
+    },
+    "Text Field 298": {
+      "label": "Text Field 298",
+      "crm_field": null
+    },
+    "Text Field 297": {
+      "label": "Text Field 297",
+      "crm_field": null
+    },
+    "Text Field 296": {
+      "label": "Text Field 296",
+      "crm_field": null
+    },
+    "Text Field 2015": {
+      "label": "Text Field 2015",
+      "crm_field": null
+    },
+    "Text Field 2014": {
+      "label": "Text Field 2014",
+      "crm_field": null
+    },
+    "Text Field 2013": {
+      "label": "Text Field 2013",
+      "crm_field": null
+    },
+    "Text Field 2012": {
+      "label": "Text Field 2012",
+      "crm_field": null
+    },
+    "Text Field 2011": {
+      "label": "Text Field 2011",
+      "crm_field": null
+    },
+    "Text Field 2010": {
+      "label": "Text Field 2010",
+      "crm_field": null
+    },
+    "Text Field 295": {
+      "label": "Text Field 295",
+      "crm_field": null
+    },
+    "Text Field 294": {
+      "label": "Text Field 294",
+      "crm_field": null
+    },
+    "Text Field 293": {
+      "label": "Text Field 293",
+      "crm_field": null
+    },
+    "Text Field 292": {
+      "label": "Text Field 292",
+      "crm_field": null
+    },
+    "Text Field 291": {
+      "label": "Text Field 291",
+      "crm_field": null
+    },
+    "__comment_page16": "=== PAGE 16 (unmapped) ===",
+    "Text Field 290": {
+      "label": "Text Field 290",
+      "crm_field": null
+    },
+    "Check Box 111": {
+      "label": "Check Box 111",
+      "crm_field": null
+    },
+    "Check Box 110": {
+      "label": "Check Box 110",
+      "crm_field": null
+    },
+    "Text Field 3061": {
+      "label": "Text Field 3061",
+      "crm_field": null
+    },
+    "Text Field 3062": {
+      "label": "Text Field 3062",
+      "crm_field": null
+    },
+    "Text Field 3063": {
+      "label": "Text Field 3063",
+      "crm_field": null
+    },
+    "Text Field 3064": {
+      "label": "Text Field 3064",
+      "crm_field": null
+    },
+    "Text Field 3058": {
+      "label": "Text Field 3058",
+      "crm_field": null
+    },
+    "Text Field 3059": {
+      "label": "Text Field 3059",
+      "crm_field": null
+    },
+    "Text Field 3060": {
+      "label": "Text Field 3060",
+      "crm_field": null
+    },
+    "__comment_page17": "=== PAGE 17 (unmapped) ===",
+    "Text Field 2021": {
+      "label": "Text Field 2021",
+      "crm_field": null
+    },
+    "Text Field 2020": {
+      "label": "Text Field 2020",
+      "crm_field": null
+    },
+    "Text Field 2019": {
+      "label": "Text Field 2019",
+      "crm_field": null
+    },
+    "Text Field 301": {
+      "label": "Text Field 301",
+      "crm_field": null
+    },
+    "__comment_page18": "=== PAGE 18 (unmapped) ===",
+    "Text Field 2018": {
+      "label": "Text Field 2018",
+      "crm_field": null
+    },
+    "Text Field 2017": {
+      "label": "Text Field 2017",
+      "crm_field": null
+    },
+    "Text Field 2016": {
+      "label": "Text Field 2016",
+      "crm_field": null
+    },
+    "Text Field 300": {
+      "label": "Text Field 300",
+      "crm_field": null
+    },
+    "Text Field 3071": {
+      "label": "Text Field 3071",
+      "crm_field": null
+    },
+    "Text Field 3072": {
+      "label": "Text Field 3072",
+      "crm_field": null
+    },
+    "Text Field 3081": {
+      "label": "Text Field 3081",
+      "crm_field": null
+    },
+    "Check Box 115": {
+      "label": "Check Box 115",
+      "crm_field": null
+    },
+    "Text Field 3073": {
+      "label": "Text Field 3073",
+      "crm_field": null
+    },
+    "Text Field 3074": {
+      "label": "Text Field 3074",
+      "crm_field": null
+    },
+    "Text Field 3082": {
+      "label": "Text Field 3082",
+      "crm_field": null
+    },
+    "Check Box 123": {
+      "label": "Check Box 123",
+      "crm_field": null
+    },
+    "Text Field 3075": {
+      "label": "Text Field 3075",
+      "crm_field": null
+    },
+    "Text Field 3076": {
+      "label": "Text Field 3076",
+      "crm_field": null
+    },
+    "Text Field 3083": {
+      "label": "Text Field 3083",
+      "crm_field": null
+    },
+    "Check Box 124": {
+      "label": "Check Box 124",
+      "crm_field": null
+    },
+    "Text Field 3077": {
+      "label": "Text Field 3077",
+      "crm_field": null
+    },
+    "Text Field 3078": {
+      "label": "Text Field 3078",
+      "crm_field": null
+    },
+    "Text Field 3084": {
+      "label": "Text Field 3084",
+      "crm_field": null
+    },
+    "Check Box 125": {
+      "label": "Check Box 125",
+      "crm_field": null
+    },
+    "Text Field 3079": {
+      "label": "Text Field 3079",
+      "crm_field": null
+    },
+    "Text Field 3080": {
+      "label": "Text Field 3080",
+      "crm_field": null
+    },
+    "Text Field 3085": {
+      "label": "Text Field 3085",
+      "crm_field": null
+    },
+    "Check Box 126": {
+      "label": "Check Box 126",
+      "crm_field": null
+    },
+    "__comment_page19": "=== PAGE 19 (unmapped) ===",
+    "Text Field 130": {
+      "label": "Cert: Name in full (Mr/Mrs/Ms/Miss)",
+      "crm_field": "full_name"
+    },
+    "Text Field 95": {
+      "label": "Cert: Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 96": {
+      "label": "Cert: Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Text Field 25": {
+      "label": "Cert: DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "Text Field 24": {
+      "label": "Cert: DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "Text Field 23": {
+      "label": "Cert: DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "Text Field 97": {
+      "label": "Cert: PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Text Field 98": {
+      "label": "Cert: Insurance Co/QFM name Line 1",
+      "crm_field": null
+    },
+    "Text Field 99": {
+      "label": "Cert: Insurance Co/QFM address Line 1",
+      "crm_field": null
+    },
+    "Text Field 100": {
+      "label": "Cert: Insurance Co/QFM address Line 2",
+      "crm_field": null
+    },
+    "Text Field 101": {
+      "label": "Cert: Policy Number with existing insurer/QFM",
+      "crm_field": null
+    },
+    "Text Field 131": {
+      "label": "Cert: Investment amount €",
+      "crm_field": null
+    },
+    "Check Box 133": {
+      "label": "Cert: PAO transfer: Yes",
+      "crm_field": null
+    },
+    "Check Box 132": {
+      "label": "Cert: PAO transfer: No",
+      "crm_field": null
+    },
+    "Text Field 102": {
+      "label": "Cert: Withdrawals taken (current tax year) line 1",
+      "crm_field": null
+    },
+    "Text Field 103": {
+      "label": "Cert: Withdrawals taken line 2",
+      "crm_field": null
+    },
+    "Check Box 39": {
+      "label": "Cert: From existing ARF: Yes",
+      "crm_field": null
+    },
+    "Check Box 40": {
+      "label": "Cert: From existing ARF: No",
+      "crm_field": null
+    },
+    "Text Field 104": {
+      "label": "Cert: Source description line 1",
+      "crm_field": null
+    },
+    "Text Field 105": {
+      "label": "Cert: Source description line 2",
+      "crm_field": null
+    },
+    "Text Field 106": {
+      "label": "Cert: Source description line 3",
+      "crm_field": null
+    },
+    "Text Field 28": {
+      "label": "Cert: Signature Date - Day",
+      "crm_field": null
+    },
+    "Text Field 27": {
+      "label": "Cert: Signature Date - Month",
+      "crm_field": null
+    },
+    "Text Field 26": {
+      "label": "Cert: Signature Date - Year",
+      "crm_field": null
+    },
+    "Text Field 107": {
+      "label": "Cert: Signatory Position",
+      "crm_field": null
+    },
+    "Text Field 108": {
+      "label": "Cert: Insurance Company/QFM/Trustees",
+      "crm_field": null
+    }
+  }
+}

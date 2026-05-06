@@ -1,0 +1,595 @@
+{
+  "form_name": "Davy Select ARF Account (Execution-Only) Application Form",
+  "pdf_file": "davy_select_arf.pdf",
+  "provider": "Davy Select",
+  "product": "ARF",
+  "notes": "Davy Select ARF (Execution-Only) — page 4 (Contact, Personal, Occupation) fully mapped, page 2 intermediary verification partial, Radio Button 2 (US Citizen) wired. Pages 5-7 left unmapped: fund choices, bank details (BIC/IBAN character-per-box arrays), minimum distribution choice, signature block — all require customer-specific input at fill time. Field names mix descriptive (personOne*) and generic (Text Field N).",
+  "field_map": {
+    "__comment_page2": "=== PAGE 2: Client Verification (to be completed by intermediary) ===",
+    "Text Field 1": {
+      "label": "Confirm client name (verification)",
+      "crm_field": "full_name"
+    },
+    "Text Field 2": {
+      "label": "Intermediary firm name",
+      "crm_field": null,
+      "adviser_field": "company"
+    },
+    "Text Field 4": {
+      "label": "Individual's name and name of firm (signed)",
+      "crm_field": null,
+      "adviser_field": "name_and_company"
+    },
+    "Text Field 5": {
+      "label": "Date (DD/MM/YYYY)",
+      "crm_field": null
+    },
+    "__comment_page4": "=== PAGE 4: 1. Contact Details + 2. Personal Details + 3. Occupation ===",
+    "personOneTitle": {
+      "label": "Title",
+      "crm_field": "title"
+    },
+    "personOneEmailAddress": {
+      "label": "Email Address",
+      "crm_field": "email"
+    },
+    "personOneFirstName": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 13": {
+      "label": "Daytime Phone Number",
+      "crm_field": "phone_work"
+    },
+    "personOneLastName": {
+      "label": "Last Name",
+      "crm_field": "last_name"
+    },
+    "Text Field 14": {
+      "label": "Mobile Phone Number",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 10": {
+      "label": "Home Address Line 1",
+      "crm_field": "address_line1"
+    },
+    "Text Field 11": {
+      "label": "Home Address Line 2",
+      "crm_field": "address_city"
+    },
+    "Text Field 15": {
+      "label": "Date of Birth (DD/MM/YYYY)",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "Check Box 35": {
+      "label": "US Citizen: No (widget)",
+      "crm_field": null
+    },
+    "Check Box 34": {
+      "label": "US Citizen: Yes (widget)",
+      "crm_field": null
+    },
+    "Text Field 16": {
+      "label": "Country of Birth",
+      "crm_field": "country_of_birth",
+      "static_value": "Ireland"
+    },
+    "Text Field 17": {
+      "label": "Country of Citizenship",
+      "crm_field": "country_of_citizenship",
+      "static_value": "Ireland"
+    },
+    "Text Field 20": {
+      "label": "Country of Tax Residence",
+      "crm_field": null
+    },
+    "Text Field 18": {
+      "label": "Country of Residence",
+      "crm_field": "country_of_residence",
+      "static_value": "Ireland"
+    },
+    "Text Field 21": {
+      "label": "Country of Tax Residence (line 2)",
+      "crm_field": null
+    },
+    "Text Field 19": {
+      "label": "Nationality",
+      "crm_field": "nationality",
+      "static_value": "Irish"
+    },
+    "Text Field 22": {
+      "label": "Tax Identity Number(s)",
+      "crm_field": "pps_1"
+    },
+    "Text Field 25": {
+      "label": "Employer Name",
+      "crm_field": "company_name"
+    },
+    "Text Field 23": {
+      "label": "Occupation",
+      "crm_field": "job_title"
+    },
+    "Text Field 110": {
+      "label": "Business Name",
+      "crm_field": "company_name"
+    },
+    "Text Field 24": {
+      "label": "Industry Sector",
+      "crm_field": null
+    },
+    "Radio Button 2": {
+      "label": "Are you a US Citizen or Green Card Holder?",
+      "crm_field": null,
+      "radio_group": true,
+      "radio_options": {
+        "0": [
+          "yes"
+        ],
+        "1": [
+          "no"
+        ]
+      }
+    },
+    "__comment_page5": "=== PAGE 5: Additional checkboxes (product selections) ===",
+    "Check Box 28": {
+      "label": "Check Box 28",
+      "crm_field": null
+    },
+    "Check Box 27": {
+      "label": "Check Box 27",
+      "crm_field": null
+    },
+    "Check Box 30": {
+      "label": "Check Box 30",
+      "crm_field": null
+    },
+    "Check Box 32": {
+      "label": "Check Box 32",
+      "crm_field": null
+    },
+    "Check Box 31": {
+      "label": "Check Box 31",
+      "crm_field": null
+    },
+    "Check Box 33": {
+      "label": "Check Box 33",
+      "crm_field": null
+    },
+    "Text Field 26": {
+      "label": "Text Field 26",
+      "crm_field": null
+    },
+    "Text Field 111": {
+      "label": "Text Field 111",
+      "crm_field": null
+    },
+    "Check Box 4": {
+      "label": "Check Box 4",
+      "crm_field": null
+    },
+    "Text Field 112": {
+      "label": "Text Field 112",
+      "crm_field": null
+    },
+    "Check Box 5": {
+      "label": "Check Box 5",
+      "crm_field": null
+    },
+    "Check Box 6": {
+      "label": "Check Box 6",
+      "crm_field": null
+    },
+    "Check Box 11": {
+      "label": "Check Box 11",
+      "crm_field": null
+    },
+    "Check Box 15": {
+      "label": "Check Box 15",
+      "crm_field": null
+    },
+    "Check Box 16": {
+      "label": "Check Box 16",
+      "crm_field": null
+    },
+    "Check Box 12": {
+      "label": "Check Box 12",
+      "crm_field": null
+    },
+    "Check Box 17": {
+      "label": "Check Box 17",
+      "crm_field": null
+    },
+    "Check Box 13": {
+      "label": "Check Box 13",
+      "crm_field": null
+    },
+    "Check Box 18": {
+      "label": "Check Box 18",
+      "crm_field": null
+    },
+    "Check Box 14": {
+      "label": "Check Box 14",
+      "crm_field": null
+    },
+    "Check Box 26": {
+      "label": "Check Box 26",
+      "crm_field": null
+    },
+    "Check Box 24": {
+      "label": "Check Box 24",
+      "crm_field": null
+    },
+    "Check Box 25": {
+      "label": "Check Box 25",
+      "crm_field": null
+    },
+    "Text Field 113": {
+      "label": "Text Field 113",
+      "crm_field": null
+    },
+    "__comment_page6": "=== PAGE 6: Fund/Investment choices + data tables ===",
+    "Check Box 19": {
+      "label": "Check Box 19",
+      "crm_field": null
+    },
+    "Text Field 30": {
+      "label": "Text Field 30",
+      "crm_field": null
+    },
+    "Text Field 31": {
+      "label": "Text Field 31",
+      "crm_field": null
+    },
+    "Text Field 32": {
+      "label": "Text Field 32",
+      "crm_field": null
+    },
+    "Text Field 33": {
+      "label": "Text Field 33",
+      "crm_field": null
+    },
+    "Text Field 34": {
+      "label": "Text Field 34",
+      "crm_field": null
+    },
+    "Text Field 35": {
+      "label": "Text Field 35",
+      "crm_field": null
+    },
+    "Text Field 36": {
+      "label": "Text Field 36",
+      "crm_field": null
+    },
+    "Text Field 37": {
+      "label": "Text Field 37",
+      "crm_field": null
+    },
+    "Text Field 38": {
+      "label": "Text Field 38",
+      "crm_field": null
+    },
+    "Text Field 39": {
+      "label": "Text Field 39",
+      "crm_field": null
+    },
+    "Text Field 40": {
+      "label": "Text Field 40",
+      "crm_field": null
+    },
+    "Text Field 41": {
+      "label": "Text Field 41",
+      "crm_field": null
+    },
+    "Check Box 20": {
+      "label": "Check Box 20",
+      "crm_field": null
+    },
+    "Text Field 42": {
+      "label": "Text Field 42",
+      "crm_field": null
+    },
+    "Text Field 46": {
+      "label": "Text Field 46",
+      "crm_field": null
+    },
+    "Text Field 50": {
+      "label": "Text Field 50",
+      "crm_field": null
+    },
+    "Text Field 54": {
+      "label": "Text Field 54",
+      "crm_field": null
+    },
+    "Text Field 43": {
+      "label": "Text Field 43",
+      "crm_field": null
+    },
+    "Text Field 47": {
+      "label": "Text Field 47",
+      "crm_field": null
+    },
+    "Text Field 51": {
+      "label": "Text Field 51",
+      "crm_field": null
+    },
+    "Text Field 55": {
+      "label": "Text Field 55",
+      "crm_field": null
+    },
+    "Text Field 44": {
+      "label": "Text Field 44",
+      "crm_field": null
+    },
+    "Text Field 48": {
+      "label": "Text Field 48",
+      "crm_field": null
+    },
+    "Text Field 52": {
+      "label": "Text Field 52",
+      "crm_field": null
+    },
+    "Text Field 56": {
+      "label": "Text Field 56",
+      "crm_field": null
+    },
+    "Text Field 45": {
+      "label": "Text Field 45",
+      "crm_field": null
+    },
+    "Text Field 49": {
+      "label": "Text Field 49",
+      "crm_field": null
+    },
+    "Text Field 53": {
+      "label": "Text Field 53",
+      "crm_field": null
+    },
+    "Text Field 57": {
+      "label": "Text Field 57",
+      "crm_field": null
+    },
+    "Check Box 21": {
+      "label": "Check Box 21",
+      "crm_field": null
+    },
+    "Text Field 58": {
+      "label": "Text Field 58",
+      "crm_field": null
+    },
+    "Text Field 59": {
+      "label": "Text Field 59",
+      "crm_field": null
+    },
+    "Text Field 60": {
+      "label": "Text Field 60",
+      "crm_field": null
+    },
+    "Text Field 61": {
+      "label": "Text Field 61",
+      "crm_field": null
+    },
+    "Text Field 62": {
+      "label": "Text Field 62",
+      "crm_field": null
+    },
+    "Text Field 63": {
+      "label": "Text Field 63",
+      "crm_field": null
+    },
+    "Text Field 64": {
+      "label": "Text Field 64",
+      "crm_field": null
+    },
+    "Text Field 65": {
+      "label": "Text Field 65",
+      "crm_field": null
+    },
+    "Text Field 66": {
+      "label": "Text Field 66",
+      "crm_field": null
+    },
+    "Text Field 67": {
+      "label": "Text Field 67",
+      "crm_field": null
+    },
+    "Text Field 68": {
+      "label": "Text Field 68",
+      "crm_field": null
+    },
+    "Text Field 69": {
+      "label": "Text Field 69",
+      "crm_field": null
+    },
+    "__comment_page7": "=== PAGE 7: Minimum Distribution Yes/No + Bank details (BIC/IBAN character-per-box) ===",
+    "Text Field 70": {
+      "label": "Text Field 70",
+      "crm_field": null
+    },
+    "Text Field 71": {
+      "label": "Text Field 71",
+      "crm_field": null
+    },
+    "Text Field 72": {
+      "label": "Text Field 72",
+      "crm_field": null
+    },
+    "Text Field 73": {
+      "label": "Text Field 73",
+      "crm_field": null
+    },
+    "Text Field 74": {
+      "label": "Text Field 74",
+      "crm_field": null
+    },
+    "Text Field 82": {
+      "label": "Text Field 82",
+      "crm_field": null
+    },
+    "Text Field 83": {
+      "label": "Text Field 83",
+      "crm_field": null
+    },
+    "Text Field 84": {
+      "label": "Text Field 84",
+      "crm_field": null
+    },
+    "Text Field 85": {
+      "label": "Text Field 85",
+      "crm_field": null
+    },
+    "__comment_page10": "=== PAGE 10: Source of investment table + signature block ===",
+    "Text Field 90": {
+      "label": "Text Field 90",
+      "crm_field": null
+    },
+    "Text Field 91": {
+      "label": "Text Field 91",
+      "crm_field": null
+    },
+    "Text Field 92": {
+      "label": "Text Field 92",
+      "crm_field": null
+    },
+    "Text Field 93": {
+      "label": "Text Field 93",
+      "crm_field": null
+    },
+    "Text Field 94": {
+      "label": "Text Field 94",
+      "crm_field": null
+    },
+    "Text Field 95": {
+      "label": "Text Field 95",
+      "crm_field": null
+    },
+    "Text Field 96": {
+      "label": "Text Field 96",
+      "crm_field": null
+    },
+    "Text Field 97": {
+      "label": "Text Field 97",
+      "crm_field": null
+    },
+    "Text Field 98": {
+      "label": "Text Field 98",
+      "crm_field": null
+    },
+    "Text Field 99": {
+      "label": "Text Field 99",
+      "crm_field": null
+    },
+    "Text Field 100": {
+      "label": "Text Field 100",
+      "crm_field": null
+    },
+    "Text Field 101": {
+      "label": "Text Field 101",
+      "crm_field": null
+    },
+    "Text Field 102": {
+      "label": "Text Field 102",
+      "crm_field": null
+    },
+    "Text Field 103": {
+      "label": "Text Field 103",
+      "crm_field": null
+    },
+    "Text Field 104": {
+      "label": "Text Field 104",
+      "crm_field": null
+    },
+    "Text Field 105": {
+      "label": "Text Field 105",
+      "crm_field": null
+    },
+    "Text Field 106": {
+      "label": "Text Field 106",
+      "crm_field": null
+    },
+    "Text Field 107": {
+      "label": "Text Field 107",
+      "crm_field": null
+    },
+    "Text Field 108": {
+      "label": "Text Field 108",
+      "crm_field": null
+    },
+    "Text Field 109": {
+      "label": "Text Field 109",
+      "crm_field": null
+    },
+    "Text Field 1010": {
+      "label": "Text Field 1010",
+      "crm_field": null
+    },
+    "Text Field 1011": {
+      "label": "Text Field 1011",
+      "crm_field": null
+    },
+    "Text Field 1012": {
+      "label": "Text Field 1012",
+      "crm_field": null
+    },
+    "Text Field 1013": {
+      "label": "Text Field 1013",
+      "crm_field": null
+    },
+    "Text Field 1014": {
+      "label": "Text Field 1014",
+      "crm_field": null
+    },
+    "Text Field 1015": {
+      "label": "Text Field 1015",
+      "crm_field": null
+    },
+    "Text Field 1016": {
+      "label": "Text Field 1016",
+      "crm_field": null
+    },
+    "Text Field 1017": {
+      "label": "Text Field 1017",
+      "crm_field": null
+    },
+    "Text Field 1018": {
+      "label": "Text Field 1018",
+      "crm_field": null
+    },
+    "Text Field 1019": {
+      "label": "Text Field 1019",
+      "crm_field": null
+    },
+    "Text Field 1020": {
+      "label": "Text Field 1020",
+      "crm_field": null
+    },
+    "Text Field 1021": {
+      "label": "Text Field 1021",
+      "crm_field": null
+    },
+    "Text Field 1022": {
+      "label": "Text Field 1022",
+      "crm_field": null
+    },
+    "Check Box 23": {
+      "label": "Check Box 23",
+      "crm_field": null
+    },
+    "Text Field 1025": {
+      "label": "Text Field 1025",
+      "crm_field": null
+    },
+    "Text Field 1026": {
+      "label": "Text Field 1026",
+      "crm_field": null
+    },
+    "Text Field 1027": {
+      "label": "Text Field 1027",
+      "crm_field": null
+    },
+    "Text Field 1028": {
+      "label": "Text Field 1028",
+      "crm_field": null
+    }
+  }
+}

@@ -7,7 +7,11 @@
     "company_caps": "YOUR FINANCE",
     "position": "Director",
     "agency_codes": {
-      "standard_life": "J501"
+      "standard_life": "J501",
+      "irish_life": "",
+      "aviva": "",
+      "zurich": "",
+      "davy_select": ""
     }
   },
   {

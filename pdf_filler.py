@@ -87,18 +87,23 @@ def _resolve_value(field_config: dict, contact: dict, adviser: dict = None) -> O
             return f"{adviser.get('name', '')} / {adviser.get('company', '')}"
         return adviser.get(adviser_field, "")
 
-    # Static value — always fills this exact string
     static = field_config.get("static_value")
-    if static is not None:
+    crm_field = field_config.get("crm_field")
+
+    # If only static_value is set (no crm_field), use it directly.
+    if static is not None and crm_field is None:
         return str(static)
 
-    crm_field = field_config.get("crm_field")
     if crm_field is None:
         return None
 
     raw_value = contact.get(crm_field, "")
     if raw_value is None:
         raw_value = ""
+
+    # If crm_field is empty/missing AND a static_value default exists, fall back to it.
+    if not raw_value and static is not None:
+        return str(static)
 
     transform = field_config.get("transform")
     if transform in ("day", "month", "year"):
@@ -317,6 +322,8 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
         reader_acroform = reader_root.get("/AcroForm")
         if reader_acroform:
             reader_fields = reader_acroform.get_object().get("/Fields", [])
+            if hasattr(reader_fields, "get_object") and not isinstance(reader_fields, list):
+                reader_fields = reader_fields.get_object()
 
             # Build map: rect_key -> (selected_choice, option_keys_in_kid)
             rect_to_radio = {}
@@ -342,7 +349,10 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
                     continue
 
                 # Map each kid's rect to its option keys
-                for kid_ref in field.get("/Kids", []):
+                kids = field.get("/Kids", [])
+                if hasattr(kids, "get_object") and not isinstance(kids, list):
+                    kids = kids.get_object()
+                for kid_ref in kids:
                     kid = kid_ref.get_object()
                     rect = kid.get("/Rect", [0, 0, 0, 0])
                     rect_key = tuple(round(float(v), 1) for v in rect)
@@ -373,6 +383,8 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
             if "/AcroForm" in writer._root_object:
                 acroform = writer._root_object["/AcroForm"]
                 acro_fields = acroform.get("/Fields", [])
+                if hasattr(acro_fields, "get_object") and not isinstance(acro_fields, list):
+                    acro_fields = acro_fields.get_object()
                 for field_ref in acro_fields:
                     field = field_ref.get_object()
                     field_name = str(field.get("/T", ""))
