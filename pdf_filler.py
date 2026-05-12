@@ -420,6 +420,28 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
     with open(output_path, "wb") as f:
         writer.write(f)
 
+    # Bake appearance streams so values render in viewers that don't honour
+    # /NeedAppearances (Edge, Preview, mobile readers). PyPDF2 writes field
+    # values but no /AP entries; PyMuPDF generates them via widget.update().
+    try:
+        import fitz
+        tmp_path = output_path.with_suffix(".baking.pdf")
+        doc = fitz.open(str(output_path))
+        baked = failed = 0
+        for page in doc:
+            for w in page.widgets() or []:
+                try:
+                    w.update()
+                    baked += 1
+                except Exception:
+                    failed += 1
+        doc.save(str(tmp_path), deflate=True, garbage=3)
+        doc.close()
+        os.replace(tmp_path, output_path)
+        logger.info("Baked appearance streams: %d ok, %d skipped", baked, failed)
+    except Exception as e:
+        logger.warning("Appearance bake step failed (%s) — falling back to NeedAppearances", e)
+
     output_size = output_path.stat().st_size
     logger.info("Output saved: %s (%d bytes)", output_path, output_size)
 

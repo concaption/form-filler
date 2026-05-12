@@ -55,8 +55,8 @@
       "crm_field": "address_city"
     },
     "Your address 3": {
-      "label": "Address Line 3",
-      "crm_field": null
+      "label": "Address Line 3 (county)",
+      "crm_field": "address_state"
     },
     "Your address 4": {
       "label": "Address Line 4",
@@ -64,12 +64,12 @@
     },
     "Eircode1": {
       "label": "Eircode",
-      "crm_field": null
+      "crm_field": "address_postcode"
     },
     "Your date of birth (DD/MM/YYYY)": {
       "label": "Date of Birth",
       "crm_field": "birthday",
-      "transform": "date_ddmmyyyy"
+      "transform": "date_ddmmyyyy_noslash"
     },
     "Your home phone number": {
       "label": "Home phone number",
@@ -559,11 +559,13 @@
     },
     "Financial adviser name": {
       "label": "Financial adviser name",
-      "crm_field": null
+      "crm_field": null,
+      "adviser_field": "name"
     },
     "Email questions": {
-      "label": "Email questions",
-      "crm_field": null
+      "label": "Adviser email (for queries)",
+      "crm_field": null,
+      "adviser_field": "email"
     },
     "Special instructions": {
       "label": "Special instructions",

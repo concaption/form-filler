@@ -23,6 +23,11 @@ sean_murphy = {
     "phone_mobile": "+353 87 123 4567", "phone_work": "+353 1 555 0123",
     "birthday": "1979-02-02", "pps_1": "1234567A",
     "address_line1": "17 Merrion Square", "address_city": "Dublin 2",
+    "address_state": "Co Dublin", "address_postcode": "D02 X285",
+    "address_full": "17 Merrion Square, Dublin 2, Co Dublin, D02 X285",
+    "address_county_postcode": "Co Dublin, D02 X285",
+    "address_city_county_postcode": "Dublin 2, Co Dublin, D02 X285",
+    "address_line1_city": "17 Merrion Square, Dublin 2",
     "job_title": "Director", "company_name": "Murphy Holdings Ltd",
     "salary": "95000", "nra_age": "65",
 }

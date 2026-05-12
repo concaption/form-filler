@@ -163,12 +163,12 @@
       "crm_field": "pps_1"
     },
     "Text Field 45": {
-      "label": "Address (multi-line)",
-      "crm_field": "address_line1"
+      "label": "Address (multi-line: street + town)",
+      "crm_field": "address_line1_city"
     },
     "Text Field 44": {
       "label": "County",
-      "crm_field": "address_city"
+      "crm_field": "address_state"
     },
     "Text Field 42": {
       "label": "Home Phone",

@@ -55,7 +55,7 @@
     },
     "Text Field 11": {
       "label": "Home Address Line 2",
-      "crm_field": "address_city"
+      "crm_field": "address_city_county_postcode"
     },
     "Text Field 15": {
       "label": "Date of Birth (DD/MM/YYYY)",

@@ -47,7 +47,8 @@
     },
     "Text Field 41": {
       "label": "Financial Broker's Phone Number",
-      "crm_field": null
+      "crm_field": null,
+      "adviser_field": "phone"
     },
     "Text Field 42": {
       "label": "Aviva Account Manager Name",
@@ -146,7 +147,7 @@
     },
     "Text Field 138": {
       "label": "Address Line 3",
-      "crm_field": null
+      "crm_field": "address_county_postcode"
     },
     "Text Field 137": {
       "label": "Contact Phone Number",
@@ -446,11 +447,12 @@
     },
     "Text Field 284": {
       "label": "Bank: City/postcode",
-      "crm_field": "address_city"
+      "crm_field": "address_city_county_postcode"
     },
     "Text Field 285": {
       "label": "Bank: Country",
-      "crm_field": null
+      "crm_field": "address_country",
+      "static_value": "Ireland"
     },
     "Text Field 281": {
       "label": "Bank: IBAN",
@@ -549,77 +551,87 @@
       "label": "Text Field 302",
       "crm_field": null
     },
-    "__comment_page15": "=== PAGE 15 (unmapped) ===",
+    "__comment_page15": "=== PAGE 15: Investment Instruction Form (SDIO) — Customer + Broker details ===",
     "Text Field 299": {
-      "label": "Text Field 299",
+      "label": "SDIO: Policy Number",
       "crm_field": null
     },
     "Check Box 114": {
-      "label": "Check Box 114",
-      "crm_field": null
+      "label": "SDIO: Title Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
     },
     "Check Box 113": {
-      "label": "Check Box 113",
-      "crm_field": null
+      "label": "SDIO: Title Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
     },
     "Check Box 112": {
-      "label": "Check Box 112",
-      "crm_field": null
+      "label": "SDIO: Title Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
     },
     "Text Field 298": {
-      "label": "Text Field 298",
+      "label": "SDIO: Title Other",
       "crm_field": null
     },
     "Text Field 297": {
-      "label": "Text Field 297",
-      "crm_field": null
+      "label": "SDIO: First Name",
+      "crm_field": "first_name"
     },
     "Text Field 296": {
-      "label": "Text Field 296",
-      "crm_field": null
+      "label": "SDIO: Surname",
+      "crm_field": "last_name"
     },
     "Text Field 2015": {
-      "label": "Text Field 2015",
-      "crm_field": null
+      "label": "SDIO: DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
     },
     "Text Field 2014": {
-      "label": "Text Field 2014",
-      "crm_field": null
+      "label": "SDIO: DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
     },
     "Text Field 2013": {
-      "label": "Text Field 2013",
-      "crm_field": null
+      "label": "SDIO: DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
     },
     "Text Field 2012": {
-      "label": "Text Field 2012",
-      "crm_field": null
+      "label": "SDIO: Address Line 1",
+      "crm_field": "address_line1"
     },
     "Text Field 2011": {
-      "label": "Text Field 2011",
-      "crm_field": null
+      "label": "SDIO: Address Line 2",
+      "crm_field": "address_city_county_postcode"
     },
     "Text Field 2010": {
-      "label": "Text Field 2010",
-      "crm_field": null
+      "label": "SDIO: Occupation",
+      "crm_field": "job_title"
     },
     "Text Field 295": {
-      "label": "Text Field 295",
-      "crm_field": null
+      "label": "SDIO: Agency Number",
+      "crm_field": null,
+      "adviser_field": "agency_code"
     },
     "Text Field 294": {
-      "label": "Text Field 294",
-      "crm_field": null
+      "label": "SDIO: Name of Financial Broker/Company",
+      "crm_field": null,
+      "adviser_field": "name"
     },
     "Text Field 293": {
-      "label": "Text Field 293",
-      "crm_field": null
+      "label": "SDIO: Financial Broker's Email Address",
+      "crm_field": null,
+      "adviser_field": "email"
     },
     "Text Field 292": {
-      "label": "Text Field 292",
-      "crm_field": null
+      "label": "SDIO: Financial Broker's Phone Number",
+      "crm_field": null,
+      "adviser_field": "phone"
     },
     "Text Field 291": {
-      "label": "Text Field 291",
+      "label": "SDIO: Aviva Account Manager Name",
       "crm_field": null
     },
     "__comment_page16": "=== PAGE 16 (unmapped) ===",
@@ -663,39 +675,40 @@
       "label": "Text Field 3060",
       "crm_field": null
     },
-    "__comment_page17": "=== PAGE 17 (unmapped) ===",
+    "__comment_page17": "=== PAGE 17: Customer signature block ===",
     "Text Field 2021": {
-      "label": "Text Field 2021",
+      "label": "Customer Signature Date: Day",
       "crm_field": null
     },
     "Text Field 2020": {
-      "label": "Text Field 2020",
+      "label": "Customer Signature Date: Month",
       "crm_field": null
     },
     "Text Field 2019": {
-      "label": "Text Field 2019",
+      "label": "Customer Signature Date: Year",
       "crm_field": null
     },
     "Text Field 301": {
-      "label": "Text Field 301",
-      "crm_field": null
+      "label": "Customer Name (print)",
+      "crm_field": "full_name"
     },
-    "__comment_page18": "=== PAGE 18 (unmapped) ===",
+    "__comment_page18": "=== PAGE 18: Broker signature block + Option A/B/C/D/E checkboxes ===",
     "Text Field 2018": {
-      "label": "Text Field 2018",
+      "label": "Broker Signature Date: Day",
       "crm_field": null
     },
     "Text Field 2017": {
-      "label": "Text Field 2017",
+      "label": "Broker Signature Date: Month",
       "crm_field": null
     },
     "Text Field 2016": {
-      "label": "Text Field 2016",
+      "label": "Broker Signature Date: Year",
       "crm_field": null
     },
     "Text Field 300": {
-      "label": "Text Field 300",
-      "crm_field": null
+      "label": "Broker Name (print)",
+      "crm_field": null,
+      "adviser_field": "name"
     },
     "Text Field 3071": {
       "label": "Text Field 3071",
@@ -788,7 +801,7 @@
     },
     "Text Field 96": {
       "label": "Cert: Address Line 2",
-      "crm_field": "address_city"
+      "crm_field": "address_city_county_postcode"
     },
     "Text Field 25": {
       "label": "Cert: DOB Day",

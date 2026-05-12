@@ -95,6 +95,15 @@ def _parse_contact(c: dict, cf_map: dict) -> dict:
         # Full address string
         parts = [addr.get("address", ""), addr.get("city", ""), addr.get("state", ""), addr.get("zip_code", "")]
         contact[f"{prefix}_full"] = ", ".join(p for p in parts if p)
+        # County + Eircode combo for the "third line" address slot on most forms
+        cp = ", ".join(p for p in [addr.get("state", ""), addr.get("zip_code", "")] if p)
+        contact[f"{prefix}_county_postcode"] = cp
+        # City + county + Eircode for forms with only 2 address rows (e.g. Aviva certs)
+        ccp = ", ".join(p for p in [addr.get("city", ""), addr.get("state", ""), addr.get("zip_code", "")] if p)
+        contact[f"{prefix}_city_county_postcode"] = ccp
+        # Street + town for multi-line address boxes (Irish Life)
+        lc = ", ".join(p for p in [addr.get("address", ""), addr.get("city", "")] if p)
+        contact[f"{prefix}_line1_city"] = lc
 
     # Custom fields — value is a sibling of custom_field, not nested inside it
     for cf in c.get("custom_fields", []):

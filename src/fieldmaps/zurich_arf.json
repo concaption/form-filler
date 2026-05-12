@@ -66,8 +66,8 @@
       "crm_field": "address_city"
     },
     "Address Line 4": {
-      "label": "Address Line 3",
-      "crm_field": null
+      "label": "Address Line 3 (county + Eircode)",
+      "crm_field": "address_county_postcode"
     },
     "Sex - F 1": {
       "label": "Sex: F",
@@ -492,7 +492,7 @@
     },
     "Retirement Investment Certificate - Policy Holder Address Line 6": {
       "label": "Cert: Policy Holder Address Line 2",
-      "crm_field": "address_city"
+      "crm_field": "address_city_county_postcode"
     },
     "Retirement Investment Certificate - Policy Holder DOB DD 3": {
       "label": "Cert: Policy Holder DOB",
