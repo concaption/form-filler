@@ -59,15 +59,15 @@
     },
     "Address Line 2": {
       "label": "Address Line 1",
-      "crm_field": "address_line1"
+      "crm_field": "address_row1"
     },
     "Address Line 3": {
       "label": "Address Line 2",
-      "crm_field": "address_city"
+      "crm_field": "address_row2"
     },
     "Address Line 4": {
       "label": "Address Line 3 (county + Eircode)",
-      "crm_field": "address_county_postcode"
+      "crm_field": "address_row3"
     },
     "Sex - F 1": {
       "label": "Sex: F",
@@ -488,11 +488,11 @@
     },
     "Retirement Investment Certificate - Policy Holder Address Line 5": {
       "label": "Cert: Policy Holder Address Line 1",
-      "crm_field": "address_line1"
+      "crm_field": "address_row1"
     },
     "Retirement Investment Certificate - Policy Holder Address Line 6": {
       "label": "Cert: Policy Holder Address Line 2",
-      "crm_field": "address_city_county_postcode"
+      "crm_field": "address_row2_row3"
     },
     "Retirement Investment Certificate - Policy Holder DOB DD 3": {
       "label": "Cert: Policy Holder DOB",

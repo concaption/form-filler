@@ -164,11 +164,11 @@
     },
     "Text Field 45": {
       "label": "Address (multi-line: street + town)",
-      "crm_field": "address_line1_city"
+      "crm_field": "address_row1_row2"
     },
     "Text Field 44": {
-      "label": "County",
-      "crm_field": "address_state"
+      "label": "County (+ Eircode)",
+      "crm_field": "address_row3"
     },
     "Text Field 42": {
       "label": "Home Phone",
@@ -493,7 +493,7 @@
     },
     "Text Field 355": {
       "label": "Cert: Customer Address (multi-line)",
-      "crm_field": "address_line1"
+      "crm_field": "address_full"
     },
     "Text Field 354": {
       "label": "Cert: Date of Birth",

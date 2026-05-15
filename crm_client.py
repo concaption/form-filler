@@ -87,23 +87,39 @@ def _parse_contact(c: dict, cf_map: dict) -> dict:
     for addr in c.get("address_list", []):
         atype = addr.get("type", "home")
         prefix = f"address_{atype}" if atype != "home" else "address"
-        contact[f"{prefix}_line1"] = addr.get("address", "")
-        contact[f"{prefix}_city"] = addr.get("city", "")
-        contact[f"{prefix}_state"] = addr.get("state", "")
-        contact[f"{prefix}_postcode"] = addr.get("zip_code", "")
-        contact[f"{prefix}_country"] = addr.get("country_code", "")
-        # Full address string
-        parts = [addr.get("address", ""), addr.get("city", ""), addr.get("state", ""), addr.get("zip_code", "")]
-        contact[f"{prefix}_full"] = ", ".join(p for p in parts if p)
-        # County + Eircode combo for the "third line" address slot on most forms
-        cp = ", ".join(p for p in [addr.get("state", ""), addr.get("zip_code", "")] if p)
-        contact[f"{prefix}_county_postcode"] = cp
-        # City + county + Eircode for forms with only 2 address rows (e.g. Aviva certs)
-        ccp = ", ".join(p for p in [addr.get("city", ""), addr.get("state", ""), addr.get("zip_code", "")] if p)
-        contact[f"{prefix}_city_county_postcode"] = ccp
-        # Street + town for multi-line address boxes (Irish Life)
-        lc = ", ".join(p for p in [addr.get("address", ""), addr.get("city", "")] if p)
-        contact[f"{prefix}_line1_city"] = lc
+        raw_street = addr.get("address", "") or ""
+        city = addr.get("city", "") or ""
+        state = addr.get("state", "") or ""
+        postcode = addr.get("zip_code", "") or ""
+
+        contact[f"{prefix}_line1"] = raw_street
+        contact[f"{prefix}_city"] = city
+        contact[f"{prefix}_state"] = state
+        contact[f"{prefix}_postcode"] = postcode
+        contact[f"{prefix}_country"] = addr.get("country_code", "") or ""
+
+        contact[f"{prefix}_full"] = ", ".join(p for p in [raw_street, city, state, postcode] if p)
+        contact[f"{prefix}_county_postcode"] = ", ".join(p for p in [state, postcode] if p)
+        contact[f"{prefix}_city_county_postcode"] = ", ".join(p for p in [city, state, postcode] if p)
+        contact[f"{prefix}_line1_city"] = ", ".join(p for p in [raw_street, city] if p)
+
+        # Distribute the address across 3 form rows so multi-line CRM addresses
+        # (e.g. "12 Marlborough Road\r\nOxmantown\r\nSouth Circular Road") don't
+        # get crammed into a single-line PDF widget. Each form's address rows
+        # should map to address_row1 / address_row2 / address_row3.
+        street_lines = [ln.strip() for ln in raw_street.replace("\r", "\n").split("\n") if ln.strip()]
+        row1 = street_lines[0] if street_lines else ""
+        extra_street = street_lines[1:]  # any additional street lines
+        row2_parts = extra_street + ([city] if city else [])
+        row2 = ", ".join(row2_parts)
+        row3 = ", ".join(p for p in [state, postcode] if p)
+        contact[f"{prefix}_row1"] = row1
+        contact[f"{prefix}_row2"] = row2
+        contact[f"{prefix}_row3"] = row3
+        # 2-row form variant: row1 is the street, row2 carries everything else
+        contact[f"{prefix}_row2_row3"] = ", ".join(p for p in [row2, row3] if p)
+        # Combined row1 + row2 for multi-line address boxes (e.g. Irish Life)
+        contact[f"{prefix}_row1_row2"] = ", ".join(p for p in [row1, row2] if p)
 
     # Custom fields — value is a sibling of custom_field, not nested inside it
     for cf in c.get("custom_fields", []):

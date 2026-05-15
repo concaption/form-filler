@@ -48,11 +48,11 @@
     },
     "Your address 1": {
       "label": "Address Line 1",
-      "crm_field": "address_line1"
+      "crm_field": "address_row1"
     },
     "Your address 2": {
       "label": "Address Line 2",
-      "crm_field": "address_city"
+      "crm_field": "address_row2"
     },
     "Your address 3": {
       "label": "Address Line 3 (county)",

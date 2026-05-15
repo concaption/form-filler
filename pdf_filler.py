@@ -423,9 +423,11 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
     # Bake appearance streams so values render in viewers that don't honour
     # /NeedAppearances (Edge, Preview, mobile readers). PyPDF2 writes field
     # values but no /AP entries; PyMuPDF generates them via widget.update().
+    # Save as an incremental update so the original PDF structure (xref,
+    # object IDs, compression) is preserved — Wondershare PDFelement refuses
+    # to open PDFs with rebuilt xrefs without a manual "Save As" first.
     try:
         import fitz
-        tmp_path = output_path.with_suffix(".baking.pdf")
         doc = fitz.open(str(output_path))
         baked = failed = 0
         for page in doc:
@@ -435,10 +437,9 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
                     baked += 1
                 except Exception:
                     failed += 1
-        doc.save(str(tmp_path), deflate=True, garbage=3)
+        doc.saveIncr()
         doc.close()
-        os.replace(tmp_path, output_path)
-        logger.info("Baked appearance streams: %d ok, %d skipped", baked, failed)
+        logger.info("Baked appearance streams (incremental): %d ok, %d skipped", baked, failed)
     except Exception as e:
         logger.warning("Appearance bake step failed (%s) — falling back to NeedAppearances", e)
 

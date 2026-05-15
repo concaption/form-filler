@@ -10,7 +10,7 @@ import sys
 import shutil
 from pathlib import Path
 
-APP_VERSION = "2.2.2"
+APP_VERSION = "2.2.3"
 
 if getattr(sys, "frozen", False):
     # PyInstaller .exe — data lives next to the executable
@@ -31,10 +31,13 @@ DB_PATH = APP_DIR / "contacts.db"
 
 
 def init_app_data():
-    """Copy bundled resources to the local data folder on first run.
+    """Copy bundled resources to the local data folder on every .exe launch.
 
-    Only runs when packaged as a .exe. Existing files are never
-    overwritten so user edits are preserved.
+    Bundled files (PDFs, fieldmaps, templates, advisers.json) are always
+    refreshed from the .exe bundle so app upgrades actually reach users.
+    Files the user added manually (e.g. a custom fieldmap they authored via
+    the Mapping Tool) are NOT touched — only paths that exist in the bundle
+    get overwritten.
     """
     if _BUNDLE_DIR is None:
         return
@@ -47,23 +50,20 @@ def init_app_data():
         src = _BUNDLE_DIR / dirname
         if not src.exists():
             continue
-        if not dest.exists():
-            # First run — copy the whole directory
-            shutil.copytree(str(src), str(dest))
-        else:
-            # Subsequent runs — add any NEW files (don't overwrite edits)
-            for src_file in src.rglob("*"):
-                if src_file.is_file():
-                    rel = src_file.relative_to(src)
-                    dest_file = dest / rel
-                    if not dest_file.exists():
-                        dest_file.parent.mkdir(parents=True, exist_ok=True)
-                        shutil.copy2(str(src_file), str(dest_file))
+        dest.mkdir(parents=True, exist_ok=True)
+        # Always overwrite every bundled file. User-added files (not in the
+        # bundle) are preserved automatically since we only iterate bundle files.
+        for src_file in src.rglob("*"):
+            if src_file.is_file():
+                rel = src_file.relative_to(src)
+                dest_file = dest / rel
+                dest_file.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(str(src_file), str(dest_file))
 
-    # Copy individual files in src/ (e.g. advisers.json)
+    # Individual files at src/ root (e.g. advisers.json) — always refresh.
     for filename in ("advisers.json",):
         src_file = _BUNDLE_DIR / "src" / filename
         dest_file = SRC_DIR / filename
-        if src_file.exists() and not dest_file.exists():
+        if src_file.exists():
             SRC_DIR.mkdir(parents=True, exist_ok=True)
             shutil.copy2(str(src_file), str(dest_file))

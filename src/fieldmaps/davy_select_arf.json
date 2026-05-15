@@ -51,11 +51,11 @@
     },
     "Text Field 10": {
       "label": "Home Address Line 1",
-      "crm_field": "address_line1"
+      "crm_field": "address_row1"
     },
     "Text Field 11": {
       "label": "Home Address Line 2",
-      "crm_field": "address_city_county_postcode"
+      "crm_field": "address_row2_row3"
     },
     "Text Field 15": {
       "label": "Date of Birth (DD/MM/YYYY)",
