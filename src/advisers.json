@@ -9,7 +9,7 @@
     "position": "Director",
     "agency_codes": {
       "standard_life": "J501",
-      "irish_life": "TP19",
+      "irish_life": "VR90",
       "aviva": "21908/22017",
       "zurich": "32360",
       "davy_select": "508",
@@ -22,7 +22,7 @@
       "quest": "1069U"
     },
     "agency_codes_alt": {
-      "irish_life_vr90": "VR90",
+      "irish_life_tp19_not_in_use": "TP19",
       "irish_life_portus": "VS09",
       "irish_life_portus_old": "PA76",
       "aviva_write_now": "27628",
