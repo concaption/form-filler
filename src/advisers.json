@@ -10,7 +10,7 @@
     "agency_codes": {
       "standard_life": "J501",
       "irish_life": "VR90",
-      "aviva": "21908/22017",
+      "aviva": "21908",
       "zurich": "32360",
       "davy_select": "508",
       "new_ireland": "0027317K",
@@ -25,6 +25,7 @@
       "irish_life_tp19_not_in_use": "TP19",
       "irish_life_portus": "VS09",
       "irish_life_portus_old": "PA76",
+      "aviva_second_half_not_used": "22017",
       "aviva_write_now": "27628",
       "zurich_online_indemnified_life_cover": "50897",
       "zurich_06832": "06832",
@@ -42,7 +43,7 @@
     "agency_codes": {
       "standard_life": "J500",
       "irish_life": "VR85",
-      "aviva": "21909/22018",
+      "aviva": "21909",
       "zurich": "32359",
       "davy_select": "508",
       "new_ireland": "0027316J",
@@ -52,6 +53,7 @@
     "agency_codes_alt": {
       "irish_life_portus": "VS07",
       "irish_life_portus_old": "PA75",
+      "aviva_second_half_not_used": "22018",
       "aviva_write_now": "27627",
       "zurich_online_indemnified_life_cover": "50896",
       "zurich_06831": "06831",

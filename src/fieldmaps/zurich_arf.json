@@ -123,13 +123,11 @@
     },
     "Nationality 1": {
       "label": "Nationality",
-      "crm_field": "nationality",
-      "static_value": "Irish"
+      "crm_field": "nationality"
     },
     "Country of Residence 1": {
       "label": "Country of Residence",
-      "crm_field": "country_of_residence",
-      "static_value": "Ireland"
+      "crm_field": "country_of_residence"
     },
     "Pre-retirement Occupation 1": {
       "label": "Pre-retirement Occupation",

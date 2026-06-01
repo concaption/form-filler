@@ -146,13 +146,11 @@
     "__comment_page2": "=== PAGE 2: Extended personal + Contact Details + PEP + Contribution + Fund Details ===",
     "Text Field 30": {
       "label": "Country of Birth",
-      "crm_field": "country_of_birth",
-      "static_value": "Ireland"
+      "crm_field": "country_of_birth"
     },
     "Text Field 31": {
       "label": "Nationality",
-      "crm_field": "nationality",
-      "static_value": "Irish"
+      "crm_field": "nationality"
     },
     "Text Field 32": {
       "label": "Precise Occupation",

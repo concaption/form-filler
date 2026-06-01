@@ -610,36 +610,37 @@
     },
     "__comment_page8": "=== PAGE 8: Centre of Solvency checkboxes + Y/N radio ===",
     "Your name COS": {
-      "label": "Your name COS",
-      "crm_field": null
+      "label": "Cert of Source: Your name",
+      "crm_field": "full_name"
     },
     "Your address 1 COS": {
-      "label": "Your address 1 COS",
-      "crm_field": null
+      "label": "Cert of Source: Address Line 1",
+      "crm_field": "address_row1"
     },
     "Your address 2 COS": {
-      "label": "Your address 2 COS",
-      "crm_field": null
+      "label": "Cert of Source: Address Line 2",
+      "crm_field": "address_row2"
     },
     "Your address 3 COS": {
-      "label": "Your address 3 COS",
-      "crm_field": null
+      "label": "Cert of Source: Address Line 3 (county)",
+      "crm_field": "address_state"
     },
     "Your address 5 COS": {
-      "label": "Your address 5 COS",
-      "crm_field": null
+      "label": "Cert of Source: Eircode",
+      "crm_field": "address_postcode"
     },
     "Your address 4 COS": {
       "label": "Your address 4 COS",
       "crm_field": null
     },
     "Your Personal Public Service Number COS": {
-      "label": "Your Personal Public Service Number COS",
-      "crm_field": null
+      "label": "Cert of Source: PPS Number",
+      "crm_field": "pps_1"
     },
     "Your date of birth (DD/MM/YYYY) COS": {
-      "label": "Your date of birth (DD/MM/YYYY) COS",
-      "crm_field": null
+      "label": "Cert of Source: Date of Birth",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy_noslash"
     },
     "3#3": {
       "label": "3",

@@ -92,22 +92,28 @@ def _parse_contact(c: dict, cf_map: dict) -> dict:
         state = addr.get("state", "") or ""
         postcode = addr.get("zip_code", "") or ""
 
-        contact[f"{prefix}_line1"] = raw_street
+        # OnePageCRM stores some street addresses as multiple lines separated by
+        # CR/LF. Split them once here. street_flat is a single-line, comma-joined
+        # version used for any single-line PDF widget so raw line breaks never
+        # leak into the output (which left "...South Circular Road\r\n, D" on certs).
+        street_lines = [ln.strip() for ln in raw_street.replace("\r", "\n").split("\n") if ln.strip()]
+        street_flat = ", ".join(street_lines)
+
+        contact[f"{prefix}_line1"] = street_flat
         contact[f"{prefix}_city"] = city
         contact[f"{prefix}_state"] = state
         contact[f"{prefix}_postcode"] = postcode
         contact[f"{prefix}_country"] = addr.get("country_code", "") or ""
 
-        contact[f"{prefix}_full"] = ", ".join(p for p in [raw_street, city, state, postcode] if p)
+        contact[f"{prefix}_full"] = ", ".join(p for p in [street_flat, city, state, postcode] if p)
         contact[f"{prefix}_county_postcode"] = ", ".join(p for p in [state, postcode] if p)
         contact[f"{prefix}_city_county_postcode"] = ", ".join(p for p in [city, state, postcode] if p)
-        contact[f"{prefix}_line1_city"] = ", ".join(p for p in [raw_street, city] if p)
+        contact[f"{prefix}_line1_city"] = ", ".join(p for p in [street_flat, city] if p)
 
         # Distribute the address across 3 form rows so multi-line CRM addresses
         # (e.g. "12 Marlborough Road\r\nOxmantown\r\nSouth Circular Road") don't
         # get crammed into a single-line PDF widget. Each form's address rows
         # should map to address_row1 / address_row2 / address_row3.
-        street_lines = [ln.strip() for ln in raw_street.replace("\r", "\n").split("\n") if ln.strip()]
         row1 = street_lines[0] if street_lines else ""
         extra_street = street_lines[1:]  # any additional street lines
         row2_parts = extra_street + ([city] if city else [])

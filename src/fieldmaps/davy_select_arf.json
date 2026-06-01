@@ -72,13 +72,11 @@
     },
     "Text Field 16": {
       "label": "Country of Birth",
-      "crm_field": "country_of_birth",
-      "static_value": "Ireland"
+      "crm_field": "country_of_birth"
     },
     "Text Field 17": {
       "label": "Country of Citizenship",
-      "crm_field": "country_of_citizenship",
-      "static_value": "Ireland"
+      "crm_field": "country_of_citizenship"
     },
     "Text Field 20": {
       "label": "Country of Tax Residence",
@@ -86,8 +84,7 @@
     },
     "Text Field 18": {
       "label": "Country of Residence",
-      "crm_field": "country_of_residence",
-      "static_value": "Ireland"
+      "crm_field": "country_of_residence"
     },
     "Text Field 21": {
       "label": "Country of Tax Residence (line 2)",
@@ -95,8 +92,7 @@
     },
     "Text Field 19": {
       "label": "Nationality",
-      "crm_field": "nationality",
-      "static_value": "Irish"
+      "crm_field": "nationality"
     },
     "Text Field 22": {
       "label": "Tax Identity Number(s)",

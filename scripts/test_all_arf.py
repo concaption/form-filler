@@ -30,15 +30,17 @@ def expand_address(base):
     postcode = base.get("address_postcode", "") or ""
 
     street_lines = [ln.strip() for ln in raw.replace("\r", "\n").split("\n") if ln.strip()]
+    street_flat = ", ".join(street_lines)
     row1 = street_lines[0] if street_lines else ""
     extras = street_lines[1:] + ([city] if city else [])
     row2 = ", ".join(extras)
     row3 = ", ".join(p for p in [state, postcode] if p)
 
-    base["address_full"] = ", ".join(p for p in [raw, city, state, postcode] if p)
+    base["address_line1"] = street_flat
+    base["address_full"] = ", ".join(p for p in [street_flat, city, state, postcode] if p)
     base["address_county_postcode"] = ", ".join(p for p in [state, postcode] if p)
     base["address_city_county_postcode"] = ", ".join(p for p in [city, state, postcode] if p)
-    base["address_line1_city"] = ", ".join(p for p in [raw, city] if p)
+    base["address_line1_city"] = ", ".join(p for p in [street_flat, city] if p)
     base["address_row1"] = row1
     base["address_row2"] = row2
     base["address_row3"] = row3
