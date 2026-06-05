@@ -126,6 +126,12 @@ def _parse_contact(c: dict, cf_map: dict) -> dict:
         contact[f"{prefix}_row2_row3"] = ", ".join(p for p in [row2, row3] if p)
         # Combined row1 + row2 for multi-line address boxes (e.g. Irish Life)
         contact[f"{prefix}_row1_row2"] = ", ".join(p for p in [row1, row2] if p)
+        # Newline-joined street+town block for true multi-line address boxes
+        # (e.g. Irish Life), so the text wraps across rows instead of
+        # overflowing one line. County/Eircode (row3) go in the form's separate
+        # County field, so they're intentionally excluded here to avoid
+        # duplicating them inside the address box.
+        contact[f"{prefix}_block"] = "\n".join(p for p in [row1, row2] if p)
 
     # Custom fields — value is a sibling of custom_field, not nested inside it
     for cf in c.get("custom_fields", []):

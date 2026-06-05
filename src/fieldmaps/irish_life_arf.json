@@ -161,8 +161,8 @@
       "crm_field": "pps_1"
     },
     "Text Field 45": {
-      "label": "Address (multi-line: street + town)",
-      "crm_field": "address_row1_row2"
+      "label": "Address (multi-line box: street/town/county on separate rows)",
+      "crm_field": "address_block"
     },
     "Text Field 44": {
       "label": "County (+ Eircode)",

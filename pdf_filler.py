@@ -314,6 +314,10 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
 
     # Handle radio button groups by matching writer page annotations to reader AcroForm kids
     # (append_pages_from_reader creates independent annotation copies, so we match by rect position)
+    # selected_radio_marks collects (page_index, [x0,y0,x1,y1]) of the chosen option
+    # in each radio group, in PDF coordinates. The appearance-bake step draws a
+    # visible dot at each so radios render in viewers that drop the kid /AS.
+    selected_radio_marks = []
     radio_updates = {k: v for k, v in field_map.items()
                      if not k.startswith("__") and isinstance(v, dict)
                      and v.get("radio_group")}
@@ -362,7 +366,7 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
                     rect_to_radio[rect_key] = (field_name, selected_choice, option_keys)
 
             # Now set /AS on matching writer page annotations
-            for page in writer.pages:
+            for page_idx, page in enumerate(writer.pages):
                 annots = page.get("/Annots")
                 if not annots:
                     continue
@@ -376,6 +380,11 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
                         choice_name = NameObject(f"/{selected}")
                         if f"/{selected}" in option_keys:
                             annot[NameObject("/AS")] = choice_name
+                            # Remember this option's rect so the bake step can
+                            # draw a visible mark (the kid /AS often gets dropped
+                            # by the appearance bake / by lightweight viewers).
+                            selected_radio_marks.append(
+                                (page_idx, [float(v) for v in annot_rect]))
                         else:
                             annot[NameObject("/AS")] = NameObject("/Off")
 
@@ -429,7 +438,7 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
     try:
         import fitz
         doc = fitz.open(str(output_path))
-        baked = failed = 0
+        baked = failed = drawn = 0
         for page in doc:
             for w in page.widgets() or []:
                 try:
@@ -437,9 +446,25 @@ def fill_form(mapping_file: str, contact: dict, extra_fields: dict = None,
                     baked += 1
                 except Exception:
                     failed += 1
+        # Draw a visible dot at each selected radio option. We use the rects
+        # captured during fill (PDF coordinates, origin bottom-left) rather than
+        # reading /AS back, because w.update() above can drop the kid /AS. This
+        # guarantees the selection shows in every viewer.
+        for page_idx, pdf_rect in selected_radio_marks:
+            if page_idx >= len(doc):
+                continue
+            page = doc[page_idx]
+            ph = page.rect.height
+            x0, y0, x1, y1 = pdf_rect
+            cx = (x0 + x1) / 2.0
+            cy = ph - (y0 + y1) / 2.0  # flip PDF y (bottom-left) to fitz y (top-left)
+            rad = min(abs(x1 - x0), abs(y1 - y0)) * 0.30
+            page.draw_circle((cx, cy), rad, color=(0, 0, 0), fill=(0, 0, 0))
+            drawn += 1
         doc.saveIncr()
         doc.close()
-        logger.info("Baked appearance streams (incremental): %d ok, %d skipped", baked, failed)
+        logger.info("Baked appearance streams (incremental): %d ok, %d skipped, %d radio marks drawn",
+                    baked, failed, drawn)
     except Exception as e:
         logger.warning("Appearance bake step failed (%s) — falling back to NeedAppearances", e)
 

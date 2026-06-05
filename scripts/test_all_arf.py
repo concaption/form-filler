@@ -46,6 +46,7 @@ def expand_address(base):
     base["address_row3"] = row3
     base["address_row2_row3"] = ", ".join(p for p in [row2, row3] if p)
     base["address_row1_row2"] = ", ".join(p for p in [row1, row2] if p)
+    base["address_block"] = "\n".join(p for p in [row1, row2] if p)
     return base
 
 
