@@ -1,0 +1,110 @@
+{
+  "form_name": "Irish Life Complete Solutions PRB Application",
+  "pdf_file": "irish_life_prb.pdf",
+  "provider": "Irish Life",
+  "product": "PRB",
+  "notes": "Irish Life Complete Solutions Personal Retirement Bond (ILA 8993). Shares field naming with the Irish Life ARF (Text Field 5/6/7/8 name+DOB, Check Box 22 gender, Check Box 24 relationship, Text Field 30/31/32 COB/nationality/residence, Text Field 45 multi-line address, Text Field 44 county). Country of Birth left blank when absent from OnePage (not fabricated). Address box wraps street+town; county+Eircode go in the County field. Gender/relationship radios get a drawn mark at fill time. Transfer/scheme/PEP/fund/declaration sections are case-specific and left for the broker.",
+  "field_map": {
+    "__comment_page1": "=== PAGE 1: Adviser details ===",
+    "Text Field 27": {
+      "label": "Financial Adviser Name",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Text Field 26": {
+      "label": "Financial Adviser Code",
+      "crm_field": null,
+      "adviser_field": "agency_code"
+    },
+    "__comment_page2": "=== PAGE 2: Customer Details ===",
+    "Text Field 6": {
+      "label": "Title (Mr/Mrs/Ms etc)",
+      "crm_field": "title"
+    },
+    "Text Field 5": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 7": {
+      "label": "Last Name",
+      "crm_field": "last_name"
+    },
+    "Text Field 8": {
+      "label": "Date of Birth (dd/mm/yyyy)",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "Check Box 22": {
+      "label": "Gender Male/Female",
+      "crm_field": "gender",
+      "radio_group": true,
+      "radio_options": {
+        "Yes": ["male"],
+        "no": ["female"]
+      }
+    },
+    "Check Box 24": {
+      "label": "Relationship Status",
+      "crm_field": "status",
+      "radio_group": true,
+      "radio_options": {
+        "Yes": ["single"],
+        "2": ["married"],
+        "3": ["registered civil partner", "civil partner"],
+        "4": ["separated"],
+        "5": ["divorced"],
+        "6": ["widowed", "widow(er)", "widower"]
+      }
+    },
+    "Text Field 30": {
+      "label": "Country of Birth",
+      "crm_field": "country_of_birth"
+    },
+    "Text Field 31": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "Text Field 32": {
+      "label": "Country of Residence",
+      "crm_field": "country_of_residence"
+    },
+    "Text Field 272": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Text Field 273": {
+      "label": "Occupation",
+      "crm_field": "job_title"
+    },
+    "Text Field 45": {
+      "label": "Address (multi-line box: street/town on separate rows)",
+      "crm_field": "address_block"
+    },
+    "Text Field 44": {
+      "label": "County (+ Eircode)",
+      "crm_field": "address_row3"
+    },
+    "Text Field 275": {
+      "label": "Home Phone Number",
+      "crm_field": "phone_work"
+    },
+    "Text Field 276": {
+      "label": "Mobile Phone Number",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 48": {
+      "label": "Email Address",
+      "crm_field": "email"
+    },
+    "__comment_declarations": "=== Declarations ===",
+    "Text Field 144": {
+      "label": "Customer Name (Declarations)",
+      "crm_field": "full_name"
+    },
+    "Text Field 146": {
+      "label": "Financial Adviser Name (Declarations)",
+      "crm_field": null,
+      "adviser_field": "name"
+    }
+  }
+}

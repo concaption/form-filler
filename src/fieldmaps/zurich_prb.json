@@ -1,0 +1,141 @@
+{
+  "form_name": "Zurich Personal Retirement Bond Application",
+  "pdf_file": "zurich_prb.pdf",
+  "provider": "Zurich",
+  "product": "PRB",
+  "notes": "Zurich Personal Retirement Bond. Page 1 = intermediary + member personal details. Title, Sex and Marital Status are individual named checkboxes (match_value; they render their own ticks). DOB is three segment boxes (DD/MM/YYYY). Address for correspondence has 3 rows -> address_row1/2/3. Intermediary Name = adviser company (block caps); Intermediary Number = adviser agency code. Nationality and Country of Residence fill from CRM only (no fabricated defaults). Scheme/employer, transfer, fund and declaration sections are case-specific and left for the broker. Spouse fields are intentionally not auto-filled.",
+  "field_map": {
+    "__comment_intermediary": "=== Intermediary details ===",
+    "Intermediary Name": {
+      "label": "Intermediary Name",
+      "crm_field": null,
+      "adviser_field": "company_caps"
+    },
+    "Financial \rAdvisor Name": {
+      "label": "Financial Advisor Name",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Intermediary  Number": {
+      "label": "Intermediary Number",
+      "crm_field": null,
+      "adviser_field": "agency_code"
+    },
+    "__comment_title": "=== Member: Title ===",
+    "Mr 4": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Mrs 4": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Mrs 5": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 28": {
+      "label": "Title: Mx",
+      "crm_field": "title",
+      "match_value": "Mx"
+    },
+    "__comment_personal": "=== Member: Personal details ===",
+    "forename 4": {
+      "label": "Forename",
+      "crm_field": "first_name"
+    },
+    "Surname": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Address for correspondence 1": {
+      "label": "Address Line 1",
+      "crm_field": "address_row1"
+    },
+    "Address for correspondence 2": {
+      "label": "Address Line 2",
+      "crm_field": "address_row2"
+    },
+    "Address for correspondence 3": {
+      "label": "Address Line 3 (county + Eircode)",
+      "crm_field": "address_row3"
+    },
+    "Date of Birth - DD": {
+      "label": "DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "Date of Birth - MM": {
+      "label": "DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "Date of Birth - YYYY": {
+      "label": "DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "Check Box 36": {
+      "label": "Sex: Male",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "Check Box 37": {
+      "label": "Sex: Female",
+      "crm_field": "gender",
+      "match_value": "Female"
+    },
+    "Check Box 33": {
+      "label": "Marital: Married/Civil Partner",
+      "crm_field": "status",
+      "match_value": "Married"
+    },
+    "Check Box 32": {
+      "label": "Marital: Single",
+      "crm_field": "status",
+      "match_value": "Single"
+    },
+    "Check Box 31": {
+      "label": "Marital: Separated",
+      "crm_field": "status",
+      "match_value": "Separated"
+    },
+    "Check Box 30": {
+      "label": "Marital: Widow(er)",
+      "crm_field": "status",
+      "match_value": "Widowed"
+    },
+    "Check Box 29": {
+      "label": "Marital: Divorced/Former Civil Partner",
+      "crm_field": "status",
+      "match_value": "Divorced"
+    },
+    "Contact Number": {
+      "label": "Contact Number",
+      "crm_field": "phone_mobile"
+    },
+    "Email Address": {
+      "label": "Email Address",
+      "crm_field": "email"
+    },
+    "Nationality": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "Country of residence": {
+      "label": "Country of Residence",
+      "crm_field": "country_of_residence"
+    },
+    "Current occupation": {
+      "label": "Current occupation",
+      "crm_field": "job_title"
+    },
+    "PPS No": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    }
+  }
+}

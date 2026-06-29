@@ -1,0 +1,93 @@
+{
+  "form_name": "Davy Retirement Account Application",
+  "pdf_file": "davy_retirement_account.pdf",
+  "provider": "Davy",
+  "product": "Retirement Account",
+  "notes": "Davy Retirement Account. Uses descriptive field names (personOne*). Three address rows map to address_row1/2/3. Country of Birth/Citizenship left blank when absent from OnePage (not fabricated); Nationality, Country of Residence and Marital Status fill from CRM. Tax ID maps to PPS (Irish tax id). Davy has no single broker agency-code field on this form; intermediary firm = adviser company. Fund choice, transfer details, source-of-funds and declaration sections are case-specific and left for the broker.",
+  "field_map": {
+    "__comment_personal": "=== Personal Details (Section 1) ===",
+    "personOneTitle": {
+      "label": "Title",
+      "crm_field": "title"
+    },
+    "personOneFirstName": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "personOneLastName": {
+      "label": "Last Name",
+      "crm_field": "last_name"
+    },
+    "personOneAddress": {
+      "label": "Home Address Line 1",
+      "crm_field": "address_row1"
+    },
+    "personOneAddress2": {
+      "label": "Home Address Line 2",
+      "crm_field": "address_row2"
+    },
+    "personOneAddress3": {
+      "label": "Home Address Line 3 (county + Eircode)",
+      "crm_field": "address_row3"
+    },
+    "personOneEmailAddress": {
+      "label": "Email Address",
+      "crm_field": "email"
+    },
+    "personOneDayPhoneNumber": {
+      "label": "Daytime Phone Number",
+      "crm_field": "phone_work"
+    },
+    "personOneMobilePhoneNumber": {
+      "label": "Mobile Phone Number",
+      "crm_field": "phone_mobile"
+    },
+    "personOnePPSN": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "personOneDOB": {
+      "label": "Date of Birth (DD/MM/YYYY)",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy"
+    },
+    "personOneCountry of Birth": {
+      "label": "Country of Birth",
+      "crm_field": "country_of_birth"
+    },
+    "personOneNationality": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "personOneCountry of Citizenship": {
+      "label": "Country of Citizenship",
+      "crm_field": "country_of_citizenship"
+    },
+    "personOneCountry of Residence": {
+      "label": "Country of Residence",
+      "crm_field": "country_of_residence"
+    },
+    "personOneTax ID Number": {
+      "label": "Tax ID Number (PPS)",
+      "crm_field": "pps_1"
+    },
+    "personOneMarital Status": {
+      "label": "Marital Status",
+      "crm_field": "status"
+    },
+    "personOneOccupation": {
+      "label": "Occupation",
+      "crm_field": "job_title"
+    },
+    "__comment_declaration": "=== Intermediary verification ===",
+    "personOneName": {
+      "label": "Client name (verification line)",
+      "crm_field": "full_name"
+    },
+    "Intermediary firm": {
+      "label": "Intermediary firm name",
+      "crm_field": null,
+      "adviser_field": "company"
+    }
+  }
+}

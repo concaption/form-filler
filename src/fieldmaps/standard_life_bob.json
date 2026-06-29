@@ -1,0 +1,106 @@
+{
+  "form_name": "Standard Life Synergy Buy-Out Bond Application",
+  "pdf_file": "standard_life_bob.pdf",
+  "provider": "Standard Life",
+  "product": "Buy-Out Bond",
+  "notes": "Standard Life Synergy Buy-Out Bond (PRB). Page 1 personal + adviser details mirror the Standard Life ARF (same field names). Agency code box has a pre-printed '9/' so only the suffix (J501/J500) is stored. DOB is an 8-char box (no slashes). Email is split across prefix/@ fields (two sets — page 1 and the online-services page). Nationality 1 fills from CRM only (no fabricated default). Transfer payment, fund allocation, PEP details, UK/overseas transfer, and declaration sections are case-specific and left for the broker.",
+  "field_map": {
+    "__comment_page1": "=== PAGE 1: Adviser details + Personal details ===",
+    "Financial adviser agency code": {
+      "label": "Standard Life adviser agency code (9/ pre-printed)",
+      "crm_field": null,
+      "adviser_field": "agency_code"
+    },
+    "Financial adviser company name": {
+      "label": "Adviser company name",
+      "crm_field": null,
+      "adviser_field": "company"
+    },
+    "Your title": {
+      "label": "Title",
+      "crm_field": "title"
+    },
+    "Your names": {
+      "label": "First names (in full)",
+      "crm_field": "first_name"
+    },
+    "Your surname": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Your email prefix": {
+      "label": "Email (prefix before @)",
+      "crm_field": "email",
+      "transform": "email_prefix"
+    },
+    "Your email @": {
+      "label": "Email (domain after @)",
+      "crm_field": "email",
+      "transform": "email_domain"
+    },
+    "Your address 1": {
+      "label": "Address Line 1",
+      "crm_field": "address_row1"
+    },
+    "Your address 2": {
+      "label": "Address Line 2",
+      "crm_field": "address_row2"
+    },
+    "Your address 3": {
+      "label": "Address Line 3 (county)",
+      "crm_field": "address_state"
+    },
+    "Your address 4": {
+      "label": "Address Line 4",
+      "crm_field": null
+    },
+    "Eircode1": {
+      "label": "Eircode",
+      "crm_field": "address_postcode"
+    },
+    "Your date of birth (DD/MM/YYYY)1": {
+      "label": "Date of Birth (8-char box, no slashes)",
+      "crm_field": "birthday",
+      "transform": "date_ddmmyyyy_noslash"
+    },
+    "Your home phone number": {
+      "label": "Home phone number",
+      "crm_field": "phone_work"
+    },
+    "Your Personal Public Service Number": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "Your mobile phone number": {
+      "label": "Mobile phone number",
+      "crm_field": "phone_mobile"
+    },
+    "__comment_aml": "=== AML / identity section ===",
+    "Nationality 1": {
+      "label": "Nationality",
+      "crm_field": "nationality"
+    },
+    "__comment_online": "=== My Online Services registration (email repeated) ===",
+    "Your email prefix 2": {
+      "label": "Online services email (prefix before @)",
+      "crm_field": "email",
+      "transform": "email_prefix"
+    },
+    "Your email @ 2": {
+      "label": "Online services email (domain after @)",
+      "crm_field": "email",
+      "transform": "email_domain"
+    },
+    "__comment_adviser_declaration": "=== Adviser declaration ===",
+    "Financial adviser name": {
+      "label": "Financial adviser name",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Email questions": {
+      "label": "Adviser email (for queries)",
+      "crm_field": null,
+      "adviser_field": "email"
+    }
+  }
+}

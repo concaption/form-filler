@@ -1,0 +1,144 @@
+{
+  "form_name": "Aviva Retirement Bond Application",
+  "pdf_file": "aviva_retirement_bond.pdf",
+  "provider": "Aviva",
+  "product": "Retirement Bond",
+  "notes": "Aviva Retirement Bond (PRB) form 3.609. Page 1 = broker details + personal details. Title/gender/relationship are individual checkboxes (match_value, same style as the Aviva ARF, which render their own ticks). DOB is three segment boxes (day/month/year). Address has two rows: row1 = street line 1, row2 = remainder + town/county/Eircode. Aviva agency code is a single number per adviser (21908 Fergal / 21909 Liam). Pages 2+ cover transfer/scheme details, fund choice, PEP, declarations and signatures — case-specific, left for the broker. Page 20 has customer + broker 'name in print' on the signature block.",
+  "field_map": {
+    "__comment_page1_broker": "=== PAGE 1: Section 2 Financial Broker Details ===",
+    "Text Field 16": {
+      "label": "Agency Number",
+      "crm_field": null,
+      "adviser_field": "agency_code"
+    },
+    "Text Field 17": {
+      "label": "Name of Financial Broker/Company",
+      "crm_field": null,
+      "adviser_field": "name"
+    },
+    "Text Field 18": {
+      "label": "Financial Broker's Email Address",
+      "crm_field": null,
+      "adviser_field": "email"
+    },
+    "Text Field 19": {
+      "label": "Financial Broker's Phone Number",
+      "crm_field": null,
+      "adviser_field": "phone"
+    },
+    "__comment_page1_personal": "=== PAGE 1: Personal Details ===",
+    "Check Box 6": {
+      "label": "Title: Mr",
+      "crm_field": "title",
+      "match_value": "Mr"
+    },
+    "Check Box 7": {
+      "label": "Title: Ms",
+      "crm_field": "title",
+      "match_value": "Ms"
+    },
+    "Check Box 8": {
+      "label": "Title: Mrs",
+      "crm_field": "title",
+      "match_value": "Mrs"
+    },
+    "Text Field 88": {
+      "label": "First Name",
+      "crm_field": "first_name"
+    },
+    "Text Field 89": {
+      "label": "Surname",
+      "crm_field": "last_name"
+    },
+    "Text Field 44": {
+      "label": "DOB Day",
+      "crm_field": "birthday",
+      "transform": "day"
+    },
+    "Text Field 43": {
+      "label": "DOB Month",
+      "crm_field": "birthday",
+      "transform": "month"
+    },
+    "Text Field 42": {
+      "label": "DOB Year",
+      "crm_field": "birthday",
+      "transform": "year"
+    },
+    "Check Box 12": {
+      "label": "Gender: Male",
+      "crm_field": "gender",
+      "match_value": "Male"
+    },
+    "Check Box 9": {
+      "label": "Gender: Female",
+      "crm_field": "gender",
+      "match_value": "Female"
+    },
+    "Check Box 14": {
+      "label": "Relationship: Single",
+      "crm_field": "status",
+      "match_value": "Single"
+    },
+    "Check Box 13": {
+      "label": "Relationship: Married",
+      "crm_field": "status",
+      "match_value": "Married"
+    },
+    "Check Box 11": {
+      "label": "Relationship: Separated",
+      "crm_field": "status",
+      "match_value": "Separated"
+    },
+    "Check Box 15": {
+      "label": "Relationship: Divorced",
+      "crm_field": "status",
+      "match_value": "Divorced"
+    },
+    "Check Box 16": {
+      "label": "Relationship: Widow(er)",
+      "crm_field": "status",
+      "match_value": "Widowed"
+    },
+    "Check Box 17": {
+      "label": "Relationship: Civil Partner",
+      "crm_field": "status",
+      "match_value": "Civil Partner"
+    },
+    "Text Field 90": {
+      "label": "Address Line 1",
+      "crm_field": "address_row1"
+    },
+    "Text Field 91": {
+      "label": "Address Line 2 (town/county/Eircode)",
+      "crm_field": "address_row2_row3"
+    },
+    "Text Field 92": {
+      "label": "Contact Phone Number",
+      "crm_field": "phone_mobile"
+    },
+    "Text Field 521": {
+      "label": "PPS Number",
+      "crm_field": "pps_1"
+    },
+    "__comment_page2": "=== PAGE 2: Occupation + Email ===",
+    "Text Field 278": {
+      "label": "Occupation",
+      "crm_field": "job_title"
+    },
+    "Text Field 93": {
+      "label": "Email",
+      "crm_field": "email"
+    },
+    "__comment_page20": "=== PAGE 20: Signature block (name in print) ===",
+    "Text Field 222": {
+      "label": "Customer Name (print)",
+      "crm_field": "full_name"
+    },
+    "Text Field 221": {
+      "label": "Financial Broker Name (print)",
+      "crm_field": null,
+      "adviser_field": "name"
+    }
+  }
+}

@@ -97,6 +97,11 @@ ARFS = [
     ("zurich_arf.json",        "Zurich ARF"),
     ("davy_select_arf.json",   "Davy Select ARF (Execution-Only)"),
     ("standard_life_arf.json", "Standard Life Synergy ARF"),
+    ("aviva_retirement_bond.json",     "Aviva Retirement Bond"),
+    ("irish_life_prb.json",            "Irish Life PRB"),
+    ("zurich_prb.json",                "Zurich PRB"),
+    ("davy_retirement_account.json",   "Davy Retirement Account"),
+    ("standard_life_bob.json",         "Standard Life Buy-Out Bond"),
 ]
 
 
